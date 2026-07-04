@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>SOLARIUM — Контент-стратегия · Александра Лугова</title>
-<meta name="description" content="Контент-стратегия личного бренда Александры Луговой. Артефакт РОЗКРИТТЯ, 6 пилларов, сюжетные арки, контент-план на 30 дней, блок отношений с Ростиславом." />
+<meta name="description" content="Контент-стратегия личного бренда Александры Луговой: раскрытие объёмного персонажа через 4 сюжетные линии — вера, челлендж, я, брендинг. Банк тем для блога." />
 <meta name="robots" content="noindex" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,27 +15,21 @@
     --ink:#141414;--ink-soft:#4a4a4a;--muted:#7a7a72;
     --cream:#F4ECE1;--paper:#FBF7F1;--white:#fff;--green:#1E3D2B;
     --line:rgba(20,20,20,.12);--line-soft:rgba(20,20,20,.07);
-    --r-lg:26px;--r-md:18px;--r-sm:12px;
-    --ease:cubic-bezier(.2,.7,.2,1);
+    --r-lg:26px;--r-md:18px;--r-sm:12px;--ease:cubic-bezier(.2,.7,.2,1);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:'Manrope',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-    color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+  body{font-family:'Manrope',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
   a{color:inherit;text-decoration:none}
   h1,h2,h3,h4{line-height:1.08;letter-spacing:-.02em}
-  .up{text-transform:uppercase}
-  .serif{font-family:'Lora',Georgia,serif}
   .serif-i{font-family:'Lora',Georgia,serif;font-style:italic;font-weight:500}
   .accent{color:var(--red)}
   .glow{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;z-index:0}
   b,strong{font-weight:700}
 
-  /* ---------- LAYOUT ---------- */
   .shell{max-width:1280px;margin:0 auto;padding:0 26px;display:grid;grid-template-columns:250px 1fr;gap:54px}
   @media(max-width:1000px){.shell{grid-template-columns:1fr;gap:0}}
 
-  /* ---------- SIDEBAR TOC ---------- */
   aside{position:sticky;top:0;height:100vh;padding:38px 0;align-self:start;overflow-y:auto}
   @media(max-width:1000px){aside{display:none}}
   .brand{display:flex;align-items:center;gap:9px;font-weight:800;letter-spacing:.14em;font-size:15px;text-transform:uppercase;margin-bottom:8px}
@@ -46,31 +40,23 @@
   .toc a.active{color:var(--red);border-left-color:var(--red);background:rgba(238,58,36,.06)}
   .toc .n{font-family:'Lora',serif;font-style:italic;color:var(--red);margin-right:8px}
 
-  /* ---------- MAIN ---------- */
   main{padding:0 0 100px;min-width:0}
   .hero{position:relative;padding:80px 0 44px;overflow:hidden}
   .hero .glow.g1{width:520px;height:520px;top:-140px;right:-120px;background:radial-gradient(circle,rgba(255,106,69,.85),rgba(238,58,36,.5) 45%,rgba(238,58,36,0) 72%)}
   .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);border:1px solid rgba(238,58,36,.3);padding:7px 15px;border-radius:100px;background:rgba(238,58,36,.06);position:relative;z-index:2}
   .hero h1{font-size:clamp(34px,6vw,62px);font-weight:800;text-transform:uppercase;margin:22px 0 0;position:relative;z-index:2}
   .hero h1 .accent{color:var(--red)}
-  .hero .lead{font-size:18px;color:var(--ink-soft);max-width:640px;margin:20px 0 0;position:relative;z-index:2;font-weight:500}
+  .hero .lead{font-size:18px;color:var(--ink-soft);max-width:660px;margin:20px 0 0;position:relative;z-index:2;font-weight:500}
   .hero .facts{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px;position:relative;z-index:2}
   .chip{font-size:12.5px;font-weight:600;background:var(--white);border:1px solid var(--line);padding:8px 14px;border-radius:100px;color:var(--ink-soft)}
 
-  /* section */
   section.blk{padding:46px 0;border-top:1px solid var(--line-soft);position:relative}
   .sechead{display:flex;align-items:baseline;gap:16px;margin-bottom:8px}
   .sechead .no{font-family:'Lora',serif;font-style:italic;font-size:26px;color:var(--red);line-height:1}
   .sechead h2{font-size:clamp(24px,3.6vw,38px);font-weight:800;text-transform:uppercase}
   .blk p{margin-top:14px;color:var(--ink-soft);font-size:16.5px}
-  .blk p b, .blk li b{color:var(--ink)}
-  .blk ul{margin:14px 0 0;padding-left:0;list-style:none}
-  .blk ul li{position:relative;padding-left:26px;margin-top:10px;color:var(--ink-soft);font-size:16px}
-  .blk ul li::before{content:"✷";position:absolute;left:0;top:1px;color:var(--red);font-size:13px}
-  .blk ol{margin:14px 0 0;padding-left:20px;color:var(--ink-soft)}
-  .blk ol li{margin-top:10px;font-size:16px}
+  .blk p b{color:var(--ink)}
 
-  /* callout / quote */
   .quote{background:var(--ink);color:var(--cream);border-radius:var(--r-md);padding:30px 32px;margin-top:22px;position:relative;overflow:hidden;font-family:'Lora',serif;font-style:italic;font-size:21px;line-height:1.4}
   .quote .glow{width:280px;height:280px;top:-120px;right:-90px;background:radial-gradient(circle,rgba(238,58,36,.6),rgba(238,58,36,0) 70%)}
   .quote span{position:relative;z-index:2}
@@ -79,358 +65,323 @@
   .callout .k{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:6px}
   .callout p{margin-top:0;color:var(--ink)}
 
-  /* cards */
-  .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
-  @media(max-width:640px){.cards{grid-template-columns:1fr}}
-  .pcard{background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:24px;transition:.35s var(--ease);position:relative;overflow:hidden}
-  .pcard:hover{transform:translateY(-4px);box-shadow:0 22px 46px -24px rgba(20,20,20,.28);border-color:transparent}
-  .pcard .tag{font-family:'Lora',serif;font-style:italic;color:var(--red);font-size:15px}
-  .pcard h3{font-size:18px;font-weight:800;text-transform:uppercase;margin:6px 0 4px}
-  .pcard .role{font-size:12.5px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
-  .pcard p{margin-top:10px;font-size:14.5px;color:var(--ink-soft)}
-  .pcard .meta{font-size:13px;color:var(--muted);margin-top:10px;border-top:1px dashed var(--line);padding-top:10px}
+  /* facets */
+  .facets{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .facet{background:var(--white);border:1px solid var(--line);border-radius:100px;padding:10px 18px;font-size:14px;font-weight:600;transition:.3s var(--ease)}
+  .facet:hover{background:var(--red);color:#fff;border-color:var(--red);transform:translateY(-2px)}
+  .facet .e{color:var(--red);margin-right:6px}
+  .facet:hover .e{color:#fff}
 
-  /* balance bar */
-  .balance{display:flex;border-radius:100px;overflow:hidden;margin-top:22px;height:46px;font-size:12.5px;font-weight:700;color:#fff}
-  .balance div{display:flex;align-items:center;justify-content:center;text-align:center;padding:0 8px}
-  .b40{width:40%;background:var(--red)}
-  .b30a{width:30%;background:var(--ink)}
-  .b30b{width:30%;background:var(--green)}
+  /* line block */
+  .line{border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;margin-top:20px;background:var(--white)}
+  .line .head{padding:26px 28px;position:relative;overflow:hidden}
+  .line.l1 .head{background:linear-gradient(120deg,#20130f,#3a1d16);color:var(--cream)}
+  .line.l2 .head{background:linear-gradient(120deg,var(--red),var(--red-deep));color:#fff}
+  .line.l3 .head{background:linear-gradient(120deg,#1E3D2B,#132619);color:var(--cream)}
+  .line.l4 .head{background:linear-gradient(120deg,#141414,#2a2a2a);color:var(--cream)}
+  .line .head .glow{width:240px;height:240px;top:-90px;right:-70px;background:radial-gradient(circle,rgba(255,140,90,.5),rgba(238,58,36,0) 70%)}
+  .line .head .lk{position:relative;z-index:2;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+  .line .head h3{position:relative;z-index:2;font-size:clamp(22px,3vw,30px);font-weight:800;text-transform:uppercase;margin-top:8px}
+  .line .head p{position:relative;z-index:2;margin-top:10px;font-size:15px;opacity:.92;max-width:640px}
+  .line .body{padding:24px 28px}
+  .line .why{font-size:14px;color:var(--muted);border-left:2px solid var(--red);padding-left:14px;margin-bottom:16px}
+  .line .why b{color:var(--ink)}
+  .themes{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px}
+  @media(max-width:640px){.themes{grid-template-columns:1fr}}
+  .themes li{position:relative;padding:8px 0 8px 26px;font-size:15px;color:var(--ink);border-bottom:1px solid var(--line-soft)}
+  .themes li::before{content:"✷";position:absolute;left:0;top:8px;color:var(--red);font-size:12px}
+  .themes li .new{display:inline-block;font-size:9px;font-weight:800;letter-spacing:.05em;color:#fff;background:var(--red);border-radius:4px;padding:1px 5px;vertical-align:middle;margin-left:6px}
+  .themes li .liked{color:var(--green);font-weight:700;font-size:11px;margin-left:6px}
 
-  /* table */
-  .tablewrap{margin-top:22px;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;background:var(--white)}
-  table{width:100%;border-collapse:collapse;font-size:14.5px}
-  th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line-soft);vertical-align:top}
-  th{background:var(--ink);color:var(--cream);font-size:12px;text-transform:uppercase;letter-spacing:.06em;font-weight:700}
-  tr:last-child td{border-bottom:none}
-  td b{color:var(--red)}
-  @media(max-width:640px){th,td{padding:10px;font-size:13px}}
-
-  /* arcs */
-  .arcs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
-  @media(max-width:640px){.arcs{grid-template-columns:1fr}}
-  .arc{border:1px solid var(--line);border-radius:var(--r-md);padding:20px;background:var(--paper)}
-  .arc .l{display:inline-block;width:30px;height:30px;border-radius:50%;background:var(--red);color:#fff;font-weight:800;display:grid;place-items:center;font-size:14px;text-align:center;line-height:30px}
-  .arc h4{font-size:16px;font-weight:800;text-transform:uppercase;margin:12px 0 4px}
-  .arc p{margin-top:6px;font-size:14px;color:var(--ink-soft)}
-
-  /* ladder */
-  .ladder{margin-top:22px;display:flex;flex-direction:column;gap:10px}
-  .rung{display:flex;gap:16px;align-items:flex-start;background:var(--white);border:1px solid var(--line);border-radius:var(--r-sm);padding:16px 18px}
-  .rung .lvl{flex:0 0 auto;font-family:'Lora',serif;font-style:italic;color:var(--red);font-size:20px;min-width:34px}
-  .rung b{display:block;text-transform:uppercase;font-size:14px;letter-spacing:-.01em}
-  .rung span{font-size:14px;color:var(--ink-soft)}
-
-  /* content plan */
+  /* starter plan */
   .weeks{margin-top:22px;display:flex;flex-direction:column;gap:16px}
   .week{border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;background:var(--white)}
   .week .wh{background:var(--cream);padding:14px 20px;display:flex;align-items:baseline;gap:12px}
   .week .wh b{font-size:15px;text-transform:uppercase;font-weight:800}
   .week .wh span{font-size:13px;color:var(--muted)}
   .week ul{list-style:none;padding:8px 20px 16px}
-  .week ul li{display:grid;grid-template-columns:44px 74px 1fr;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line-soft);font-size:14.5px}
+  .week ul li{display:grid;grid-template-columns:44px 92px 1fr;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line-soft);font-size:14.5px}
   .week ul li:last-child{border-bottom:none}
-  .week .day{font-weight:800;text-transform:uppercase;font-size:12px;color:var(--ink)}
-  .week .fmt{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--red);background:rgba(238,58,36,.08);border-radius:100px;padding:3px 9px;text-align:center;white-space:nowrap}
+  .week .day{font-weight:800;text-transform:uppercase;font-size:12px}
+  .week .ln{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--red);background:rgba(238,58,36,.08);border-radius:100px;padding:3px 9px;text-align:center;white-space:nowrap}
   .week .topic{color:var(--ink-soft)}
-  @media(max-width:640px){.week ul li{grid-template-columns:38px 1fr;gap:8px}.week .fmt{display:none}}
+  @media(max-width:640px){.week ul li{grid-template-columns:38px 1fr;gap:8px}.week .ln{display:none}}
 
-  /* rostyslav feature */
-  .feature{background:var(--red);color:#fff;border-radius:var(--r-lg);padding:40px;position:relative;overflow:hidden;margin-top:8px}
-  .feature .glow{width:420px;height:420px;bottom:-200px;left:-100px;background:radial-gradient(circle,rgba(255,180,143,.55),rgba(238,58,36,0) 70%)}
-  .feature .k{position:relative;z-index:2;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
-  .feature h2{position:relative;z-index:2;font-size:clamp(24px,3.4vw,34px);font-weight:800;text-transform:uppercase;margin-top:10px}
-  .feature p{position:relative;z-index:2;margin-top:14px;font-size:16px;color:rgba(255,255,255,.92)}
-  .feature p b{color:#fff}
-  .feature .fbox{position:relative;z-index:2;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:var(--r-md);padding:18px 20px;margin-top:18px}
-  .feature .fbox b{display:block;margin-bottom:4px}
-  .feature ol{position:relative;z-index:2;margin-top:16px;padding-left:20px}
-  .feature ol li{margin-top:9px;font-size:15px;color:rgba(255,255,255,.95)}
-  .feature ul{position:relative;z-index:2;margin-top:12px;list-style:none;padding:0}
-  .feature ul li{position:relative;padding-left:24px;margin-top:9px;font-size:15px;color:rgba(255,255,255,.95)}
-  .feature ul li::before{content:"✷";position:absolute;left:0;color:#fff}
+  ol.rich{margin:14px 0 0;padding-left:20px;color:var(--ink-soft)}
+  ol.rich li{margin-top:10px;font-size:16px}
+  ol.rich li b{color:var(--ink)}
 
-  /* next steps */
   .steps{counter-reset:s;margin-top:22px;display:flex;flex-direction:column;gap:10px}
   .step{display:flex;gap:16px;align-items:flex-start;background:var(--white);border:1px solid var(--line);border-radius:var(--r-sm);padding:16px 18px}
   .step::before{counter-increment:s;content:counter(s);flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;font-weight:800;display:grid;place-items:center;font-size:14px}
   .step p{margin:0;font-size:15px;color:var(--ink)}
 
   footer{border-top:1px solid var(--line);margin-top:60px;padding-top:28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted)}
-
   .reveal{opacity:0;transform:translateY(22px);transition:.8s var(--ease)}
   .reveal.in{opacity:1;transform:none}
-
-  /* mobile top brand */
   .mtop{display:none}
   @media(max-width:1000px){.mtop{display:flex;align-items:center;gap:9px;padding:22px 0 0;font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:14px}
     .mtop .sun{width:15px;height:15px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--red-soft),var(--red) 60%,var(--red-deep))}}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:12px;color:var(--muted)}
+  .legend .new{display:inline-block;font-size:9px;font-weight:800;color:#fff;background:var(--red);border-radius:4px;padding:1px 5px;margin-right:5px}
+  .legend .liked{color:var(--green);font-weight:700;margin-right:5px}
 </style>
 </head>
 <body>
 <div class="shell">
-
-  <!-- SIDEBAR -->
   <aside>
     <div class="brand"><span class="sun"></span>SOLARIUM</div>
     <div class="sub">Контент-стратегия · Александра Лугова</div>
     <nav class="toc">
-      <a href="#s0"><span class="n">0</span>Ядро бренда</a>
-      <a href="#s1"><span class="n">1</span>Позиционирование</a>
-      <a href="#s2"><span class="n">2</span>Пиллары</a>
-      <a href="#s3"><span class="n">3</span>Сюжетные арки</a>
-      <a href="#s4"><span class="n">4</span>Форматы платформ</a>
-      <a href="#s5"><span class="n">5</span>Вовлечение</a>
-      <a href="#s6"><span class="n">6</span>Самораскрытие</a>
-      <a href="#s7"><span class="n">7</span>Контент-план 30 дней</a>
-      <a href="#s8"><span class="n">8</span>Отношения с Ростиславом</a>
-      <a href="#s9"><span class="n">9</span>Метрики и шаги</a>
+      <a href="#s0"><span class="n">0</span>Большая идея</a>
+      <a href="#sf"><span class="n">✷</span>Грани Саши</a>
+      <a href="#s1"><span class="n">1</span>Линия: Віра / Церква</a>
+      <a href="#s2"><span class="n">2</span>Линия: Челлендж</a>
+      <a href="#s3"><span class="n">3</span>Линия: Я</a>
+      <a href="#s4"><span class="n">4</span>Линия: Брендинг</a>
+      <a href="#s5"><span class="n">5</span>Партнёрство</a>
+      <a href="#s6"><span class="n">6</span>Стартовый ритм</a>
+      <a href="#s7"><span class="n">7</span>Механика вовлечения</a>
+      <a href="#s8"><span class="n">8</span>Следующие шаги</a>
     </nav>
   </aside>
 
-  <!-- MAIN -->
   <main>
     <div class="mtop"><span class="sun"></span>SOLARIUM</div>
 
-    <!-- HERO -->
     <div class="hero">
       <div class="glow g1"></div>
-      <span class="eyebrow">● Контент-стратегия личного бренда</span>
+      <span class="eyebrow">● Контент-стратегия v2 · по видению Саши</span>
       <h1>Александра <span class="accent">Лугова</span></h1>
-      <p class="lead">Стратегия построена на распаковке личности: Johari Window + 5 упражнений (Факт-Наратив, Субъектность, Эмоциональные драйверы, Артефакт). Продюсер проекта — Ростислав Дюжев.</p>
+      <p class="lead">Не «эксперт с одной нотой», а <b>объёмный персонаж</b>. Стратегия построена вокруг 4 сюжетных линий, которые Саша ведёт сама: вера, челлендж, «я» и брендинг — и раскрывает её со всех сторон.</p>
       <div class="facts">
-        <span class="chip">Артефакт: РОЗКРИТТЯ</span>
-        <span class="chip">6 пилларов</span>
-        <span class="chip">4 сюжетные арки</span>
-        <span class="chip">План на 30 дней</span>
+        <span class="chip">4 сюжетные линии</span>
+        <span class="chip">40+ тем для блога</span>
+        <span class="chip">Объёмный персонаж</span>
+        <span class="chip">Стартовый ритм на 2 недели</span>
       </div>
     </div>
 
-    <!-- 0 -->
+    <!-- 0 big idea -->
     <section class="blk reveal" id="s0">
-      <div class="sechead"><span class="no">0</span><h2>Ядро бренда</h2></div>
-      <p>Через все четыре блока распаковки красной нитью проходит одно:</p>
-      <div class="quote"><div class="glow"></div><span><b>Саша видит скрытый свет и уникальность человека — и превращает это в концепцию/бренд, которого нет ни у кого.</b></span></div>
-      <p>Это её собственная метафора. В скрытой зоне она сама назвала концепцию <b>«Соляріум»</b>, а люди в фидбеке независимо повторяют: <span class="serif-i">«сонце», «соларіум», «сонячна, світла», «автентичність», «унікальність»</span>. Она — человек-солярий: подсвечивает других и учит их светить собой.</p>
-      <div class="callout"><div class="k">Артефакт бренда</div><p><b>«РОЗКРИТТЯ» (Раскрытие уникальности).</b> Суть: соединение маркетинга и души. Не шаблон, не копия рос-рынка — а подлинность вдолгую.</p></div>
-      <p>Три опоры этого артефакта (все три подтверждены и ею, и 8 людьми):</p>
-      <ul>
-        <li><b>Чутьё людей</b> → «бачу суперсилу людини і народжую геніальну концепцію».</li>
-        <li><b>Духовность</b> (церковь + нетрадиционная психология/эзотерика — с честным внутренним конфликтом).</li>
-        <li><b>Дисциплина + системность + постоянство</b> (в работе и спорте) — то, что делает лёгкость устойчивой.</li>
-      </ul>
-      <p><b>Главная драма (и главный контент-ресурс):</b> Саша сама призналась — <span class="serif-i">«в блозі немає відчуття 100% правдивості, наче не по-справжньому»</span>. Значит, центральная сюжетная арка бренда = <b>путь к настоящести</b>. Это не слабость — это самое сильное, что у неё есть. Аудитория влюбляется не в идеальную картинку, а в честное движение к себе.</p>
+      <div class="sechead"><span class="no">0</span><h2>Большая идея: объёмный персонаж</h2></div>
+      <p>Люди подписываются на экспертизу, но <b>влюбляются в человека</b>. Сила Саши — не в одной теме, а в объёме: она верующая с эзотерическим прошлым, дисциплинированная спортсменка, чувственная эстетка, продюсер-визионер, живая и честная. Каждую грань показываем отдельно — вместе они складывают персонажа, к которому привязываются и за которым возвращаются.</p>
+      <div class="quote"><div class="glow"></div><span>Задача блога — не «продавать маркетинг», а <b>раскрыть Сашу с разных сторон как живого объёмного человека.</b> Экспертиза придёт следом.</span></div>
+      <p>Ниже — 4 сюжетные линии (так, как их видит сама Саша) и банк тем к каждой. <span class="serif-i">Зелёным</span> отмечены темы, которые Саша уже одобрила, <span style="color:var(--red);font-weight:700">NEW</span> — новые предложенные.</p>
     </section>
 
-    <!-- 1 -->
+    <!-- facets -->
+    <section class="blk reveal" id="sf">
+      <div class="sechead"><span class="no">✷</span><h2>Грани Саши</h2></div>
+      <p>Из чего складывается объём. Каждая грань — источник контента, и её нужно проявлять:</p>
+      <div class="facets">
+        <span class="facet"><span class="e">✷</span>Верующая</span>
+        <span class="facet"><span class="e">✷</span>Эзотерик в прошлом</span>
+        <span class="facet"><span class="e">✷</span>Дисциплинированная</span>
+        <span class="facet"><span class="e">✷</span>Спортсменка</span>
+        <span class="facet"><span class="e">✷</span>Практик состояния</span>
+        <span class="facet"><span class="e">✷</span>Продюсер-визионер</span>
+        <span class="facet"><span class="e">✷</span>Эстетка</span>
+        <span class="facet"><span class="e">✷</span>Уязвимая и честная</span>
+        <span class="facet"><span class="e">✷</span>Системная</span>
+        <span class="facet"><span class="e">✷</span>Чувственная</span>
+        <span class="facet"><span class="e">✷</span>Амбициозная</span>
+        <span class="facet"><span class="e">✷</span>Женщина, идущая к себе</span>
+      </div>
+      <div class="legend">
+        <span><span class="liked">●</span> зелёный — тему Саша одобрила</span>
+        <span><span class="new">NEW</span> — новая идея</span>
+      </div>
+    </section>
+
+    <!-- LINE 1 -->
     <section class="blk reveal" id="s1">
-      <div class="sechead"><span class="no">1</span><h2>Позиционирование</h2></div>
-      <p><b>Кто:</b> Саша Лугова — продюсер личных брендов, которая соединяет маркетинг и духовность и раскрывает уникальность человека там, где все делают одинаково.</p>
-      <div class="quote"><div class="glow"></div><span>Розкриваю унікальність — твою і свою. <b>Маркетинг через душу, а не шаблон.</b></span></div>
-      <p><b>Большая идея (против чего бренд):</b> против шаблонности, копирования и «быстрых результатов за месяц». За — подлинность, своё, восприятие вдолгую, терпение. Это её субъектность, дословно из распаковки, и идеальный «враг», вокруг которого строится сильный шеринговый контент.</p>
-      <p><b>Кому:</b></p>
-      <ul>
-        <li>Эксперты и блогеры, которые «боятся быть собой» и тонут в однотипном контенте.</li>
-        <li>Женщины, которые ищут себя на стыке несовместимого (вера + развитие + бизнес + чувственность).</li>
-        <li>Онлайн-школы и эксперты, которым нужна концепция, а не косметика.</li>
-      </ul>
+      <div class="sechead"><span class="no">1</span><h2>Линия: Віра / Церква</h2></div>
+      <div class="line l1">
+        <div class="head"><div class="glow"></div>
+          <div class="lk">Сюжетная линия · душа</div>
+          <h3>Вера, церковь, поиск</h3>
+          <p>Дорога к Богу, церковь по воскресеньям, честный конфликт с эзотерикой, вера как опора в тяжёлом состоянии. Самое глубокое и то, чем Саша отличается от всех «маркетологов».</p>
+        </div>
+        <div class="body">
+          <div class="why"><b>Почему заходит:</b> редкая честность на стыке несовместимого (церковь + эзотерика). Люди сами просят эту тему №1.</div>
+          <ul class="themes">
+            <li>Церковь и эзотерика: мой честный конфликт <span class="liked">✓ одобрено</span></li>
+            <li>Мысль о вере и поиске <span class="liked">✓ одобрено</span></li>
+            <li>Как я пришла к вере — и что было до <span class="new">NEW</span></li>
+            <li>Что мне реально даёт церковь по воскресеньям <span class="new">NEW</span></li>
+            <li>Молитва vs практики: где я сейчас <span class="new">NEW</span></li>
+            <li>Как вера держит меня, когда всё рушится <span class="new">NEW</span></li>
+            <li>Вопросы к Богу, на которые у меня нет ответа <span class="new">NEW</span></li>
+            <li>Можно ли верить и заниматься маркетингом — честно <span class="new">NEW</span></li>
+            <li>От эзотерики к вере — без осуждения себя прошлой <span class="new">NEW</span></li>
+            <li>О чём я молчу, но думаю в церкви <span class="new">NEW</span></li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <!-- 2 -->
+    <!-- LINE 2 -->
     <section class="blk reveal" id="s2">
-      <div class="sechead"><span class="no">2</span><h2>Контент-пиллары</h2></div>
-      <p>Для личного бренда пиллары = линии, которые повторяются и делают тебя узнаваемой. У Саши их <b>шесть</b> — по числу граней, которые люди сами просят (прямо из фидбека).</p>
-      <div class="cards">
-        <div class="pcard"><div class="tag">Пиллар 1</div><h3>РОЗКРИТТЯ</h3><div class="role">Личный бренд · экспертное ядро</div><p>Как найти и упаковать уникальность, распаковки, концепции, разборы брендов, ошибки блогеров.</p><div class="meta">Тип: searchable + shareable · её суперсила №1 по всем 8 фидбекам.</div></div>
-        <div class="pcard"><div class="tag">Пиллар 2</div><h3>Віра vs Езотерика</h3><div class="role">Духовность · душа бренда</div><p>Путь к Богу при увлечении эзотерикой (её «сильный конфликт»), состояние, ресурс, практики, дисциплина как опора.</p><div class="meta">Тип: shareable · тема №1 по запросам, отличает её от «маркетологов».</div></div>
-        <div class="pcard"><div class="tag">Пиллар 3</div><h3>Жінка</h3><div class="role">Женственность · сердце бренда</div><p>Женственность, любовь к себе, проявленность, работа с состоянием, путь женщины к себе настоящей.</p><div class="meta">Тип: shareable · «жіночність», «любов до себе», «проявленість».</div></div>
-        <div class="pcard"><div class="tag">Пиллар 6</div><h3>Відносини</h3><div class="role">Отношения + бизнес с Ростиславом</div><p>Их пара — она девушка, он её мужчина; и партнёры в бизнесе. Совместная жизнь и дело, как одно усиливает другое.</p><div class="meta">Тип: shareable · живое доказательство «маркетинг + душа». Подробно в блоке 8.</div></div>
-        <div class="pcard"><div class="tag">Пиллар 4</div><h3>Система</h3><div class="role">Дисциплина · работа · команда</div><p>Как устроена работа, кризисы, команда, системность, «як триматись за один проект і не кидати».</p><div class="meta">Тип: searchable + shareable · её слепая зона — надёжность. Это надо ПРОЯВЛЯТЬ.</div></div>
-        <div class="pcard"><div class="tag">Пиллар 5</div><h3>Стиль</h3><div class="role">Эстетика · визуал</div><p>Стиль, шопинг, стилизация, красивый распланированный блокнот, визуальные концепции.</p><div class="meta">Тип: shareable · её драйвер и запрос аудитории. Держит охваты между глубоким.</div></div>
-      </div>
-      <div class="callout" style="margin-top:24px"><div class="k">Баланс пилларов в неделю · правило 40 / 30 / 30</div><p style="margin-bottom:0">Глубина и отношения (2, 3, 6) — за это влюбляются. Экспертность (1, 4) — за это подписываются и покупают. Лёгкость/эстетика (5) — за это досматривают и делятся.</p></div>
-      <div class="balance">
-        <div class="b40">40% · глубина + отношения</div>
-        <div class="b30a">30% · экспертиза</div>
-        <div class="b30b">30% · лёгкость</div>
+      <div class="sechead"><span class="no">2</span><h2>Линия: Челлендж по набору аудитории</h2></div>
+      <div class="line l2">
+        <div class="head"><div class="glow"></div>
+          <div class="lk">Сюжетная линия · драйв</div>
+          <h3>Строю блог у вас на глазах</h3>
+          <p>Публичный документированный челлендж роста: честные цифры, реальность, взлёты и провалы. Формат-сериал с открытыми петлями — люди возвращаются «за продолжением».</p>
+        </div>
+        <div class="body">
+          <div class="why"><b>Почему заходит:</b> честный реалити-рост — самый залипательный формат. Плюс отвечает её боли: «не бросить, когда нет результата в первый месяц».</div>
+          <ul class="themes">
+            <li>День 1: начинаю челлендж — сколько нас сейчас и куда идём <span class="new">NEW</span></li>
+            <li>Честные цифры недели: что сработало, что нет <span class="new">NEW</span></li>
+            <li>Reel залетел / Reel провалился — разбираю почему <span class="new">NEW</span></li>
+            <li>Что я делаю каждый день ради роста (рутина) <span class="new">NEW</span></li>
+            <li>Как не бросить, когда нет результата в первый месяц <span class="new">NEW</span></li>
+            <li>Ошибки, которые стоили мне охватов <span class="new">NEW</span></li>
+            <li>Мой контент-план на неделю: показываю кухню <span class="new">NEW</span></li>
+            <li>Почему я делаю это публично — страшно, но честно <span class="new">NEW</span></li>
+            <li>30 дней челленджа: что изменилось <span class="new">NEW</span></li>
+            <li>Отвечаю сомневающимся по ходу челленджа <span class="new">NEW</span></li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <!-- 3 -->
+    <!-- LINE 3 -->
     <section class="blk reveal" id="s3">
-      <div class="sechead"><span class="no">3</span><h2>Линии повествования · сюжетные арки</h2></div>
-      <p>Личный бренд живёт не постами, а <b>арками</b>. У Саши 4 сквозные линии:</p>
-      <div class="arcs">
-        <div class="arc"><span class="l">A</span><h4>Стати справжньою</h4><p>Главная, красная нить. От «в блоге я не по-настоящему» → к «я показываю себя настоящую». Публичный путь снятия маски. Метаистория всего блога.</p></div>
-        <div class="arc"><span class="l">B</span><h4>Віра, яку я шукала</h4><p>Духовный поиск: конфликт церковь ↔ эзотерика, дорога к Богу, сомнения, инсайты. Здесь можно быть уязвимой — именно это притягивает.</p></div>
-        <div class="arc"><span class="l">C</span><h4>Жінка, яка повертається до себе</h4><p>Возвращение к женственности, любви к себе и подлинности. Не хроника, а смыслы: как училась быть собой, что возвращает ресурс.</p></div>
-        <div class="arc"><span class="l">D</span><h4>Ми — разом</h4><p>Реалити пары, которая вместе и в жизни, и в деле. Личная динамика + продюсерская кухня в одном сюжете. Подробно в блоке 8.</p></div>
+      <div class="sechead"><span class="no">3</span><h2>Линия: Я — объёмный персонаж</h2></div>
+      <div class="line l3">
+        <div class="head"><div class="glow"></div>
+          <div class="lk">Сюжетная линия · сердце</div>
+          <h3>Духовность · дисциплина · спорт · практики</h3>
+          <p>Раскрытие себя со всех сторон: как я живу, работаю, возвращаюсь к себе, держу дисциплину, что меня питает и что я прячу. Самый объёмный слой персонажа.</p>
+        </div>
+        <div class="body">
+          <div class="why"><b>Почему заходит:</b> её слепая зона — надёжность, постоянство, дисциплина. Их надо ПРОЯВЛЯТЬ. Плюс уязвимость и честность — её органика.</div>
+          <ul class="themes">
+            <li>Как выглядит мой рабочий день на самом деле <span class="liked">✓ одобрено</span></li>
+            <li>«Мои опоры»: дневник благодарности, парфюмы, барабаны <span class="liked">✓ одобрено</span></li>
+            <li>Красивый блокнот и почему планирование = дисциплина <span class="liked">✓ одобрено</span></li>
+            <li>Как я училась возвращаться к себе <span class="liked">✓ одобрено</span></li>
+            <li>Мой спорт: зачем телу дисциплина <span class="new">NEW</span></li>
+            <li>Что я делаю, когда нет сил и настроения <span class="new">NEW</span></li>
+            <li>Дисциплина как любовь к себе, а не насилие <span class="new">NEW</span></li>
+            <li>5 вещей, без которых я не я (айкос, барабаны, MFR, кремы, парфюмы) <span class="new">NEW</span></li>
+            <li>Как я совмещаю чувственность и системность <span class="new">NEW</span></li>
+            <li>День, когда я расплакалась — и что поняла <span class="new">NEW</span></li>
+            <li>Мои утренние ритуалы — по-честному, без глянца <span class="new">NEW</span></li>
+            <li>Что я никому не показываю (моя тишина) <span class="new">NEW</span></li>
+          </ul>
+        </div>
       </div>
-      <div class="callout"><p style="margin:0"><b>Как вести арки:</b> каждую неделю двигаем хотя бы одну арку на один шаг. Зритель возвращается «за продолжением», а не за отдельным постом.</p></div>
     </section>
 
-    <!-- 4 -->
+    <!-- LINE 4 -->
     <section class="blk reveal" id="s4">
-      <div class="sechead"><span class="no">4</span><h2>Матрица форматов по платформам</h2></div>
-      <div class="tablewrap"><table>
-        <tr><th>Платформа</th><th>Роль</th><th>Форматы</th><th>Частота</th></tr>
-        <tr><td><b>Instagram</b></td><td>Дом бренда, глубина + эстетика</td><td>Reels (арки, инсайты), карусели (экспертиза, распаковки), сторис (жизнь, вовлечение)</td><td>Reels 4–5/нед, карусель 2/нед, сторис ежедневно</td></tr>
-        <tr><td><b>YouTube</b></td><td>Глубина, доверие, «длинные» отношения</td><td>Влоги дня, разборы брендов, честные монологи, совместные разговоры с Ростиславом</td><td>1/нед (+ Shorts-нарезки)</td></tr>
-        <tr><td><b>Threads</b></td><td>Мысли, субъектность, дискуссии</td><td>Короткие острые тезисы, инсайты, вопросы к аудитории</td><td>1–2/день</td></tr>
-        <tr><td><b>Telegram</b></td><td>Тёплое ядро, монетизация</td><td>Личные лонгриды, «за кадром», рефлексии, анонсы, продукты</td><td>3–4/нед</td></tr>
-      </table></div>
-      <div class="callout"><p style="margin:0"><b>Логика перелива:</b> Reels/Threads ловят новых → Instagram/YouTube влюбляют → Telegram превращает в тёплое ядро и деньги.</p></div>
+      <div class="sechead"><span class="no">4</span><h2>Линия: Брендинг · Стежка и продукты</h2></div>
+      <div class="line l4">
+        <div class="head"><div class="glow"></div>
+          <div class="lk">Сюжетная линия · экспертиза</div>
+          <h3>Личный бренд, уникальность, продукты</h3>
+          <p>Экспертное ядро: распаковка уникальности, концепции, разборы + кухня продуктов, которые вы разрабатываете (Стежка). Здесь бренд превращается в деньги.</p>
+        </div>
+        <div class="body">
+          <div class="why"><b>Почему заходит:</b> её суперсила №1 по всем фидбекам — «видит суперсилу человека и рождает концепцию». Продукты дают повод для контента и монетизацию.</div>
+          <ul class="themes">
+            <li>Почему твой блог как у всех (и как это сломать) <span class="liked">✓ одобрено</span></li>
+            <li>Что такое распаковка уникальности — на моём примере <span class="new">NEW</span></li>
+            <li>Как за 1 деталь понять бренд человека <span class="new">NEW</span></li>
+            <li>Беру эксперта «без изюминки» и нахожу концепцию (разбор) <span class="new">NEW</span></li>
+            <li>Как рождается концепция бренда — кухня «Стежки» <span class="new">NEW</span></li>
+            <li>Что мы разрабатываем сейчас и зачем (продукт) <span class="new">NEW</span></li>
+            <li>5 ошибок в личном бренде, которые меня бесят <span class="new">NEW</span></li>
+            <li>Почему я против копирования рос-рынка <span class="new">NEW</span></li>
+            <li>Личный бренд вдолгую vs быстрые схемы <span class="new">NEW</span></li>
+            <li>Как выбрать 3 темы для блога — метод <span class="new">NEW</span></li>
+            <li>За что реально платят продюсеру <span class="new">NEW</span></li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <!-- 5 -->
+    <!-- 5 partnership -->
     <section class="blk reveal" id="s5">
-      <div class="sechead"><span class="no">5</span><h2>Механика вовлечения</h2></div>
-      <ol>
-        <li><b>Открытые петли (арки).</b> Заканчивать пост/сторис обещанием продолжения — люди возвращаются за развязкой.</li>
-        <li><b>Уязвимость как крючок.</b> Формат «признание»: начинать с неудобной правды («Я вела блог и понимала, что вру»). Её органика.</li>
-        <li><b>Субъектность → дискуссия.</b> Острые тезисы против шаблонности и копирования рос-рынка. Threads и сторис-опросы: «Ты тоже боишься быть собой в блоге?».</li>
-        <li><b>Вопрос в конце каждого блока сторис.</b> Ползунки, квизы, «спроси меня» — опирается на её чувствование людей.</li>
-        <li><b>Распаковки в прямом эфире.</b> Разбирать уникальность подписчиков/экспертов — показывает её дар в действии.</li>
-        <li><b>Ритуалы как рубрики.</b> Дневник благодарности, барабаны, MFR-мяч, парфюмы → серийные рубрики «утро Саши», «мои опоры».</li>
-        <li><b>Кодовые слова / байты.</b> Лид-магниты по кодовому слову в директ («напиши РОЗКРИТТЯ») → перевод в Telegram-бота.</li>
+      <div class="sechead"><span class="no">5</span><h2>Партнёрство · где вы вместе</h2></div>
+      <p>Саша не выделила отношения отдельной линией — и правильно. Партнёрство с Ростиславом <b>не витрина, а естественный слой «мы»</b>, который проходит через две линии:</p>
+      <div class="callout"><div class="k">Челлендж</div><p>Рост блога вы двигаете вместе — Ростислав как продюсер в кадре появляется органично: «мы решили», «он мне подсветил», разбор стратегии в четыре руки.</p></div>
+      <div class="callout"><div class="k">Брендинг / Стежка</div><p>«Продукты, которые <b>мы</b> разрабатывали» — совместная кухня продюсирования. Здесь пара показывается как рабочий тандем: он — система, она — душа и концепция.</p></div>
+      <p>Личное (пара) добавляем лёгкими штрихами внутри линии «Я» — химия и быт в кадре, без отдельного «шоу отношений». Так тепло считывается само и усиливает главное — объём персонажа.</p>
+    </section>
+
+    <!-- 6 starter -->
+    <section class="blk reveal" id="s6">
+      <div class="sechead"><span class="no">6</span><h2>Стартовый ритм · 2 недели</h2></div>
+      <p>Микс всех 4 линий, чтобы персонаж раскрывался объёмно с первого дня. 1 пост/день, линии чередуются.</p>
+      <div class="weeks">
+        <div class="week"><div class="wh"><b>Неделя 1</b><span>знакомим со всеми гранями</span></div><ul>
+          <li><span class="day">Пн</span><span class="ln">Я</span><span class="topic">Как выглядит мой рабочий день на самом деле.</span></li>
+          <li><span class="day">Вт</span><span class="ln">Челлендж</span><span class="topic">День 1: начинаю челлендж — сколько нас и куда идём.</span></li>
+          <li><span class="day">Ср</span><span class="ln">Брендинг</span><span class="topic">Почему твой блог как у всех (и как это сломать).</span></li>
+          <li><span class="day">Чт</span><span class="ln">Вера</span><span class="topic">Мысль о вере и поиске.</span></li>
+          <li><span class="day">Пт</span><span class="ln">Я</span><span class="topic">«Мои опоры»: дневник благодарности, парфюмы, барабаны.</span></li>
+          <li><span class="day">Сб</span><span class="ln">Челлендж</span><span class="topic">Честные цифры недели: что сработало, что нет.</span></li>
+          <li><span class="day">Вс</span><span class="ln">Я</span><span class="topic">Как я училась возвращаться к себе.</span></li>
+        </ul></div>
+        <div class="week"><div class="wh"><b>Неделя 2</b><span>идём глубже</span></div><ul>
+          <li><span class="day">Пн</span><span class="ln">Вера</span><span class="topic">Церковь и эзотерика: мой честный конфликт.</span></li>
+          <li><span class="day">Вт</span><span class="ln">Брендинг</span><span class="topic">Как рождается концепция бренда — кухня «Стежки».</span></li>
+          <li><span class="day">Ср</span><span class="ln">Я</span><span class="topic">Красивый блокнот и почему планирование = дисциплина.</span></li>
+          <li><span class="day">Чт</span><span class="ln">Челлендж</span><span class="topic">Reel залетел / провалился — разбираю почему.</span></li>
+          <li><span class="day">Пт</span><span class="ln">Я</span><span class="topic">Что я делаю, когда нет сил и настроения.</span></li>
+          <li><span class="day">Сб</span><span class="ln">Брендинг</span><span class="topic">Что мы разрабатываем сейчас и зачем (продукт).</span></li>
+          <li><span class="day">Вс</span><span class="ln">Вера</span><span class="topic">Как вера держит меня, когда всё рушится.</span></li>
+        </ul></div>
+      </div>
+      <div class="callout"><p style="margin:0">Правило ритма: за 2 недели зритель видит <b>все 4 грани</b> → складывает объёмного персонажа. Дальше чередуем, двигая челлендж как сквозной сериал.</p></div>
+    </section>
+
+    <!-- 7 engagement -->
+    <section class="blk reveal" id="s7">
+      <div class="sechead"><span class="no">7</span><h2>Механика вовлечения</h2></div>
+      <ol class="rich">
+        <li><b>Челлендж как сквозной сериал.</b> Публичная цель по росту + еженедельный «отчёт цифрами». Открытые петли держат аудиторию неделями.</li>
+        <li><b>Уязвимость как крючок.</b> Формат «признание»: начинать с неудобной правды. Её органика — честность и слёзы.</li>
+        <li><b>Конфликт как тема.</b> Церковь vs эзотерика, дисциплина vs усталость, система vs душа — внутренние конфликты вовлекают сильнее «успешного успеха».</li>
+        <li><b>Ритуалы как рубрики.</b> Дневник благодарности, барабаны, MFR, парфюмы → серийные рубрики «мои опоры», «утро Саши».</li>
+        <li><b>Распаковки в эфире.</b> Разбирать уникальность подписчиков/экспертов — её дар в действии.</li>
+        <li><b>Кодовые слова.</b> Лид-магнит по слову в директ («напиши СТЕЖКА») → перевод в Telegram-бота.</li>
+        <li><b>Вопрос в конце сторис.</b> Ползунки, квизы, «спроси меня» — опора на её чувствование людей.</li>
       </ol>
     </section>
 
-    <!-- 6 -->
-    <section class="blk reveal" id="s6">
-      <div class="sechead"><span class="no">6</span><h2>Максимальное раскрытие себя</h2></div>
-      <p>Её главный барьер — «не по-настоящему». Раскрываемся дозированно, по уровням, чтобы не выгореть и не «переголиться»:</p>
-      <div class="ladder">
-        <div class="rung"><span class="lvl">1</span><div><b>Проявить слепую зону · недели 1–2</b><span>То, что она прячет, а люди ценят: надёжность, постоянство, дисциплину, объём работы. «Как я реально работаю».</span></div></div>
-        <div class="rung"><span class="lvl">2</span><div><b>Назвать конфликт · недели 3–4</b><span>Вслух про веру vs эзотерику. Её глубина, которую она сама недопроявляет.</span></div></div>
-        <div class="rung"><span class="lvl">3</span><div><b>Впустить в состояние · месяц 2</b><span>Показать уязвимость: слёзы, тяжёлые периоды, как возвращает себя. Не «успешный успех», а правда.</span></div></div>
-        <div class="rung"><span class="lvl">4</span><div><b>Отношения и путь к себе · месяц 2–3</b><span>Пара и общее дело, женственность, возвращение к себе — через смыслы, а не драму.</span></div></div>
-        <div class="rung"><span class="lvl">5</span><div><b>Манифест настоящести · месяц 3</b><span>«Почему я больше не веду блог "правильно"» — точка, где маска снята публично. Кульминация арки A.</span></div></div>
-      </div>
-      <div class="callout"><p style="margin:0">Правило: <b>одно честное раскрытие в неделю.</b> Не больше (иначе истощение), не меньше (иначе снова «глянец»).</p></div>
-    </section>
-
-    <!-- 7 -->
-    <section class="blk reveal" id="s7">
-      <div class="sechead"><span class="no">7</span><h2>Контент-план на 30 дней · пилот</h2></div>
-      <div class="weeks">
-        <div class="week"><div class="wh"><b>Неделя 1</b><span>Знакомство настоящее · проявляем слепую зону</span></div><ul>
-          <li><span class="day">Пн</span><span class="fmt">Reels</span><span class="topic">«Я продюсер брендов. И вот что это значит на самом деле» (артефакт РОЗКРИТТЯ).</span></li>
-          <li><span class="day">Вт</span><span class="fmt">Карусель</span><span class="topic">«Как выглядит мой рабочий день на самом деле» (надёжность/дисциплина).</span></li>
-          <li><span class="day">Ср</span><span class="fmt">Threads</span><span class="topic">Тезис: «Все боятся быть собой в блоге. Я в том числе».</span></li>
-          <li><span class="day">Чт</span><span class="fmt">Reels</span><span class="topic">«3 факта обо мне, в которые сложно поверить».</span></li>
-          <li><span class="day">Пт</span><span class="fmt">Сторис</span><span class="topic">«Мои опоры»: дневник благодарности, парфюмы, барабаны.</span></li>
-          <li><span class="day">Сб</span><span class="fmt">Карусель</span><span class="topic">«Почему твой блог как у всех (и как это сломать)».</span></li>
-          <li><span class="day">Вс</span><span class="fmt">Telegram</span><span class="topic">«Зачем я вообще всё это начинаю» (честный манифест).</span></li>
-        </ul></div>
-        <div class="week"><div class="wh"><b>Неделя 2</b><span>Экспертиза + свет · РОЗКРИТТЯ в действии</span></div><ul>
-          <li><span class="day">Пн</span><span class="fmt">Reels</span><span class="topic">«Разбор: как за 1 деталь понять бренд человека».</span></li>
-          <li><span class="day">Вт</span><span class="fmt">Сторис</span><span class="topic">Живая распаковка уникальности подписчика.</span></li>
-          <li><span class="day">Ср</span><span class="fmt">Карусель</span><span class="topic">«Как не бросить блог на второй месяц» (боль → решение).</span></li>
-          <li><span class="day">Чт</span><span class="fmt">Reels</span><span class="topic">«Как я училась возвращаться к себе» (арка C, шаг 1).</span></li>
-          <li><span class="day">Пт</span><span class="fmt">Reels</span><span class="topic">«Собираю образ / стилизация» (лёгкий, эстетика).</span></li>
-          <li><span class="day">Сб</span><span class="fmt">Threads</span><span class="topic">Мысль о вере и поиске.</span></li>
-          <li><span class="day">Вс</span><span class="fmt">Telegram</span><span class="topic">Мини-урок «Как найти свой артефакт» (лид-магнит).</span></li>
-        </ul></div>
-        <div class="week"><div class="wh"><b>Неделя 3</b><span>Глубина · называем конфликт вера ↔ эзотерика</span></div><ul>
-          <li><span class="day">Пн</span><span class="fmt">Видео</span><span class="topic">«Церковь и эзотерика: мой честный конфликт».</span></li>
-          <li><span class="day">Вт</span><span class="fmt">Reels</span><span class="topic">«Знакомьтесь: мой мужчина и партнёр» (пара + бизнес).</span></li>
-          <li><span class="day">Ср</span><span class="fmt">Reels</span><span class="topic">«Женственность, которую я себе возвращаю».</span></li>
-          <li><span class="day">Чт</span><span class="fmt">Карусель</span><span class="topic">«5 ошибок в личном бренде, которые бесят меня больше всего».</span></li>
-          <li><span class="day">Пт</span><span class="fmt">Сторис</span><span class="topic">«Красивый блокнот и почему планирование = дисциплина».</span></li>
-          <li><span class="day">Сб</span><span class="fmt">Threads</span><span class="topic">Вопрос аудитории про состояние/ресурс.</span></li>
-          <li><span class="day">Вс</span><span class="fmt">Telegram</span><span class="topic">Личная рефлексия (уровень 3, впускаем в состояние).</span></li>
-        </ul></div>
-        <div class="week"><div class="wh"><b>Неделя 4</b><span>Настоящесть · кульминация пилота</span></div><ul>
-          <li><span class="day">Пн</span><span class="fmt">Reels</span><span class="topic">«Как мы совмещаем любовь и общее дело» (пара + партнёры).</span></li>
-          <li><span class="day">Вт</span><span class="fmt">Reels</span><span class="topic">«Как я упаковала бренд эксперту, у которого "ничего особенного"» (кейс).</span></li>
-          <li><span class="day">Ср</span><span class="fmt">Карусель</span><span class="topic">«Что я поняла за первый месяц публичности».</span></li>
-          <li><span class="day">Чт</span><span class="fmt">Видео</span><span class="topic">«Как я возвращаю себя, когда всё рушится».</span></li>
-          <li><span class="day">Пт</span><span class="fmt">Reels</span><span class="topic">Эстетика/переодевание + инсайт.</span></li>
-          <li><span class="day">Сб</span><span class="fmt">Reels</span><span class="topic">Манифест «Почему я больше не веду блог "правильно"».</span></li>
-          <li><span class="day">Вс</span><span class="fmt">Telegram</span><span class="topic">Итоги месяца + анонс продукта/следующего шага.</span></li>
-        </ul></div>
-      </div>
-      <div class="callout"><p style="margin:0">Дальше план масштабируется: каждую неделю — 1 глубокое раскрытие, движение 1–2 арок, баланс 40/30/30.</p></div>
-    </section>
-
-    <!-- 8 -->
+    <!-- 8 next -->
     <section class="blk reveal" id="s8">
-      <div class="sechead"><span class="no">8</span><h2>Отношения с Ростиславом</h2></div>
-      <div class="feature">
-        <div class="glow"></div>
-        <div class="k">Пиллар 6 · Арка D · один из сильнейших активов бренда</div>
-        <h2>Пара, которая вместе любит и строит дело</h2>
-        <p><b>Формат отношений (подтверждён):</b> Саша и Ростислав — <b>пара в жизни</b> (она его девушка, он её мужчина) <b>и партнёры в бизнесе</b> одновременно. Аудитория обожает наблюдать за парой, которая вместе и любит, и строит общее дело. Их союз буквально воплощает артефакт Саши — «маркетинг + душа». В контенте показываем <b>оба слоя вместе</b>.</p>
-        <div class="fbox"><b>Зачем это в стратегии</b>Социальное доказательство (её продюсируют — значит, верят) · мета-контент behind the scenes (самый доверительный тип) · прогрев к услугам продюсерского центра · дуэт-динамика, которая держит внимание.</div>
-        <p style="margin-top:20px"><b>Контент-форматы линии:</b></p>
-        <ol>
-          <li><b>«Кухня бренда» (реалити).</b> Как Ростислав распаковывает и строит бренд Саши: сессии, споры, решения, до/после.</li>
-          <li><b>«Продюсер vs эксперт».</b> Диалог/дебаты: он — про систему и деньги, она — про душу и подлинность. Их конфликт взглядов = контент.</li>
-          <li><b>«Он видит то, чего не вижу я».</b> Ростислав называет её слепую зону (надёжность) — публично помогает проявить то, что она прячет.</li>
-          <li><b>Совместные разборы/эфиры.</b> Разбирают чужие бренды в четыре руки: он — стратегия, она — уникальность.</li>
-          <li><b>Честные инсайты о работе продюсера.</b> «Что на самом деле делает продюсер», мифы о продюсировании.</li>
-          <li><b>Точки роста на камеру.</b> Он ставит ей вызов — зритель наблюдает трансформацию.</li>
-        </ol>
-      </div>
-
-      <h3 style="font-size:20px;font-weight:800;text-transform:uppercase;margin-top:32px">Личное измерение (пара)</h3>
-      <p>Личное усиливает главную арку Саши («стати справжньою»): человек, который рядом и в работе, и в жизни, — самое честное, что можно показать. Это не «выставление отношений напоказ», а <b>тёплая динамика пары, которая вместе и любит, и строит общее дело</b>.</p>
-      <p><b>Как показываем личное (дозированно, по нарастающей):</b></p>
-      <ul>
-        <li><b>Химия в кадре, а не декларации.</b> Совместные будни, взгляды, забота, «как он поддерживает, когда мне тяжело». Аудитория считывает тепло сама.</li>
-        <li><b>«Он верит в меня, когда я не верю».</b> Прямая связка с распаковкой: она прячет силу, он её вытаскивает. Самый сильный узел.</li>
-        <li><b>Два взгляда на одну жизнь.</b> «Система vs душа» в быту, планах, ценностях, вере. Мягкий конфликт-дуэт = топливо контента.</li>
-        <li><b>Совместные ритуалы и быт.</b> Утро, спорт, поездки, решения — лёгкий лайф-слой, который очеловечивает бренд.</li>
-        <li><b>Уязвимые моменты вдвоём.</b> Кризисы, примирения, поддержка — по мере готовности, на верхних уровнях лестницы (месяц 2–3).</li>
-      </ul>
-      <div class="cards" style="grid-template-columns:1fr 1fr 1fr">
-        <div class="pcard"><h3 style="font-size:14px">Reels / сторис</h3><p>Химия, быт, лёгкие моменты — лови органику.</p></div>
-        <div class="pcard"><h3 style="font-size:14px">YouTube</h3><p>Глубокие совместные разговоры: вера, ценности, как строим бренд и отношения.</p></div>
-        <div class="pcard"><h3 style="font-size:14px">Telegram</h3><p>Самое личное и рефлексивное — для тёплого ядра.</p></div>
-      </div>
-      <div class="callout"><div class="k">Границы · согласовать до старта</div><p style="margin:0">Договоритесь заранее, что показываем, а что остаётся только вашим — чтобы личное усиливало бренд, а не превращалось в разменную монету охватов. Правило: <b>личное раскрытие — не чаще 1 раза в неделю</b> и всегда через смысл, а не ради драмы.</p></div>
-    </section>
-
-    <!-- 9 -->
-    <section class="blk reveal" id="s9">
-      <div class="sechead"><span class="no">9</span><h2>Метрики и следующие шаги</h2></div>
-      <p><b>За чем следить (личный бренд):</b></p>
-      <ul>
-        <li>Досматриваемость Reels и удержание сторис (не только охваты).</li>
-        <li>Сохранения и репосты (маркер «полезно/попал»).</li>
-        <li>Ответы в директ по кодовым словам (тёплые лиды в Telegram).</li>
-        <li>Рост тёплого ядра в Telegram (не подписчики ради подписчиков).</li>
-        <li>Качественный сигнал: комментарии «это про меня», «расплакалась» — значит, попала в подлинность.</li>
-      </ul>
-      <p style="margin-top:22px"><b>Следующие шаги:</b></p>
+      <div class="sechead"><span class="no">8</span><h2>Следующие шаги</h2></div>
       <div class="steps">
-        <div class="step"><p>Утвердить артефакт «РОЗКРИТТЯ» и bio.</p></div>
-        <div class="step"><p>Финализировать линию с Ростиславом (блок 8) и границы.</p></div>
-        <div class="step"><p>Отснять контент Недели 1 (проявление слепой зоны).</p></div>
-        <div class="step"><p>Подготовить лид-магнит + кодовое слово → связать с ботом.</p></div>
-        <div class="step"><p>Сделать визуальный ключ блога под метафору «Соляріум»/свет.</p></div>
+        <div class="step"><p>Саше — отметить темы, которые откликаются, и вычеркнуть лишние.</p></div>
+        <div class="step"><p>Задать параметры челленджа: старт, цель по подписчикам/охватам, срок.</p></div>
+        <div class="step"><p>Дать детали по «Стежке» и продуктам — распишу отдельные сценарии брендинг-линии.</p></div>
+        <div class="step"><p>Отснять Неделю 1 стартового ритма.</p></div>
+        <div class="step"><p>Собрать сценарии Reels под одобренные темы (skill reels-content).</p></div>
       </div>
+      <div class="callout" style="margin-top:22px"><div class="k">Что мне нужно от вас, чтобы докрутить</div><p style="margin:0">Что такое «Стежка» и какие продукты в разработке · параметры челленджа (цель/срок) · какие из новых тем Саше откликаются. На этом соберу конкретные сценарии.</p></div>
     </section>
 
     <footer>
-      <div>SOLARIUM · Контент-стратегия личного бренда Александры Луговой</div>
+      <div>SOLARIUM · Контент-стратегия личного бренда Александры Луговой · v2</div>
       <div>Продюсер: Ростислав Дюжев · 2026</div>
     </footer>
   </main>
 </div>
-
 <script>
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.06});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  // scrollspy
   const links=[...document.querySelectorAll('.toc a')];
   const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
   addEventListener('scroll',()=>{
-    let i=secs.length-1;
-    for(let k=0;k<secs.length;k++){if(secs[k].getBoundingClientRect().top<160)i=k}
-    links.forEach(l=>l.classList.remove('active'));
-    if(links[i])links[i].classList.add('active');
+    let i=0;for(let k=0;k<secs.length;k++){if(secs[k]&&secs[k].getBoundingClientRect().top<160)i=k}
+    links.forEach(l=>l.classList.remove('active'));if(links[i])links[i].classList.add('active');
   },{passive:true});
 </script>
 </body>
