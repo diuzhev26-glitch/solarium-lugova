@@ -124,9 +124,10 @@
   .kase .kt{font-weight:800;font-size:17px;text-transform:uppercase;letter-spacing:-.01em}
   .kase .bs{font-size:14.5px;color:var(--ink2);line-height:1.5}
   .kase .bs b{color:var(--ink)}
-  .kase .kimgs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .kase .kimgs .shot{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff;aspect-ratio:4/3}
-  .kase .kimgs .shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+  .kase .kimgs{display:grid;grid-template-columns:1fr;gap:10px}
+  .kase .kimgs .shot{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff}
+  .kase .kimgs .shot img{width:100%;height:auto;display:block}
+  .kase.wide .kimgs{grid-template-columns:1fr 1fr;align-items:start}
   .kase .kres{margin-top:auto;font-weight:800;font-size:20px;color:var(--coral);letter-spacing:-.01em}
   .kase.wide{grid-column:span 2}
   @media(max-width:900px){.kgrid{grid-template-columns:1fr}.kase.wide{grid-column:auto}}
@@ -225,7 +226,7 @@
           <div class="shot"><img src="img/case-irina-1.jpg" alt="Ірина — профіль"></div>
           <div class="shot"><img src="img/case-irina-2.jpg" alt="Програма інтенсиву"></div>
         </div>
-        <div class="kres">21 700 $ на своєму досвіді</div>
+        <div class="kres">Результат — запуск інтенсиву на 21 700 $</div>
       </div>
       <div class="kase">
         <div class="kk">елемент 2 · суперсила</div>
@@ -235,7 +236,7 @@
           <div class="shot"><img src="img/case-shandra-1.jpg" alt="Анастасія Шандра — профіль"></div>
           <div class="shot"><img src="img/case-shandra-2.jpg" alt="Shandra Space"></div>
         </div>
-        <div class="kres">26 000 $ на суперсилі</div>
+        <div class="kres">Результат — 26 000 $ на ретритах і жіночих колах</div>
       </div>
       <div class="kase">
         <div class="kk">елемент 3 · інтерес</div>
@@ -245,7 +246,7 @@
           <div class="shot"><img src="img/case-photo-1.jpg" alt="Фотограф — профіль"></div>
           <div class="shot"><img src="img/case-photo-2.jpg" alt="SENSOR"></div>
         </div>
-        <div class="kres">4 000 $ на інтересі</div>
+        <div class="kres">Результат — 4 000 $ на власному продукті SENSOR</div>
       </div>
       <div class="kase">
         <div class="kk">елемент 4 · проблема ринку</div>
@@ -255,7 +256,7 @@
           <div class="shot"><img src="img/case-nadia-1.jpg" alt="Надія — профіль"></div>
           <div class="shot"><img src="img/case-nadia-2.jpg" alt="METANOIA"></div>
         </div>
-        <div class="kres">10 000 $ на проблемі ринку</div>
+        <div class="kres">Результат — 10 000 $ на власному продукті METANOIA</div>
       </div>
       <div class="kase wide">
         <div class="kk">елемент 5 · візія</div>
@@ -265,7 +266,7 @@
           <div class="shot"><img src="img/case-brow-1.jpg" alt="Бровіст — профіль"></div>
           <div class="shot"><img src="img/case-brow-2.jpg" alt="ELAN show"></div>
         </div>
-        <div class="kres">Запрошення ELAN · запис на 2 місяці вперед</div>
+        <div class="kres">Результат — запрошення від бренду ELAN і запис на навчання на 2 місяці вперед</div>
       </div>
     
     </div>
