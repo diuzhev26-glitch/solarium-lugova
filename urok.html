@@ -124,9 +124,9 @@
   .kase .kt{font-weight:800;font-size:17px;text-transform:uppercase;letter-spacing:-.01em}
   .kase .bs{font-size:14.5px;color:var(--ink2);line-height:1.5}
   .kase .bs b{color:var(--ink)}
-  .kase .kimgs{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start}
-  .kase .kimgs .shot{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff}
-  .kase .kimgs .shot img{width:100%;height:auto;display:block}
+  .kase .kimgs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .kase .kimgs .shot{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center}
+  .kase .kimgs .shot img{max-width:100%;max-height:100%;width:auto;height:auto;display:block;object-fit:contain}
   .kase .kres{margin-top:auto;font-weight:800;font-size:20px;color:var(--coral);letter-spacing:-.01em}
   .kase.wide{grid-column:span 2}
   @media(max-width:900px){.kgrid{grid-template-columns:1fr}.kase.wide{grid-column:auto}}
