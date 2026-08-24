@@ -131,6 +131,7 @@
   .kase.wide{grid-column:span 2}
   @media(max-width:900px){.kgrid{grid-template-columns:1fr}.kase.wide{grid-column:auto}}
   .vids .kgrid{max-width:1072px;margin:0 auto;text-align:left}
+  .fcard .ft-sub{text-align:center;color:var(--ink2);font-size:15px;line-height:1.45;margin:2px 0 10px}
 </style>
 </head>
 <body>
@@ -149,12 +150,9 @@
     <div class="vframe">
       <div class="vinner">
         <!-- ВІДЕО УРОКУ: заміни VIDEO_ID на id ролика YouTube і прибери .poster-cover -->
-        <div class="ytf" data-id="VIDEO_ID">
-          <div class="poster-cover">
-            <img src="img/sasha-suit.png" alt="Олександра Лугова">
-            <div class="vlbl">Як знайти свою унікальність <span>і вийти на 10–30к $</span></div>
+        <div class="ytf" data-id="CemgDnheF0A">
+          <div class="ytf-cover" style="background-image:url('https://i.ytimg.com/vi/CemgDnheF0A/maxresdefault.jpg')">
             <div class="ytf-btn"><svg width="26" height="30" viewBox="0 0 30 34" fill="none"><path d="M28 15.27a2 2 0 0 1 0 3.46L3 33.2A2 2 0 0 1 0 31.46V2.54A2 2 0 0 1 3 .8l25 14.47Z" fill="#EE3A24"/></svg></div>
-            <div class="vsub">Урок · 16 хв</div>
           </div>
         </div>
       </div>
@@ -169,7 +167,8 @@
     <!-- ЛІВОРУЧ: форма -->
     <div class="col form-col">
       <div class="fcard">
-        <div class="ft">Залишай заявку <span class="it">на розбір</span></div>
+        <div class="ft">Залишай заявку <span class="it">на бренд-розбір зі мною</span></div>
+        <p class="ft-sub">Знайдемо твою суперсилу та зрозуміємо, як впровадити її у блог.</p>
         <div class="form-mid">
           <form onsubmit="return false">
             <input placeholder="Твоє ім'я" autocomplete="name">
@@ -297,7 +296,8 @@
   <div class="grid">
     <div class="col form-col">
       <div class="fcard">
-        <div class="ft">Залишай заявку <span class="it">на розбір</span></div>
+        <div class="ft">Залишай заявку <span class="it">на бренд-розбір зі мною</span></div>
+        <p class="ft-sub">Знайдемо твою суперсилу та зрозуміємо, як впровадити її у блог.</p>
         <div class="form-mid">
           <form onsubmit="return false">
             <input placeholder="Твоє ім'я" autocomplete="name">
