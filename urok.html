@@ -398,9 +398,9 @@
     var cover=box.querySelector('.ytf-cover')||box.querySelector('.poster-cover');
     function make(){
       var player=new YT.Player(mount,{width:'100%',height:'100%',videoId:id,
-        playerVars:{autoplay:1,controls:0,rel:0,modestbranding:1,playsinline:1,iv_load_policy:3,disablekb:1,fs:0,start:st},
+        playerVars:{autoplay:1,controls:0,rel:0,modestbranding:1,playsinline:1,iv_load_policy:3,disablekb:1,fs:0,start:st,cc_load_policy:0,hl:'uk'},
         events:{
-          onReady:function(e){try{e.target.playVideo();}catch(x){}},
+          onReady:function(e){try{e.target.playVideo();e.target.unloadModule('captions');e.target.unloadModule('cc');}catch(x){}},
           onStateChange:function(e){
             if(e.data===0){
               box.querySelectorAll('iframe,.ytf-guard').forEach(function(n){n.remove();});
