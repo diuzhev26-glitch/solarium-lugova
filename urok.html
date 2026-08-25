@@ -414,12 +414,10 @@
         }});
       if(cover) cover.style.display='none';
       var g=document.createElement('div'); g.className='ytf-guard'; box.appendChild(g);
-      if(!isMain){
-        g.style.cursor='pointer';
-        g.addEventListener('click',function(){
-          try{ var s=player.getPlayerState(); if(s===1) player.pauseVideo(); else player.playVideo(); }catch(x){}
-        });
-      }
+      g.style.cursor='pointer';
+      g.addEventListener('click',function(){
+        try{ var s=player.getPlayerState(); if(s===1) player.pauseVideo(); else player.playVideo(); }catch(x){}
+      });
     }
     if(api()) make(); else q.push(make);
   }
