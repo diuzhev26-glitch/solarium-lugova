@@ -38,11 +38,11 @@
   .vframe{position:relative;border-radius:24px;padding:4px;overflow:hidden;box-shadow:0 30px 80px rgba(238,58,36,.28)}
   .vframe::before{content:"";position:absolute;top:-60%;left:-60%;width:220%;height:220%;z-index:0;
     background:conic-gradient(from 0deg,#EE3A24,#FF6A45,#FFC9B8,#F4ECE1,#FF6A45,#EE3A24);animation:vspin 6s linear infinite}
-  .vinner{position:relative;z-index:1;border-radius:20px;overflow:hidden;aspect-ratio:16/9;background:radial-gradient(130% 130% at 16% 8%,#FF7A50 0%,#EE3A24 48%,#C42A16 100%);display:flex;align-items:center;justify-content:center}
+  .vinner{position:relative;z-index:1;border-radius:20px;overflow:hidden;aspect-ratio:16/9;background:#000;display:flex;align-items:center;justify-content:center}
   @keyframes vspin{to{transform:rotate(360deg)}}
   .ytf{position:absolute;inset:0;cursor:pointer;z-index:1}
   .ytf-cover{position:absolute;inset:0;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;z-index:4}
-  .ytf-cover::after{content:"";position:absolute;inset:0;background:rgba(20,10,6,.2)}
+  .ytf-cover::after{content:none}
   .ytf-btn{position:relative;z-index:2;width:78px;height:78px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 44px rgba(0,0,0,.3);transition:transform .15s}
   .ytf:hover .ytf-btn{transform:scale(1.07)}
   .ytf-btn svg{margin-left:4px}
@@ -140,6 +140,12 @@
   .circle-box .c-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;background:rgba(20,10,6,.28);transition:opacity .2s}
   .circle-box.playing .c-play{opacity:0}
   @media(max-width:760px){.circles-grid{grid-template-columns:repeat(2,minmax(0,150px))}}
+  .phone{display:flex;align-items:center;border:1px solid var(--line);background:var(--paper);border-radius:12px}
+  .phone:focus-within{border-color:var(--coral)}
+  .phone select{appearance:none;-webkit-appearance:none;border:none;outline:none;background:transparent;color:var(--ink);font-family:inherit;font-size:15px;font-weight:600;padding:15px 26px 15px 16px;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238D8A85' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center}
+  .phone .sep{width:1px;height:26px;background:var(--line);flex:none}
+  .phone input{border:none;background:transparent;flex:1;min-width:0}
+  .phone input:focus{border:none}
 </style>
 </head>
 <body>
@@ -151,7 +157,7 @@
 <div class="wrap">
   <section class="top">
     <div class="kicker">Безкоштовний урок · 16 хвилин</div>
-    <h1>Як знайти свою унікальність <span class="it">і вийти</span> на стабільні <span class="hl">10–30к&nbsp;$</span> на місяць</h1>
+    <h1>Як знайти свою унікальність і вийти на стабільні <span class="hl">10–30к&nbsp;$</span> на місяць</h1>
   </section>
 
   <div class="vwrap">
@@ -180,7 +186,7 @@
         <div class="form-mid">
           <form onsubmit="return false">
             <input placeholder="Твоє ім'я" autocomplete="name">
-            <input placeholder="Твій нік у Telegram або телефон">
+            <div class="phone"><select aria-label="Код країни"><option value="+380" selected>🇺🇦 +380</option><option value="+48">🇵🇱 +48</option><option value="+49">🇩🇪 +49</option><option value="+420">🇨🇿 +420</option><option value="+44">🇬🇧 +44</option><option value="+1">🇺🇸 +1</option></select><span class="sep"></span><input type="tel" placeholder="63 123 45 67" autocomplete="tel" inputmode="tel"></div>
             <button class="btn" type="submit">Отримати розбір і подарунки →</button>
           </form>
           <div class="fsub">Після заявки я звʼяжуся з тобою в Telegram ♥</div>
@@ -191,12 +197,12 @@
     <!-- ПРАВОРУЧ: бонуси -->
     <div class="col text-col">
       <div class="fcard">
-      <h2>Що ти отримаєш, <span>залишивши заявку</span></h2>
+      <h2>Що ти отримаєш, <span class="it" style="display:block;margin-top:4px;color:var(--coral)">залишивши заявку</span></h2>
       <div class="bonuses">
         <div class="bonus-row">
           <div class="bi">1</div>
           <div>
-            <h3>Воркбук-конструктор <span class="hl">«Карта Об'ємного Персонажу»</span></h3>
+            <h3>Конструктор <span class="hl">«Карта Об'ємного Персонажу»</span></h3>
             <p>Зробиш діагностику себе і побачиш сильні сторони й особливості, за які обирають саме тебе.</p>
           </div>
         </div>
@@ -204,14 +210,14 @@
           <div class="bi">2</div>
           <div>
             <h3>Розбір <span class="hl">Лєри Бородіної та Юлії Козачкової</span></h3>
-            <p>Стратегії особистих брендів лідерок ринку за методологією Об'ємного Персонажу — впровадиш собі.</p>
+            <p>Стратегії особистих брендів лідерок ринку, щоб одразу підчерпнути десятки ідей у свій блог.</p>
           </div>
         </div>
         <div class="bonus-row">
           <div class="bi">3</div>
           <div>
             <h3>Доступ у закритий <span class="hl">Telegram-канал</span></h3>
-            <p>Розбори ефективних сторітелів лідерів ринку. Цього більше немає ніде.</p>
+            <p>Розбори ефективних сторітелів лідерів ринку.</p>
           </div>
         </div>
       </div>
@@ -272,10 +278,6 @@
   <section class="vids">
     <h2 class="vids-h">Що говорять учасниці <span>SOLARIUM</span></h2>
     <p class="vids-sub">Бо я працюю з людьми вдовгу: <b>40%</b> кожного потоку повертаються знову, а оцінка програми — <b class="y">9.5</b>. Мій результат починається тоді, коли є твій.</p>
-    <div class="vids-grid">
-      <div class="vid-box"><div class="ph"><span>відгук · Влада</span></div></div>
-      <div class="vid-box"><div class="ph"><span>відгук · Надя</span></div></div>
-    </div>
     <div class="shorts-grid three">
       <div class="short-box"><video src="img/story1.mp4" controls playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000"></video></div>
       <div class="short-box"><video src="img/story2.mp4" controls playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000"></video></div>
@@ -299,7 +301,7 @@
         <div class="form-mid">
           <form onsubmit="return false">
             <input placeholder="Твоє ім'я" autocomplete="name">
-            <input placeholder="Твій нік у Telegram або телефон">
+            <div class="phone"><select aria-label="Код країни"><option value="+380" selected>🇺🇦 +380</option><option value="+48">🇵🇱 +48</option><option value="+49">🇩🇪 +49</option><option value="+420">🇨🇿 +420</option><option value="+44">🇬🇧 +44</option><option value="+1">🇺🇸 +1</option></select><span class="sep"></span><input type="tel" placeholder="63 123 45 67" autocomplete="tel" inputmode="tel"></div>
             <button class="btn" type="submit">Отримати розбір і подарунки →</button>
           </form>
           <div class="fsub">Після заявки я звʼяжуся з тобою в Telegram ♥</div>
@@ -308,12 +310,12 @@
     </div>
     <div class="col text-col">
       <div class="fcard">
-      <h2>Що ти отримаєш, <span>залишивши заявку</span></h2>
+      <h2>Що ти отримаєш, <span class="it" style="display:block;margin-top:4px;color:var(--coral)">залишивши заявку</span></h2>
       <div class="bonuses">
         <div class="bonus-row">
           <div class="bi">1</div>
           <div>
-            <h3>Воркбук-конструктор <span class="hl">«Карта Об'ємного Персонажу»</span></h3>
+            <h3>Конструктор <span class="hl">«Карта Об'ємного Персонажу»</span></h3>
             <p>Зробиш діагностику себе і побачиш сильні сторони й особливості, за які обирають саме тебе.</p>
           </div>
         </div>
@@ -321,14 +323,14 @@
           <div class="bi">2</div>
           <div>
             <h3>Розбір <span class="hl">Лєри Бородіної та Юлії Козачкової</span></h3>
-            <p>Стратегії особистих брендів лідерок ринку за методологією Об'ємного Персонажу — впровадиш собі.</p>
+            <p>Стратегії особистих брендів лідерок ринку, щоб одразу підчерпнути десятки ідей у свій блог.</p>
           </div>
         </div>
         <div class="bonus-row">
           <div class="bi">3</div>
           <div>
             <h3>Доступ у закритий <span class="hl">Telegram-канал</span></h3>
-            <p>Розбори ефективних сторітелів лідерів ринку. Цього більше немає ніде.</p>
+            <p>Розбори ефективних сторітелів лідерів ринку.</p>
           </div>
         </div>
       </div>
