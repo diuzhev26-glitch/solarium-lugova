@@ -82,7 +82,7 @@
   .fsub{color:var(--muted);font-size:13px;text-align:center;margin-top:12px}
   .bonuses{display:grid;gap:16px}
   .bonus-row{display:flex;gap:14px;align-items:flex-start}
-  .bi{flex:none;width:44px;height:44px;border-radius:50%;background:var(--coral);color:#fff;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(238,58,36,.4)}
+  .bi{flex:none;width:44px;height:44px;border-radius:50%;background:var(--coral);color:#fff;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center}
   .bonus-row h3{font-size:16px;font-weight:800;margin-bottom:5px;line-height:1.2}
   .bonus-row h3 .hl{color:var(--coral)}
   .bonus-row p{color:var(--ink2);font-size:13.5px;line-height:1.5}
@@ -152,6 +152,15 @@
     .shorts-grid.three{grid-template-columns:minmax(0,340px);gap:16px}
     .circles-grid{grid-template-columns:repeat(2,minmax(0,164px));gap:16px}
   }
+
+  .kicker .k2::before{content:"· "}
+  @media(max-width:640px){
+    .kicker{flex-direction:column;gap:4px}
+    .kicker::before,.kicker::after{display:none}
+    .kicker .k2::before{content:""}
+    h1{font-size:22px;letter-spacing:-.01em}
+    h1 .hl{white-space:nowrap}
+  }
 </style>
 </head>
 <body>
@@ -162,8 +171,8 @@
 
 <div class="wrap">
   <section class="top">
-    <div class="kicker">Безкоштовний урок · 16 хвилин</div>
-    <h1>Як знайти свою унікальність і вийти на стабільні <span class="hl">10–30к&nbsp;$</span> на місяць</h1>
+    <div class="kicker"><span>Безкоштовний урок</span><span class="k2">16 хвилин</span></div>
+    <h1>Як знайти свою унікальність і вийти на стабільні <span class="hl">10–30к&nbsp;$</span> на&nbsp;місяць</h1>
   </section>
 
   <div class="vwrap">
