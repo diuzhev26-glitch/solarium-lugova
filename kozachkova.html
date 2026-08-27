@@ -97,13 +97,16 @@
   .fig{border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--cream);
     box-shadow:0 22px 60px rgba(238,58,36,.12)}
   .fig img{width:100%;height:100%;object-fit:cover;display:block}
-  .figs{display:grid;gap:14px;margin-top:24px}
+  .figs{display:grid;gap:14px;margin-top:24px;align-items:start}
   .figs.two{grid-template-columns:1fr 1fr}
   .figs.three{grid-template-columns:repeat(3,1fr)}
   @media(max-width:640px){.figs.two,.figs.three{grid-template-columns:1fr}}
   .fig.p{aspect-ratio:3/4}
   .fig.s{aspect-ratio:1/1}
   .fig.w{aspect-ratio:16/9}
+  .fig.full{aspect-ratio:auto;background:transparent;border:none;box-shadow:none}
+  .fig.full img{width:100%;height:auto;object-fit:contain;border-radius:20px;
+    border:1px solid var(--line);box-shadow:0 22px 60px rgba(238,58,36,.12)}
   .cap{font-family:'Lora',serif;font-style:italic;font-size:14px;color:var(--muted);
     text-align:center;margin-top:10px}
 
@@ -285,7 +288,7 @@
       <span class="tag">15 000 користувачів Teya щодня</span>
     </div>
     <div class="figs two">
-      <div class="fig s"><img src="img/yulia-media.jpg" alt="Публікації та проєкти Юлії"></div>
+      <div class="fig full"><img src="img/yulia-media.jpg" alt="Публікації та проєкти Юлії"></div>
       <div class="fig s"><img src="img/yulia-book.jpg" alt="Книга «Ген грошей»"></div>
     </div>
     <div class="cap">Книги, застосунок Teya, Академія MCMM, виступи й публікації</div>
@@ -450,14 +453,14 @@
     <p>У контенті є професійні виступи, подкасти, наукові теми, робота над продуктами. А поруч — відео в моменті, гумор, чоловік, діти, батьки, танці, втома, звичайне життя. Аудиторія бачить, що відбувається з людиною, коли вимикаються сцена, студія та експертний формат.</p>
     <h3>Віра як частина опори</h3>
     <p>Її віра в Бога не виглядає окремою рубрикою, відірваною від решти життя. Вона доповнює головну лінію персонажа: внутрішня сила будується не лише на контролі, роботі та власних досягненнях — у ній є місце довірі, любові й вірі.</p>
-    <div class="figs"><div class="fig w"><img src="img/yulia-fond.jpg" alt="Благодійний фонд родини Велішаєвих" style="object-position:center 30%"></div></div>
+    <div class="figs"><div class="fig full"><img src="img/yulia-fond.jpg" alt="Благодійний фонд родини Велішаєвих" style="object-position:center 30%"></div></div>
     <div class="cap">Цінності, переведені в дію: спільний благодійний фонд родини Велішаєвих</div>
   </section>
 
   <section class="blk">
     <h2>🧩 Формула Об'ємного персонажа</h2>
     <p>Стисла «карта» особистості — зручно тримати перед очима.</p>
-    <div class="figs"><div class="fig w"><img src="img/op-scheme.jpg" alt="Схема Об'ємного персонажа"></div></div>
+    <div class="figs"><div class="fig full"><img src="img/op-scheme.jpg" alt="Схема Об'ємного персонажа"></div></div>
     <div class="map">
       <div class="mcard"><div class="mk">Позиція</div><p>Великі зміни створюються маленькими діями щодня, але справжня реалізація потребує парадигми «або найкращий, або ніякий». Успіх має давати задоволення від власного життя.</p></div>
       <div class="mcard"><div class="mk">Ролі життя</div><p>Підприємиця, психологиня, коучиня, дослідниця, авторка, спікерка, керівниця, кохана жінка, мама — головний фанат своїх дітей, донька та людина віри.</p></div>
@@ -480,7 +483,7 @@
 
   <section class="blk">
     <h2>Партнерська програма SOLARIUM</h2>
-    <div class="figs"><div class="fig w"><img src="img/solarium-banner.jpg" alt="Партнерська програма SOLARIUM"></div></div>
+    <div class="figs"><div class="fig full"><img src="img/solarium-banner.jpg" alt="Партнерська програма SOLARIUM"></div></div>
     <p>Я впевнена, що у кожній людині є суперсила. Її просто потрібно знайти. Запрошую вас у свою партнерську програму <b>SOLARIUM</b>, де ви почнете заробляти та масштабуватися через власну унікальність, а не через копіювання чужих стратегій.</p>
     <p>За 3 місяці я проведу вас за руку, де ми разом:</p>
     <ul>
