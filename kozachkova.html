@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Розбір Юлії Козачкової — Об'ємний персонаж · SOLARIUM</title>
+<meta name="description" content="Розбір особистості Юлії Козачкової за методологією Об'ємного персонажа: позиція, ролі життя, ролі впливу, контраст, шлях, емоція контакту, прояв.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --coral:#EE3A24; --coral-deep:#C42A16; --coral-warm:#FF6A45;
+    --ink:#141414; --ink2:#3A3732; --muted:#8D8A85;
+    --paper:#FBF7F1; --card:#FFFFFF; --cream:#F4ECE1;
+    --line:rgba(20,20,20,.12); --line-soft:rgba(20,20,20,.07);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{overflow-x:hidden}
+  body{background:var(--paper);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    line-height:1.62;-webkit-font-smoothing:antialiased}
+  .glow{position:absolute;border-radius:50%;filter:blur(120px);opacity:.5;z-index:0;pointer-events:none}
+  .glow.g1{width:640px;height:640px;background:radial-gradient(closest-side,rgba(255,106,69,.7),rgba(238,58,36,.2) 50%,transparent 72%);top:-260px;left:-200px}
+  .glow.g2{width:520px;height:520px;background:radial-gradient(closest-side,rgba(255,106,69,.45),rgba(238,58,36,.14) 50%,transparent 72%);top:1400px;right:-220px}
+  .wrap{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:0 22px}
+  .wide{max-width:1000px}
+  a{color:inherit}
+
+  /* хедер */
+  .nav{position:relative;z-index:2;border-bottom:1px solid var(--line-soft);background:rgba(251,247,241,.86);
+    backdrop-filter:blur(10px);position:sticky;top:0}
+  .nav-in{max-width:1000px;margin:0 auto;padding:13px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:800;letter-spacing:.16em;font-size:13px;text-transform:uppercase}
+  .brand .sun{width:14px;height:14px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%,var(--coral-warm),var(--coral) 60%,var(--coral-deep));
+    box-shadow:0 0 14px rgba(238,58,36,.6)}
+  .nav .go{background:var(--coral);color:#fff;font-weight:800;font-size:12.5px;text-transform:uppercase;
+    letter-spacing:.05em;padding:10px 18px;border-radius:100px;text-decoration:none;white-space:nowrap;
+    box-shadow:0 10px 26px rgba(238,58,36,.28)}
+  @media(max-width:560px){.nav .go{font-size:11.5px;padding:9px 14px}}
+
+  /* hero */
+  header.hero{position:relative;padding:54px 0 26px;overflow:hidden}
+  .kick{display:inline-flex;align-items:center;gap:10px;color:var(--coral);font-weight:700;font-size:11.5px;
+    letter-spacing:.22em;text-transform:uppercase;border:1px solid rgba(238,58,36,.32);background:rgba(238,58,36,.06);
+    padding:8px 16px;border-radius:100px}
+  h1{font-size:clamp(29px,4.4vw,48px);font-weight:800;text-transform:uppercase;line-height:1.08;
+    letter-spacing:-.025em;margin:22px 0 0}
+  h1 .hl{color:var(--coral)}
+  .sub{font-family:'Lora',Georgia,serif;font-style:italic;font-size:clamp(18px,2.3vw,23px);color:var(--ink2);
+    margin-top:18px;line-height:1.45}
+  .meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+  .chip{font-size:12.5px;font-weight:600;background:var(--card);border:1px solid var(--line);
+    padding:7px 14px;border-radius:100px;color:var(--ink2)}
+
+  /* текст статьи */
+  main{padding-bottom:40px}
+  section.blk{padding:34px 0;border-top:1px solid var(--line-soft)}
+  section.blk:first-of-type{border-top:none}
+  p{font-size:17.5px;color:var(--ink2);margin-top:15px}
+  p b,strong{color:var(--ink);font-weight:700}
+  h2{font-size:clamp(23px,3.2vw,33px);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:1.1}
+  h3{font-size:19px;font-weight:800;margin-top:26px;line-height:1.25}
+  .sechead{display:flex;align-items:baseline;gap:14px}
+  .sechead .no{font-family:'Lora',serif;font-style:italic;font-size:30px;color:var(--coral);line-height:1;flex:none}
+  .sechead-sub{font-family:'Lora',serif;font-style:italic;color:var(--muted);font-size:17px;margin-top:8px}
+  ul{margin:14px 0 0;padding-left:0;list-style:none}
+  ul li{position:relative;padding-left:24px;margin-top:9px;font-size:17px;color:var(--ink2)}
+  ul li::before{content:"";position:absolute;left:6px;top:11px;width:7px;height:7px;border-radius:50%;background:var(--coral)}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .tag{background:var(--card);border:1px solid var(--line);border-radius:100px;padding:8px 15px;font-size:14px;font-weight:600}
+
+  .quote{background:var(--ink);color:var(--cream);border-radius:20px;padding:26px 28px;margin-top:22px;
+    position:relative;overflow:hidden;font-family:'Lora',serif;font-style:italic;font-size:20px;line-height:1.45}
+  .quote .glow{width:280px;height:280px;top:-130px;right:-90px;filter:blur(70px);opacity:.75;
+    background:radial-gradient(circle,rgba(238,58,36,.7),rgba(238,58,36,0) 70%)}
+  .quote span{position:relative;z-index:2}
+  .quote b{font-style:normal;font-weight:700;color:#fff}
+
+  .callout{background:rgba(238,58,36,.07);border:1px solid rgba(238,58,36,.26);border-radius:18px;
+    padding:20px 24px;margin-top:20px}
+  .callout .k{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);margin-bottom:6px}
+  .callout p{margin-top:0;color:var(--ink);font-size:17px}
+
+  .author{display:flex;gap:20px;align-items:flex-start;background:var(--card);border:1px solid var(--line);
+    border-radius:22px;padding:24px;margin-top:20px;box-shadow:0 20px 60px rgba(238,58,36,.08)}
+  .author .ph{flex:none;width:82px;height:82px;border-radius:50%;background:var(--cream);overflow:hidden;
+    border:2px solid rgba(238,58,36,.3);display:flex;align-items:center;justify-content:center;
+    font-weight:800;color:var(--coral);letter-spacing:.1em;font-size:22px}
+  .author p{margin-top:8px;font-size:16px}
+  .author h4{font-size:18px;font-weight:800}
+  @media(max-width:560px){.author{flex-direction:column;gap:14px}}
+
+  .heroimg{margin-top:26px;border-radius:22px;overflow:hidden;border:1px solid var(--line);
+    box-shadow:0 26px 70px rgba(238,58,36,.14);aspect-ratio:16/8;background:var(--cream)}
+  .heroimg img{width:100%;height:100%;object-fit:cover;object-position:center 26%;display:block}
+
+  /* карта-формула */
+  .map{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+  @media(max-width:700px){.map{grid-template-columns:1fr}}
+  .mcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 22px}
+  .mcard .mk{font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-bottom:8px}
+  .mcard p{margin-top:0;font-size:15.5px;line-height:1.55}
+
+  /* мини-CTA */
+  .mini{background:linear-gradient(120deg,var(--coral),var(--coral-deep));color:#fff;border-radius:22px;
+    padding:26px 28px;margin-top:26px;text-align:center;box-shadow:0 24px 60px rgba(238,58,36,.28)}
+  .mini p{color:#FFE3DA;margin-top:0;font-size:17px}
+  .mini .mt{font-family:'Lora',serif;font-style:italic;font-size:23px;color:#fff;line-height:1.35;margin-bottom:12px}
+  .mini a{display:inline-flex;align-items:center;gap:9px;background:#fff;color:var(--coral-deep);font-weight:800;
+    text-transform:uppercase;font-size:14px;letter-spacing:.05em;padding:14px 26px;border-radius:100px;
+    text-decoration:none;margin-top:16px;transition:transform .18s}
+  .mini a:hover{transform:translateY(-2px)}
+
+  /* блок формы */
+  .cta{padding:8px 0 44px}
+  .cta-in{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:30px;
+    box-shadow:0 30px 80px rgba(238,58,36,.13)}
+  .cta-h{text-align:center;font-weight:800;text-transform:uppercase;font-size:clamp(21px,2.6vw,30px);
+    line-height:1.12;letter-spacing:-.015em}
+  .cta-h .it{display:block;margin-top:5px;font-family:'Lora',serif;font-style:italic;font-weight:500;
+    text-transform:none;color:var(--coral);letter-spacing:0}
+  .cta-sub{text-align:center;color:var(--ink2);font-size:16px;margin-top:10px;max-width:560px;margin-left:auto;margin-right:auto}
+  .cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:24px;align-items:start}
+  @media(max-width:800px){.cta-grid{grid-template-columns:1fr;gap:22px}.cta-in{padding:26px 22px}}
+  form{display:grid;gap:11px}
+  input{width:100%;padding:15px 16px;border-radius:12px;border:1px solid var(--line);background:var(--paper);
+    color:var(--ink);font-size:15px;font-family:inherit;outline:none;transition:border-color .15s}
+  input::placeholder{color:var(--muted)}
+  input:focus{border-color:var(--coral)}
+  .phone{display:flex;align-items:center;border:1px solid var(--line);background:var(--paper);border-radius:12px}
+  .phone:focus-within{border-color:var(--coral)}
+  .phone select{appearance:none;-webkit-appearance:none;border:none;outline:none;background:transparent;color:var(--ink);
+    font-family:inherit;font-size:15px;font-weight:600;padding:15px 26px 15px 16px;cursor:pointer;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238D8A85' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 10px center}
+  .phone .sep{width:1px;height:26px;background:var(--line);flex:none}
+  .phone input{border:none;background:transparent;flex:1;min-width:0}
+  .btn{display:inline-flex;align-items:center;gap:10px;justify-content:center;background:var(--coral);color:#fff;
+    font-weight:800;font-size:15.5px;padding:16px 24px;border-radius:100px;border:none;cursor:pointer;font-family:inherit;
+    box-shadow:0 14px 40px rgba(238,58,36,.35);text-transform:uppercase;letter-spacing:.04em;width:100%;
+    transition:transform .18s,box-shadow .18s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 18px 50px rgba(238,58,36,.45)}
+  .fsub{color:var(--muted);font-size:13px;text-align:center;margin-top:11px}
+  .bon-h{font-weight:800;text-transform:uppercase;font-size:16px;letter-spacing:.02em;margin-bottom:14px}
+  .bon-h .hl{color:var(--coral)}
+  .bonuses{display:grid;gap:14px}
+  .bonus-row{display:flex;gap:13px;align-items:flex-start}
+  .bi{flex:none;width:38px;height:38px;border-radius:50%;background:var(--coral);color:#fff;font-weight:800;
+    font-size:16px;display:flex;align-items:center;justify-content:center}
+  .bonus-row h5{font-size:15px;font-weight:800;line-height:1.25;margin-bottom:3px}
+  .bonus-row h5 .hl{color:var(--coral)}
+  .bonus-row p{color:var(--ink2);font-size:13.5px;line-height:1.5;margin-top:0}
+
+  footer{border-top:1px solid var(--line);padding:26px 0 34px;text-align:center;color:var(--muted);font-size:13px}
+  footer b{color:var(--coral);letter-spacing:.3em;text-transform:uppercase;font-weight:600;font-size:12px}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <div class="brand"><span class="sun"></span> Solarium</div>
+    <a class="go" href="#zayavka">Записатися на розбір</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="glow g1"></div>
+  <div class="wrap">
+    <div class="kick">Методологія «Об'ємний персонаж»</div>
+    <h1>Розбір Юлії Козачкової, або як стати <span class="hl">жінкою, за якою захочеться йти</span></h1>
+    <p class="sub">Розбір особистості за 7 шарами: позиція, ролі життя, ролі впливу, контраст, шлях, емоція контакту, прояв.</p>
+    <div class="meta">
+      <span class="chip">Олександра Лугова</span>
+      <span class="chip">≈ 12 хвилин читання</span>
+      <span class="chip">Розбір №2</span>
+    </div>
+    <div class="heroimg"><img src="img/kozachkova.jpg" alt="Юлія Козачкова"></div>
+  </div>
+</header>
+
+<main>
+
+<div class="wrap">
+
+  <section class="blk">
+    <h2>Давайте знайомитися <span style="color:var(--coral)">♥</span></h2>
+    <div class="author">
+      <div class="ph"><img src="img/sasha-final.jpg" alt="Олександра Лугова" style="width:100%;height:100%;object-fit:cover;object-position:center 22%"></div>
+      <div>
+        <h4>Олександра Лугова</h4>
+        <p>Маркетологиня, стратегиня та продюсерка. З 2019 року працюю з експертами й брендами: допомагаю знаходити їхню справжню відмінність, створювати позиціонування, продукти, контентні системи та запуски на <b>$10 000, $30 000 і $74 000</b>. За цей час попрацювала з понад 30 брендами та сотнями експертів із різних ніш.</p>
+      </div>
+    </div>
+    <p>Моя головна сила — побачити в людині те, що вона сама часто не помічає:</p>
+    <ul>
+      <li>за що її насправді обирають;</li>
+      <li>як саме вона створює результат;</li>
+      <li>що робить її живою та впізнаваною;</li>
+      <li>як перетворити це на сильний бренд і систему масштабування.</li>
+    </ul>
+    <div class="callout">
+      <div class="k">Методологія</div>
+      <p>Так з'явився мій авторський метод <b>«Об'ємний персонаж»</b>. У ньому ми не описуємо людину словами «сильна», «розумна» чи «харизматична». Ми аналізуємо її реальні рішення, досвід, позицію, ролі, контрасти та повторювані способи впливати на людей.</p>
+    </div>
+    <p>І сьогодні я покажу, як це працює, на прикладі Юлії Козачкової. Ми розберемо не лише її експертність, продукти чи масштаб бізнесу. Ми спробуємо відповісти на питання:</p>
+    <div class="quote"><div class="glow"></div><span>Якою людиною потрібно бути, щоб одночасно створювати масштабні проєкти, тримати надзвичайно високу планку, залишатися живою, м'якою, близькою до сім'ї — <b>і формувати навколо себе таку сильну довіру?</b></span></div>
+  </section>
+
+</div>
+
+<!-- ФОРМА 1 -->
+<section class="cta"><div class="wrap wide">
+  <div class="cta-in">
+    <div class="cta-h">А якщо ти захочеш такий самий розбір<span class="it">свого об'ємного персонажа?</span></div>
+    <p class="cta-sub">Приходь на безкоштовну діагностичну сесію — ми пройдемо твої 7 шарів і побачимо, з чого будувати твій бренд.</p>
+    <div class="cta-grid">
+      <div>
+        <form onsubmit="return false">
+          <input placeholder="Твоє ім'я" autocomplete="name">
+          <div class="phone">
+            <select aria-label="Код країни"><option value="+380" selected>🇺🇦 +380</option><option value="+48">🇵🇱 +48</option><option value="+49">🇩🇪 +49</option><option value="+420">🇨🇿 +420</option><option value="+44">🇬🇧 +44</option><option value="+1">🇺🇸 +1</option></select>
+            <span class="sep"></span>
+            <input type="tel" placeholder="63 123 45 67" autocomplete="tel" inputmode="tel">
+          </div>
+          <button class="btn" type="submit">Записатися на діагностику →</button>
+        </form>
+        <div class="fsub">Після заявки я звʼяжуся з тобою в Telegram <span style="color:var(--coral)">♥</span></div>
+      </div>
+      <div>
+        <div class="bon-h">Що ти отримаєш, <span class="hl">залишивши заявку</span></div>
+        <div class="bonuses">
+          <div class="bonus-row"><div class="bi">1</div><div><h5>Конструктор <span class="hl">«Карта Об'ємного Персонажу»</span></h5><p>Зробиш діагностику себе і побачиш сильні сторони, за які обирають саме тебе.</p></div></div>
+          <div class="bonus-row"><div class="bi">2</div><div><h5>Розбір <span class="hl">Лєри Бородіної</span></h5><p>Стратегія особистого бренду лідерки ринку — десятки ідей одразу у свій блог.</p></div></div>
+          <div class="bonus-row"><div class="bi">3</div><div><h5>Закритий <span class="hl">Telegram-канал</span></h5><p>«Ідеї для контенту»: розбори ефективних сторітелів лідерів ринку.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<div class="wrap">
+
+  <section class="blk">
+    <h2>Хто така Юлія</h2>
+    <p>Юлія Велішаєва — українська підприємиця, практикуюча психологиня та коучиня, наукова дослідниця й авторка книг «Мистецтво бути в Цей: Час» і «Ген грошей». Членкиня American Psychological Association та Асоціації клінічних психологів і психіатрів України. У 2026 році брала участь у міжнародній науковій конференції з психології в Кембриджі та представляла власні дослідницькі роботи.</p>
+    <div class="tags">
+      <span class="tag">247 000 підписників в Instagram</span>
+      <span class="tag">11+ років у EdTech</span>
+      <span class="tag">15 000 користувачів Teya щодня</span>
+    </div>
+    <p>Вона заснувала EdTech-екосистему <b>Mind Master</b>, є власницею <b>Академії MCMM</b> із сертифікації коучів і менторів та співвласницею застосунку <b>Teya</b> у сфері Mental Health.</p>
+    <p>Але її феномен не лише в кількості продуктів, виступів чи наукових регалій. Від Юлії дуже сильно відчувається <b>внутрішній стержень</b>. Вона багато працює, постійно навчається, створює книги, розвиває технологічні продукти, виступає перед великими аудиторіями та ставить надзвичайно високу планку собі й команді.</p>
+    <p>Водночас вона не перетворює силу на свою єдину роль. У її блозі поруч із підприємицею та дослідницею живе жінка, яка нещодавно одружилася, ніжна з чоловіком, пишається батьками, танцює й малює з дітьми, вірить у Бога та вміє посміятися із себе. Вона може виступати перед великою аудиторією, а потім викласти живе відео, де чоловік несе її на руках, і пожартувати: «У мене ніжки болять».</p>
+    <div class="callout"><div class="k">Висновок</div><p>Саме це робить її не просто сильною експерткою, а <b>Об'ємним персонажем</b>.</p></div>
+  </section>
+
+  <section class="blk">
+    <div class="sechead"><span class="no">01</span><h2>Позиція</h2></div>
+    <p class="sechead-sub">Те, у що людина вірить і що відстоює.</p>
+    <p>У публічній комунікації Юлії постійно поєднуються дві думки: «Великі зміни створюються маленькими діями щодня» і «Розвивайте в собі парадигму: або найкращий, або ніякий».</p>
+    <p>На перший погляд ці ідеї суперечать одна одній. Але разом вони формують її позицію: <b>не потрібно чекати одного великого ривка — потрібно щодня робити невеликі дії, але тримати перед собою найвищу планку якості.</b></p>
+    <p>Юлія не транслює, що достатньо просто повірити у себе. Для неї сильна ідея без дисципліни, підготовки, практики й високих стандартів залишається просто ідеєю.</p>
+    <div class="quote"><div class="glow"></div><span>У кризовій ситуації людина не підіймається до рівня власних очікувань, а <b>опускається до рівня своєї підготовки.</b></span></div>
+    <p>Водночас її визначення успіху не обмежується масштабом. Для неї успіх — це задоволення від власного життя: коли бізнес не суперечить тобі; коли масштаб не коштує внутрішнього спокою; коли результат не створений ціною повної втрати себе.</p>
+    <div class="callout"><div class="k">Формула позиції</div><p>Будуй велике. Працюй на рівні найкращих. Але не створюй успіх, у якому тобі самій погано жити.</p></div>
+  </section>
+
+  <section class="blk">
+    <div class="sechead"><span class="no">02</span><h2>Ролі життя</h2></div>
+    <p class="sechead-sub">Різні сторони особистості, які роблять людину живою, а не лише експерткою.</p>
+    <div class="tags">
+      <span class="tag">підприємиця</span><span class="tag">психологиня</span><span class="tag">коучиня</span>
+      <span class="tag">наукова дослідниця</span><span class="tag">авторка</span><span class="tag">спікерка</span>
+      <span class="tag">керівниця</span><span class="tag">кохана жінка</span><span class="tag">мама</span>
+      <span class="tag">донька</span><span class="tag">людина віри</span>
+    </div>
+    <p>І найцікавіше — вона не переносить одну роль на все своє життя. У бізнесі може бути жорсткою до стандартів, зібраною й вимогливою. На сцені — сильною та впевненою. У науці — дисциплінованою дослідницею, яка продовжує навчатися, навіть уже маючи велику аудиторію, бізнес і власні методики. А поруч із чоловіком дозволяє собі бути ніжною, грайливою, просити про турботу й не контролювати все самостійно.</p>
+    <div class="callout"><div class="k">Прояв об'єму</div><p>Сильна жінка не зобов'язана залишатися сильною щохвилини й у кожному просторі.</p></div>
+    <p>У її блозі дуже помітні сімейні цінності: вона перевезла батьків ближче до себе, відкрито показує, як пишається татом, проводить час із дітьми, малює й танцює разом із ними. Із контенту відчувається, що вона не просто мама — вона <b>головний фанат своїх дітей</b>. Сім'я в її образі не декоративна лінія для теплого контенту, а частина системи цінностей, навколо якої вона будує життя.</p>
+    <div class="mini">
+      <div class="mt">Показуєш лише експертизу і не розумієш, що з особистого «можна в контент»?</div>
+      <p>Тоді запрошую тебе на безкоштовний розбір зі мною.</p>
+      <a href="#zayavka">Записатися →</a>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="sechead"><span class="no">03</span><h2>Ролі впливу</h2></div>
+    <p class="sechead-sub">Те, ким людина стає для інших і яку цінність створює у взаємодії.</p>
+    <h3>Опора</h3>
+    <p>Юлія повертає людину до внутрішньої стійкості, але не створює залежність від себе. Її мета — не «прив'язати» клієнта, а навчити його самостійно керувати власними почуттями, думками та поведінкою. Її роль звучить не «Я знаю, як вам жити», а <b>«Я допоможу вам навчитися бути опорою для себе»</b>.</p>
+    <h3>Провідниця</h3>
+    <p>Вона проводить людину не лише до зовнішнього результату, а до іншої якості життя. Для неї недостатньо більше заробити, створити бізнес, стати продуктивнішою чи досягти цілі — важливо, ким людина стає в цьому процесі й чи не суперечить результат її справжнім цінностям.</p>
+    <h3>Дослідниця</h3>
+    <p>Юлія не позиціонує себе людиною, яка вже отримала остаточні відповіді. Вона продовжує навчатися, проводити дослідження, публікувати науково-практичні матеріали, тестувати методики та виступати на професійних конференціях.</p>
+    <h3>Лідерка високої планки</h3>
+    <p>Вона не лише підтримує — вона піднімає стандарти людини щодо самої себе: «У тебе може вийти. Але для цього недостатньо мріяти — потрібно щодня ставати сильнішою у своїй справі». Ця планка проявляється і в тому, як вона формує команду: бере не просто виконавців, а фанатиків своєї справи.</p>
+    <div class="callout"><div class="k">Формула впливу</div><p>Опора + Провідниця + Дослідниця + Лідерка високої планки.</p></div>
+  </section>
+
+  <section class="blk">
+    <div class="sechead"><span class="no">04</span><h2>Контраст</h2></div>
+    <p class="sechead-sub">Поєднання несподіваних сторін, яке робить людину живою й незабутньою.</p>
+    <div class="quote"><div class="glow"></div><span>Головний контраст Юлії: <b>хардкорна в реалізації — м'яка в любові.</b></span></div>
+    <p>У роботі її ритм дуже інтенсивний: довгі робочі дні, висока планка, постійне навчання, виступи, книги, подкасти, колаборації, розвиток застосунків, робота з командою — майже без довгих пауз. Водночас у близьких стосунках ми бачимо іншу її сторону: жінку, яка ніжна з чоловіком, дозволяє про себе піклуватися, танцює з дітьми, пишається ними, сміється із себе, показує любов до батьків і говорить про віру в Бога.</p>
+    <p><b>Другий контраст:</b> вона працює з внутрішнім світом людини, але мислить як підприємиця-практик. Говорить про щастя, внутрішню опору, віру, емоційну стабільність — і перекладає це в застосунок, академію, книги, сертифікаційні програми, дослідження та цифрові продукти.</p>
+    <p><b>Третій контраст:</b> вона багато працює, але не подає виснаження як визначення успіху для кожного. Її думка глибша: знайди справу, заради якої ти готова тримати високу планку, але не створи життя, яке суперечить тобі.</p>
+    <div class="callout"><div class="k">Що бачить аудиторія</div><p>Щоб бути сильною у світі, не потрібно відмовлятися від ніжності поруч із тими, кого любиш.</p></div>
+  </section>
+
+</div>
+
+<!-- ФОРМА 2 -->
+<section class="cta"><div class="wrap wide">
+  <div class="cta-in">
+    <div class="cta-h">Свій контраст майже неможливо<span class="it">побачити зсередини</span></div>
+    <p class="cta-sub">На діагностичній сесії ми знаходимо ту саму пару несподіваних сторін, яка виділить тебе серед десятків схожих експертів.</p>
+    <div class="cta-grid">
+      <div>
+        <form onsubmit="return false">
+          <input placeholder="Твоє ім'я" autocomplete="name">
+          <div class="phone">
+            <select aria-label="Код країни"><option value="+380" selected>🇺🇦 +380</option><option value="+48">🇵🇱 +48</option><option value="+49">🇩🇪 +49</option><option value="+420">🇨🇿 +420</option><option value="+44">🇬🇧 +44</option><option value="+1">🇺🇸 +1</option></select>
+            <span class="sep"></span>
+            <input type="tel" placeholder="63 123 45 67" autocomplete="tel" inputmode="tel">
+          </div>
+          <button class="btn" type="submit">Знайти свій контраст →</button>
+        </form>
+        <div class="fsub">Після заявки я звʼяжуся з тобою в Telegram <span style="color:var(--coral)">♥</span></div>
+      </div>
+      <div>
+        <div class="bon-h">Що ти отримаєш, <span class="hl">залишивши заявку</span></div>
+        <div class="bonuses">
+          <div class="bonus-row"><div class="bi">1</div><div><h5>Конструктор <span class="hl">«Карта Об'ємного Персонажу»</span></h5><p>Діагностика себе: сильні сторони й особливості, за які обирають саме тебе.</p></div></div>
+          <div class="bonus-row"><div class="bi">2</div><div><h5>Розбір <span class="hl">Лєри Бородіної</span></h5><p>Розібрана стратегія особистого бренду лідерки ринку.</p></div></div>
+          <div class="bonus-row"><div class="bi">3</div><div><h5>Закритий <span class="hl">Telegram-канал</span></h5><p>«Ідеї для контенту» — розбори ефективних сторітелів.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<div class="wrap">
+
+  <section class="blk">
+    <div class="sechead"><span class="no">05</span><h2>Шлях</h2></div>
+    <p class="sechead-sub">Досвід, який сформував мислення, метод і сьогоднішню версію людини.</p>
+    <ul>
+      <li>від практики роботи з людьми</li>
+      <li>до створення власних психологічних і коучингових методик</li>
+      <li>до книг та освітніх програм</li>
+      <li>до Академії MCMM</li>
+      <li>до застосунку Teya</li>
+      <li>до повноцінної EdTech-екосистеми Mind Master</li>
+      <li>до наукової та академічної діяльності</li>
+    </ul>
+    <p>Важливо, що, вже маючи велику аудиторію та успішні проєкти, вона не зупинилася в ролі людини, яка «все знає». Вона продовжує обирати роль учениці: навчається, бере участь у конференціях, готує дослідницькі роботи, планує подальший академічний розвиток.</p>
+    <p>Водночас вона не приховує управлінські помилки. У колонці про створення EdTech-екосистеми Юлія пише, що за 11 років роботи робила помилки, які коштували часу, грошей та енергії, але саме вони стали її управлінською освітою.</p>
+    <div class="callout"><div class="k">Суть шляху</div><p>Це не історія миттєвого успіху. Це історія людини, яка діє, помиляється, аналізує, навчається, піднімає планку й створює наступний рівень.</p></div>
+  </section>
+
+  <section class="blk">
+    <div class="sechead"><span class="no">06</span><h2>Емоція контакту</h2></div>
+    <p class="sechead-sub">Те, що люди відчувають після взаємодії з людиною.</p>
+    <p>Після контакту з Юлією відчувається сила. Але разом із нею — вимогливість: «Ти здатна на більше. Але для цього потрібно перестати чекати й почати діяти».</p>
+    <ul>
+      <li>внутрішня опора;</li>
+      <li>віра у власні можливості;</li>
+      <li>бажання зібратися;</li>
+      <li>повага до дисципліни;</li>
+      <li>прагнення підняти власну планку;</li>
+      <li>розуміння сили маленьких щоденних дій.</li>
+    </ul>
+    <div class="quote"><div class="glow"></div><span>Не зраджуй себе. Але й <b>не використовуй любов до себе як виправдання</b>, щоб не реалізовувати власний потенціал.</span></div>
+    <p>Саме тому після її контенту хочеться не просто повірити у себе. Хочеться зробити конкретний крок.</p>
+  </section>
+
+  <section class="blk">
+    <div class="sechead"><span class="no">07</span><h2>Прояв</h2></div>
+    <p class="sechead-sub">Те, як персонаж стає помітним у контенті, продукті та комунікації.</p>
+    <h3>Маленькі дії щодня</h3>
+    <p>Її позиція проявляється в регулярності: навчання, робота, виступи, контент, розвиток продуктів, книги, подкасти, колаборації, наукова діяльність. Фраза про маленькі дії — не лише порада аудиторії, а спосіб, у який побудований її власний шлях.</p>
+    <h3>Парадигма «або найкращий, або ніякий»</h3>
+    <p>Висока інтенсивність роботи, вимогливість до продуктів, постійне вдосконалення, серйозна підготовка до виступів, академічне поглиблення, відбір людей у команду за рівнем їхньої включеності.</p>
+    <h3>Продукт у процесі</h3>
+    <p>Юлія транслює не лише готові релізи: що тестувала команда, які функції змінювали, які рішення не дали результату, як продукт удосконалюється. Це підтверджує образ практика, а не теоретика.</p>
+    <h3>Знання, переведені в екосистему</h3>
+    <p>Її персонаж проявлений не в одному блозі — він зашитий у Mind Master, Академію MCMM, застосунок Teya, книги, консультації, сертифікаційні програми та наукові публікації.</p>
+    <h3>Життя поза сценою</h3>
+    <p>У контенті є професійні виступи, подкасти, наукові теми, робота над продуктами. А поруч — відео в моменті, гумор, чоловік, діти, батьки, танці, втома, звичайне життя. Аудиторія бачить, що відбувається з людиною, коли вимикаються сцена, студія та експертний формат.</p>
+    <h3>Віра як частина опори</h3>
+    <p>Її віра в Бога не виглядає окремою рубрикою, відірваною від решти життя. Вона доповнює головну лінію персонажа: внутрішня сила будується не лише на контролі, роботі та власних досягненнях — у ній є місце довірі, любові й вірі.</p>
+  </section>
+
+  <section class="blk">
+    <h2>🧩 Формула Об'ємного персонажа</h2>
+    <p>Стисла «карта» особистості — зручно тримати перед очима.</p>
+    <div class="map">
+      <div class="mcard"><div class="mk">Позиція</div><p>Великі зміни створюються маленькими діями щодня, але справжня реалізація потребує парадигми «або найкращий, або ніякий». Успіх має давати задоволення від власного життя.</p></div>
+      <div class="mcard"><div class="mk">Ролі життя</div><p>Підприємиця, психологиня, коучиня, дослідниця, авторка, спікерка, керівниця, кохана жінка, мама — головний фанат своїх дітей, донька та людина віри.</p></div>
+      <div class="mcard"><div class="mk">Ролі впливу</div><p>Опора + Провідниця + Дослідниця + Лідерка високої планки.</p></div>
+      <div class="mcard"><div class="mk">Контраст</div><p>Хардкорна в реалізації × м'яка в любові; працює з внутрішнім світом × створює технологічні продукти; безкомпромісна до якості × тепла до близьких.</p></div>
+      <div class="mcard"><div class="mk">Шлях</div><p>Від індивідуальної роботи з людьми — до власних методик, книг, Академії, застосунку, EdTech-екосистеми та наукової діяльності.</p></div>
+      <div class="mcard"><div class="mk">Емоція контакту</div><p>Внутрішня сила, бажання діяти, повага до дисципліни, прагнення підняти власну планку й дозвіл не втрачати себе.</p></div>
+      <div class="mcard" style="grid-column:1/-1"><div class="mk">Прояв</div><p>Інтенсивна щоденна робота, книги, застосунки, виступи, подкасти, дослідження, тестування продуктів, команда сильно включених людей, живий контент, віра в Бога, любов до чоловіка, підтримка батьків і щире захоплення дітьми.</p></div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <h2>🎯 Головний висновок</h2>
+    <p>Феномен Юлії не лише в тому, що вона сильна. Її феномен у тому, що вона <b>не зробила силу своєю єдиною роллю</b>. Вона може бути масштабною на сцені; безкомпромісною до якості в роботі; допитливою в науці; ніжною з чоловіком; головним фанатом своїх дітей; вдячною донькою; людиною віри — і людиною, яка може посміятися із себе.</p>
+    <p>Її Об'ємний персонаж побудований не на виборі: сила чи м'якість; бізнес чи сім'я; наука чи віра; масштаб чи внутрішній спокій. Вона поєднує ці сторони. І саме тому не виглядає образом, створеним спеціально для соціальних мереж.</p>
+    <div class="quote"><div class="glow"></div><span>Не зраджуй себе. Але й не знижуй власну планку. Роби маленькі дії щодня. Ставай найкращою у своїй справі. І будуй життя, у якому <b>твій масштаб не суперечить тобі самій.</b></span></div>
+    <p>Саме тому в методології Об'ємного персонажа ми аналізуємо не лише продукт, контент, воронку чи візуальність — ми аналізуємо людину, яка все це створила. Тому що продукт дуже часто є продовженням особистості свого автора.</p>
+    <p>І коли людина будує бренд не навколо трендів або вигаданого образу, а навколо власної позиції, досвіду, ролей, контрастів і способу взаємодії зі світом — з'являються продукти, які не просто купують. <b>Їм довіряють. До них повертаються. І їх люблять.</b></p>
+  </section>
+
+  <section class="blk">
+    <h2>Партнерська програма SOLARIUM</h2>
+    <p>Я впевнена, що у кожній людині є суперсила. Її просто потрібно знайти. Запрошую вас у свою партнерську програму <b>SOLARIUM</b>, де ви почнете заробляти та масштабуватися через власну унікальність, а не через копіювання чужих стратегій.</p>
+    <p>За 3 місяці я проведу вас за руку, де ми разом:</p>
+    <ul>
+      <li>знайдемо вашу суперсилу та те, за що вам готові платити найбільші гроші;</li>
+      <li>зрозуміємо аудиторію та причини, через які вона обирає;</li>
+      <li>створимо вашого Об'ємного персонажа та сформуємо сильне позиціонування;</li>
+      <li>вбудуємо його в контент, продукт, комунікацію та продажі;</li>
+      <li>створимо стратегію росту до стабільних $10 000–30 000, яка підсилює вас.</li>
+    </ul>
+    <div class="callout"><div class="k">У результаті ви розумієте</div><p>Чому обирають саме вас? Якою людиною вас повинна запам'ятати аудиторія? І як перетворити власну силу на медійність, сильні продукти та стабільні гроші?</p></div>
+  </section>
+
+</div>
+
+<!-- ФІНАЛЬНА ФОРМА -->
+<section class="cta" id="zayavka"><div class="wrap wide">
+  <div class="cta-in">
+    <div class="cta-h">Заповнюй анкету передзапису<span class="it">на участь у SOLARIUM</span></div>
+    <p class="cta-sub">Я звʼяжусь з вами, щоб познайомитися, розібрати вашу стратегію, ваш блог, ваш запит і зрозуміти, чи підходить вам програма.</p>
+    <div class="cta-grid">
+      <div>
+        <form onsubmit="return false">
+          <input placeholder="Твоє ім'я" autocomplete="name">
+          <div class="phone">
+            <select aria-label="Код країни"><option value="+380" selected>🇺🇦 +380</option><option value="+48">🇵🇱 +48</option><option value="+49">🇩🇪 +49</option><option value="+420">🇨🇿 +420</option><option value="+44">🇬🇧 +44</option><option value="+1">🇺🇸 +1</option></select>
+            <span class="sep"></span>
+            <input type="tel" placeholder="63 123 45 67" autocomplete="tel" inputmode="tel">
+          </div>
+          <input placeholder="Посилання на твій Instagram">
+          <button class="btn" type="submit">Заповнити анкету →</button>
+        </form>
+        <div class="fsub">Після заявки я звʼяжуся з тобою в Telegram <span style="color:var(--coral)">♥</span></div>
+      </div>
+      <div>
+        <div class="bon-h">🎁 Бонуси <span class="hl">за заповнення анкети</span></div>
+        <div class="bonuses">
+          <div class="bonus-row"><div class="bi">1</div><div><h5>Воркбук-конструктор <span class="hl">«Карта Об'ємного Персонажу»</span></h5><p>Зробите діагностику свого життя та побачите сильні сторони й особливості, за які обирають саме вас.</p></div></div>
+          <div class="bonus-row"><div class="bi">2</div><div><h5>Розбір Об'ємного Персонажу <span class="hl">Лєри Бородіної</span></h5><p>Готова стратегія особистого бренду лідерки ринку.</p></div></div>
+          <div class="bonus-row"><div class="bi">3</div><div><h5>Закритий Telegram-канал <span class="hl">«Ідеї для контенту»</span></h5><p>Збираю та розбираю ефективні сторітели лідерів ринку.</p></div></div>
+        </div>
+        <p style="font-family:'Lora',serif;font-style:italic;color:var(--ink2);font-size:15.5px;margin-top:16px">Вам не потрібно вигадувати нового себе. Потрібно побачити свою силу, зробити її видимою та побудувати навколо неї систему, яку неможливо скопіювати.</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+</main>
+
+<footer><b>Solarium</b> · Олександра Лугова</footer>
+</body>
+</html>
