@@ -92,9 +92,20 @@
   .author h4{font-size:18px;font-weight:800}
   @media(max-width:560px){.author{flex-direction:column;gap:14px}}
 
-  .heroimg{margin-top:26px;border-radius:22px;overflow:hidden;border:1px solid var(--line);
-    box-shadow:0 26px 70px rgba(238,58,36,.14);aspect-ratio:16/8;background:var(--cream)}
-  .heroimg img{width:100%;height:100%;object-fit:cover;object-position:center 26%;display:block}
+  .herogrid{margin-top:28px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:14px;height:440px}
+  @media(max-width:760px){.herogrid{grid-template-columns:1fr 1fr;height:340px}.herogrid .h3{display:none}}
+  .fig{border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--cream);
+    box-shadow:0 22px 60px rgba(238,58,36,.12)}
+  .fig img{width:100%;height:100%;object-fit:cover;display:block}
+  .figs{display:grid;gap:14px;margin-top:24px}
+  .figs.two{grid-template-columns:1fr 1fr}
+  .figs.three{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:640px){.figs.two,.figs.three{grid-template-columns:1fr}}
+  .fig.p{aspect-ratio:3/4}
+  .fig.s{aspect-ratio:1/1}
+  .fig.w{aspect-ratio:16/9}
+  .cap{font-family:'Lora',serif;font-style:italic;font-size:14px;color:var(--muted);
+    text-align:center;margin-top:10px}
 
   /* карта-формула */
   .map{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
@@ -177,7 +188,11 @@
       <span class="chip">≈ 12 хвилин читання</span>
       <span class="chip">Розбір №2</span>
     </div>
-    <div class="heroimg"><img src="img/kozachkova.jpg" alt="Юлія Козачкова"></div>
+    <div class="herogrid">
+      <div class="fig"><img src="img/yulia-portrait.jpg" alt="Юлія Козачкова" style="object-position:center 20%"></div>
+      <div class="fig"><img src="img/yulia-denim.jpg" alt="Юлія Козачкова" style="object-position:center 22%"></div>
+      <div class="fig h3"><img src="img/yulia-couple.jpg" alt="Юлія з чоловіком" style="object-position:center 40%"></div>
+    </div>
   </div>
 </header>
 
@@ -188,7 +203,7 @@
   <section class="blk">
     <h2>Давайте знайомитися <span style="color:var(--coral)">♥</span></h2>
     <div class="author">
-      <div class="ph"><img src="img/sasha-final.jpg" alt="Олександра Лугова" style="width:100%;height:100%;object-fit:cover;object-position:center 22%"></div>
+      <div class="ph"><img src="img/sasha-ava.jpg" alt="Олександра Лугова" style="width:100%;height:100%;object-fit:cover;object-position:center 18%"></div>
       <div>
         <h4>Олександра Лугова</h4>
         <p>Маркетологиня, стратегиня та продюсерка. З 2019 року працюю з експертами й брендами: допомагаю знаходити їхню справжню відмінність, створювати позиціонування, продукти, контентні системи та запуски на <b>$10 000, $30 000 і $74 000</b>. За цей час попрацювала з понад 30 брендами та сотнями експертів із різних ніш.</p>
@@ -251,6 +266,11 @@
       <span class="tag">11+ років у EdTech</span>
       <span class="tag">15 000 користувачів Teya щодня</span>
     </div>
+    <div class="figs two">
+      <div class="fig s"><img src="img/yulia-media.jpg" alt="Публікації та проєкти Юлії"></div>
+      <div class="fig s"><img src="img/yulia-book.jpg" alt="Книга «Ген грошей»"></div>
+    </div>
+    <div class="cap">Книги, застосунок Teya, Академія MCMM, виступи й публікації</div>
     <p>Вона заснувала EdTech-екосистему <b>Mind Master</b>, є власницею <b>Академії MCMM</b> із сертифікації коучів і менторів та співвласницею застосунку <b>Teya</b> у сфері Mental Health.</p>
     <p>Але її феномен не лише в кількості продуктів, виступів чи наукових регалій. Від Юлії дуже сильно відчувається <b>внутрішній стержень</b>. Вона багато працює, постійно навчається, створює книги, розвиває технологічні продукти, виступає перед великими аудиторіями та ставить надзвичайно високу планку собі й команді.</p>
     <p>Водночас вона не перетворює силу на свою єдину роль. У її блозі поруч із підприємицею та дослідницею живе жінка, яка нещодавно одружилася, ніжна з чоловіком, пишається батьками, танцює й малює з дітьми, вірить у Бога та вміє посміятися із себе. Вона може виступати перед великою аудиторією, а потім викласти живе відео, де чоловік несе її на руках, і пожартувати: «У мене ніжки болять».</p>
@@ -279,6 +299,11 @@
     </div>
     <p>І найцікавіше — вона не переносить одну роль на все своє життя. У бізнесі може бути жорсткою до стандартів, зібраною й вимогливою. На сцені — сильною та впевненою. У науці — дисциплінованою дослідницею, яка продовжує навчатися, навіть уже маючи велику аудиторію, бізнес і власні методики. А поруч із чоловіком дозволяє собі бути ніжною, грайливою, просити про турботу й не контролювати все самостійно.</p>
     <div class="callout"><div class="k">Прояв об'єму</div><p>Сильна жінка не зобов'язана залишатися сильною щохвилини й у кожному просторі.</p></div>
+    <div class="figs two">
+      <div class="fig p"><img src="img/yulia-kid.jpg" alt="Юлія з донькою" style="object-position:center 30%"></div>
+      <div class="fig p"><img src="img/yulia-son.jpg" alt="Юлія із сином" style="object-position:center 25%"></div>
+    </div>
+    <div class="cap">Мама, донька, дружина — ролі, які вона не ховає за експертністю</div>
     <p>У її блозі дуже помітні сімейні цінності: вона перевезла батьків ближче до себе, відкрито показує, як пишається татом, проводить час із дітьми, малює й танцює разом із ними. Із контенту відчувається, що вона не просто мама — вона <b>головний фанат своїх дітей</b>. Сім'я в її образі не декоративна лінія для теплого контенту, а частина системи цінностей, навколо якої вона будує життя.</p>
     <div class="mini">
       <div class="mt">Показуєш лише експертизу і не розумієш, що з особистого «можна в контент»?</div>
@@ -299,12 +324,21 @@
     <h3>Лідерка високої планки</h3>
     <p>Вона не лише підтримує — вона піднімає стандарти людини щодо самої себе: «У тебе може вийти. Але для цього недостатньо мріяти — потрібно щодня ставати сильнішою у своїй справі». Ця планка проявляється і в тому, як вона формує команду: бере не просто виконавців, а фанатиків своєї справи.</p>
     <div class="callout"><div class="k">Формула впливу</div><p>Опора + Провідниця + Дослідниця + Лідерка високої планки.</p></div>
+    <div class="figs two">
+      <div class="fig p"><img src="img/yulia-mic.jpg" alt="Юлія на подкасті" style="object-position:center 30%"></div>
+      <div class="fig p"><img src="img/yulia-cambridge.jpg" alt="Конференція в Кембриджі" style="object-position:center 50%"></div>
+    </div>
   </section>
 
   <section class="blk">
     <div class="sechead"><span class="no">04</span><h2>Контраст</h2></div>
     <p class="sechead-sub">Поєднання несподіваних сторін, яке робить людину живою й незабутньою.</p>
     <div class="quote"><div class="glow"></div><span>Головний контраст Юлії: <b>хардкорна в реалізації — м'яка в любові.</b></span></div>
+    <div class="figs two">
+      <div class="fig p"><img src="img/yulia-red.jpg" alt="Юлія Козачкова" style="object-position:center 20%"></div>
+      <div class="fig p"><img src="img/yulia-couple.jpg" alt="Юлія з чоловіком" style="object-position:center 40%"></div>
+    </div>
+    <div class="cap">Сила на сцені — і ніжність поруч із тими, кого любить</div>
     <p>У роботі її ритм дуже інтенсивний: довгі робочі дні, висока планка, постійне навчання, виступи, книги, подкасти, колаборації, розвиток застосунків, робота з командою — майже без довгих пауз. Водночас у близьких стосунках ми бачимо іншу її сторону: жінку, яка ніжна з чоловіком, дозволяє про себе піклуватися, танцює з дітьми, пишається ними, сміється із себе, показує любов до батьків і говорить про віру в Бога.</p>
     <p><b>Другий контраст:</b> вона працює з внутрішнім світом людини, але мислить як підприємиця-практик. Говорить про щастя, внутрішню опору, віру, емоційну стабільність — і перекладає це в застосунок, академію, книги, сертифікаційні програми, дослідження та цифрові продукти.</p>
     <p><b>Третій контраст:</b> вона багато працює, але не подає виснаження як визначення успіху для кожного. Її думка глибша: знайди справу, заради якої ти готова тримати високу планку, але не створи життя, яке суперечить тобі.</p>
@@ -393,11 +427,14 @@
     <p>У контенті є професійні виступи, подкасти, наукові теми, робота над продуктами. А поруч — відео в моменті, гумор, чоловік, діти, батьки, танці, втома, звичайне життя. Аудиторія бачить, що відбувається з людиною, коли вимикаються сцена, студія та експертний формат.</p>
     <h3>Віра як частина опори</h3>
     <p>Її віра в Бога не виглядає окремою рубрикою, відірваною від решти життя. Вона доповнює головну лінію персонажа: внутрішня сила будується не лише на контролі, роботі та власних досягненнях — у ній є місце довірі, любові й вірі.</p>
+    <div class="figs"><div class="fig w"><img src="img/yulia-fond.jpg" alt="Благодійний фонд родини Велішаєвих" style="object-position:center 30%"></div></div>
+    <div class="cap">Цінності, переведені в дію: спільний благодійний фонд родини Велішаєвих</div>
   </section>
 
   <section class="blk">
     <h2>🧩 Формула Об'ємного персонажа</h2>
     <p>Стисла «карта» особистості — зручно тримати перед очима.</p>
+    <div class="figs"><div class="fig w"><img src="img/op-scheme.jpg" alt="Схема Об'ємного персонажа"></div></div>
     <div class="map">
       <div class="mcard"><div class="mk">Позиція</div><p>Великі зміни створюються маленькими діями щодня, але справжня реалізація потребує парадигми «або найкращий, або ніякий». Успіх має давати задоволення від власного життя.</p></div>
       <div class="mcard"><div class="mk">Ролі життя</div><p>Підприємиця, психологиня, коучиня, дослідниця, авторка, спікерка, керівниця, кохана жінка, мама — головний фанат своїх дітей, донька та людина віри.</p></div>
@@ -420,6 +457,7 @@
 
   <section class="blk">
     <h2>Партнерська програма SOLARIUM</h2>
+    <div class="figs"><div class="fig w"><img src="img/solarium-banner.jpg" alt="Партнерська програма SOLARIUM"></div></div>
     <p>Я впевнена, що у кожній людині є суперсила. Її просто потрібно знайти. Запрошую вас у свою партнерську програму <b>SOLARIUM</b>, де ви почнете заробляти та масштабуватися через власну унікальність, а не через копіювання чужих стратегій.</p>
     <p>За 3 місяці я проведу вас за руку, де ми разом:</p>
     <ul>
