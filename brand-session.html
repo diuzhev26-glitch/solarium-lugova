@@ -25,9 +25,14 @@
   .wrap{position:relative;z-index:1;max-width:1120px;margin:0 auto;padding:0 24px;width:100%}
 
   .topbar{position:relative;z-index:1;background:radial-gradient(130% 130% at 16% 8%,#FF7A50 0%,#EE3A24 48%,#C42A16 100%);
-    text-align:center;padding:13px 16px;font-size:14px;font-weight:600;color:#FFE6DD;letter-spacing:.02em}
+    text-align:center;padding:12px 16px;font-size:14px;font-weight:600;color:#fff;letter-spacing:.02em}
   .topbar b{color:#fff;font-weight:800;letter-spacing:.03em}
-  .topbar .tb2{display:block;margin-top:3px;color:#fff;font-weight:700}
+  .topbar .tb2{display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:5px}
+  .cnt{display:inline-flex;align-items:center;gap:9px;background:#fff;color:var(--coral-deep);
+    border-radius:100px;padding:5px 13px;font-weight:800;font-size:14.5px;letter-spacing:.01em;line-height:1}
+  .pips{display:inline-flex;gap:4px;align-items:center}
+  .pips i{width:9px;height:9px;border-radius:50%;background:#fff;border:1.6px solid rgba(196,42,22,.3)}
+  .pips i.on{background:var(--coral);border-color:var(--coral)}
 
   .top{text-align:center;padding:40px 0 4px}
   .kicker{display:inline-flex;align-items:center;gap:12px;color:var(--coral);font-weight:700;font-size:12px;
@@ -101,7 +106,7 @@
 <div class="glow g1"></div>
 <div class="glow g2"></div>
 
-<div class="topbar">Пропозиція діє до кінця тижня<span class="tb2">Залишилось <b>3/10</b> безкоштовних місць</span></div>
+<div class="topbar">Пропозиція діє до кінця тижня<span class="tb2">Залишилось <span class="cnt"><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>3 з 10</span> безкоштовних місць</span></div>
 
 <div class="wrap">
   <section class="top">
