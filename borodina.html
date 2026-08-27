@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Розбір Лєри Бородіної — Об'ємний персонаж · SOLARIUM</title>
+<meta name="description" content="Розбір особистості Лєри Бородіної за методологією Об'ємного персонажа: позиція, ролі життя, ролі впливу, контраст, шлях, емоція контакту, прояв.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --coral:#EE3A24; --coral-deep:#C42A16; --coral-warm:#FF6A45;
+    --ink:#141414; --ink2:#3A3732; --muted:#8D8A85;
+    --paper:#FBF7F1; --card:#FFFFFF; --cream:#F4ECE1;
+    --line:rgba(20,20,20,.12); --line-soft:rgba(20,20,20,.07);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{overflow-x:hidden}
+  body{background:var(--paper);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    line-height:1.62;-webkit-font-smoothing:antialiased}
+  .glow{position:absolute;border-radius:50%;filter:blur(120px);opacity:.5;z-index:0;pointer-events:none}
+  .glow.g1{width:640px;height:640px;background:radial-gradient(closest-side,rgba(255,106,69,.7),rgba(238,58,36,.2) 50%,transparent 72%);top:-260px;left:-200px}
+  .glow.g2{width:520px;height:520px;background:radial-gradient(closest-side,rgba(255,106,69,.45),rgba(238,58,36,.14) 50%,transparent 72%);top:1400px;right:-220px}
+  .wrap{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:0 22px}
+  .wide{max-width:1000px}
+  a{color:inherit}
+
+  /* хедер */
+  .nav{position:relative;z-index:2;border-bottom:1px solid var(--line-soft);background:rgba(251,247,241,.86);
+    backdrop-filter:blur(10px);position:sticky;top:0}
+  .nav-in{max-width:1000px;margin:0 auto;padding:13px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:800;letter-spacing:.16em;font-size:13px;text-transform:uppercase}
+  .brand .sun{width:14px;height:14px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%,var(--coral-warm),var(--coral) 60%,var(--coral-deep));
+    box-shadow:0 0 14px rgba(238,58,36,.6)}
+  .nav .go{background:var(--coral);color:#fff;font-weight:800;font-size:12.5px;text-transform:uppercase;
+    letter-spacing:.05em;padding:10px 18px;border-radius:100px;text-decoration:none;white-space:nowrap;
+    box-shadow:0 10px 26px rgba(238,58,36,.28)}
+  @media(max-width:560px){.nav .go{font-size:11.5px;padding:9px 14px}}
+
+  /* hero */
+  header.hero{position:relative;padding:54px 0 26px;overflow:hidden}
+  .kick{display:inline-flex;align-items:center;gap:10px;color:var(--coral);font-weight:700;font-size:11.5px;
+    letter-spacing:.22em;text-transform:uppercase;border:1px solid rgba(238,58,36,.32);background:rgba(238,58,36,.06);
+    padding:8px 16px;border-radius:100px}
+  h1{font-size:clamp(29px,4.4vw,48px);font-weight:800;text-transform:uppercase;line-height:1.08;
+    letter-spacing:-.025em;margin:22px 0 0}
+  h1 .hl{color:var(--coral)}
+  .sub{font-family:'Lora',Georgia,serif;font-style:italic;font-size:clamp(18px,2.3vw,23px);color:var(--ink2);
+    margin-top:18px;line-height:1.45}
+  .meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+  .chip{font-size:12.5px;font-weight:600;background:var(--card);border:1px solid var(--line);
+    padding:7px 14px;border-radius:100px;color:var(--ink2)}
+
+  /* текст статьи */
+  main{padding-bottom:40px}
+  section.blk{padding:34px 0;border-top:1px solid var(--line-soft)}
+  section.blk:first-of-type{border-top:none}
+  p{font-size:17.5px;color:var(--ink2);margin-top:15px}
+  p b,strong{color:var(--ink);font-weight:700}
+  h2{font-size:clamp(23px,3.2vw,33px);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:1.1}
+  h3{font-size:19px;font-weight:800;margin-top:26px;line-height:1.25}
+  .sechead{display:flex;align-items:baseline;gap:14px}
+  .sechead .no{font-family:'Lora',serif;font-style:italic;font-size:30px;color:var(--coral);line-height:1;flex:none}
+  .sechead-sub{font-family:'Lora',serif;font-style:italic;color:var(--muted);font-size:17px;margin-top:8px}
+  ul{margin:14px 0 0;padding-left:0;list-style:none}
+  ul li{position:relative;padding-left:24px;margin-top:9px;font-size:17px;color:var(--ink2)}
+  ul li::before{content:"";position:absolute;left:6px;top:11px;width:7px;height:7px;border-radius:50%;background:var(--coral)}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .tag{background:var(--card);border:1px solid var(--line);border-radius:100px;padding:8px 15px;font-size:14px;font-weight:600}
+
+  .quote{background:var(--ink);color:var(--cream);border-radius:20px;padding:26px 28px;margin-top:22px;
+    position:relative;overflow:hidden;font-family:'Lora',serif;font-style:italic;font-size:20px;line-height:1.45}
+  .quote .glow{width:280px;height:280px;top:-130px;right:-90px;filter:blur(70px);opacity:.75;
+    background:radial-gradient(circle,rgba(238,58,36,.7),rgba(238,58,36,0) 70%)}
+  .quote span{position:relative;z-index:2}
+  .quote b{font-style:normal;font-weight:700;color:#fff}
+
+  .callout{background:rgba(238,58,36,.07);border:1px solid rgba(238,58,36,.26);border-radius:18px;
+    padding:20px 24px;margin-top:20px}
+  .callout .k{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);margin-bottom:6px}
+  .callout p{margin-top:0;color:var(--ink);font-size:17px}
+
+  .author{display:flex;gap:20px;align-items:flex-start;background:var(--card);border:1px solid var(--line);
+    border-radius:22px;padding:24px;margin-top:20px;box-shadow:0 20px 60px rgba(238,58,36,.08)}
+  .author .ph{flex:none;width:82px;height:82px;border-radius:50%;background:var(--cream);overflow:hidden;
+    border:2px solid rgba(238,58,36,.3);display:flex;align-items:center;justify-content:center;
+    font-weight:800;color:var(--coral);letter-spacing:.1em;font-size:22px}
+  .author p{margin-top:8px;font-size:16px}
+  .author h4{font-size:18px;font-weight:800}
+  @media(max-width:560px){.author{flex-direction:column;gap:14px}}
+
+  .herogrid{margin-top:28px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:14px;height:440px}
+  @media(max-width:760px){.herogrid{grid-template-columns:1fr 1fr;height:340px}.herogrid .h3{display:none}}
+  .fig{border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--cream);
+    box-shadow:0 22px 60px rgba(238,58,36,.12)}
+  .fig img{width:100%;height:100%;object-fit:cover;display:block}
+  .figs{display:grid;gap:14px;margin-top:24px;align-items:start}
+  .figs.two{grid-template-columns:1fr 1fr}
+  .figs.three{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:640px){.figs.two,.figs.three{grid-template-columns:1fr}}
+  .fig.p{aspect-ratio:3/4}
+  .fig.s{aspect-ratio:1/1}
+  .fig.w{aspect-ratio:16/9}
+  .fig.full{aspect-ratio:auto;background:transparent;border:none;box-shadow:none}
+  .fig.full img{width:100%;height:auto;object-fit:contain;border-radius:20px;
+    border:1px solid var(--line);box-shadow:0 22px 60px rgba(238,58,36,.12)}
+  .cap{font-family:'Lora',serif;font-style:italic;font-size:14px;color:var(--muted);
+    text-align:center;margin-top:10px}
+
+  /* карта-формула */
+  .map{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+  @media(max-width:700px){.map{grid-template-columns:1fr}}
+  .mcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 22px}
+  .mcard .mk{font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-bottom:8px}
+  .mcard p{margin-top:0;font-size:15.5px;line-height:1.55}
+
+  /* мини-CTA */
+  .mini{background:linear-gradient(120deg,var(--coral),var(--coral-deep));color:#fff;border-radius:22px;
+    padding:26px 28px;margin-top:26px;text-align:center;box-shadow:0 24px 60px rgba(238,58,36,.28)}
+  .mini p{color:#FFE3DA;margin-top:0;font-size:17px}
+  .mini .mt{font-family:'Lora',serif;font-style:italic;font-size:23px;color:#fff;line-height:1.35;margin-bottom:12px}
+  .mini a{display:inline-flex;align-items:center;gap:9px;background:#fff;color:var(--coral-deep);font-weight:800;
+    text-transform:uppercase;font-size:14px;letter-spacing:.05em;padding:14px 26px;border-radius:100px;
+    text-decoration:none;margin-top:16px;transition:transform .18s}
+  .mini a:hover{transform:translateY(-2px)}
+
+  /* блок формы */
+  .cta{padding:10px 0 46px}
+  .grid-wrap{position:relative}
+  .grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:40px;align-items:stretch}
+  .col{display:flex;flex-direction:column}
+  .col>.fcard{flex:1}
+  .fcard{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:30px;
+    box-shadow:0 30px 80px rgba(238,58,36,.12);display:flex;flex-direction:column}
+  .fcard .ft{font-weight:800;text-transform:uppercase;font-size:clamp(21px,2.5vw,29px);line-height:1.12;
+    margin-bottom:8px;text-align:center;letter-spacing:-.01em}
+  .fcard .ft .it{font-family:'Lora',serif;font-style:italic;font-weight:500;text-transform:none;
+    color:var(--coral);letter-spacing:0;display:block;margin-top:4px}
+  .fcard .ft-sub{text-align:center;color:var(--ink2);font-size:15px;line-height:1.45;margin:2px 0 10px}
+  .form-mid{flex:1;display:flex;flex-direction:column;justify-content:center}
+  .col h2.bh{font-weight:800;text-transform:uppercase;font-size:clamp(21px,2.5vw,29px);margin-bottom:8px;
+    line-height:1.1;text-align:center;letter-spacing:-.01em}
+  .col h2.bh .it{font-family:'Lora',serif;font-style:italic;font-weight:500;text-transform:none;
+    color:var(--coral);letter-spacing:0;display:block;margin-top:4px}
+  .bon-sub{text-align:center;color:var(--ink2);font-size:15px;line-height:1.5;margin:0 0 18px}
+  .arw{position:absolute;top:-92px;width:92px;height:186px;pointer-events:none;z-index:3;
+    filter:drop-shadow(0 3px 9px rgba(238,58,36,.3))}
+  .arw-l{left:-58px}
+  .arw-r{right:-58px;transform:scaleX(-1)}
+  @media(max-width:1100px){.arw{display:none}}
+  @media(max-width:860px){.grid{grid-template-columns:1fr;gap:24px}.col.form-col{order:2}.col.text-col{order:1}
+    .fcard{padding:26px 22px}}
+  form{display:grid;gap:11px}
+  input{width:100%;padding:15px 16px;border-radius:12px;border:1px solid var(--line);background:var(--paper);
+    color:var(--ink);font-size:15px;font-family:inherit;outline:none;transition:border-color .15s}
+  input::placeholder{color:var(--muted)}
+  input:focus{border-color:var(--coral)}
+  .phone{display:flex;align-items:center;border:1px solid var(--line);background:var(--paper);border-radius:12px}
+  .phone:focus-within{border-color:var(--coral)}
+  .phone select{appearance:none;-webkit-appearance:none;border:none;outline:none;background:transparent;color:var(--ink);
+    font-family:inherit;font-size:15px;font-weight:600;padding:15px 26px 15px 16px;cursor:pointer;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238D8A85' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 10px center}
+  .phone .sep{width:1px;height:26px;background:var(--line);flex:none}
+  .phone input{border:none;background:transparent;flex:1;min-width:0}
+  .btn{display:inline-flex;align-items:center;gap:10px;justify-content:center;background:var(--coral);color:#fff;
+    font-weight:800;font-size:15.5px;padding:16px 24px;border-radius:100px;border:none;cursor:pointer;font-family:inherit;
+    box-shadow:0 14px 40px rgba(238,58,36,.35);text-transform:uppercase;letter-spacing:.04em;width:100%;
+    transition:transform .18s,box-shadow .18s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 18px 50px rgba(238,58,36,.45)}
+  .fsub{color:var(--muted);font-size:13px;text-align:center;margin-top:11px}
+  .bonuses{display:grid;gap:16px}
+  .bonus-row{display:flex;gap:14px;align-items:flex-start}
+  .bi{flex:none;width:44px;height:44px;border-radius:50%;background:var(--coral);color:#fff;font-weight:800;
+    font-size:18px;display:flex;align-items:center;justify-content:center}
+  .bonus-row h5{font-size:16px;font-weight:800;line-height:1.22;margin-bottom:4px}
+  .bonus-row h5 .hl{color:var(--coral)}
+  .bonus-row p{color:var(--ink2);font-size:13.5px;line-height:1.5;margin-top:0}
+
+  footer{border-top:1px solid var(--line);padding:26px 0 34px;text-align:center;color:var(--muted);font-size:13px}
+  footer b{color:var(--coral);letter-spacing:.3em;text-transform:uppercase;font-weight:600;font-size:12px}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <div class="brand"><span class="sun"></span> Solarium</div>
+    <a class="go" href="#zayavka">Записатися на розбір</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="glow g1"></div>
+  <div class="wrap">
+    <div class="kick">Методологія «Об'ємний персонаж»</div>
+    <h1>Розбір Лєри Бородіної, або як створювати <span class="hl">проєкти, які любитимуть усі</span></h1>
+    <p class="sub">Розбір особистості за 7 шарами: позиція, ролі життя, ролі впливу, контраст, шлях, емоція контакту, прояв.</p>
+    <div class="meta">
+      <span class="chip">Олександра Лугова</span>
+      <span class="chip">≈ 10 хвилин читання</span>
+      <span class="chip">Розбір №1</span>
+    </div>
+    <div class="herogrid">
+      <div class="fig"><img src="img/lera-portrait.jpg" alt="Лєра Бородіна" style="object-position:center 25%"></div>
+      <div class="fig"><img src="img/lera-gbar.jpg" alt="Лєра Бородіна у G.Bar" style="object-position:center 35%"></div>
+      <div class="fig h3"><img src="img/lera-family.jpg" alt="Лєра з родиною" style="object-position:center 35%"></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<div class="wrap">
+
+  <section class="blk">
+    <h2>Але спочатку кілька слів про мене <span style="color:var(--coral)">♥</span></h2>
+    <div class="author">
+      <div class="ph"><img src="img/sasha-ava.jpg" alt="Олександра Лугова" style="width:100%;height:100%;object-fit:cover;object-position:center 18%"></div>
+      <div>
+        <h4>Олександра Лугова</h4>
+        <p>Маркетологиня, стратегиня та продюсерка. З 2019 року допомагаю експертам і брендам знаходити їхню справжню унікальність, створювати позиціонування, продукти, контентні системи та робити запуски на <b>$10 000, $30 000 і $74 000</b>. За цей час попрацювала з понад 30 відомими брендами та сотнями експертів із різних ніш.</p>
+      </div>
+    </div>
+    <p>Моя головна сила — побачити в людині те, що вона сама часто не помічає:</p>
+    <ul>
+      <li>за що її насправді обирають;</li>
+      <li>як саме вона створює результат;</li>
+      <li>що робить її живою та впізнаваною;</li>
+      <li>як перетворити це на сильний бренд і систему масштабування.</li>
+    </ul>
+    <p>У цій статті я покажу, як зрозуміти свою суперсилу — на прикладі розбору Лєри Бородіної.</p>
+  </section>
+
+</div>
+
+<section class="cta"><div class="wrap wide">
+  <div class="grid-wrap">
+  <svg class="arw arw-l" viewBox="0 0 120 180" fill="none" stroke="#EE3A24" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M25 12 C 8 60 18 120 72 150"/><path d="M46 150 L 74 152"/><path d="M63 126 L 74 152"/></svg>
+  <svg class="arw arw-r" viewBox="0 0 120 180" fill="none" stroke="#EE3A24" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M25 12 C 8 60 18 120 72 150"/><path d="M46 150 L 74 152"/><path d="M63 126 L 74 152"/></svg>
+  <div class="grid">
+    <div class="col form-col">
+      <div class="fcard">
+        <div class="ft">Залишай заявку<span class="it">на діагностичну сесію</span></div>
+        <p class="ft-sub">Пройдемо твої 7 шарів і побачимо,<br>з чого будувати твій бренд.</p>
+        <div class="form-mid">
+          <form onsubmit="return false">
+            <input placeholder="Твоє ім'я" autocomplete="name">
+            <div class="phone"><select aria-label="Код країни"><option value="+380" selected>🇺🇦 +380</option><option value="+48">🇵🇱 +48</option><option value="+49">🇩🇪 +49</option><option value="+420">🇨🇿 +420</option><option value="+44">🇬🇧 +44</option><option value="+1">🇺🇸 +1</option></select><span class="sep"></span><input type="tel" placeholder="63 123 45 67" autocomplete="tel" inputmode="tel"></div>
+            <button class="btn" type="submit">Записатися на діагностику →</button>
+          </form>
+          <div class="fsub">Після заявки я звʼяжуся з тобою в Telegram <span style="color:var(--coral)">♥</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="col text-col">
+      <div class="fcard">
+        <h2 class="bh">Що ти отримаєш,<span class="it">залишивши заявку</span></h2>
+        <p class="bon-sub">3 подарунки, які допоможуть тобі знайти свою унікальність і перестати зливатися з сотнею однакових експертів</p>
+        <div class="bonuses">
+          <div class="bonus-row"><div class="bi">1</div><div><h5>Конструктор <span class="hl">«Карта Об'ємного Персонажу»</span></h5><p>Зробиш діагностику себе і побачиш сильні сторони й особливості, за які обирають саме тебе.</p></div></div>
+          <div class="bonus-row"><div class="bi">2</div><div><h5>Розбір <span class="hl">Юлії Козачкової</span></h5><p>Стратегія особистого бренду лідерки ринку — десятки ідей одразу у свій блог.</p></div></div>
+          <div class="bonus-row"><div class="bi">3</div><div><h5>Доступ у закритий <span class="hl">Telegram-канал</span></h5><p>«Ідеї для контенту»: розбори ефективних сторітелів лідерів ринку.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div></section>
+
+<div class="wrap">
+
+  <section class="blk">
+    <h2>Хто така Лєра</h2>
+    <p>Лєра Бородіна — серійна українська підприємиця, засновниця <b>Oh My Look!</b>, <b>LAVLA</b>, освітнього проєкту <b>NOM</b>, співзасновниця міжнародної мережі б'юті-барів <b>G.Bar</b>. Вона входила до списку успішних жінок України за версією Forbes Ukraine, а за її бізнесом, життям і способом мислення стежать сотні тисяч людей у соціальних мережах.</p>
+    <div class="tags">
+      <span class="tag">Forbes Ukraine</span>
+      <span class="tag">Oh My Look!</span>
+      <span class="tag">G.Bar</span>
+      <span class="tag">LAVLA</span>
+      <span class="tag">NOM</span>
+    </div>
+    <div class="figs">
+      <div class="fig full"><img src="img/lera-media.jpg" alt="Проєкти та контент Лєри Бородіної"></div>
+    </div>
+    <p>Для багатьох жінок Лєра стала не просто підприємицею, а <b>рольовою моделлю сучасної реалізації</b>. Вона показує, що можна створювати великі бренди, керувати командами, бути мамою, партнеркою і подругою, багато подорожувати й навчатися, масштабуватися — і при цьому не перетворювати власне життя на нескінченну гонитву.</p>
+    <p>Вона не просто навчає створювати lovemark-бренди. Вона сама створила бізнеси, якими люди користуються роками. У випадку Лєри працює принцип «швець у чоботях»: її експертність підтверджена не лише словами, а реальними продуктами, командами, клієнтами, помилками й рішеннями.</p>
+    <div class="quote"><div class="glow"></div><span>Якою людиною потрібно бути, щоб створювати <b>такі продукти, бренди й таку довіру?</b></span></div>
+    <p>Oh My Look!, G.Bar, LAVLA та NOM — це вже наслідок. Причина — спосіб, у який Лєра бачить людей, відчуває їхні потреби, створює ідеї та перетворює їх на цілісні світи. Саме це ми й розберемо через методологію Об'ємного персонажа.</p>
+    
+    <div class="mini">
+      <div class="mt">Твій бренд теж може бути продовженням тебе, а не набором послуг</div>
+      <p>Покажу, що з твоєї особистості вже зараз працює на бренд — і чого не вистачає.</p>
+      <a href="#zayavka">Записатися на розбір →</a>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="sechead"><span class="no">01</span><h2>Позиція</h2></div>
+    <p class="sechead-sub">Те, у що людина вірить і що відстоює.</p>
+    <div class="callout"><div class="k">Позиція Лєри</div><p>Сильний бренд починається не з продукту, а з розуміння людини та стану, який ти хочеш для неї створити.</p></div>
+    <p>Ця думка проходить через усі її проєкти:</p>
+    <ul>
+      <li><b>Oh My Look!</b> виник не просто як сервіс оренди суконь. Він вирішував знайому багатьом жінкам ситуацію «мені нічого вдягнути» — тобто продавав не сукню, а можливість швидко відчути себе готовою до важливої події.</li>
+      <li><b>G.Bar</b> продавав не окремий манікюр, макіяж чи укладку. Він продавав стан: «за короткий час мене повністю зібрали, про мене подбали — і я готова йти у світ».</li>
+      <li><b>NOM</b> — це не лише набір бізнес-інструментів. Це спосіб навчити людину створювати бренд із власним баченням, сенсами й досвідом. Бренд, який люблять.</li>
+    </ul>
+    <div class="figs"><div class="fig w"><img src="img/lera-team.jpg" alt="Команда G.Bar" style="object-position:center 40%"></div></div>
+    <p>Складається враження, що Лєра майже завжди починає не з питання «Що ми можемо продати?», а з питання «Що зараз відчуває людина і що ми можемо для неї змінити?». Саме тому її бізнеси сприймаються не як випадковий набір продуктів, а як продовження однієї позиції.</p>
+    
+    <div class="mini">
+      <div class="mt">А яку думку відстоюєш ти?</div>
+      <p>На діагностиці сформулюємо твою позицію — те, у що ти віриш і що робить твій бренд впізнаваним.</p>
+      <a href="#zayavka">Знайти свою позицію →</a>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="sechead"><span class="no">02</span><h2>Ролі життя</h2></div>
+    <p class="sechead-sub">Різні сторони особистості, які роблять людину живою, а не лише експерткою.</p>
+    <div class="tags">
+      <span class="tag">підприємиця</span><span class="tag">засновниця брендів</span><span class="tag">мама</span>
+      <span class="tag">партнерка</span><span class="tag">подруга</span><span class="tag">мандрівниця</span>
+      <span class="tag">дослідниця</span><span class="tag">жінка, яка вивчає себе</span>
+    </div>
+    <p>Її ролі природно переходять одна в одну. Коли вона подорожує — це одночасно життя, час із дітьми, дослідження світу й пошук нових ідей, сервісів і технологій для бізнесу. Коли показує дітей — видно її цінності: допитливість, свободу, підтримку, бажання дати дітям більше досвіду й ширший погляд на світ.</p>
+    <div class="figs two">
+      <div class="fig p"><img src="img/lera-travel.jpg" alt="Лєра в подорожі" style="object-position:center 30%"></div>
+      <div class="fig p"><img src="img/lera-friend.jpg" alt="Лєра з подругою" style="object-position:center 30%"></div>
+    </div>
+    <p>Коли вона показує дружбу із Сабою Мусіною, аудиторія бачить близькість, підтримку, вдячність і здатність вкладатися не лише в бізнес, а й у стосунки. Навіть історія з каблучками Cartier стала впізнаваним символом їхньої жіночої дружби.</p>
+    <div class="callout"><div class="k">Прояв об'єму</div><p>Лєра — не лише людина, яка вміє будувати бізнес. Вона вміє будувати життя навколо цінних для себе людей, сенсів і досвідів.</p></div>
+    
+    <div class="mini">
+      <div class="mt">Показуєш лише експертизу і не розумієш, що з особистого «можна в контент»?</div>
+      <p>Тоді запрошую тебе на безкоштовний розбір зі мною.</p>
+      <a href="#zayavka">Записатися →</a>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="sechead"><span class="no">03</span><h2>Ролі впливу</h2></div>
+    <p class="sechead-sub">Те, ким людина стає для інших і яку цінність створює поруч із собою.</p>
+    <h3>Рольова модель жіночої реалізації</h3>
+    <p>Власним життям вона показує, що жінка може одночасно створювати масштабні проєкти, бути мамою, мати близькі стосунки, подорожувати й навчатися, піклуватися про себе й тіло, залишатися творчою, заробляти великі гроші — і не відмовлятися від своєї м'якості.</p>
+    <p>І для цього їй не потрібно ставати кимось іншим — бунтаркою, голосною чи нахабною. Лєра спокійна й романтична: вона розуміє свої сильні сторони й робить акцент саме на них, не змінюючи себе та свій характер.</p>
+    <div class="figs two">
+      <div class="fig p"><img src="img/lera-studio.jpg" alt="Лєра Бородіна" style="object-position:center 25%"></div>
+      <div class="fig p"><img src="img/lera-youtube.jpg" alt="Лєра на YouTube" style="object-position:center 30%"></div>
+    </div>
+    <p>Саме тому багато жінок дивляться на неї й думають: «Якщо вона змогла побудувати таке життя без відмови від себе — можливо, я теж можу».</p>
+    <h3>Дослідниця</h3>
+    <p>Вона багато навчається, спостерігає за ринком, подорожує, вивчає нові технології та способи роботи інших компаній — а потім переносить побачене у власні проєкти.</p>
+    <div class="callout"><div class="k">Формула впливу</div><p>Вона не просто навчає жінок підприємництва. Вона розширює їхнє уявлення про те, яким взагалі може бути життя жінки, яка реалізує власні ідеї.</p></div>
+    
+    <div class="mini">
+      <div class="mt">Ким ти стаєш для своїх людей?</div>
+      <p>Розберемо твої ролі впливу — за що тебе обирають і чому до тебе повертаються.</p>
+      <a href="#zayavka">Розібрати свої ролі →</a>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="sechead"><span class="no">04</span><h2>Контраст</h2></div>
+    <p class="sechead-sub">Поєднання двох несподіваних сторін, яке робить людину живою й незабутньою.</p>
+    <p>На перший погляд Лєра дуже спокійна, м'яка, естетична, неконфліктна. Але за цією м'якістю стоїть <b>сильний практикуючий підприємець</b>. Вона може годину говорити про красу упаковки — а через десять хвилин обговорювати юніт-економіку, масштабування чи складні управлінські рішення.</p>
+    <h3>Творець × Підприємець</h3>
+    <p>Їй важливі сенси, краса, концепція та емоція людини: кожен її продукт — окремий вид мистецтва (у NOM кожен потік — новий всесвіт, до якого хочеться бути причетним: то спогади з дитинства, то улюблений фільм, то приналежність до чогось масштабного). Але вона також перевіряє ідеї попитом, тестами, цифрами й реальним досвідом клієнта.</p>
+    <h3>Масштаб × Спокій</h3>
+    <p>Вона створює великі проєкти й керує командами, але не будує образ людини, яка постійно поспішає, страждає та живе в хаосі.</p>
+    <h3>М'якість × Вимогливість</h3>
+    <p>Спокійна в комунікації — але за її брендами стоять високі стандарти продукту, сервісу та візуального виконання.</p>
+    <h3>Впевненість × Відкритість до сумнівів</h3>
+    <p>Вона має великий досвід, але не транслює «я вже все знаю». Навпаки — продовжує запитувати, навчатися, тестувати, змінювати рішення й визнавати, що щось може не спрацювати.</p>
+    <div class="quote"><div class="glow"></div><span>Вона створює масштабні бізнеси без образу жорсткого бізнесмена — і <b>залишається м'якою жінкою без втрати сили та авторитету.</b></span></div>
+  </section>
+
+</div>
+
+<section class="cta"><div class="wrap wide">
+  <div class="grid-wrap">
+  <svg class="arw arw-l" viewBox="0 0 120 180" fill="none" stroke="#EE3A24" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M25 12 C 8 60 18 120 72 150"/><path d="M46 150 L 74 152"/><path d="M63 126 L 74 152"/></svg>
+  <svg class="arw arw-r" viewBox="0 0 120 180" fill="none" stroke="#EE3A24" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M25 12 C 8 60 18 120 72 150"/><path d="M46 150 L 74 152"/><path d="M63 126 L 74 152"/></svg>
+  <div class="grid">
+    <div class="col form-col">
+      <div class="fcard">
+        <div class="ft">Залишай заявку<span class="it">на розбір зі мною</span></div>
+        <p class="ft-sub">Свій контраст майже неможливо побачити зсередини — знайдемо ту саму пару сторін, яка виділить тебе.</p>
+        <div class="form-mid">
+          <form onsubmit="return false">
+            <input placeholder="Твоє ім'я" autocomplete="name">
+            <div class="phone"><select aria-label="Код країни"><option value="+380" selected>🇺🇦 +380</option><option value="+48">🇵🇱 +48</option><option value="+49">🇩🇪 +49</option><option value="+420">🇨🇿 +420</option><option value="+44">🇬🇧 +44</option><option value="+1">🇺🇸 +1</option></select><span class="sep"></span><input type="tel" placeholder="63 123 45 67" autocomplete="tel" inputmode="tel"></div>
+            <button class="btn" type="submit">Знайти свій контраст →</button>
+          </form>
+          <div class="fsub">Після заявки я звʼяжуся з тобою в Telegram <span style="color:var(--coral)">♥</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="col text-col">
+      <div class="fcard">
+        <h2 class="bh">Що ти отримаєш,<span class="it">залишивши заявку</span></h2>
+        <p class="bon-sub">3 подарунки, які допоможуть тобі знайти свою унікальність і перестати зливатися з сотнею однакових експертів</p>
+        <div class="bonuses">
+          <div class="bonus-row"><div class="bi">1</div><div><h5>Конструктор <span class="hl">«Карта Об'ємного Персонажу»</span></h5><p>Зробиш діагностику себе і побачиш сильні сторони й особливості, за які обирають саме тебе.</p></div></div>
+          <div class="bonus-row"><div class="bi">2</div><div><h5>Розбір <span class="hl">Юлії Козачкової</span></h5><p>Стратегія особистого бренду лідерки ринку — десятки ідей одразу у свій блог.</p></div></div>
+          <div class="bonus-row"><div class="bi">3</div><div><h5>Доступ у закритий <span class="hl">Telegram-канал</span></h5><p>«Ідеї для контенту»: розбори ефективних сторітелів лідерів ринку.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div></section>
+
+<div class="wrap">
+
+  <section class="blk">
+    <div class="sechead"><span class="no">05</span><h2>Шлях</h2></div>
+    <p class="sechead-sub">Досвід, який сформував мислення, метод і сьогоднішню версію людини.</p>
+    <p>Спочатку вона працювала в медіа, журналістиці, маркетингу та PR — довгий час допомагала просувати чужі ідеї, бачила, як працює увага, розуміла поведінку аудиторії та перетворювала ідеї на комунікацію.</p>
+    <p>Пізніше почала створювати власні проєкти. З часом її роль змінилася: від людини, яка допомагала просувати чужі ідеї, — до людини, яка створює власні бренди, продукти та цілі екосистеми.</p>
+    <p>Але найважливіше — аудиторія бачила не лише перемоги. Лєра відкрито розповідала про складні рішення, помилки, фінансові втрати, невдалі гіпотези, зміни бізнес-моделей, трансформацію власних поглядів, материнство й особисті зміни. Тому її образ будувався не за принципом «одного дня вона стала успішною» — аудиторія росла разом із нею.</p>
+    <div class="callout"><div class="k">Суть шляху</div><p>Від спеціалістки, яка працювала з чужими проєктами, — до підприємиці, яка створює власні lovemark-бренди й своїм прикладом популяризує сучасне жіноче підприємництво.</p></div>
+    
+    <div class="mini">
+      <div class="mt">Твій досвід — це не просто біографія</div>
+      <p>Складемо з нього шлях, який доводить твою експертність сильніше за будь-які кейси.</p>
+      <a href="#zayavka">Зібрати свій шлях →</a>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="sechead"><span class="no">06</span><h2>Емоція контакту</h2></div>
+    <p class="sechead-sub">Те, що люди відчувають після взаємодії з людиною.</p>
+    <p>Після контенту багатьох підприємців хочеться більше працювати, більше заробляти, швидше масштабуватися. Після Лєри виникає інше бажання — <b>створювати масштабно, але не втрачати себе</b>.</p>
+    <ul>
+      <li>спокій;</li>
+      <li>ясність;</li>
+      <li>естетичне задоволення;</li>
+      <li>цікавість;</li>
+      <li>віра у власні ідеї;</li>
+      <li>бажання навчатися;</li>
+      <li>відчуття, що великий бізнес не обов'язково будується через надрив.</li>
+    </ul>
+    <div class="quote"><div class="glow"></div><span>Ти можеш створювати велике у своєму темпі, якщо <b>добре розумієш себе, людей і те, що хочеш дати світу.</b></span></div>
+    
+    <div class="mini">
+      <div class="mt">Що люди відчувають після твого контенту?</div>
+      <p>Якщо чіткої відповіді немає — саме з цього почнемо на безкоштовній діагностиці.</p>
+      <a href="#zayavka">Записатися на діагностику →</a>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="sechead"><span class="no">07</span><h2>Прояв</h2></div>
+    <p class="sechead-sub">Те, як персонаж стає видимим у контенті, продукті та комунікації.</p>
+    <h3>Вона сама користується тим, що створює</h3>
+    <p>Не продає продукт, від якого сама відокремлена: створює блокноти — користується ними; запускає нові продукти — і на вебінарі каже, що дивитиметься уроки разом з аудиторією. Це дає відчуття: «Вона не придумала це лише для продажу — вона створила те, що потрібне і їй самій».</p>
+    <h3>Вона показує процес створення</h3>
+    <p>В Instagram — щирий шлях, а не лише вітрина успішних запусків. Може розповісти, що гіпотеза не підтвердилася, яка послуга не зайшла, де очікування не збіглися з реальністю, що команда зараз змінює. Це підсилює образ практика.</p>
+    <h3>Вона проявляє персонажа через партнерства</h3>
+    <p>У контенті видно партнерів, команду, подруг, людей, із якими вона створює проєкти. Вона не будує міф «я все зробила сама» — навпаки, показує, що сильні бренди народжуються завдяки сильній команді.</p>
+    <h3>Вона досліджує світ і повертає побачене в бізнес</h3>
+    <p>Подорожі — не лише відпочинок: вона спостерігає, як працюють сервіси, як оформлені простори, як бренди взаємодіють із клієнтом, які технології з'являються, що можна адаптувати. Роль мандрівниці переходить у роль Дослідниці, а потім — у роль Творця.</p>
+    <h3>Вона ділиться тим, що вивчає сама</h3>
+    <p>На YouTube — дисципліна, внутрішня опора, як знайти щастя, як перестати хотіти подобатись усім, власне навчання. Навіть перше відео «Почни аби як» — про те, як довго вона відкладала YouTube і боялася не виправдати очікування аудиторії.</p>
+    
+    <div class="mini">
+      <div class="mt">Знати свою силу мало — її треба проявити</div>
+      <p>Покажу, як вбудувати твого Об'ємного персонажа в контент, продукт і продажі.</p>
+      <a href="#zayavka">Проявити свою силу →</a>
+    </div>
+  </section>
+
+  <section class="blk">
+    <h2>🧩 Формула Об'ємного персонажа</h2>
+    <p>Стисла «карта» особистості — зручно тримати перед очима.</p>
+    <div class="figs"><div class="fig full"><img src="img/op-scheme.jpg" alt="Схема Об'ємного персонажа"></div></div>
+    <div class="map">
+      <div class="mcard"><div class="mk">Позиція</div><p>Сильний бренд починається з розуміння людини, її потреб і стану, який продукт повинен для неї створити.</p></div>
+      <div class="mcard"><div class="mk">Ролі життя</div><p>Підприємиця, мама, партнерка, подруга, мандрівниця, дослідниця, жінка, яка продовжує вивчати себе.</p></div>
+      <div class="mcard"><div class="mk">Ролі впливу</div><p>Рольова модель жіночої реалізації + Дослідниця.</p></div>
+      <div class="mcard"><div class="mk">Контраст</div><p>М'яка та спокійна × сильна практикуюча підприємиця; творча × прагматична; масштабна × без культу поспіху.</p></div>
+      <div class="mcard"><div class="mk">Шлях</div><p>Від роботи з чужими ідеями в медіа та маркетингу — до створення власної екосистеми lovemark-брендів.</p></div>
+      <div class="mcard"><div class="mk">Емоція контакту</div><p>Спокійна впевненість, натхнення, бажання створювати велике без втрати себе.</p></div>
+      <div class="mcard" style="grid-column:1/-1"><div class="mk">Прояв</div><p>Власне користування продуктами, відкриті тести, дослідження, діалог з аудиторією, демонстрація команди й партнерств, чесні розповіді про помилки, перенесення світового досвіду у власні бренди.</p></div>
+    </div>
+    
+    <div class="mini">
+      <div class="mt">Хочеш таку саму карту по собі?</div>
+      <p>За 40 хвилин пройдемо всі 7 шарів і зберемо твою власну формулу Об'ємного персонажа.</p>
+      <a href="#zayavka">Отримати свою карту →</a>
+    </div>
+  </section>
+
+  <section class="blk">
+    <h2>🎯 Головний висновок</h2>
+    <p>Більшість думає, що люди люблять бренди Лєри через сильний маркетинг. Але маркетинг — лише інструмент. Насправді люди довіряють <b>способу мислення людини, яка ці бренди створила</b>.</p>
+    <p>Саме тому в методології Об'ємного персонажа ми аналізуємо не лише продукт, контент, воронку чи візуальність — ми аналізуємо людину, яка все це створила. Тому що продукт дуже часто є продовженням особистості свого автора.</p>
+    <p>І коли людина будує бренд не навколо трендів або вигаданого образу, а навколо власної позиції, досвіду, ролей, контрастів і способу взаємодії зі світом — з'являються продукти, які не просто купують. <b>Їм довіряють. До них повертаються. І їх люблять.</b></p>
+    
+    <div class="mini">
+      <div class="mt">Тобі не потрібно вигадувати нового себе</div>
+      <p>Потрібно побачити свою силу, зробити її видимою — і побудувати навколо неї систему.</p>
+      <a href="#zayavka">Записатися на розбір →</a>
+    </div>
+  </section>
+
+  <section class="blk">
+    <h2>Партнерська програма SOLARIUM</h2>
+    <div class="figs"><div class="fig full"><img src="img/solarium-banner.jpg" alt="Партнерська програма SOLARIUM"></div></div>
+    <p>Я впевнена, що у кожній людині є суперсила. Її просто потрібно знайти. Запрошую вас у свою партнерську програму <b>SOLARIUM</b>, де ви почнете заробляти та масштабуватися через власну унікальність, а не через копіювання чужих стратегій.</p>
+    <p>За 3 місяці я проведу вас за руку, де ми разом:</p>
+    <ul>
+      <li>знайдемо вашу суперсилу та те, за що вам готові платити найбільші гроші;</li>
+      <li>зрозуміємо аудиторію та причини, через які вона обирає;</li>
+      <li>створимо вашого Об'ємного персонажа та сформуємо сильне позиціонування;</li>
+      <li>вбудуємо його в контент, продукт, комунікацію та продажі;</li>
+      <li>створимо стратегію росту до стабільних $10 000–30 000, яка підсилює вас.</li>
+    </ul>
+    <div class="callout"><div class="k">У результаті ви розумієте</div><p>Чому обирають саме вас? Якою людиною вас повинна запам'ятати аудиторія? І як перетворити власну силу на медійність, сильні продукти та стабільні гроші?</p></div>
+  </section>
+
+</div>
+
+<section class="cta" id="zayavka"><div class="wrap wide">
+  <div class="grid-wrap">
+  <svg class="arw arw-l" viewBox="0 0 120 180" fill="none" stroke="#EE3A24" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M25 12 C 8 60 18 120 72 150"/><path d="M46 150 L 74 152"/><path d="M63 126 L 74 152"/></svg>
+  <svg class="arw arw-r" viewBox="0 0 120 180" fill="none" stroke="#EE3A24" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M25 12 C 8 60 18 120 72 150"/><path d="M46 150 L 74 152"/><path d="M63 126 L 74 152"/></svg>
+  <div class="grid">
+    <div class="col form-col">
+      <div class="fcard">
+        <div class="ft">Залишай заявку<span class="it">на участь у SOLARIUM</span></div>
+        <p class="ft-sub">Я звʼяжуся з тобою, щоб познайомитися,<br>розібрати твою стратегію, блог і запит.</p>
+        <div class="form-mid">
+          <form onsubmit="return false">
+            <input placeholder="Твоє ім'я" autocomplete="name">
+            <div class="phone"><select aria-label="Код країни"><option value="+380" selected>🇺🇦 +380</option><option value="+48">🇵🇱 +48</option><option value="+49">🇩🇪 +49</option><option value="+420">🇨🇿 +420</option><option value="+44">🇬🇧 +44</option><option value="+1">🇺🇸 +1</option></select><span class="sep"></span><input type="tel" placeholder="63 123 45 67" autocomplete="tel" inputmode="tel"></div>
+            <button class="btn" type="submit">Заповнити анкету →</button>
+          </form>
+          <div class="fsub">Після заявки я звʼяжуся з тобою в Telegram <span style="color:var(--coral)">♥</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="col text-col">
+      <div class="fcard">
+        <h2 class="bh">Що ти отримаєш,<span class="it">залишивши заявку</span></h2>
+        <p class="bon-sub">3 подарунки, які допоможуть тобі знайти свою унікальність і перестати зливатися з сотнею однакових експертів</p>
+        <div class="bonuses">
+          <div class="bonus-row"><div class="bi">1</div><div><h5>Конструктор <span class="hl">«Карта Об'ємного Персонажу»</span></h5><p>Зробиш діагностику себе і побачиш сильні сторони й особливості, за які обирають саме тебе.</p></div></div>
+          <div class="bonus-row"><div class="bi">2</div><div><h5>Розбір <span class="hl">Юлії Козачкової</span></h5><p>Стратегія особистого бренду лідерки ринку — десятки ідей одразу у свій блог.</p></div></div>
+          <div class="bonus-row"><div class="bi">3</div><div><h5>Доступ у закритий <span class="hl">Telegram-канал</span></h5><p>«Ідеї для контенту»: розбори ефективних сторітелів лідерів ринку.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div></section>
+
+</main>
+
+<footer><b>Solarium</b> · Олександра Лугова</footer>
+</body>
+</html>
