@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Особиста бренд-сесія з Олександрою Луговою · SOLARIUM</title>
+<meta name="description" content="Залишай заявку на особисту бренд-сесію — знайдемо твою унікальність і зрозуміємо, як впровадити її у блог.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --coral:#EE3A24; --coral-deep:#C42A16; --coral-warm:#FF6A45;
+    --ink:#141414; --ink2:#3A3732; --muted:#8D8A85;
+    --paper:#FBF7F1; --card:#FFFFFF; --cream:#F4ECE1;
+    --line:rgba(20,20,20,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{overflow-x:hidden}
+  body{background:var(--paper);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;line-height:1.5;
+    -webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+  .glow{position:fixed;border-radius:50%;filter:blur(120px);opacity:.5;z-index:0;pointer-events:none}
+  .glow.g1{width:620px;height:620px;background:radial-gradient(closest-side,rgba(255,106,69,.7),rgba(238,58,36,.22) 50%,transparent 72%);top:-240px;left:-200px}
+  .glow.g2{width:520px;height:520px;background:radial-gradient(closest-side,rgba(255,106,69,.5),rgba(238,58,36,.16) 50%,transparent 72%);bottom:-6%;right:-200px}
+  .wrap{position:relative;z-index:1;max-width:1120px;margin:0 auto;padding:0 24px;width:100%}
+
+  .topbar{position:relative;z-index:1;background:radial-gradient(130% 130% at 16% 8%,#FF7A50 0%,#EE3A24 48%,#C42A16 100%);
+    text-align:center;padding:13px 16px;font-size:14px;font-weight:600;color:#FFE6DD;letter-spacing:.02em}
+  .topbar b{color:#fff;font-weight:800;letter-spacing:.03em}
+  .topbar .tb2{display:block;margin-top:3px;color:#fff;font-weight:700}
+
+  .top{text-align:center;padding:40px 0 4px}
+  .kicker{display:inline-flex;align-items:center;gap:12px;color:var(--coral);font-weight:700;font-size:12px;
+    letter-spacing:.24em;text-transform:uppercase;margin-bottom:16px}
+  .kicker::before,.kicker::after{content:"";width:34px;height:2px;background:var(--coral)}
+  h1{font-weight:800;text-transform:uppercase;font-size:clamp(25px,3.4vw,40px);line-height:1.14;
+    max-width:900px;margin:0 auto;letter-spacing:-.02em}
+  h1 .hl{color:var(--coral)}
+  .lead{max-width:720px;margin:16px auto 0;color:var(--ink2);font-size:clamp(15px,1.9vw,17.5px);line-height:1.55}
+  .lead b{color:var(--ink);font-weight:800}
+
+  main{flex:1 1 auto;display:flex;align-items:center;padding:14px 0 40px}
+  .grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:40px;align-items:stretch;width:100%}
+  .col{display:flex;flex-direction:column}
+  .col>.fcard{flex:1}
+  .fcard{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:30px;
+    box-shadow:0 30px 80px rgba(238,58,36,.12);display:flex;flex-direction:column}
+  .fcard .ft{font-weight:800;text-transform:uppercase;font-size:clamp(21px,2.5vw,29px);line-height:1.12;
+    margin-bottom:8px;text-align:center;letter-spacing:-.01em}
+  .fcard .ft .it{font-family:'Lora',serif;font-style:italic;font-weight:500;text-transform:none;color:var(--coral);letter-spacing:0}
+  .fcard .ft-sub{text-align:center;color:var(--ink2);font-size:15px;line-height:1.45;margin:2px 0 10px}
+  .form-mid{flex:1;display:flex;flex-direction:column;justify-content:center}
+  form{display:grid;gap:12px}
+  input{width:100%;padding:15px 16px;border-radius:12px;border:1px solid var(--line);background:var(--paper);
+    color:var(--ink);font-size:15px;font-family:inherit;outline:none;transition:border-color .15s}
+  input::placeholder{color:var(--muted)}
+  input:focus{border-color:var(--coral)}
+  .phone{display:flex;align-items:center;border:1px solid var(--line);background:var(--paper);border-radius:12px}
+  .phone:focus-within{border-color:var(--coral)}
+  .phone select{appearance:none;-webkit-appearance:none;border:none;outline:none;background:transparent;color:var(--ink);
+    font-family:inherit;font-size:15px;font-weight:600;padding:15px 26px 15px 16px;cursor:pointer;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238D8A85' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 10px center}
+  .phone .sep{width:1px;height:26px;background:var(--line);flex:none}
+  .phone input{border:none;background:transparent;flex:1;min-width:0}
+  .phone input:focus{border:none}
+  .btn{display:inline-flex;align-items:center;gap:10px;justify-content:center;background:var(--coral);color:#fff;
+    font-weight:800;font-size:16px;padding:16px 26px;border-radius:100px;border:none;cursor:pointer;
+    box-shadow:0 14px 40px rgba(238,58,36,.35);text-transform:uppercase;letter-spacing:.04em;width:100%;
+    margin-top:2px;transition:transform .18s,box-shadow .18s;font-family:inherit}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 18px 50px rgba(238,58,36,.45)}
+  .fsub{color:var(--muted);font-size:13px;text-align:center;margin-top:12px}
+
+  .col h2{font-weight:800;text-transform:uppercase;font-size:clamp(21px,2.5vw,29px);margin-bottom:8px;
+    line-height:1.1;text-align:center;letter-spacing:-.01em}
+  .col h2 .it{font-family:'Lora',serif;font-style:italic;font-weight:500;text-transform:none;color:var(--coral);letter-spacing:0}
+  .bon-sub{text-align:center;color:var(--ink2);font-size:15px;line-height:1.5;margin:0 0 18px}
+  .bonuses{display:grid;gap:16px}
+  .bonus-row{display:flex;gap:14px;align-items:flex-start}
+  .bi{flex:none;width:44px;height:44px;border-radius:50%;background:var(--coral);color:#fff;font-weight:800;
+    font-size:18px;display:flex;align-items:center;justify-content:center}
+  .bonus-row h3{font-size:16px;font-weight:800;margin-bottom:5px;line-height:1.2}
+  .bonus-row h3 .hl{color:var(--coral)}
+  .bonus-row p{color:var(--ink2);font-size:13.5px;line-height:1.5}
+
+  footer{position:relative;z-index:1;padding:22px 0 28px;text-align:center;color:var(--muted);font-size:13px;
+    border-top:1px solid var(--line)}
+  footer b{color:var(--coral);letter-spacing:.3em;text-transform:uppercase;font-weight:600;font-size:12px}
+
+  @media(max-width:860px){
+    .grid{grid-template-columns:1fr;gap:22px}
+    .col.form-col{order:2}
+    .col.text-col{order:1}
+    .top{padding:30px 0 2px}
+    main{padding:10px 0 30px}
+    .fcard{padding:26px 22px}
+  }
+</style>
+</head>
+<body>
+<div class="glow g1"></div>
+<div class="glow g2"></div>
+
+<div class="topbar">Пропозиція діє до кінця тижня<span class="tb2">Залишилось <b>3/10</b> безкоштовних місць</span></div>
+
+<div class="wrap">
+  <section class="top">
+    <div class="kicker">Особиста бренд-сесія</div>
+    <h1>Знайду твою <span class="hl">унікальність</span><br>на особистій бренд-сесії</h1>
+    <p class="lead">За 30 хвилин ти чітко зрозумієш, <b>хто ти як експерт</b>, чим відрізняєшся від сотні однакових блогів і що говорити в контенті, щоб обирали саме тебе.</p>
+  </section>
+</div>
+
+<main><div class="wrap">
+  <div class="grid">
+
+    <!-- ЛІВОРУЧ: форма -->
+    <div class="col form-col">
+      <div class="fcard">
+        <div class="ft">Залишай заявку <span class="it" style="display:block;margin-top:4px">на бренд-сесію зі мною</span></div>
+        <p class="ft-sub">Знайдемо твою суперсилу<br>та зрозуміємо, як впровадити її у&nbsp;блог.</p>
+        <div class="form-mid">
+          <form onsubmit="return false">
+            <input placeholder="Твоє ім'я" autocomplete="name">
+            <div class="phone">
+              <select aria-label="Код країни">
+                <option value="+380" selected>🇺🇦 +380</option>
+                <option value="+48">🇵🇱 +48</option>
+                <option value="+49">🇩🇪 +49</option>
+                <option value="+420">🇨🇿 +420</option>
+                <option value="+44">🇬🇧 +44</option>
+                <option value="+1">🇺🇸 +1</option>
+              </select>
+              <span class="sep"></span>
+              <input type="tel" placeholder="63 123 45 67" autocomplete="tel" inputmode="tel">
+            </div>
+            <button class="btn" type="submit">Записатися на бренд-сесію →</button>
+          </form>
+          <div class="fsub">Після заявки я звʼяжуся з тобою в Telegram ♥</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ПРАВОРУЧ: подарунки -->
+    <div class="col text-col">
+      <div class="fcard">
+        <h2>Що ти отримаєш, <span class="it" style="display:block;margin-top:4px">залишивши заявку</span></h2>
+        <p class="bon-sub">3 подарунки, які допоможуть тобі знайти свою унікальність і перестати зливатися з сотнею однакових експертів</p>
+        <div class="bonuses">
+          <div class="bonus-row">
+            <div class="bi">1</div>
+            <div>
+              <h3>Конструктор <span class="hl">«Карта Об'ємного Персонажу»</span></h3>
+              <p>Зробиш діагностику себе і побачиш сильні сторони й особливості, за які обирають саме тебе.</p>
+            </div>
+          </div>
+          <div class="bonus-row">
+            <div class="bi">2</div>
+            <div>
+              <h3>Розбір <span class="hl">Лєри Бородіної та Юлії Козачкової</span></h3>
+              <p>Стратегії особистих брендів лідерок ринку, щоб одразу підчерпнути десятки ідей у свій блог.</p>
+            </div>
+          </div>
+          <div class="bonus-row">
+            <div class="bi">3</div>
+            <div>
+              <h3>Доступ у закритий <span class="hl">Telegram-канал</span></h3>
+              <p>Розбори ефективних сторітелерів — лідерів ринку.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div></main>
+
+<footer><b>Solarium</b> · Олександра Лугова</footer>
+</body>
+</html>
