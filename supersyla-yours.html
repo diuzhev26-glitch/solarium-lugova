@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Урок «Як знайти свою унікальність» — Олександра Лугова · SOLARIUM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --coral:#EE3A24; --coral-deep:#C42A16; --coral-warm:#FF6A45; --coral-soft:#FF8566;
+    --ink:#141414; --ink2:#3A3732; --muted:#8D8A85;
+    --paper:#FBF7F1; --card:#FFFFFF; --cream:#F4ECE1;
+    --line:rgba(20,20,20,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{overflow-x:hidden}
+  body{background:var(--paper);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .glow{position:fixed;border-radius:50%;filter:blur(120px);opacity:.5;z-index:0;pointer-events:none}
+  .glow.g1{width:620px;height:620px;background:radial-gradient(closest-side,rgba(255,106,69,.7),rgba(238,58,36,.22) 50%,transparent 72%);top:-220px;left:-180px}
+  .glow.g2{width:520px;height:520px;background:radial-gradient(closest-side,rgba(255,106,69,.5),rgba(238,58,36,.16) 50%,transparent 72%);bottom:4%;right:-200px}
+  .wrap,.topbar{position:relative;z-index:1}
+
+  .topbar{background:radial-gradient(130% 130% at 16% 8%,#FF7A50 0%,#EE3A24 48%,#C42A16 100%);text-align:center;padding:13px 16px;font-size:14px;font-weight:600;color:#FFE6DD;letter-spacing:.02em}
+  .topbar b{color:#fff;font-weight:800;letter-spacing:.03em;white-space:nowrap}
+
+  .top{text-align:center;padding:40px 0 6px}
+  .kicker{display:inline-flex;align-items:center;gap:12px;color:var(--coral);font-weight:700;font-size:12px;letter-spacing:.24em;text-transform:uppercase;margin-bottom:16px}
+  .kicker::before,.kicker::after{content:"";width:34px;height:2px;background:var(--coral)}
+  h1{font-weight:800;text-transform:uppercase;font-size:clamp(22px,2.9vw,34px);line-height:1.1;max-width:900px;margin:0 auto;letter-spacing:-.02em}
+  h1 .hl{color:var(--coral)}
+  h1 .it{font-family:'Lora',Georgia,serif;font-style:italic;font-weight:500;text-transform:none;letter-spacing:0}
+
+  /* video */
+  .vwrap{max-width:900px;margin:30px auto 0}
+  .vframe{position:relative;border-radius:24px;padding:4px;overflow:hidden;box-shadow:0 30px 80px rgba(238,58,36,.28)}
+  .vframe::before{content:"";position:absolute;top:-60%;left:-60%;width:220%;height:220%;z-index:0;
+    background:conic-gradient(from 0deg,#EE3A24,#FF6A45,#FFC9B8,#F4ECE1,#FF6A45,#EE3A24);animation:vspin 6s linear infinite}
+  .vinner{position:relative;z-index:1;border-radius:20px;overflow:hidden;aspect-ratio:16/9;background:#000;display:flex;align-items:center;justify-content:center}
+  @keyframes vspin{to{transform:rotate(360deg)}}
+  .ytf{position:absolute;inset:0;cursor:pointer;z-index:1}
+  .ytf-cover{position:absolute;inset:0;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;z-index:4}
+  .ytf-cover::after{content:none}
+  .ytf-btn{position:relative;z-index:2;width:78px;height:78px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 44px rgba(0,0,0,.3);transition:transform .15s}
+  .ytf:hover .ytf-btn{transform:scale(1.07)}
+  .ytf-btn svg{margin-left:4px}
+  .ytf iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:0}
+  .ytf-guard{position:absolute;inset:0;z-index:5;cursor:default}
+  .short-box .ytf-btn{width:50px;height:50px}
+  /* постер, поки нема відео */
+  .poster-cover{position:absolute;inset:0;z-index:2;display:flex;align-items:flex-end;justify-content:center}
+  .poster-cover img{position:absolute;right:-4%;bottom:-6%;height:116%;object-fit:contain;filter:drop-shadow(0 20px 40px rgba(0,0,0,.3))}
+  .poster-cover .vlbl{position:absolute;left:30px;top:26px;color:#fff;font-weight:800;text-transform:uppercase;font-size:clamp(18px,2.4vw,30px);line-height:1.05;max-width:55%;letter-spacing:-.01em;text-align:left}
+  .poster-cover .vlbl span{display:block;font-family:'Lora',serif;font-style:italic;font-weight:500;text-transform:none;color:#FFE0D5;font-size:.92em;margin-top:6px}
+  .poster-cover .vsub{position:absolute;left:30px;bottom:24px;color:rgba(255,255,255,.85);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+  .poster-cover .ytf-btn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+
+  .warnbar{max-width:900px;margin:16px auto 0;display:flex;align-items:center;justify-content:center;gap:11px;
+    background:rgba(238,58,36,.08);border:1px solid rgba(238,58,36,.4);color:var(--coral-deep);font-weight:700;font-size:14px;
+    padding:13px 22px;border-radius:100px;text-align:center}
+  .dot{flex:none;width:10px;height:10px;border-radius:50%;background:var(--coral);animation:pulse 1.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(238,58,36,.55)}70%{box-shadow:0 0 0 9px rgba(238,58,36,0)}100%{box-shadow:0 0 0 0 rgba(238,58,36,0)}}
+
+  /* form + bonuses */
+  .grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:40px;align-items:stretch;padding:34px 0 36px}
+  .col{display:flex;flex-direction:column}
+  .col>.fcard{flex:1}
+  .col h2{font-weight:800;text-transform:uppercase;font-size:clamp(21px,2.5vw,29px);margin-bottom:18px;line-height:1.1;text-align:center;letter-spacing:-.01em}
+  .col h2 span{color:var(--coral)}
+  .fcard{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:30px;box-shadow:0 30px 80px rgba(238,58,36,.12);display:flex;flex-direction:column}
+  .fcard .ft{font-weight:800;text-transform:uppercase;font-size:clamp(21px,2.5vw,29px);line-height:1.12;margin-bottom:8px;text-align:center;letter-spacing:-.01em}
+  .fcard .ft .it{font-family:'Lora',serif;font-style:italic;font-weight:500;text-transform:none;color:var(--coral);letter-spacing:0}
+  .form-mid{flex:1;display:flex;flex-direction:column;justify-content:center}
+  form{display:grid;gap:12px}
+  input{width:100%;padding:15px 16px;border-radius:12px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-size:15px;font-family:inherit;outline:none;transition:border-color .15s}
+  input::placeholder{color:var(--muted)}
+  input:focus{border-color:var(--coral)}
+  .btn{display:inline-flex;align-items:center;gap:10px;justify-content:center;background:var(--coral);color:#fff;font-weight:800;font-size:16px;padding:16px 26px;border-radius:100px;border:none;cursor:pointer;box-shadow:0 14px 40px rgba(238,58,36,.35);text-transform:uppercase;letter-spacing:.04em;width:100%;margin-top:2px;transition:transform .18s,box-shadow .18s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 18px 50px rgba(238,58,36,.45)}
+  .fsub{color:var(--muted);font-size:13px;text-align:center;margin-top:12px}
+  .bonuses{display:grid;gap:16px}
+  .bonus-row{display:flex;gap:14px;align-items:flex-start}
+  .bi{flex:none;width:44px;height:44px;border-radius:50%;background:var(--coral);color:#fff;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center}
+  .bonus-row h3{font-size:16px;font-weight:800;margin-bottom:5px;line-height:1.2}
+  .bonus-row h3 .hl{color:var(--coral)}
+  .bonus-row p{color:var(--ink2);font-size:13.5px;line-height:1.5}
+  .grid-wrap{position:relative}
+  .arw{position:absolute;top:-92px;width:92px;height:186px;pointer-events:none;z-index:3;filter:drop-shadow(0 3px 9px rgba(238,58,36,.3))}
+  .arw-l{left:-58px}
+  .arw-r{right:-58px;transform:scaleX(-1)}
+  @media(max-width:1040px){.arw{display:none}}
+
+  /* video sections */
+  .vids{padding:14px 0 36px;text-align:center}
+  .vids-h{font-weight:800;text-transform:uppercase;font-size:clamp(20px,2.6vw,31px);line-height:1.12;margin-bottom:14px;max-width:940px;margin-left:auto;margin-right:auto;letter-spacing:-.01em}
+  .vids-h span{color:var(--coral)}
+  .vids-h .it{font-family:'Lora',serif;font-style:italic;font-weight:500;text-transform:none;color:var(--coral);letter-spacing:0}
+  .vids-sub{color:var(--ink2);font-size:clamp(15px,1.9vw,18px);line-height:1.5;max-width:720px;margin:0 auto 34px}
+  .vids-sub b{color:var(--ink);font-weight:800}
+  .vids-sub .y{color:var(--coral)}
+  .vids-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .vid-box{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 20px 50px rgba(238,58,36,.14);background:var(--cream)}
+  .vid-box iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  @media(max-width:760px){.vids-grid{grid-template-columns:1fr;gap:18px}}
+  .shorts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:26px auto 0;max-width:760px}
+  .short-box{position:relative;aspect-ratio:9/16;border-radius:18px;overflow:hidden;border:3px solid var(--coral);box-shadow:0 20px 50px rgba(238,58,36,.14);background:var(--cream)}
+  .short-box iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  @media(max-width:640px){.shorts-grid{grid-template-columns:1fr;max-width:330px;gap:18px}}
+  /* фото-плейсхолдер у стилі SOLARIUM */
+  .ph{position:absolute;inset:0;background:var(--cream);display:flex;align-items:center;justify-content:center}
+  .ph::before{content:"";position:absolute;inset:14px;border:1px solid rgba(238,58,36,.3)}
+  .ph span{letter-spacing:.4em;font-size:13px;color:rgba(238,58,36,.55);font-weight:700;text-transform:uppercase}
+
+  footer{padding:26px 0;text-align:center;color:var(--muted);font-size:13px}
+  footer b{color:var(--coral);letter-spacing:.3em;text-transform:uppercase;font-weight:600;font-size:12px}
+
+  @media(max-width:860px){.grid{grid-template-columns:1fr;gap:24px;padding:26px 0 28px}.col.form-col{order:2}.col.text-col{order:1}}
+  /* cases from deck */
+  .kgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .kase{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:12px}
+  .kase .kk{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--coral)}
+  .kase .kt{font-weight:800;font-size:17px;text-transform:uppercase;letter-spacing:-.01em}
+  .kase .bs{font-size:14.5px;color:var(--ink2);line-height:1.5}
+  .kase .bs b{color:var(--ink)}
+  .kase .kimgs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .kase .kimgs .shot{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center}
+  .kase .kimgs .shot img{max-width:100%;max-height:100%;width:auto;height:auto;display:block;object-fit:contain}
+  .kase .kres{margin-top:auto;font-weight:800;font-size:20px;color:var(--coral);letter-spacing:-.01em}
+  .kase.wide{grid-column:span 2}
+  @media(max-width:900px){.kgrid{grid-template-columns:1fr}.kase.wide{grid-column:auto}}
+  .vids .kgrid{max-width:1072px;margin:0 auto;text-align:left}
+  .fcard .ft-sub{text-align:center;color:var(--ink2);font-size:15px;line-height:1.45;margin:2px 0 10px}
+  .shorts-grid.three{grid-template-columns:repeat(3,minmax(0,246px));justify-content:center}
+  /* телеграм-кружечки */
+  .circles-grid{display:grid;grid-template-columns:repeat(5,minmax(0,168px));gap:18px;justify-content:center;margin:26px auto 0}
+  .circle-box{position:relative;aspect-ratio:1/1;border-radius:50%;overflow:hidden;background:#000;border:3px solid var(--coral);box-shadow:0 14px 34px rgba(238,58,36,.22);cursor:pointer}
+  .circle-box video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .circle-box .c-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;background:rgba(20,10,6,.28);transition:opacity .2s}
+  .circle-box.playing .c-play{opacity:0}
+  @media(max-width:760px){.circles-grid{grid-template-columns:repeat(2,minmax(0,150px))}}
+  .phone{display:flex;align-items:center;border:1px solid var(--line);background:var(--paper);border-radius:12px}
+  .phone:focus-within{border-color:var(--coral)}
+  .phone select{appearance:none;-webkit-appearance:none;border:none;outline:none;background:transparent;color:var(--ink);font-family:inherit;font-size:15px;font-weight:600;padding:15px 26px 15px 16px;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238D8A85' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center}
+  .phone .sep{width:1px;height:26px;background:var(--line);flex:none}
+  .phone input{border:none;background:transparent;flex:1;min-width:0}
+  .phone input:focus{border:none}
+  .bon-sub{text-align:center;color:var(--ink2);font-size:15px;line-height:1.5;margin:-6px 0 18px}
+
+  @media(max-width:640px){
+    .shorts-grid.three{grid-template-columns:minmax(0,340px);gap:16px}
+    .circles-grid{grid-template-columns:repeat(2,minmax(0,164px));gap:16px}
+  }
+
+  .kicker .k2::before{content:"· "}
+  @media(max-width:640px){
+    .kicker{flex-direction:column;gap:4px}
+    .kicker::before,.kicker::after{display:none}
+    .kicker .k2::before{content:""}
+    h1{font-size:22px;letter-spacing:-.01em}
+    h1 .hl{white-space:nowrap}
+  }
+</style>
+</head>
+<body>
+<div class="glow g1"></div>
+<div class="glow g2"></div>
+
+<div class="topbar">⏳ Урок доступний ще: <b id="cdTimer">2 дн. 00 год. 00 хв.</b></div>
+
+<div class="wrap">
+  <section class="top">
+    <div class="kicker"><span>Безкоштовний урок</span><span class="k2">16 хвилин</span></div>
+    <h1>Як знайти свою унікальність і вийти на стабільні <span class="hl">10–30к&nbsp;$</span> на&nbsp;місяць</h1>
+  </section>
+
+  <div class="vwrap">
+    <div class="vframe">
+      <div class="vinner">
+        <!-- ВІДЕО УРОКУ: заміни VIDEO_ID на id ролика YouTube і прибери .poster-cover -->
+        <div class="ytf" data-id="CemgDnheF0A">
+          <div class="ytf-cover" style="background-image:url('https://i.ytimg.com/vi/CemgDnheF0A/maxresdefault.jpg')">
+            <div class="ytf-btn"><svg width="26" height="30" viewBox="0 0 30 34" fill="none"><path d="M28 15.27a2 2 0 0 1 0 3.46L3 33.2A2 2 0 0 1 0 31.46V2.54A2 2 0 0 1 3 .8l25 14.47Z" fill="#EE3A24"/></svg></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="warnbar"><span class="dot"></span> Не закривай це вікно, інакше відео закінчиться</div>
+
+  <div class="grid-wrap">
+  <svg class="arw arw-l" viewBox="0 0 120 180" fill="none" stroke="#EE3A24" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M25 12 C 8 60 18 120 72 150"/><path d="M46 150 L 74 152"/><path d="M63 126 L 74 152"/></svg>
+  <svg class="arw arw-r" viewBox="0 0 120 180" fill="none" stroke="#EE3A24" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M25 12 C 8 60 18 120 72 150"/><path d="M46 150 L 74 152"/><path d="M63 126 L 74 152"/></svg>
+  <div class="grid">
+    <!-- ЛІВОРУЧ: форма -->
+    <div class="col form-col">
+      <div class="fcard">
+        <div class="ft">Залишай заявку <span class="it" style="display:block;margin-top:4px">на бренд-розбір зі мною</span></div>
+        <p class="ft-sub">Знайдемо твою суперсилу<br>та зрозуміємо, як впровадити її у&nbsp;блог.</p>
+        <div class="form-mid">
+          <form onsubmit="return false">
+            <input placeholder="Твоє ім'я" autocomplete="name">
+            <div class="phone"><select aria-label="Код країни"><option value="+380" selected>🇺🇦 +380</option><option value="+48">🇵🇱 +48</option><option value="+49">🇩🇪 +49</option><option value="+420">🇨🇿 +420</option><option value="+44">🇬🇧 +44</option><option value="+1">🇺🇸 +1</option></select><span class="sep"></span><input type="tel" placeholder="63 123 45 67" autocomplete="tel" inputmode="tel"></div>
+            <button class="btn" type="submit">Отримати розбір і подарунки →</button>
+          </form>
+          <div class="fsub">Після заявки я звʼяжуся з тобою в Telegram ♥</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ПРАВОРУЧ: бонуси -->
+    <div class="col text-col">
+      <div class="fcard">
+      <h2>Що ти отримаєш, <span class="it" style="display:block;margin-top:4px;color:var(--coral)">залишивши заявку</span></h2>
+      <p class="bon-sub">3 подарунки, які допоможуть тобі знайти свою унікальність і перестати зливатися з сотнею однакових експертів</p>
+      <div class="bonuses">
+        <div class="bonus-row">
+          <div class="bi">1</div>
+          <div>
+            <h3>Конструктор <span class="hl">«Карта Об'ємного Персонажу»</span></h3>
+            <p>Зробиш діагностику себе і побачиш сильні сторони й особливості, за які обирають саме тебе.</p>
+          </div>
+        </div>
+        <div class="bonus-row">
+          <div class="bi">2</div>
+          <div>
+            <h3>Розбір <span class="hl">Лєри Бородіної та Юлії Козачкової</span></h3>
+            <p>Стратегії особистих брендів лідерок ринку, щоб одразу підчерпнути десятки ідей у свій блог.</p>
+          </div>
+        </div>
+        <div class="bonus-row">
+          <div class="bi">3</div>
+          <div>
+            <h3>Доступ у закритий <span class="hl">Telegram-канал</span></h3>
+            <p>Розбори ефективних сторітелів лідерів ринку.</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- ВІДЕО-КЕЙСИ -->
+  <section class="vids">
+    <h2 class="vids-h">Чому в моїх учениць <span>майже завжди є результат?</span></h2>
+    <p class="vids-sub">Учасниці програми заробили вже <b class="y">190&nbsp;000&nbsp;$+</b> — не на трендах і шаблонах, а на тому, що їх нарешті <b>стало видно</b>.</p>
+    <div class="kgrid">
+      <div class="kase">
+        <div class="kk">елемент 1 · досвід</div>
+        <div class="kt">Ірина — нейрокоуч</div>
+        <p class="bs"><b>Було:</b> продавала разові консультації.<br><b>Стало:</b> запустила продукт, який пройшли 300+ жінок, і провела власну конференцію на 90 учасниць.</p>
+        <div class="kimgs">
+          <div class="shot"><img src="img/case-irina-1.jpg" alt="Ірина — профіль"></div>
+          <div class="shot"><img src="img/case-irina-2.jpg" alt="Програма інтенсиву"></div>
+        </div>
+        <div class="kres">21 700 $ на новому інтенсиві</div>
+      </div>
+      <div class="kase">
+        <div class="kk">елемент 2 · суперсила</div>
+        <div class="kt">Анастасія — Shandra Space</div>
+        <p class="bs"><b>Було:</b> багато напрямків і розфокус.<br><b>Стало:</b> побудувала бренд на своїй суперсилі — ретрити, які продають себе самі.</p>
+        <div class="kimgs">
+          <div class="shot"><img src="img/case-shandra-1.jpg" alt="Анастасія Шандра — профіль"></div>
+          <div class="shot"><img src="img/case-shandra-2.jpg" alt="Shandra Space"></div>
+        </div>
+        <div class="kres">26 000 $ на ретритах і жіночих колах</div>
+      </div>
+      <div class="kase">
+        <div class="kk">елемент 3 · інтерес</div>
+        <div class="kt">Анастасія — фотограф</div>
+        <p class="bs"><b>Було:</b> просто зйомки, як у сотень фотографів.<br><b>Стало:</b> перетворила свій інтерес на продукт — пресети зі своїм авторським почерком.</p>
+        <div class="kimgs">
+          <div class="shot"><img src="img/case-photo-1.jpg" alt="Фотограф — профіль"></div>
+          <div class="shot"><img src="img/case-photo-2.jpg" alt="SENSOR"></div>
+        </div>
+        <div class="kres">4 000 $ на новому продукті SENSOR</div>
+      </div>
+      <div class="kase">
+        <div class="kk">елемент 4 · проблема ринку</div>
+        <div class="kt">Надія — SMM-стратег</div>
+        <p class="bs"><b>Було:</b> чеки 200–500 $ і страх продавати дорого.<br><b>Стало:</b> чек за проєкт 700–1 200 $ + власний продукт для SMM-спеціалісток.</p>
+        <div class="kimgs">
+          <div class="shot"><img src="img/case-nadia-1.jpg" alt="Надія — профіль"></div>
+          <div class="shot"><img src="img/case-nadia-2.jpg" alt="METANOIA"></div>
+        </div>
+        <div class="kres">10 000 $ на новому продукті METANOIA</div>
+      </div>
+    
+    </div>
+  </section>
+
+  <section class="vids">
+    <h2 class="vids-h">Що говорять учасниці <span>SOLARIUM</span></h2>
+    <p class="vids-sub">Бо я працюю з людьми вдовгу: <b>40%</b> кожного потоку повертаються знову, а оцінка програми — <b class="y">9.5</b>. Мій результат починається тоді, коли є твій.</p>
+    <div class="shorts-grid three">
+      <div class="short-box"><video src="img/story1.mp4" poster="img/story1_poster.jpg" controls playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000"></video></div>
+      <div class="short-box"><video src="img/story2.mp4" poster="img/story2_poster.jpg" controls playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000"></video></div>
+      <div class="short-box"><video src="img/story3.mp4" poster="img/story3_poster.jpg" controls playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000"></video></div>
+    </div>
+    <div class="circles-grid">
+      <div class="circle-box"><video src="img/circle1.mp4" poster="img/circle1_poster.jpg" playsinline preload="metadata"></video><div class="c-play">▶</div></div>
+      <div class="circle-box"><video src="img/circle2.mp4" poster="img/circle2_poster.jpg" playsinline preload="metadata"></video><div class="c-play">▶</div></div>
+      <div class="circle-box"><video src="img/circle3.mp4" poster="img/circle3_poster.jpg" playsinline preload="metadata"></video><div class="c-play">▶</div></div>
+      <div class="circle-box"><video src="img/circle4.mp4" poster="img/circle4_poster.jpg" playsinline preload="metadata"></video><div class="c-play">▶</div></div>
+      <div class="circle-box"><video src="img/circle5.mp4" poster="img/circle5_poster.jpg" playsinline preload="metadata"></video><div class="c-play">▶</div></div>
+    </div>
+  </section>
+
+  <!-- ПОВТОР БЛОКУ ЗАЯВКИ -->
+  <div class="grid">
+    <div class="col form-col">
+      <div class="fcard">
+        <div class="ft">Залишай заявку <span class="it" style="display:block;margin-top:4px">на бренд-розбір зі мною</span></div>
+        <p class="ft-sub">Знайдемо твою суперсилу<br>та зрозуміємо, як впровадити її у&nbsp;блог.</p>
+        <div class="form-mid">
+          <form onsubmit="return false">
+            <input placeholder="Твоє ім'я" autocomplete="name">
+            <div class="phone"><select aria-label="Код країни"><option value="+380" selected>🇺🇦 +380</option><option value="+48">🇵🇱 +48</option><option value="+49">🇩🇪 +49</option><option value="+420">🇨🇿 +420</option><option value="+44">🇬🇧 +44</option><option value="+1">🇺🇸 +1</option></select><span class="sep"></span><input type="tel" placeholder="63 123 45 67" autocomplete="tel" inputmode="tel"></div>
+            <button class="btn" type="submit">Отримати розбір і подарунки →</button>
+          </form>
+          <div class="fsub">Після заявки я звʼяжуся з тобою в Telegram ♥</div>
+        </div>
+      </div>
+    </div>
+    <div class="col text-col">
+      <div class="fcard">
+      <h2>Що ти отримаєш, <span class="it" style="display:block;margin-top:4px;color:var(--coral)">залишивши заявку</span></h2>
+      <p class="bon-sub">3 подарунки, які допоможуть тобі знайти свою унікальність і перестати зливатися з сотнею однакових експертів</p>
+      <div class="bonuses">
+        <div class="bonus-row">
+          <div class="bi">1</div>
+          <div>
+            <h3>Конструктор <span class="hl">«Карта Об'ємного Персонажу»</span></h3>
+            <p>Зробиш діагностику себе і побачиш сильні сторони й особливості, за які обирають саме тебе.</p>
+          </div>
+        </div>
+        <div class="bonus-row">
+          <div class="bi">2</div>
+          <div>
+            <h3>Розбір <span class="hl">Лєри Бородіної та Юлії Козачкової</span></h3>
+            <p>Стратегії особистих брендів лідерок ринку, щоб одразу підчерпнути десятки ідей у свій блог.</p>
+          </div>
+        </div>
+        <div class="bonus-row">
+          <div class="bi">3</div>
+          <div>
+            <h3>Доступ у закритий <span class="hl">Telegram-канал</span></h3>
+            <p>Розбори ефективних сторітелів лідерів ринку.</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <footer><b>SOLARIUM</b> · © Олександра Лугова · @alexa.lugovaya</footer>
+</div>
+
+<script>
+(function(){
+  var el=document.getElementById('cdTimer');
+  if(!el)return;
+  var KEY='sol_urok_deadline_v1', DUR=2*24*3600*1000, dl;
+  try{
+    dl=parseInt(localStorage.getItem(KEY),10);
+    if(!dl||isNaN(dl)){dl=Date.now()+DUR;localStorage.setItem(KEY,String(dl));}
+  }catch(e){ dl=Date.now()+DUR; }
+  function p(n){return (n<10?'0':'')+n;}
+  function tick(){
+    var r=dl-Date.now(); if(r<0)r=0;
+    var d=Math.floor(r/86400000);
+    var h=Math.floor(r%86400000/3600000);
+    var m=Math.floor(r%3600000/60000);
+    el.textContent=d+' дн. '+p(h)+' год. '+p(m)+' хв.';
+  }
+  tick(); setInterval(tick,1000);
+})();
+</script>
+
+<script>
+(function(){
+  var q=[];
+  window.onYouTubeIframeAPIReady=function(){ while(q.length) q.shift()(); };
+  function api(){
+    if(window.YT&&window.YT.Player) return true;
+    if(!document.getElementById('yt-api')){ var s=document.createElement('script'); s.id='yt-api'; s.src='https://www.youtube.com/iframe_api'; document.head.appendChild(s); }
+    return false;
+  }
+  function play(box){
+    if(box.dataset.on) return;
+    var id=box.getAttribute('data-id'), st=parseInt(box.getAttribute('data-start')||'0',10);
+    if(!id||id==='VIDEO_ID') return; // відео ще не підставлене
+    box.dataset.on='1';
+    var isMain = !!box.closest('.vinner');
+    var mount=document.createElement('div'); box.appendChild(mount);
+    var cover=box.querySelector('.ytf-cover')||box.querySelector('.poster-cover');
+    function make(){
+      var player=new YT.Player(mount,{width:'100%',height:'100%',videoId:id,
+        playerVars:{autoplay:1,controls:0,rel:0,modestbranding:1,playsinline:1,iv_load_policy:3,disablekb:1,fs:0,start:st,cc_load_policy:0,hl:'uk'},
+        events:{
+          onReady:function(e){try{e.target.playVideo();e.target.unloadModule('captions');e.target.unloadModule('cc');}catch(x){}},
+          onStateChange:function(e){
+            if(e.data===0){
+              box.querySelectorAll('iframe,.ytf-guard').forEach(function(n){n.remove();});
+              if(cover) cover.style.display='';
+              box.dataset.on='';
+            } else if(!isMain && cover){
+              if(e.data===2) cover.style.display='flex';
+              else if(e.data===1) cover.style.display='none';
+            }
+          }
+        }});
+      if(cover) cover.style.display='none';
+      var g=document.createElement('div'); g.className='ytf-guard'; box.appendChild(g);
+      g.style.cursor='pointer';
+      g.addEventListener('click',function(){
+        try{ var s=player.getPlayerState(); if(s===1) player.pauseVideo(); else player.playVideo(); }catch(x){}
+      });
+    }
+    if(api()) make(); else q.push(make);
+  }
+  document.querySelectorAll('.ytf').forEach(function(b){ b.addEventListener('click',function(){play(b);}); });
+})();
+</script>
+
+<script>
+document.querySelectorAll('.circle-box').forEach(function(b){
+  var v=b.querySelector('video');
+  b.addEventListener('click',function(){
+    if(v.paused){
+      document.querySelectorAll('.circle-box video').forEach(function(o){ if(o!==v){o.pause();o.closest('.circle-box').classList.remove('playing');} });
+      v.play(); b.classList.add('playing');
+    } else { v.pause(); b.classList.remove('playing'); }
+  });
+  v.addEventListener('ended',function(){ b.classList.remove('playing'); v.currentTime=0; });
+});
+</script>
+</body>
+</html>
