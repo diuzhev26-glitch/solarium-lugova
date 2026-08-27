@@ -1,3 +1,7 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/supersila", "destination": "/index.html" },
+    { "source": "/supersila-dostup", "destination": "/urok.html" }
+  ]
 }
