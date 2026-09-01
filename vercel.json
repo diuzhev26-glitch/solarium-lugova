@@ -1,7 +1,4 @@
 {
   "cleanUrls": true,
-  "rewrites": [
-    { "source": "/supersyla", "destination": "/index.html" },
-    { "source": "/supersyla-yours", "destination": "/urok.html" }
-  ]
+  "trailingSlash": false
 }
