@@ -17,6 +17,12 @@
   // Якщо колись обнулити — кнопки просто ведуть у бот, без запуску прогріву.
   var FLOW_D1 = '6a96bb5821a4472f400c18df';
 
+  // id ланцюжка «Заявка — обробка». Потрібен окремо від «Дня 1»: людину, що
+  // залишила заявку, не можна кидати на початок прогріву — вона отримає урок
+  // наново, ніби нічого не було. Тому форма без cid стартує саме цей ланцюжок:
+  // він запише рядок у «Заявки» і надішле підтвердження, а прогрів не чіпає.
+  var FLOW_ZAYAVKA = '6a96cdca21a4472f400c1958';
+
   var KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
   var STORE = 'sol_utm';
 
@@ -39,17 +45,24 @@
   // t.me вміє тільки start, тому беремо його, коли передавати нічого.
   // Без FLOW_D1 параметри теж нікуди подіти: tg.pulse.is кладе їх у контакт
   // у момент запуску ланцюжка, а запускати нема чого.
-  window.botLink = function (extra) {
-    if (!FLOW_D1) return 'https://t.me/' + BOT;
+  function link(flow, extra) {
+    if (!flow) return 'https://t.me/' + BOT;
 
     var all = {};
     Object.keys(utm).forEach(function (k) { if (utm[k]) all[k] = utm[k]; });
     Object.keys(extra || {}).forEach(function (k) { if (extra[k]) all[k] = extra[k]; });
     var keys = Object.keys(all);
-    if (!keys.length) return 'https://t.me/' + BOT + '?start=' + FLOW_D1;
-    return 'https://tg.pulse.is/' + BOT + '?start=' + FLOW_D1 +
+    if (!keys.length) return 'https://t.me/' + BOT + '?start=' + flow;
+    return 'https://tg.pulse.is/' + BOT + '?start=' + flow +
       keys.map(function (k) { return '&' + k + '=' + encodeURIComponent(all[k]); }).join('');
-  };
+  }
+
+  // Вхід у прогрів — кнопки лендінга.
+  window.botLink = function (extra) { return link(FLOW_D1, extra); };
+
+  // Заявка від того, кого ми ще не знаємо: замість прогріву стартує обробку
+  // заявки. Використовує lead.js, коли в адресі немає cid.
+  window.botLinkZayavka = function (extra) { return link(FLOW_ZAYAVKA, extra); };
 
   window.BOT_LINK = window.botLink();
 

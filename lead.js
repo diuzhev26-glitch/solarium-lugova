@@ -46,9 +46,15 @@
     setTimeout(function () { location.href = href; }, 1200);
   }
 
+  // Заявка від людини без cid. Стартуємо ланцюжок «Заявка — обробка», а не
+  // «День 1»: інакше той, хто вже у воронці, після заявки отримує урок наново
+  // з першого повідомлення. Ланцюжок заявки і рядок у таблицю запише,
+  // і підтвердження надішле, і прогрів не зіб'є.
   function botHref(phone) {
-    return window.botLink ? window.botLink({ phone: phone, lp_page: page })
-                          : 'https://t.me/solarium_education_bot';
+    if (window.botLinkZayavka) {
+      return window.botLinkZayavka({ phone: phone, lp_page: page });
+    }
+    return 'https://t.me/solarium_education_bot';
   }
 
   document.querySelectorAll('form').forEach(function (form) {
