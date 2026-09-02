@@ -67,6 +67,23 @@ function phoneVariants(phone) {
   return [...seen];
 }
 
+// Один номер може лежати на кількох контактах акаунта — у нас в кабінеті
+// чотири боти, і 02.09 пошук за номером віддав контакт зовсім іншого бота
+// (заявка лягла на «Живий ментор Solara», а не на людину). Тому мало знайти
+// збіг — треба переконатися, що контакт належить саме нашому боту.
+async function belongsToBot(token, id, botId) {
+  try {
+    const r = await fetch(`${SP}/contacts/get?id=${encodeURIComponent(id)}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    if (!r.ok) return false;
+    const c = (await r.json()).data || {};
+    return String(c.bot_id) === String(botId);
+  } catch (err) {
+    return false;
+  }
+}
+
 async function findContactByPhone(token, phone) {
   const botId = process.env.SP_BOT_ID;
   if (!botId) return null;
@@ -79,8 +96,24 @@ async function findContactByPhone(token, phone) {
       const r = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
       if (!r.ok) continue;
       const body = await r.json();
-      const hit = (body.data || []).find((c) => c && (c.id || c.contact_id));
-      if (hit) return hit.id || hit.contact_id;
+
+      const ids = (body.data || [])
+        .map((c) => c && (c.id || c.contact_id))
+        .filter(Boolean);
+
+      const ours = [];
+      for (const id of ids) {
+        if (await belongsToBot(token, id, botId)) ours.push(id);
+      }
+
+      // Рівно один контакт нашого бота — це він. Кілька означає, що номер
+      // ділять дві людини, і вгадувати не можна: краще відправити в бот,
+      // там Telegram сам скаже, хто прийшов.
+      if (ours.length === 1) return ours[0];
+      if (ours.length > 1) {
+        console.warn('zayavka: номер знайдено на кількох контактах бота, шлемо в бот');
+        return null;
+      }
     } catch (err) {
       // мережа впала або відповідь не JSON — просто пробуємо наступне написання
       console.warn('zayavka: пошук за номером не вдався —', value, String(err).slice(0, 120));
