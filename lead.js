@@ -113,14 +113,17 @@
       note.hidden = true;
       if (btn) { btn.disabled = true; btn.textContent = 'Відправляємо…'; }
 
-      // Відправляємо завжди, навіть без cid: функція вміє знайти контакт
-      // за номером. Так людина, що зайшла на сторінку сама, все одно
-      // потрапляє в бот звичайним посиланням, без /start у чаті.
+      // Не підписник — відправляємо в бот разом із номером.
+      if (!cid) {
+        goToBot(form, note, botHref(phone));
+        return;
+      }
+
       fetch('/api/zayavka', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          cid: cid || '',
+          cid: cid,
           phone: phone,
           src: page,
           utm_source: utm.utm_source || '',
@@ -131,15 +134,8 @@
         }),
       })
         .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-        .then(function (data) {
-          // Контакту не існує — його нема кому створити, крім самого бота.
-          // Це єдиний випадок, коли лишається посилання зі start.
-          if (data && data.needStart) {
-            goToBot(form, note, botHref(phone));
-            return;
-          }
-          // Усе вже зроблено на сервері: заявка записана, ланцюжок запущено.
-          // Ведемо в бот без start, інакше прогрів піде з першого повідомлення.
+        .then(function () {
+          // Без start: людина вже у воронці, повторний запуск скине її на початок.
           goToBot(form, note, window.BOT_PLAIN || 'https://t.me/solarium_education_bot');
         })
         .catch(function () {
