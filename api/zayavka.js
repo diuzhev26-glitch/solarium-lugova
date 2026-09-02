@@ -7,17 +7,21 @@
 // його побачить кожен, хто відкриє исходник.
 //
 // Змінні оточення (Vercel → Settings → Environment Variables):
-//   SP_API_KEY         Налаштування → API → «Ключі API» (sp_apikey_…)
-//   SP_FLOW_ZAYAVKA    id воронки «Заявка — обробка»
-//
-// Запасний шлях, якщо ключ не підійде для чатбот-ендпоінтів:
 //   SP_CLIENT_ID       Налаштування → API → «Облікові дані» (sp_id_…)
 //   SP_CLIENT_SECRET   звідти ж (sp_sk_…)
+//   SP_FLOW_ZAYAVKA    id ланцюжка «Заявка — обробка»
+//   SP_BOT_ID          id бота (потрібен для пошуку контакта за номером)
+//   SP_API_KEY         необов'язково: статичний ключ замість OAuth
 //
-// SendPulse дає два способи авторизації. API-ключ статичний і живе, доки його
-// не відкликали. OAuth видає токен на годину — і для serverless це гірше:
-// функція не тримає стан між викликами, тому кожна заявка починалася б із
-// зайвого походу за токеном. Тому ключ основний, OAuth лишається запасним.
+// ── Як людина потрапляє сюди ────────────────────────────────────────────
+//
+//   з cid       прийшла з кнопки в боті, контакт відомий одразу
+//   без cid     відкрила сторінку напряму. Тоді шукаємо контакт за номером
+//               (getByVariable) — більшість таких людей уже підписані, просто
+//               зайшли на сайт з іншого місця
+//   не знайшли  контакту не існує. API SendPulse контактів не створює, тому
+//               єдиний шлях — відправити людину в бот посиланням зі start.
+//               Віддаємо needStart, сторінка робить саме це
 
 const SP = 'https://api.sendpulse.com/telegram';
 
@@ -52,24 +56,63 @@ async function oauthToken() {
   return auth.access_token;
 }
 
+// Номер у боті й номер із форми записані по-різному: бот бере його з
+// Telegram-контакта («380687266801»), форма складає з коду країни («+380…»).
+// Точного збігу не буде, тому пробуємо кілька написань того самого номера.
+function phoneVariants(phone) {
+  const d = String(phone).replace(/\D/g, '');
+  if (d.length < 7) return [];
+  const seen = new Set([`+${d}`, d]);
+  if (d.startsWith('380')) seen.add(`0${d.slice(3)}`); // 380671234567 → 0671234567
+  return [...seen];
+}
+
+async function findContactByPhone(token, phone) {
+  const botId = process.env.SP_BOT_ID;
+  if (!botId) return null;
+
+  for (const value of phoneVariants(phone)) {
+    const url = `${SP}/contacts/getByVariable`
+      + `?variable_name=phone&variable_value=${encodeURIComponent(value)}`
+      + `&bot_id=${encodeURIComponent(botId)}`;
+    try {
+      const r = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
+      if (!r.ok) continue;
+      const body = await r.json();
+      const hit = (body.data || []).find((c) => c && (c.id || c.contact_id));
+      if (hit) return hit.id || hit.contact_id;
+    } catch (err) {
+      // мережа впала або відповідь не JSON — просто пробуємо наступне написання
+      console.warn('zayavka: пошук за номером не вдався —', value, String(err).slice(0, 120));
+    }
+  }
+  return null;
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
 
   const { cid, phone, src, ...utm } = req.body || {};
-  if (!cid || !phone) {
-    return res.status(400).json({ error: 'cid і phone обовʼязкові' });
-  }
+  if (!phone) return res.status(400).json({ error: 'phone обовʼязковий' });
 
   try {
     // 1. Авторизація: статичний ключ, інакше OAuth
     const token = process.env.SP_API_KEY || (await oauthToken());
 
-    // 2. Телефон у змінну контакта. Пошту не збираємо — на формі лише номер,
-    // тож колонка email у таблиці заявок лишається порожньою.
-    // Ендпоінт приймає одну змінну за виклик, тому йдемо по черзі.
+    // 2. Кому належить заявка. З кнопки в боті cid приходить готовим;
+    // якщо людина відкрила сторінку сама — шукаємо її за номером.
+    const contactId = cid || (await findContactByPhone(token, phone));
+
+    // Контакту немає — дописувати нема до кого. Сторінка відправить людину
+    // в бот посиланням зі start: там контакт створиться, і той самий
+    // ланцюжок «Заявка — обробка» відпрацює вже з боку SendPulse.
+    if (!contactId) {
+      return res.status(200).json({ ok: false, needStart: true });
+    }
+
     const setVar = (name, value) =>
       spFetch('/contacts/setVariable', token, {
-        contact_id: cid,
+        contact_id: contactId,
         variable_name: name,
         variable_value: value,
       });
@@ -94,20 +137,19 @@ export default async function handler(req, res) {
       }
     }
 
-    // 3. Тег, по якому фільтрує День 5
+    // 3. Тег, по якому фільтрує останній день
     await spFetch('/contacts/setTag', token, {
-      contact_id: cid,
+      contact_id: contactId,
       tags: ['заявка_залишена'],
     });
 
-    // 4. Воронка «Заявка — обробка»: рядок у Google-таблицю + підтвердження.
-    // Якщо id воронки ще не заданий, крок пропускається: тег і змінні вже
-    // стоять, тобто фільтр Дня 5 працює, а таблиця й підтвердження підключаться
-    // разом зі змінною. У відповіді видно, чи воронка запустилась.
+    // 4. Ланцюжок «Заявка — обробка»: рядок у Google-таблицю + підтвердження.
+    // Якщо id ще не заданий, крок пропускається: тег і змінні вже стоять,
+    // тобто фільтр останнього дня працює. У відповіді видно, чи запустився.
     let flow = false;
     if (process.env.SP_FLOW_ZAYAVKA) {
       await spFetch('/flows/run', token, {
-        contact_id: cid,
+        contact_id: contactId,
         flow_id: process.env.SP_FLOW_ZAYAVKA,
       });
       flow = true;
@@ -115,7 +157,9 @@ export default async function handler(req, res) {
       console.warn('zayavka: SP_FLOW_ZAYAVKA не заданий — таблиця і підтвердження пропущені');
     }
 
-    return res.status(200).json({ ok: true, flow, skipped });
+    // matched каже сторінці, що все зроблено на сервері: людину можна вести
+    // в бот звичайним посиланням, без start і без /start у чаті.
+    return res.status(200).json({ ok: true, flow, skipped, matched: !cid });
   } catch (e) {
     // Не віддаємо ok, якщо щось із кроків не пройшло — інакше людина побачить
     // «заявку прийнято», а в боті й таблиці нічого не буде.
