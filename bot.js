@@ -94,6 +94,16 @@
     });
   }
 
+  // Meta Pixel: перехід у бот = Lead (отримав урок). Ловимо на document,
+  // бо href кнопок переписується вище, а частина посилань з'являється пізніше.
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a || !window.fbq) return;
+    var h = a.getAttribute('href') || '';
+    if (h.indexOf(BOT) === -1) return;
+    fbq('track', 'Lead', { content_name: location.pathname });
+  }, true);
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', apply);
   } else {

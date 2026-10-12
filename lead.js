@@ -113,6 +113,9 @@
       note.hidden = true;
       if (btn) { btn.disabled = true; btn.textContent = 'Відправляємо…'; }
 
+      // Meta Pixel: заявка з номером.
+      if (window.fbq) fbq('track', 'SubmitApplication', { content_name: page });
+
       // Не підписник — відправляємо в бот разом із номером.
       if (!cid) {
         goToBot(form, note, botHref(phone));
