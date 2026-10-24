@@ -363,7 +363,8 @@ fbq('track','PageView');
   <footer>© SOLARIUM · Олександра Лугова</footer>
 </div>
 
-<script src="/personazh-data.js"></script>
+<!-- ?v= підняти після кожного build_data.py, інакше браузер візьме старі дані з кешу -->
+<script src="/personazh-data.js?v=3"></script>
 <script>
 (function () {
   var Q = window.OP_QUESTIONS, T = window.OP_TYPES;
@@ -495,6 +496,7 @@ fbq('track','PageView');
 
     $('r-why').textContent = t.why;
     function pic(ph) {
+      if (!ph) return '';
       var who = ph.who ? esc(ph.who) + ' · ' : '';
       return '<div class="sc-img"><img src="/' + ph.src + '" alt="" loading="lazy"></div>' +
         '<a class="cred" href="' + esc(ph.source) + '" target="_blank" rel="noopener">Фото: ' + who + esc(ph.credit) + '</a>';
