@@ -152,6 +152,17 @@
   .sec.dark .n{color:var(--coral-soft)}
   .sec.dark p{color:rgba(255,255,255,.78);font-size:17px}
   .sec.dark p:first-of-type{font-family:'Lora',serif;font-style:italic;font-weight:500;font-size:clamp(24px,3vw,34px);color:var(--coral-soft);line-height:1.2}
+  /* закриті розділи: плівка + замок */
+  .lockbox{position:relative;border-radius:16px;overflow:hidden}
+  .lockbox .body{max-height:230px;overflow:hidden;filter:blur(4px);user-select:none;-webkit-user-select:none;pointer-events:none}
+  .lockbox .film{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:18px;
+    background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,241,236,.45));border:1px solid rgba(238,58,36,.18);border-radius:16px}
+  .lockbox .lock{width:48px;height:48px;border-radius:50%;background:var(--coral);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(238,58,36,.4)}
+  .lockbox .film p{font-weight:800;font-size:15.5px;line-height:1.3;max-width:280px;color:var(--ink)}
+  .lockbox .film p:first-of-type{font-family:inherit;font-style:normal;font-size:15.5px;color:var(--ink)}
+  .lockbox .btn{padding:12px 22px;font-size:13px}
+  .sec.dark .lockbox .film{background:linear-gradient(180deg,rgba(22,17,16,.2),rgba(22,17,16,.7));border-color:rgba(255,133,102,.25)}
+  .sec.dark .lockbox .film p{color:#fff}
 
   .mid{text-align:center;padding:10px 0 20px}
 
@@ -357,6 +368,8 @@ fbq('track','PageView');
   var KEYS = 'abcdefghi';
   var STORE = 'sol_op';
   var picks = [], order = [], step = 0;
+  var LOCK_FROM = 4; // індекс розділу: 0-based, тобто з 5-го
+  var LOCK_SVG = '<span class="lock"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="11" rx="2.5"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/><circle cx="12" cy="16" r="1.2" fill="currentColor"/></svg></span>';
 
   function $(id) { return document.getElementById(id); }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
@@ -489,8 +502,14 @@ fbq('track','PageView');
     var cols = ['', ''], dark = '';
     t.sections.forEach(function (s, i) {
       var isDark = /Чого не вистачає/.test(s.title);
-      var html = '<div class="sec' + (isDark ? ' dark' : '') + '" style="order:' + i + '"><div class="n">' + (i < 9 ? '0' : '') + (i + 1) + (s.icon ? ' ' + s.icon : '') + '</div><h3>' + esc(s.title) + '</h3>' +
-        s.blocks.map(function (b) { return blockHtml(b, s.title); }).join('') + '</div>';
+      // З 5-го розділу текст під плівкою: заголовок видно, зміст — на бренд-сесії.
+      var locked = i >= LOCK_FROM;
+      var body = s.blocks.map(function (b) { return blockHtml(b, s.title); }).join('');
+      var html = '<div class="sec' + (isDark ? ' dark' : '') + (locked ? ' locked' : '') + '" style="order:' + i + '"><div class="n">' + (i < 9 ? '0' : '') + (i + 1) + (s.icon ? ' ' + s.icon : '') + '</div><h3>' + esc(s.title) + '</h3>' +
+        (locked
+          ? '<div class="lockbox"><div class="body" aria-hidden="true">' + body + '</div><div class="film">' + LOCK_SVG +
+            '<p>Хочеш дізнатися? Запишись на безкоштовну бренд-сесію зі мною</p><button class="btn" type="button" data-lock>Записатися →</button></div></div>'
+          : body) + '</div>';
       if (isDark) dark = html; else cols[i % 2] += html;
     });
     $('r-secs').innerHTML = '<div class="scol">' + cols[0] + '</div><div class="scol">' + cols[1] + '</div>' + dark;
@@ -512,6 +531,11 @@ fbq('track','PageView');
   }
 
   document.addEventListener('click', function (e) {
+    if (e.target.closest('[data-lock]')) {
+      track('LockClick');
+      document.getElementById('zayavka').scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
     var a = e.target.closest('[data-open]');
     if (a) { e.preventDefault(); open(a.dataset.open); return; }
     if (e.target.closest('[data-start]')) start();
