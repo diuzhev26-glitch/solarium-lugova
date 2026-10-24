@@ -364,7 +364,7 @@ fbq('track','PageView');
 </div>
 
 <!-- ?v= підняти після кожного build_data.py, інакше браузер візьме старі дані з кешу -->
-<script src="/personazh-data.js?v=6"></script>
+<script src="/personazh-data.js?v=7"></script>
 <script>
 (function () {
   var Q = window.OP_QUESTIONS, T = window.OP_TYPES;
@@ -503,7 +503,7 @@ fbq('track','PageView');
         '<a class="cred" href="' + esc(ph.source) + '" target="_blank" rel="noopener">Фото: ' + who + esc(ph.credit) + '</a>';
     }
     $('r-screen').innerHTML =
-      '<div class="sc">' + pic(t.filmPhoto) + '<div class="sc-t"><div class="lbl">🎬 У кіно</div><h3>' + esc(t.film) + '</h3></div></div>' +
+      '<div class="sc">' + pic(t.filmPhoto) + '<div class="sc-t"><div class="lbl">🎬 У кіно</div><h3>' + esc(t.film) + (t.filmFrom ? '<span class="it">' + esc(t.filmFrom) + '</span>' : '') + '</h3></div></div>' +
       '<div class="sc">' + pic(t.cartPhoto) + '<div class="sc-t"><div class="lbl">🎨 У мультфільмі</div><h3>' + esc(t.cartoon) + '<span class="it">' + esc(t.cartoonFrom) + '</span></h3></div></div>' +
       '<div class="sc">' + pic(t.iconPhoto) + '<div class="sc-t"><div class="lbl">⭐ Ікона</div><h3>' + esc(t.icon) + '</h3></div></div>';
 
