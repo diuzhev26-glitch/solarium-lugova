@@ -364,13 +364,14 @@ fbq('track','PageView');
 </div>
 
 <!-- ?v= підняти після кожного build_data.py, інакше браузер візьме старі дані з кешу -->
-<script src="/personazh-data.js?v=4"></script>
+<script src="/personazh-data.js?v=5"></script>
 <script>
 (function () {
   var Q = window.OP_QUESTIONS, T = window.OP_TYPES;
   var KEYS = 'abcdefghi';
   var STORE = 'sol_op';
   var picks = [], order = [], step = 0;
+  var IMG_V = '2'; // підняти, коли замінюєш картинки в img/screen з тими самими іменами
   var LOCK_FROM = 4; // індекс розділу: 0-based, тобто з 5-го
   var LOCK_SVG = '<span class="lock"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="11" rx="2.5"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/><circle cx="12" cy="16" r="1.2" fill="currentColor"/></svg></span>';
 
@@ -498,7 +499,7 @@ fbq('track','PageView');
     function pic(ph) {
       if (!ph) return '';
       var who = ph.who ? esc(ph.who) + ' · ' : '';
-      return '<div class="sc-img"><img src="/' + ph.src + '" alt="" loading="lazy"></div>' +
+      return '<div class="sc-img"><img src="/' + ph.src + '?v=' + IMG_V + '" alt="" loading="lazy"></div>' +
         '<a class="cred" href="' + esc(ph.source) + '" target="_blank" rel="noopener">Фото: ' + who + esc(ph.credit) + '</a>';
     }
     $('r-screen').innerHTML =
