@@ -350,12 +350,6 @@ fbq('track','PageView');
       </div>
     </section>
 
-    <section class="blk">
-      <div class="h2">Усі девʼять <span class="it">персонажів</span></div>
-      <p class="sub">Цікаво, хто твоя подруга чи партнер? Відкрий будь-яку роль.</p>
-      <div class="others" id="r-others"></div>
-      <div class="again"><button class="btn ghost" data-start>Пройти тест ще раз</button></div>
-    </section>
   </div>
 
   <footer>© SOLARIUM · Олександра Лугова</footer>
@@ -513,10 +507,6 @@ fbq('track','PageView');
       if (isDark) dark = html; else cols[i % 2] += html;
     });
     $('r-secs').innerHTML = '<div class="scol">' + cols[0] + '</div><div class="scol">' + cols[1] + '</div>' + dark;
-
-    $('r-others').innerHTML = T.map(function (x) {
-      return '<a href="#' + x.key + '" data-open="' + x.key + '" class="' + (x.key === res.k ? 'cur' : '') + '"><img src="/' + x.img + '" alt="" loading="lazy"><span>' + esc(x.name) + '</span></a>';
-    }).join('');
 
     if (location.hash !== '#' + res.k) history.replaceState(null, '', '#' + res.k);
     show('s-result');
