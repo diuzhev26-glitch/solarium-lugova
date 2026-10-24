@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тест «Який ти Обʼємний персонаж?» — Олександра Лугова · SOLARIUM</title>
+<link rel="canonical" href="https://solarium.in.ua/personazh">
+<meta name="description" content="9 питань — і ти дізнаєшся, який ти Обʼємний персонаж: твоя суперсила, слабкість, контент, що працює саме для тебе, і героїні кіно з твоєю роллю.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SOLARIUM">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:url" content="https://solarium.in.ua/personazh">
+<meta property="og:title" content="Тест «Який ти Обʼємний персонаж?» · SOLARIUM">
+<meta property="og:description" content="9 питань — і ти дізнаєшся свою роль, суперсилу та контент, який працює саме для тебе.">
+<meta property="og:image" content="https://solarium.in.ua/img/og-solarium.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://solarium.in.ua/img/og-solarium.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --coral:#EE3A24; --coral-deep:#C42A16; --coral-warm:#FF6A45; --coral-soft:#FF8566;
+    --ink:#141414; --ink2:#3A3732; --muted:#8D8A85;
+    --paper:#FBF7F1; --card:#FFFFFF; --cream:#F4ECE1;
+    --line:rgba(20,20,20,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{overflow-x:hidden}
+  body{background:var(--paper);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .glow{position:fixed;border-radius:50%;filter:blur(120px);opacity:.5;z-index:0;pointer-events:none}
+  .glow.g1{width:620px;height:620px;background:radial-gradient(closest-side,rgba(255,106,69,.7),rgba(238,58,36,.22) 50%,transparent 72%);top:-220px;left:-180px}
+  .glow.g2{width:520px;height:520px;background:radial-gradient(closest-side,rgba(255,106,69,.5),rgba(238,58,36,.16) 50%,transparent 72%);bottom:4%;right:-200px}
+  .wrap,.topbar{position:relative;z-index:1}
+
+  .topbar{background:radial-gradient(130% 130% at 16% 8%,#FF7A50 0%,#EE3A24 48%,#C42A16 100%);text-align:center;padding:13px 16px;font-size:14px;font-weight:600;color:#FFE6DD;letter-spacing:.02em}
+  .topbar b{color:#fff;font-weight:800;letter-spacing:.03em;white-space:nowrap}
+
+  .kicker{display:inline-flex;align-items:center;gap:12px;color:var(--coral);font-weight:700;font-size:12px;letter-spacing:.24em;text-transform:uppercase;margin-bottom:16px}
+  .kicker::before,.kicker::after{content:"";width:34px;height:2px;background:var(--coral)}
+  h1{font-weight:800;text-transform:uppercase;font-size:clamp(28px,4.4vw,52px);line-height:1.04;max-width:900px;margin:0 auto;letter-spacing:-.02em}
+  h1 .hl{color:var(--coral)}
+  .it{font-family:'Lora',Georgia,serif;font-style:italic;font-weight:500;text-transform:none;letter-spacing:0}
+  .btn{display:inline-flex;align-items:center;gap:10px;justify-content:center;background:var(--coral);color:#fff;font-weight:800;font-size:16px;padding:18px 34px;border-radius:100px;border:none;cursor:pointer;box-shadow:0 14px 40px rgba(238,58,36,.35);text-transform:uppercase;letter-spacing:.04em;text-decoration:none;font-family:inherit;transition:transform .15s,box-shadow .15s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 18px 50px rgba(238,58,36,.45)}
+  .btn.ghost{background:transparent;color:var(--coral);border:1.5px solid var(--coral);box-shadow:none}
+  .btn.ghost:hover{background:rgba(238,58,36,.06)}
+
+  .screen{display:none}
+  .screen.on{display:block;animation:fade .45s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+  /* ---------- старт ---------- */
+  .intro{text-align:center;padding:44px 0 30px}
+  .intro h1 .it{display:block;color:var(--coral);font-size:.62em;margin-top:10px}
+  .lead{color:var(--ink2);font-size:clamp(16px,1.9vw,19px);max-width:640px;margin:22px auto 0}
+  .meta{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:26px 0 30px}
+  .meta span{background:var(--card);border:1px solid var(--line);border-radius:100px;padding:8px 16px;font-size:13px;font-weight:700;letter-spacing:.04em}
+  .meta span b{color:var(--coral)}
+  .cast{display:flex;justify-content:center;gap:10px;margin:40px auto 0;max-width:1000px;padding:0 4px}
+  .cast figure{flex:1;min-width:0;position:relative;aspect-ratio:9/16;border-radius:16px;overflow:hidden;box-shadow:0 18px 40px rgba(238,58,36,.18);transition:transform .25s}
+  .cast figure:nth-child(odd){transform:translateY(18px)}
+  .cast figure:hover{transform:translateY(-6px)}
+  .cast img{width:100%;height:100%;object-fit:cover;display:block}
+  .cast figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 6px 10px;background:linear-gradient(transparent,rgba(20,8,4,.78));color:#fff;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;line-height:1.15}
+  .gets{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:58px auto 10px;max-width:980px;text-align:left}
+  .gets div{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+  .gets b{display:block;font-size:12px;letter-spacing:.14em;color:var(--coral);margin-bottom:6px}
+  .gets p{font-size:14.5px;font-weight:600;line-height:1.35}
+
+  /* ---------- питання ---------- */
+  .quiz{max-width:780px;margin:0 auto;padding:34px 0 60px}
+  .qtop{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:12px}
+  .qnum{font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--coral)}
+  .back{background:none;border:none;font:inherit;font-size:14px;font-weight:700;color:var(--muted);cursor:pointer;padding:6px 0}
+  .back:hover{color:var(--ink)}
+  .back[disabled]{visibility:hidden}
+  .bar{height:6px;border-radius:6px;background:rgba(238,58,36,.12);overflow:hidden;margin-bottom:30px}
+  .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--coral-warm),var(--coral));border-radius:6px;transition:width .4s ease}
+  .qtext{font-weight:800;font-size:clamp(21px,2.7vw,29px);line-height:1.2;letter-spacing:-.01em;margin-bottom:24px}
+  .answers{display:grid;gap:10px}
+  .ans{display:flex;align-items:center;gap:14px;text-align:left;width:100%;background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:15px 18px;font:inherit;font-size:16px;font-weight:600;color:var(--ink);cursor:pointer;transition:border-color .15s,transform .15s,background .15s,box-shadow .15s;line-height:1.35}
+  .ans::before{content:"";flex:none;width:20px;height:20px;border-radius:50%;border:2px solid rgba(238,58,36,.45);transition:all .15s}
+  .ans:hover{border-color:var(--coral);transform:translateX(3px);box-shadow:0 10px 30px rgba(238,58,36,.12)}
+  .ans.pick{border-color:var(--coral);background:#FFF1EC}
+  .ans.pick::before{background:var(--coral);border-color:var(--coral);box-shadow:inset 0 0 0 3px #fff}
+  .hint{text-align:center;color:var(--muted);font-size:13px;margin-top:22px}
+
+  /* ---------- підрахунок ---------- */
+  .calc{text-align:center;padding:120px 0 160px}
+  .ring{width:96px;height:96px;margin:0 auto 26px;border-radius:50%;background:conic-gradient(from 0deg,#EE3A24,#FF6A45,#FFC9B8,#F4ECE1,#FF6A45,#EE3A24);animation:spin 1.1s linear infinite;-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 7px),#000 calc(100% - 6px));mask:radial-gradient(farthest-side,transparent calc(100% - 7px),#000 calc(100% - 6px))}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .calc p{font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:18px}
+  .calc small{display:block;color:var(--muted);margin-top:8px;font-size:14px}
+
+  /* ---------- результат ---------- */
+  .hero{display:grid;grid-template-columns:380px 1fr;gap:54px;align-items:center;padding:46px 0 30px}
+  .pframe{position:relative;border-radius:28px;padding:4px;overflow:hidden;box-shadow:0 30px 80px rgba(238,58,36,.3)}
+  .pframe::before{content:"";position:absolute;top:-60%;left:-60%;width:220%;height:220%;background:conic-gradient(from 0deg,#EE3A24,#FF6A45,#FFC9B8,#F4ECE1,#FF6A45,#EE3A24);animation:spin 6s linear infinite}
+  .pframe img{position:relative;display:block;width:100%;aspect-ratio:9/14;object-fit:cover;border-radius:24px}
+  .hero h1{margin:0;text-align:left;font-size:clamp(36px,5.6vw,70px);color:var(--coral)}
+  .hero .kicker{margin-bottom:12px}
+  .core{font-family:'Lora',serif;font-style:italic;font-size:clamp(21px,2.4vw,28px);line-height:1.3;margin:14px 0 18px}
+  .hero .txt{color:var(--ink2);font-size:17px;max-width:560px}
+  .askq{display:inline-block;margin-top:20px;background:var(--card);border:1px solid rgba(238,58,36,.35);border-radius:16px;padding:14px 18px;font-size:15px;max-width:560px}
+  .askq b{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--coral);margin-bottom:3px}
+  .facet{margin-top:16px;font-size:15px;color:var(--ink2)}
+  .facet a{color:var(--coral);font-weight:800;text-decoration:none;border-bottom:1.5px solid rgba(238,58,36,.35)}
+
+  .h2{font-weight:800;text-transform:uppercase;font-size:clamp(22px,2.8vw,34px);line-height:1.1;letter-spacing:-.01em;text-align:center;margin-bottom:10px}
+  .h2 .it{color:var(--coral)}
+  .sub{color:var(--ink2);text-align:center;max-width:640px;margin:0 auto 28px;font-size:16px}
+  section.blk{padding:40px 0}
+
+  .scores{max-width:760px;margin:0 auto;display:grid;gap:9px}
+  .srow{display:grid;grid-template-columns:170px 1fr 34px;gap:14px;align-items:center;font-size:14px;font-weight:700}
+  .srow .tr{height:12px;border-radius:12px;background:rgba(238,58,36,.1);overflow:hidden}
+  .srow .tr i{display:block;height:100%;width:0;border-radius:12px;background:rgba(238,58,36,.38);transition:width .9s cubic-bezier(.2,.8,.2,1)}
+  .srow.top .tr i{background:linear-gradient(90deg,var(--coral-warm),var(--coral))}
+  .srow.top{color:var(--coral)}
+  .srow span:last-child{text-align:right;color:var(--muted)}
+
+  .screen3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start}
+  .sc{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 20px 50px rgba(238,58,36,.08)}
+  .sc .lbl{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);margin-bottom:10px}
+  .sc h3{font-size:19px;font-weight:800;line-height:1.2;margin-bottom:10px}
+  .sc h3 .it{display:block;color:var(--muted);font-size:15px;margin-top:2px}
+  .sc p{font-size:14.5px;color:var(--ink2)}
+
+  .secs{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+  .secs>.scol{display:grid;gap:20px}
+  .secs>.sec.dark{grid-column:1/-1}
+  .sec{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px 26px 22px;margin-bottom:20px}
+  .sec .n{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:800;letter-spacing:.2em;color:var(--coral);margin-bottom:8px}
+  .sec .n::after{content:"";flex:1;height:1px;background:rgba(238,58,36,.25)}
+  .sec h3{font-size:20px;font-weight:800;text-transform:uppercase;line-height:1.15;letter-spacing:-.01em;margin-bottom:12px}
+  .sec p{font-size:15.5px;color:var(--ink2);margin-bottom:9px}
+  .sec p:first-of-type{color:var(--ink);font-weight:700}
+  .sec ul{list-style:none;margin:2px 0 12px;display:grid;gap:6px}
+  .sec li{position:relative;padding-left:22px;font-size:15px;color:var(--ink2)}
+  .sec li::before{content:"";position:absolute;left:4px;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--coral)}
+  .sec ul.check li::before{content:"✓";width:auto;height:auto;background:none;color:var(--coral);font-weight:800;top:0;left:1px}
+  .sec ul.cross li::before{content:"✕";width:auto;height:auto;background:none;color:var(--muted);font-weight:800;top:0;left:1px}
+  .sec ul.chips{display:flex;flex-wrap:wrap;gap:7px}
+  .sec ul.chips li{padding:6px 12px;border-radius:100px;background:#FFF1EC;border:1px solid rgba(238,58,36,.22);font-size:13.5px;font-weight:600;color:var(--ink)}
+  .sec ul.chips li::before{display:none}
+  .sec.dark{background:radial-gradient(120% 120% at 10% 0%,#3A1A12 0%,#161110 60%);color:#fff;border:none;box-shadow:0 30px 80px rgba(238,58,36,.25);padding:38px 40px}
+  .sec.dark h3{color:#fff;font-size:clamp(22px,2.6vw,30px)}
+  .sec.dark .n{color:var(--coral-soft)}
+  .sec.dark p{color:rgba(255,255,255,.78);font-size:17px}
+  .sec.dark p:first-of-type{font-family:'Lora',serif;font-style:italic;font-weight:500;font-size:clamp(24px,3vw,34px);color:var(--coral-soft);line-height:1.2}
+
+  .mid{text-align:center;padding:10px 0 20px}
+
+  /* форма — як на уроці */
+  .grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:40px;align-items:stretch;padding:24px 0 36px}
+  .col{display:flex;flex-direction:column}
+  .col>.fcard{flex:1}
+  .col h2{font-weight:800;text-transform:uppercase;font-size:clamp(21px,2.5vw,29px);margin-bottom:18px;line-height:1.1;text-align:center;letter-spacing:-.01em}
+  .fcard{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:30px;box-shadow:0 30px 80px rgba(238,58,36,.12);display:flex;flex-direction:column}
+  .fcard .ft{font-weight:800;text-transform:uppercase;font-size:clamp(21px,2.5vw,29px);line-height:1.12;margin-bottom:8px;text-align:center;letter-spacing:-.01em}
+  .fcard .ft .it{color:var(--coral)}
+  .fcard .ft-sub{text-align:center;color:var(--ink2);font-size:15px;line-height:1.45;margin:2px 0 10px}
+  .form-mid{flex:1;display:flex;flex-direction:column;justify-content:center}
+  form{display:grid;gap:12px}
+  input{width:100%;padding:15px 16px;border-radius:12px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-size:15px;font-family:inherit;outline:none;transition:border-color .15s}
+  input::placeholder{color:var(--muted)}
+  input:focus{border-color:var(--coral)}
+  form .btn{width:100%;padding:16px 20px}
+  .phone{display:flex;align-items:center;border:1px solid var(--line);background:var(--paper);border-radius:12px}
+  .phone:focus-within{border-color:var(--coral)}
+  .phone select{appearance:none;-webkit-appearance:none;border:none;outline:none;background:transparent;color:var(--ink);font-family:inherit;font-size:15px;font-weight:600;padding:15px 26px 15px 16px;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238D8A85' stroke-width='1.6' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center}
+  .phone .sep{width:1px;height:26px;background:var(--line);flex:none}
+  .phone input{border:none;background:transparent;flex:1;min-width:0}
+  .fsub{color:var(--muted);font-size:13px;text-align:center;margin-top:12px}
+  .bon-sub{text-align:center;color:var(--ink2);font-size:15px;line-height:1.5;margin:-6px 0 18px}
+  .bonuses{display:grid;gap:16px}
+  .bonus-row{display:flex;gap:14px;align-items:flex-start}
+  .bi{flex:none;width:44px;height:44px;border-radius:50%;background:var(--coral);color:#fff;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center}
+  .bonus-row h3{font-size:16px;font-weight:800;margin-bottom:5px;line-height:1.2}
+  .bonus-row h3 .hl{color:var(--coral)}
+  .bonus-row p{color:var(--ink2);font-size:13.5px;line-height:1.5}
+
+  .others{display:grid;grid-template-columns:repeat(9,1fr);gap:10px}
+  .others a{position:relative;display:block;aspect-ratio:9/16;border-radius:14px;overflow:hidden;text-decoration:none;outline:2px solid transparent;outline-offset:2px;transition:transform .2s,outline-color .2s}
+  .others a:hover{transform:translateY(-4px)}
+  .others a.cur{outline-color:var(--coral)}
+  .others img{width:100%;height:100%;object-fit:cover;display:block}
+  .others span{position:absolute;left:0;right:0;bottom:0;padding:20px 4px 8px;background:linear-gradient(transparent,rgba(20,8,4,.8));color:#fff;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;text-align:center;line-height:1.15}
+  .again{text-align:center;margin-top:26px}
+
+  footer{padding:26px 0;text-align:center;color:var(--muted);font-size:13px}
+
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr;gap:28px;text-align:center;padding-top:30px}
+    .pframe{max-width:300px;margin:0 auto}
+    .hero h1{text-align:center}
+    .hero .txt,.askq{margin-left:auto;margin-right:auto}
+    .screen3{grid-template-columns:1fr}
+    .secs{grid-template-columns:1fr}
+    .secs>.scol{display:contents}
+    .grid{grid-template-columns:1fr;gap:24px}
+    .gets{grid-template-columns:1fr 1fr}
+    .others{grid-template-columns:repeat(5,1fr)}
+  }
+  @media(max-width:640px){
+    .wrap{padding:0 16px}
+    .cast{gap:6px;overflow-x:auto;justify-content:flex-start;scroll-snap-type:x mandatory;padding-bottom:22px}
+    .cast figure{flex:0 0 31%;scroll-snap-align:start}
+    .gets{grid-template-columns:1fr}
+    .srow{grid-template-columns:118px 1fr 26px;gap:10px;font-size:13px}
+    .sec{padding:22px 20px 18px}
+    .sec.dark{padding:28px 22px}
+    .fcard{padding:24px 18px}
+    .others{grid-template-columns:repeat(3,1fr)}
+    .pframe{max-width:240px}
+    .topbar{font-size:13px}
+    .ans{font-size:15px;padding:14px 15px}
+    .btn{padding:17px 24px;font-size:15px}
+  }
+</style>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','28603276992626559');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=28603276992626559&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel -->
+</head>
+<body>
+<div class="glow g1"></div><div class="glow g2"></div>
+<div class="topbar">Безкоштовний тест від <b>Олександри Лугової</b> · SOLARIUM</div>
+
+<div class="wrap">
+
+  <!-- СТАРТ -->
+  <div class="screen on" id="s-intro">
+    <div class="intro">
+      <div class="kicker">Тест · 9 питань</div>
+      <h1>Який ти <span class="hl">Обʼємний персонаж?</span><span class="it">і за що тебе насправді обирають</span></h1>
+      <p class="lead">Обери одну відповідь, яка найбільше схожа на тебе в реальному житті. Не обирай ту, якою хотілося б бути. Обирай те, що ти робиш природно.</p>
+      <div class="meta"><span><b>9</b> питань</span><span><b>~3</b> хвилини</span><span>Результат <b>одразу</b></span></div>
+      <button class="btn" data-start>Пройти тест →</button>
+      <div class="cast" id="cast"></div>
+      <div class="gets">
+        <div><b>01</b><p>Твоя роль і суперсила — за що тебе обирають</p></div>
+        <div><b>02</b><p>Головна слабкість і чого не вистачає персонажу</p></div>
+        <div><b>03</b><p>Контент, який працює саме для тебе</p></div>
+        <div><b>04</b><p>Як продавати й що тебе масштабує</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ПИТАННЯ -->
+  <div class="screen" id="s-quiz">
+    <div class="quiz">
+      <div class="qtop"><span class="qnum" id="qnum"></span><button class="back" id="back">← Назад</button></div>
+      <div class="bar"><i id="bar"></i></div>
+      <div class="qtext" id="qtext"></div>
+      <div class="answers" id="answers"></div>
+      <p class="hint">Обирай перше, що відгукується, — не те, якою хочеться бути</p>
+    </div>
+  </div>
+
+  <!-- ПІДРАХУНОК -->
+  <div class="screen" id="s-calc">
+    <div class="calc"><div class="ring"></div><p>Збираю твій персонаж…</p><small>Порівнюю відповіді з 9 ролями</small></div>
+  </div>
+
+  <!-- РЕЗУЛЬТАТ -->
+  <div class="screen" id="s-result">
+    <div class="hero">
+      <div class="pframe"><img id="r-img" alt=""></div>
+      <div>
+        <div class="kicker">Твій Обʼємний персонаж</div>
+        <h1 id="r-name"></h1>
+        <div class="core" id="r-core"></div>
+        <div class="txt" id="r-intro"></div>
+        <div class="askq"><b>Твоє головне питання</b><span id="r-ask"></span></div>
+        <div class="facet" id="r-facet"></div>
+      </div>
+    </div>
+
+    <section class="blk" id="r-scores-blk">
+      <div class="h2">Твій <span class="it">розклад</span></div>
+      <p class="sub">У кожної з нас є всі девʼять ролей — але одна звучить найголосніше. Ось як розподілились твої відповіді.</p>
+      <div class="scores" id="r-scores"></div>
+    </section>
+
+    <section class="blk">
+      <div class="h2">Героїні <span class="it">з твоєю роллю</span></div>
+      <p class="sub" id="r-why"></p>
+      <div class="screen3" id="r-screen"></div>
+    </section>
+
+    <section class="blk">
+      <div class="h2">Повний розбір <span class="it">твого персонажа</span></div>
+      <p class="sub">Сила, слабкість, контент і продажі — все, що варто знати, щоб блог звучав як ти.</p>
+      <div class="secs" id="r-secs"></div>
+    </section>
+
+    <section class="blk" id="zayavka">
+      <div class="h2">Знати свою роль — <span class="it">пів справи</span></div>
+      <p class="sub">Друга половина — побачити, як саме твій персонаж має звучати в блозі: які ролі показувати, на якому контрасті грати і що продавати. Це ми і робимо на бренд-розборі.</p>
+      <div class="grid">
+        <div class="col form-col">
+          <div class="fcard">
+            <div class="ft">Залишай заявку <span class="it" style="display:block;margin-top:4px">на бренд-розбір зі мною</span></div>
+            <p class="ft-sub">Знайдемо твою суперсилу<br>та зрозуміємо, як впровадити її у&nbsp;блог.</p>
+            <div class="form-mid">
+              <form onsubmit="return false">
+                <input placeholder="Твоє ім'я" autocomplete="name">
+                <div class="phone"><select aria-label="Код країни"><option value="+380" selected>🇺🇦 +380</option><option value="+48">🇵🇱 +48</option><option value="+49">🇩🇪 +49</option><option value="+420">🇨🇿 +420</option><option value="+44">🇬🇧 +44</option><option value="+1">🇺🇸 +1</option></select><span class="sep"></span><input type="tel" placeholder="63 123 45 67" autocomplete="tel" inputmode="tel"></div>
+                <button class="btn" type="submit">Отримати розбір і подарунки →</button>
+              </form>
+              <div class="fsub">Після заявки я звʼяжуся з тобою в Telegram ♥</div>
+            </div>
+          </div>
+        </div>
+        <div class="col text-col">
+          <div class="fcard">
+          <h2>Що ти отримаєш, <span class="it" style="display:block;margin-top:4px;color:var(--coral)">залишивши заявку</span></h2>
+          <p class="bon-sub">3 подарунки, які допоможуть тобі знайти свою унікальність і перестати зливатися з сотнею однакових експертів</p>
+          <div class="bonuses">
+            <div class="bonus-row"><div class="bi">1</div><div><h3>Конструктор <span class="hl">«Карта Об'ємного Персонажу»</span></h3><p>Зробиш діагностику себе і побачиш сильні сторони й особливості, за які обирають саме тебе.</p></div></div>
+            <div class="bonus-row"><div class="bi">2</div><div><h3>Розбір <span class="hl">Лєри Бородіної та Юлії Козачкової</span></h3><p>Стратегії особистих брендів лідерок ринку, щоб одразу підчерпнути десятки ідей у свій блог.</p></div></div>
+            <div class="bonus-row"><div class="bi">3</div><div><h3>Доступ у закритий <span class="hl">Telegram-канал</span></h3><p>Розбори ефективних сторітелів лідерів ринку.</p></div></div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="blk">
+      <div class="h2">Усі девʼять <span class="it">персонажів</span></div>
+      <p class="sub">Цікаво, хто твоя подруга чи партнер? Відкрий будь-яку роль.</p>
+      <div class="others" id="r-others"></div>
+      <div class="again"><button class="btn ghost" data-start>Пройти тест ще раз</button></div>
+    </section>
+  </div>
+
+  <footer>© SOLARIUM · Олександра Лугова</footer>
+</div>
+
+<script src="/personazh-data.js"></script>
+<script>
+(function () {
+  var Q = window.OP_QUESTIONS, T = window.OP_TYPES;
+  var KEYS = 'abcdefghi';
+  var STORE = 'sol_op';
+  var picks = [], order = [], step = 0;
+
+  function $(id) { return document.getElementById(id); }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function byKey(k) { return T[KEYS.indexOf(k)]; }
+  function show(id) {
+    document.querySelectorAll('.screen').forEach(function (s) { s.classList.toggle('on', s.id === id); });
+    window.scrollTo(0, 0);
+  }
+  function track(ev, data) { if (window.fbq) fbq('trackCustom', ev, data || {}); }
+
+  // Порядок відповідей перемішуємо, щоб буква A не тягнула на себе
+  // тих, хто обирає «першу, що підходить».
+  function shuffled() {
+    var a = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; }
+    return a;
+  }
+
+  // Колаж на старті
+  $('cast').innerHTML = T.map(function (t) {
+    return '<figure><img src="/' + t.img + '" alt="' + esc(t.name) + '" loading="lazy"><figcaption>' + esc(t.name) + '</figcaption></figure>';
+  }).join('');
+
+  function start() {
+    picks = []; step = 0;
+    order = Q.map(shuffled);
+    track('QuizStart');
+    renderQ();
+    show('s-quiz');
+  }
+
+  function renderQ() {
+    var q = Q[step];
+    $('qnum').textContent = 'Питання ' + (step + 1) + ' з ' + Q.length;
+    $('bar').style.width = (step / Q.length * 100) + '%';
+    $('qtext').textContent = q.q;
+    $('back').disabled = step === 0;
+    $('answers').innerHTML = order[step].map(function (i) {
+      return '<button class="ans' + (picks[step] === i ? ' pick' : '') + '" data-i="' + i + '">' + esc(q.a[i]) + '</button>';
+    }).join('');
+  }
+
+  $('answers').addEventListener('click', function (e) {
+    var b = e.target.closest('.ans');
+    if (!b || $('answers').dataset.busy) return;
+    $('answers').dataset.busy = '1';
+    picks[step] = +b.dataset.i;
+    b.classList.add('pick');
+    $('bar').style.width = ((step + 1) / Q.length * 100) + '%';
+    setTimeout(function () {
+      delete $('answers').dataset.busy;
+      if (step < Q.length - 1) { step++; renderQ(); window.scrollTo(0, 0); }
+      else finish();
+    }, 320);
+  });
+
+  $('back').addEventListener('click', function () { if (step > 0) { step--; renderQ(); } });
+
+  // Підрахунок: +1 за кожен вибір. Нічия вирішується питаннями 1, 3, 5, 9 —
+  // вони найточніше розводять ролі; далі — відповіддю на останнє питання.
+  function score(p) {
+    var s = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    p.forEach(function (i) { s[i]++; });
+    var max = Math.max.apply(null, s);
+    var top = [];
+    s.forEach(function (v, i) { if (v === max) top.push(i); });
+    if (top.length > 1) {
+      var key = [0, 2, 4, 8];
+      var w = top.map(function (i) { return key.filter(function (q) { return p[q] === i; }).length; });
+      var wm = Math.max.apply(null, w);
+      top = top.filter(function (i, n) { return w[n] === wm; });
+    }
+    if (top.length > 1) {
+      for (var q = p.length - 1; q >= 0; q--) if (top.indexOf(p[q]) !== -1) { top = [p[q]]; break; }
+    }
+    var main = top[0];
+    var second = -1;
+    s.forEach(function (v, i) { if (i !== main && (second === -1 || v > s[second])) second = i; });
+    return { s: s, main: main, second: (s[second] >= 2 && s[main] - s[second] <= 1) ? second : -1 };
+  }
+
+  function finish() {
+    var r = score(picks);
+    var res = { k: KEYS[r.main], s: r.s, f: r.second >= 0 ? KEYS[r.second] : '' };
+    try { localStorage.setItem(STORE, JSON.stringify(res)); } catch (e) {}
+    track('QuizComplete', { content_name: byKey(res.k).name });
+    show('s-calc');
+    setTimeout(function () { renderResult(res, true); }, 1700);
+  }
+
+  function blockHtml(b, title) {
+    if (b.t === 'p') return '<p>' + esc(b.x) + '</p>';
+    var cls = b.t === 'check' ? 'check' : /Чого не робити/.test(title) ? 'cross' : /контент|масштабує/i.test(title) ? 'chips' : '';
+    return '<ul class="' + cls + '">' + b.x.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>';
+  }
+
+  function renderResult(res, mine) {
+    var t = byKey(res.k);
+    $('r-img').src = '/' + t.img; $('r-img').alt = t.name;
+    $('r-name').textContent = t.name;
+    $('r-core').textContent = t.core;
+    $('r-intro').textContent = t.intro.length ? t.intro.map(function (b) { return b.x; }).join(' ') : (t.name + ' — ' + t.short);
+    $('r-ask').textContent = t.ask;
+
+    var f = res.f && byKey(res.f);
+    $('r-facet').innerHTML = mine && f
+      ? 'Друга сильна грань — <a href="#' + f.key + '" data-open="' + f.key + '">' + esc(f.name) + '</a>. Вона додає твоєму персонажу обʼєму.'
+      : '';
+
+    var hasScores = mine && res.s;
+    $('r-scores-blk').style.display = hasScores ? '' : 'none';
+    if (hasScores) {
+      var max = Math.max.apply(null, res.s) || 1;
+      var rows = T.map(function (x, i) { return { n: x.name, v: res.s[i], top: x.key === res.k }; })
+        .sort(function (a, b) { return b.v - a.v; });
+      $('r-scores').innerHTML = rows.map(function (r) {
+        return '<div class="srow' + (r.top ? ' top' : '') + '"><span>' + esc(r.n) + '</span><span class="tr"><i data-w="' + (r.v / max * 100) + '"></i></span><span>' + r.v + '</span></div>';
+      }).join('');
+      setTimeout(function () { document.querySelectorAll('.srow .tr i').forEach(function (i) { i.style.width = i.dataset.w + '%'; }); }, 250);
+    }
+
+    $('r-why').textContent = t.why;
+    $('r-screen').innerHTML =
+      '<div class="sc"><div class="lbl">🎬 У кіно</div><h3>' + esc(t.film) + '</h3></div>' +
+      '<div class="sc"><div class="lbl">🎨 У мультфільмі</div><h3>' + esc(t.cartoon) + '<span class="it">' + esc(t.cartoonFrom) + '</span></h3><p>' + esc(t.cartoonWhy) + '</p></div>' +
+      '<div class="sc"><div class="lbl">⭐ Ікона</div><h3>' + esc(t.icon) + '</h3></div>';
+
+    // Дві колонки по черзі (01 зліва, 02 справа…), щоб номери читалися рядками.
+    // «Чого не вистачає» — фінальна темна плашка на всю ширину.
+    var cols = ['', ''], dark = '';
+    t.sections.forEach(function (s, i) {
+      var isDark = /Чого не вистачає/.test(s.title);
+      var html = '<div class="sec' + (isDark ? ' dark' : '') + '" style="order:' + i + '"><div class="n">' + (i < 9 ? '0' : '') + (i + 1) + (s.icon ? ' ' + s.icon : '') + '</div><h3>' + esc(s.title) + '</h3>' +
+        s.blocks.map(function (b) { return blockHtml(b, s.title); }).join('') + '</div>';
+      if (isDark) dark = html; else cols[i % 2] += html;
+    });
+    $('r-secs').innerHTML = '<div class="scol">' + cols[0] + '</div><div class="scol">' + cols[1] + '</div>' + dark;
+
+    $('r-others').innerHTML = T.map(function (x) {
+      return '<a href="#' + x.key + '" data-open="' + x.key + '" class="' + (x.key === res.k ? 'cur' : '') + '"><img src="/' + x.img + '" alt="" loading="lazy"><span>' + esc(x.name) + '</span></a>';
+    }).join('');
+
+    if (location.hash !== '#' + res.k) history.replaceState(null, '', '#' + res.k);
+    show('s-result');
+  }
+
+  // Свій результат — з пам'яті браузера; чужий (за посиланням #a…#i) — без розкладу балів.
+  function saved() { try { return JSON.parse(localStorage.getItem(STORE) || 'null'); } catch (e) { return null; } }
+  function open(k) {
+    var mine = saved();
+    if (mine && mine.k === k) renderResult(mine, true);
+    else renderResult({ k: k }, false);
+  }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('[data-open]');
+    if (a) { e.preventDefault(); open(a.dataset.open); return; }
+    if (e.target.closest('[data-start]')) start();
+  });
+
+  var h = location.hash.replace('#', '');
+  if (h.length === 1 && KEYS.indexOf(h) !== -1) open(h);
+})();
+</script>
+<script src="/bot.js" defer></script>
+<script src="/lead.js" defer></script>
+</body>
+</html>
