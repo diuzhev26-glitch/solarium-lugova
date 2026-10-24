@@ -123,8 +123,16 @@
   .srow.top{color:var(--coral)}
   .srow span:last-child{text-align:right;color:var(--muted)}
 
-  .screen3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start}
-  .sc{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 20px 50px rgba(238,58,36,.08)}
+  .screen3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+  .sc{position:relative;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 20px 50px rgba(238,58,36,.08)}
+  .sc-img{aspect-ratio:4/5;background:var(--cream);overflow:hidden}
+  .sc-img img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block}
+  .sc-ph{position:relative;display:flex;align-items:center;justify-content:center;background:radial-gradient(120% 90% at 50% 20%,#FFE3D8 0%,var(--cream) 70%)}
+  .sc-ph::before{content:"";position:absolute;inset:16px;border:1px solid rgba(238,58,36,.3);border-radius:12px}
+  .sc-ph .it{font-size:clamp(30px,3.4vw,42px);color:var(--coral);text-align:center;padding:0 24px}
+  .sc-t{padding:20px 22px 22px}
+  .cred{position:absolute;left:10px;right:10px;top:10px;font-size:10px;line-height:1.3;color:rgba(255,255,255,.9);text-decoration:none;text-shadow:0 1px 3px rgba(0,0,0,.6);opacity:.75;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .cred:hover{opacity:1}
   .sc .lbl{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);margin-bottom:10px}
   .sc h3{font-size:19px;font-weight:800;line-height:1.2;margin-bottom:10px}
   .sc h3 .it{display:block;color:var(--muted);font-size:15px;margin-top:2px}
@@ -210,7 +218,7 @@
     .pframe{max-width:300px;margin:0 auto}
     .hero h1{text-align:center}
     .hero .txt,.askq{margin-left:auto;margin-right:auto}
-    .screen3{grid-template-columns:1fr}
+    .screen3{grid-template-columns:1fr;max-width:420px;margin:0 auto}
     .secs{grid-template-columns:1fr}
     .secs>.scol{display:contents}
     .grid{grid-template-columns:1fr;gap:24px}
@@ -486,10 +494,15 @@ fbq('track','PageView');
     }
 
     $('r-why').textContent = t.why;
+    function pic(ph) {
+      var who = ph.who ? esc(ph.who) + ' · ' : '';
+      return '<div class="sc-img"><img src="/' + ph.src + '" alt="" loading="lazy"></div>' +
+        '<a class="cred" href="' + esc(ph.source) + '" target="_blank" rel="noopener">Фото: ' + who + esc(ph.credit) + '</a>';
+    }
     $('r-screen').innerHTML =
-      '<div class="sc"><div class="lbl">🎬 У кіно</div><h3>' + esc(t.film) + '</h3></div>' +
-      '<div class="sc"><div class="lbl">🎨 У мультфільмі</div><h3>' + esc(t.cartoon) + '<span class="it">' + esc(t.cartoonFrom) + '</span></h3><p>' + esc(t.cartoonWhy) + '</p></div>' +
-      '<div class="sc"><div class="lbl">⭐ Ікона</div><h3>' + esc(t.icon) + '</h3></div>';
+      '<div class="sc">' + pic(t.filmPhoto) + '<div class="sc-t"><div class="lbl">🎬 У кіно</div><h3>' + esc(t.film) + '</h3></div></div>' +
+      '<div class="sc"><div class="sc-img sc-ph"><span class="it">' + esc(t.cartoon) + '</span></div><div class="sc-t"><div class="lbl">🎨 У мультфільмі</div><h3>' + esc(t.cartoon) + '<span class="it">' + esc(t.cartoonFrom) + '</span></h3></div></div>' +
+      '<div class="sc">' + pic(t.iconPhoto) + '<div class="sc-t"><div class="lbl">⭐ Ікона</div><h3>' + esc(t.icon) + '</h3></div></div>';
 
     // Дві колонки по черзі (01 зліва, 02 справа…), щоб номери читалися рядками.
     // «Чого не вистачає» — фінальна темна плашка на всю ширину.
