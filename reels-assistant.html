@@ -7,7 +7,7 @@
 <meta name="description" content="Асистент Олександри Лугової для ChatGPT, Grok, Gemini і Claude: від распаковки персонажа до готових сценаріїв Reels твоїм голосом.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,500;1,700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600&family=Oswald:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,500;1,700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{--o:#C8281E;--o2:#C8281E;--od:#8F1912;--cr:#FBF4DA;--k:#2C4A1E;--m:#6B6A4A}
   *{margin:0;padding:0;box-sizing:border-box}
@@ -129,25 +129,47 @@
   }
 .word{font-family:Oswald,sans-serif;font-weight:700;letter-spacing:-.01em;font-size:clamp(70px,15vw,220px)}.hero h1,.p2 h2,.p3 h2,.p4 h2,.p5 h2{font-family:Oswald,sans-serif;font-weight:600;letter-spacing:0}.hero h1 b,.p3 h2 b,.p4 h2 b,.p5 h2 b{font-family:"Playfair Display",serif;font-style:italic;text-transform:none;font-weight:700;color:var(--o)}.p1,.p4{border:2px solid var(--k)}.p1{background:#FBF4DA}.p4{background:#fff}.p3,.p5{background:#2C4A1E}.b.o{box-shadow:none}.foot{color:#2C4A1E}.word.logo{--h:calc((min(100vw,1240px) - 130px)/8.9);font-size:var(--h);gap:calc(var(--h)*.08);margin-top:24px}.word.logo .lg{height:var(--h);width:auto;display:block}.word.logo svg{width:calc(var(--h)*1.08);height:calc(var(--h)*1.08);margin:0}@media(max-width:560px){.word.logo{--h:calc((100vw - 66px)/8.9);margin-top:16px}}
 .p5 .q h3,.p5 h2 b,.p3 h2 b,.p3 .st b{color:var(--cr)}
+
+.cover{position:relative;height:100svh;min-height:600px;max-height:960px;overflow:hidden;background:radial-gradient(90% 90% at 70% 40%,#8a8a88 0%,#6a6a68 55%,#4b4b49 100%);color:#F4EFE6}
+.cv-photo{position:absolute;top:0;bottom:0;right:4%;width:min(46vw,620px);background:url(img/reels-assistant-bw.jpg) center 12%/cover no-repeat;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 18%,#000 82%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 18%,#000 82%,transparent 100%)}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(25,22,20,.35),rgba(25,22,20,0) 40%)}
+.cv-scroll{position:absolute;z-index:2;left:48px;top:38%;display:flex;flex-direction:column;align-items:center;gap:14px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(244,239,230,.75)}
+.cv-scroll i{width:1px;height:60px;background:rgba(244,239,230,.6)}
+.cv-text{position:absolute;z-index:2;left:12%;top:50%;transform:translateY(-58%);max-width:620px}
+.cv-kick{font-family:'Cormorant',serif;font-size:clamp(18px,2vw,26px);letter-spacing:.06em;text-transform:uppercase}
+.cv-title{font-family:'Cormorant',serif;font-weight:500;font-size:clamp(56px,8.4vw,128px);line-height:.92;text-transform:uppercase;letter-spacing:.01em;margin:8px 0 22px}
+.cv-sub{font-size:clamp(13px,1.2vw,16px);letter-spacing:.16em;text-transform:uppercase;line-height:1.7;max-width:460px}
+.cv-btns{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:28px}
+.cv-b{background:#F4EFE6;color:#1d1a18;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:16px 26px}
+.cv-l{color:#F4EFE6;font-size:12px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(244,239,230,.6);padding-bottom:4px}
+.cv-mark{position:absolute;z-index:1;left:3%;right:3%;bottom:2%;width:94%;opacity:.38;pointer-events:none}
+@media(max-width:700px){
+  .cv-photo{inset:0;width:auto;right:0;background-position:62% 20%;-webkit-mask-image:none;mask-image:none}
+  .cover::after{background:linear-gradient(0deg,rgba(25,22,20,.7) 0%,rgba(25,22,20,.2) 55%,rgba(25,22,20,.05) 100%)}
+  .cv-scroll{left:20px;top:12%}
+  .cv-text{left:20px;right:20px;top:auto;bottom:15%;transform:none}
+  .cv-sub{letter-spacing:.12em}
+  .cv-mark{bottom:3%}
+}
+
 </style>
 </head>
 <body>
+<header class="cover">
+  <div class="cv-photo" role="img" aria-label="Олександра Лугова"></div>
+  <div class="cv-scroll"><span>Гортай</span><i></i></div>
+  <div class="cv-text">
+    <p class="cv-kick">Асистент Олександри Лугової</p>
+    <h1 class="cv-title">Твій сценарист</h1>
+    <p class="cv-sub">який пише Reels, в яких видно саме&nbsp;тебе&nbsp;♥</p>
+    <div class="cv-btns"><a class="cv-b" href="#ai">Забрати асистента</a><a class="cv-l" href="#what">Що він робить</a></div>
+  </div>
+  <img class="cv-mark" src="img/logo-full-cream.png" alt="SOLARIUM">
+</header>
 <div class="wrap">
 
   <!-- 1 -->
-  <section class="p1">
-    <div class="lbls"><span>Асистент Олександри Лугової</span><i></i><span class="hide">ChatGPT · Grok · Gemini · Claude</span><i class="hide"></i><span>Від распаковки до Reels</span></div>
-    <div class="word logo" aria-label="SOLARIUM"><img class="lg" src="img/logo-s-green.png" alt=""><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="#C8281E"><ellipse cx="50" cy="22" rx="11" ry="22"/><ellipse cx="50" cy="22" rx="11" ry="22" transform="rotate(60 50 50)"/><ellipse cx="50" cy="22" rx="11" ry="22" transform="rotate(120 50 50)"/><ellipse cx="50" cy="22" rx="11" ry="22" transform="rotate(180 50 50)"/><ellipse cx="50" cy="22" rx="11" ry="22" transform="rotate(240 50 50)"/><ellipse cx="50" cy="22" rx="11" ry="22" transform="rotate(300 50 50)"/><circle cx="50" cy="50" r="9"/></g></svg><img class="lg" src="img/logo-larium-green.png" alt=""></div>
-    <div class="hero">
-      <div>
-        <h1>Твій сценарист, який пише Reels, в яких видно <b>саме&nbsp;тебе&nbsp;♥</b></h1>
-        <p>Асистент Олександри Лугової за методологією SOLARIUM. Ти даєш распаковку і кастдеви, а він повертає теми і готові сценарії: з хуками, першим кадром і закликом. Твоїм голосом, для твоїх людей.</p>
-        <div class="btns"><a class="b o" href="#ai">Забрати асистента ↓</a><a class="b l" href="#what">Що він робить</a></div>
-        <p class="note">Просто скопіюй і користуйся ♥</p>
-      </div>
-      <div class="pic"><img src="img/reels-assistant-sasha.jpg" alt="Олександра Лугова"><span>Олександра Лугова<small>Авторка SOLARIUM і методології Обʼємного персонажа</small></span></div>
-    </div>
-  </section>
+
 
   <!-- 2 -->
   <section class="p2">
