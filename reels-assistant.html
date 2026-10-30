@@ -3,245 +3,220 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reels для твого Обʼємного персонажа — асистент Олександри Лугової · SOLARIUM</title>
-<meta name="description" content="Асистент Олександри Лугової для Claude: Reels для твого Обʼємного персонажа. Завантаж і встанови за 2 хвилини.">
+<title>Асистент SOLARIUM Reels — твій сценарист для Reels · Олександра Лугова</title>
+<meta name="description" content="Асистент Олександри Лугової для ChatGPT, Grok, Gemini і Claude: від распаковки персонажа до готових сценаріїв Reels твоїм голосом.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{--r:#EE3A24;--rd:#C42A16;--w:#fff;--cr:#F6F1EA;--k:#141414;--m:#5E5853}
+  :root{--o:#E8521C;--o2:#F2793A;--od:#B8380F;--cr:#F7EEE6;--k:#1A1311;--m:#7A6A62}
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   html,body{overflow-x:hidden}
-  body{font-family:'Onest',system-ui,sans-serif;background:var(--cr);color:var(--k);line-height:1.5;-webkit-font-smoothing:antialiased}
-  .mono{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
-  .disp{font-family:'Dela Gothic One',sans-serif;font-weight:400;text-transform:uppercase;line-height:.95;letter-spacing:-.01em}
-  .wrap{max-width:1360px;margin:0 auto;padding:0 40px}
-  .gridbg{background-image:linear-gradient(rgba(255,255,255,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.14) 1px,transparent 1px);background-size:120px 120px}
-  .gridbg-dark{background-image:linear-gradient(rgba(20,20,20,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(20,20,20,.07) 1px,transparent 1px);background-size:120px 120px}
-  .red{background-color:var(--r);color:var(--w)}
+  body{font-family:'Montserrat',system-ui,sans-serif;color:var(--k);-webkit-font-smoothing:antialiased;
+    background:radial-gradient(120% 80% at 20% 0%,#F58A4B 0%,#E35A1F 40%,#B83A12 75%,#8E2A0C 100%);min-height:100vh}
+  .wrap{max-width:1240px;margin:0 auto;padding:28px 28px 40px;display:grid;gap:18px}
+  .caps{text-transform:uppercase;letter-spacing:.02em}
+  .lbls{display:flex;align-items:center;gap:14px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+  .lbls i{flex:1;height:1px;background:currentColor;opacity:.45}
+  .lbls.arrows span::after{content:" ▸";font-size:9px}
 
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--w);color:var(--r);font-family:inherit;font-weight:700;font-size:16px;padding:18px 28px;border:2px solid var(--k);text-decoration:none;cursor:pointer;box-shadow:6px 6px 0 var(--k);transition:transform .12s,box-shadow .12s}
-  .btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--k)}
-  .btn:active{transform:translate(4px,4px);box-shadow:2px 2px 0 var(--k)}
-  .btn.red-b{background:var(--r);color:var(--w)}
-  .btn.line{background:transparent;color:var(--w);border-color:var(--w);box-shadow:none}
-  .btn.line:hover{background:rgba(255,255,255,.1);transform:none}
+  /* ПАНЕЛЬ 1 — кремова з вирізами */
+  .p1{position:relative;background:var(--cr);border-radius:30px;padding:30px 34px 34px;overflow:hidden}
+  .p1::before,.p1::after{content:"";position:absolute;width:64px;height:64px;border-radius:50%;background:#E86A2C;top:-32px}
+  .p1::before{left:calc(50% - 160px)}
+  .p1::after{right:-32px;top:auto;bottom:-32px}
+  .word{display:flex;align-items:center;font-weight:800;font-size:clamp(64px,13.6vw,196px);line-height:.86;letter-spacing:-.045em;margin:22px 0 0;color:var(--k);white-space:nowrap}
+  .word svg{width:.78em;height:.78em;margin:0 .02em;flex:none}
+  .hero{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:end;margin-top:14px}
+  .hero h1{font-weight:600;font-size:clamp(22px,2.5vw,34px);line-height:1.12;text-transform:uppercase;letter-spacing:-.005em}
+  .hero h1 b{color:var(--o)}
+  .hero p{margin-top:14px;font-size:15px;line-height:1.6;color:#4A3D37;max-width:470px}
+  .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+  .b{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:inherit;font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:.03em;padding:16px 26px;border-radius:100px;text-decoration:none;cursor:pointer;border:1.5px solid var(--k)}
+  .b.o{background:var(--o);border-color:var(--o);color:#fff;box-shadow:0 12px 30px -10px rgba(232,82,28,.8)}
+  .b.l{background:transparent;color:var(--k)}
+  .note{margin-top:12px;font-size:12px;color:var(--m);text-transform:uppercase;letter-spacing:.06em;font-weight:500}
+  .pic{position:relative;justify-self:end;width:100%;max-width:440px;aspect-ratio:4/4.6;border-radius:220px 220px 26px 26px;overflow:hidden;box-shadow:0 30px 60px -24px rgba(120,40,10,.55)}
+  .pic img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+  .pic span{position:absolute;left:16px;right:16px;bottom:16px;background:rgba(247,238,230,.92);border-radius:16px;padding:12px 14px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.03em}
+  .pic span small{display:block;font-weight:500;color:var(--m);text-transform:none;letter-spacing:0;font-size:12px}
 
-  /* HERO */
-  .hero{position:relative;overflow:hidden;padding:24px 0 0}
-  .bar{display:flex;justify-content:space-between;gap:16px}
-  .giant{display:block;font-size:clamp(84px,13vw,200px);line-height:.82;margin-bottom:14px;white-space:nowrap}
-  .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:56px;align-items:center;padding:56px 0 72px}
-  .hero h1{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;letter-spacing:-.025em;font-size:clamp(40px,5.6vw,86px);line-height:1;max-width:820px}
-  .hero h1 .acc{color:var(--k)}
-  .hero h1 .heart{color:var(--k)}
-  .lead{font-size:18px;max-width:520px;margin-top:18px;opacity:.95}
-  .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
-  .file{margin-top:18px;opacity:.85}
-  .photo{position:relative;justify-self:end;width:400px;height:520px;transform:rotate(3deg)}
-  .photo .arch{width:100%;height:100%;border-radius:200px 200px 0 0;overflow:hidden;border:6px solid var(--w)}
-  .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;display:block}
-  .sticker{position:absolute;left:-40px;bottom:46px;background:var(--k);color:var(--w);padding:14px 18px;border-radius:14px;transform:rotate(-7deg);font-weight:700;font-size:15px;line-height:1.3}
-  .sticker span{display:block;color:#FF9C88;font-size:11px;margin-bottom:4px}
-  .tag{position:absolute;right:-18px;top:40px;background:var(--w);color:var(--r);padding:10px 14px;transform:rotate(8deg);border:2px solid var(--k);box-shadow:4px 4px 0 var(--k)}
-  .tag b{font-family:'Dela Gothic One';font-weight:400;font-size:26px;display:block;line-height:1}
-  .tag span{font-size:11px}
+  /* ПАНЕЛЬ 2 — помаранчева, як «most expensive mistake» */
+  .p2{position:relative;border-radius:30px;padding:34px 34px 0;color:#fff;overflow:hidden;
+    background:radial-gradient(90% 120% at 50% 40%,#F48A4C 0%,#E05A20 45%,#A8360F 100%);border:1px solid rgba(255,255,255,.35)}
+  .p2 h2{font-weight:500;font-size:clamp(30px,5vw,68px);line-height:.98;text-transform:uppercase;letter-spacing:-.02em;text-align:center}
+  .p2 .lbls{margin:14px auto 0;max-width:900px;color:rgba(255,255,255,.85)}
+  .p2 .mid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;align-items:center;margin:34px 0 30px}
+  .p2 .mid h3{font-size:14px;font-weight:700;text-transform:uppercase;line-height:1.3}
+  .p2 .mid p{font-size:12.5px;line-height:1.55;opacity:.85;margin-top:8px}
+  .p2 .mid .l{text-align:right}
+  .p2 .orb{justify-self:center;width:min(260px,100%);aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 30px 60px -20px rgba(80,20,5,.7);border:6px solid rgba(255,255,255,.25)}
+  .p2 .orb img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.4);margin:0 -34px}
+  .stat{display:flex;align-items:center;gap:12px;padding:18px 22px;border-right:1px solid rgba(255,255,255,.4)}
+  .stat:last-child{border-right:0}
+  .stat b{font-weight:300;font-size:40px;line-height:1;letter-spacing:-.03em}
+  .stat b sub{font-size:12px;font-weight:500;letter-spacing:0}
+  .stat span{font-size:11px;line-height:1.35;opacity:.9}
 
-  .ticker{background:var(--k);color:var(--w);overflow:hidden;white-space:nowrap;padding:18px 0}
-  .ticker .track{display:inline-block;animation:tick 28s linear infinite}
-  .ticker span{font-family:'Dela Gothic One';font-size:26px;text-transform:uppercase}
-  .ticker i{font-style:normal;color:var(--r);margin:0 22px;font-size:22px}
-  @keyframes tick{to{transform:translateX(-50%)}}
-  @media (prefers-reduced-motion: reduce){.ticker .track{animation:none}}
+  /* ПАНЕЛЬ 3 — темна */
+  .p3{background:var(--k);color:#fff;border-radius:30px;padding:34px;display:grid;grid-template-columns:1.25fr 1fr;gap:30px}
+  .p3 h2{font-weight:500;font-size:clamp(24px,2.7vw,36px);line-height:1.08;text-transform:uppercase;letter-spacing:-.01em}
+  .p3 h2 b{color:var(--o2);font-weight:500}
+  .steps{margin-top:24px;display:grid;gap:4px}
+  .st{display:grid;grid-template-columns:70px 1fr;gap:14px;align-items:baseline;padding:14px 0;border-top:1px solid rgba(255,255,255,.14)}
+  .st b{font-weight:300;font-size:38px;line-height:1;color:var(--o2)}
+  .st h3{font-size:14px;font-weight:700;text-transform:uppercase}
+  .st p{font-size:13px;line-height:1.55;color:rgba(255,255,255,.7);margin-top:4px}
+  .st p em{font-style:normal;color:#fff}
+  .ocard{background:var(--o);border-radius:22px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+  .ocard .ph{border-radius:16px;overflow:hidden;aspect-ratio:4/3.4;box-shadow:0 20px 40px -20px rgba(0,0,0,.6)}
+  .ocard .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 62%}
+  .ocard h3{font-size:15px;font-weight:700;text-transform:uppercase;line-height:1.3}
+  .ocard p{font-size:13px;line-height:1.55;opacity:.92;margin-top:8px}
 
-  /* SECTIONS */
-  section.sec{padding:96px 0}
-  .lab{display:flex;justify-content:space-between;gap:12px;margin-bottom:22px;color:var(--m)}
-  .red .lab{color:rgba(255,255,255,.85)}
-  .h2{font-size:clamp(40px,5.6vw,80px)}
-  .h2 em{font-style:normal;color:var(--r)}
-  .red .h2 em{color:var(--k)}
-  .sub{font-size:18px;color:var(--m);max-width:640px;margin-top:18px}
-  .red .sub{color:rgba(255,255,255,.92)}
+  /* ПАНЕЛЬ 4 — обери нейронку */
+  .p4{background:var(--cr);border-radius:30px;padding:34px}
+  .p4 h2{font-weight:500;font-size:clamp(28px,4vw,54px);line-height:1;text-transform:uppercase;letter-spacing:-.02em}
+  .p4 h2 b{color:var(--o);font-weight:500}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0}
+  .tab{font-family:inherit;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.03em;padding:13px 22px;border-radius:100px;border:1.5px solid var(--k);background:transparent;cursor:pointer;color:var(--k)}
+  .tab[aria-selected="true"]{background:var(--k);color:#fff}
+  .panel{display:none}.panel.on{display:grid}
+  .cards{grid-template-columns:repeat(4,1fr);gap:12px}
+  .cd{background:#fff;border-radius:20px;padding:20px}
+  .cd b{font-weight:300;font-size:34px;color:var(--o);line-height:1}
+  .cd h3{font-size:13px;font-weight:700;text-transform:uppercase;margin:10px 0 6px}
+  .cd p{font-size:13px;line-height:1.55;color:#4A3D37}
+  .copy{margin-top:12px;width:100%;font-family:inherit;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.04em;background:var(--o);color:#fff;border:0;border-radius:100px;padding:12px;cursor:pointer}
+  .dl{display:block;text-align:center;margin-top:8px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--m)}
+  code{font-size:11.5px;background:var(--cr);padding:1px 5px;border-radius:5px;word-break:break-all}
 
-  .cols{display:grid;grid-template-columns:repeat(5,1fr);margin-top:56px;border-top:3px solid var(--k)}
-  .c{padding:26px 22px 0 0}
-  .c+.c{padding-left:22px;border-left:1px solid rgba(20,20,20,.15)}
-  .c .n{font-family:'Dela Gothic One';font-size:88px;color:var(--r);line-height:1}
-  .c h3{font-size:20px;font-weight:700;margin:14px 0 8px;line-height:1.2}
-  .c p{font-size:15px;color:#3A3732}
-  .c .get{display:inline-block;margin-top:16px;background:var(--k);color:var(--w);padding:6px 10px}
+  /* ПАНЕЛЬ 5 — питання */
+  .p5{background:var(--k);color:#fff;border-radius:30px;padding:34px}
+  .p5 h2{font-weight:500;font-size:clamp(26px,3.4vw,44px);text-transform:uppercase;letter-spacing:-.02em}
+  .p5 h2 b{color:var(--o2);font-weight:500}
+  .qa{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;margin-top:20px}
+  .q{padding:18px 0;border-top:1px solid rgba(255,255,255,.16)}
+  .q h3{font-size:13px;font-weight:700;text-transform:uppercase;color:var(--o2)}
+  .q p{font-size:14px;line-height:1.6;color:rgba(255,255,255,.8);margin-top:6px}
+  .foot{display:flex;justify-content:space-between;color:rgba(255,255,255,.85);font-size:12px;text-transform:uppercase;letter-spacing:.06em;font-weight:600;padding:6px 6px 0}
 
-  /* INSTALL */
-  .tabs{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
-  .tab{font-family:inherit;font-weight:700;font-size:16px;padding:16px 24px;border:2px solid var(--k);background:var(--w);color:var(--k);cursor:pointer;box-shadow:5px 5px 0 var(--k);transition:transform .12s,box-shadow .12s}
-  .tab[aria-selected="true"]{background:var(--r);color:var(--w);transform:translate(3px,3px);box-shadow:2px 2px 0 var(--k)}
-  .panel{display:none;margin-top:34px}
-  .panel.active{display:block}
-  .cards{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-  .cards.three{grid-template-columns:1.5fr 1fr 1fr}
-  .card{background:var(--w);border:2px solid var(--k);padding:22px 20px;position:relative}
-  .card .n{font-family:'Dela Gothic One';font-size:44px;color:var(--r);line-height:1}
-  .card h3{font-size:18px;font-weight:700;margin:12px 0 8px;line-height:1.2}
-  .card p{font-size:14.5px;color:#3A3732}
-  .path{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;background:var(--cr);border:1px solid rgba(20,20,20,.2);padding:0 6px;white-space:nowrap}
-  code{font-family:'JetBrains Mono',monospace;font-size:12.5px;background:var(--cr);padding:1px 5px;word-break:break-all}
-  .note{margin-top:20px;font-size:15px;color:var(--m)}
-  .prompt{background:var(--k);color:var(--w);padding:14px 16px;margin-top:14px}
-  .prompt pre{white-space:pre-wrap;word-break:break-word;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.55}
-  .copy{margin-top:12px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;background:var(--r);color:var(--w);border:0;padding:9px 14px;cursor:pointer}
-
-  .cards.four{grid-template-columns:1fr 1.6fr 1fr 1fr}
-  .pbox{background:var(--k);color:var(--w);padding:14px 16px;margin-top:14px}
-  .pprev{font-size:12px;line-height:1.5;opacity:.85;text-transform:none;letter-spacing:0}
-  .pact{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:12px}
-  .pact .copy{margin-top:0}
-  .plink{color:var(--w);font-size:11px;opacity:.8}
-  .tabs .tab{flex:0 0 auto}
-  .subhead{display:flex;align-items:baseline;gap:16px;margin:40px 0 18px;padding-top:28px;border-top:2px solid var(--k)}
-  .subhead .mono{color:var(--r)}
-  .subhead h3{font-size:clamp(26px,3vw,40px)}
-  .subhead h3 em{font-style:normal;color:var(--r)}
-  .cards.four-eq{grid-template-columns:repeat(4,1fr)}
-  .cards.two{grid-template-columns:1.6fr 1fr}
-  .card .say{box-shadow:4px 4px 0 var(--k)}
-  .cta-wrap{display:inline-flex;flex-direction:column}
-  .cta-wrap .file{text-align:center}
-  @media(max-width:600px){.cta-wrap{display:flex}}
-  /* START */
-  .start-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
-  .st{border:2px solid var(--w);padding:24px 20px}
-  .st .n{font-family:'Dela Gothic One';font-size:56px;line-height:1}
-  .st h3{font-size:19px;font-weight:700;margin:12px 0 8px}
-  .st p{font-size:15px;opacity:.95}
-  .say{margin-top:14px;width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--w);color:var(--k);border:2px solid var(--k);box-shadow:5px 5px 0 var(--k);padding:12px 14px;font-family:inherit;font-weight:700;font-size:15px;cursor:pointer;text-align:left}
-  .say span{flex:none;color:var(--r)}
-
-  /* FAQ */
-  .faq{margin-top:48px;border-top:3px solid var(--k)}
-  .q{display:grid;grid-template-columns:80px 1fr 1.2fr;gap:24px;padding:26px 0;border-bottom:1px solid rgba(20,20,20,.2);align-items:baseline}
-  .q .n{color:var(--r)}
-  .q h3{font-size:22px;font-weight:700;line-height:1.25}
-  .q p{font-size:16px;color:#3A3732}
-
-  footer{background:var(--k);color:var(--w);padding:40px 0}
-  .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
-  .foot .disp{font-size:clamp(40px,7vw,96px);color:var(--r)}
-  .foot a{color:var(--w)}
-
-  @media(max-width:1100px){
-    .cols,.cards{grid-template-columns:1fr 1fr}
-    .c+.c{padding-left:0;border-left:0}
-    .c{border-bottom:1px solid rgba(20,20,20,.15);padding-bottom:22px}
-    .start-grid{grid-template-columns:1fr 1fr}
-    .cards.three{grid-template-columns:1fr}
-    .cards.four,.cards.four-eq{grid-template-columns:1fr 1fr}
+  @media(max-width:900px){
+    .hero,.p3{grid-template-columns:1fr}
+    .pic{justify-self:center}
+    .p2 .mid{grid-template-columns:1fr;text-align:center}
+    .p2 .mid .l{text-align:center}
+    .stats{grid-template-columns:1fr 1fr}
+    .stat:nth-child(2){border-right:0}
+    .stat:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.4)}
+    .cards{grid-template-columns:1fr 1fr}
+    .qa{grid-template-columns:1fr}
   }
-  @media(max-width:860px){
-    .wrap{padding:0 20px}
-    .bar .mono:last-child{display:none}
-    .hero-grid{grid-template-columns:1fr;gap:44px;padding:36px 0 56px}
-    .photo{justify-self:center;width:min(300px,80vw);height:390px}
-    .tag{right:-8px}
-    .sticker{left:-10px}
-  }
-  @media(max-width:600px){
-    section.sec{padding:64px 0}
-    .h2{font-size:9.4vw}
-    .hero h1{font-size:9.2vw}
-    .cols,.cards,.start-grid,.cards.two,.cards.three,.cards.four,.cards.four-eq{grid-template-columns:minmax(0,1fr)}
-    .path{white-space:normal}
-    .ticker span{font-size:20px}
-    .bar .mono:last-child{display:none}
-    .cols,.cards,.start-grid{grid-template-columns:1fr}
-    .q{grid-template-columns:1fr;gap:8px}
-    .btn,.tab{width:100%}
-    .lead{font-size:16px}
-    .c .n{font-size:64px}
+  @media(max-width:560px){
+    .wrap{padding:14px 12px 28px;gap:12px}
+    .p1,.p2,.p3,.p4,.p5{padding:22px 18px;border-radius:24px}
+    .p2{padding-bottom:0}
+    .stats{margin:0 -18px}
+    .lbls{font-size:9px;gap:8px}
+    .lbls .hide{display:none}
+    .b{width:100%}
+    .cards{grid-template-columns:1fr}
+    .stat{padding:14px}
+    .stat b{font-size:30px}
   }
 </style>
 </head>
 <body>
+<div class="wrap">
 
-<header class="hero red gridbg">
-  <div class="wrap">
-    <div class="bar"><span class="mono">SOLARIUM</span><span class="mono">Олександра Лугова · 16 КБ</span></div>
-    <div class="hero-grid">
+  <!-- 1 -->
+  <section class="p1">
+    <div class="lbls"><span>Асистент Олександри Лугової</span><i></i><span class="hide">ChatGPT · Grok · Gemini · Claude</span><i class="hide"></i><span>Від распаковки до Reels</span></div>
+    <div class="word" aria-label="SOLARIUM">S<svg viewBox="0 0 100 100" aria-hidden="true"><g fill="#E8521C"><ellipse cx="50" cy="22" rx="11" ry="22"/><ellipse cx="50" cy="22" rx="11" ry="22" transform="rotate(60 50 50)"/><ellipse cx="50" cy="22" rx="11" ry="22" transform="rotate(120 50 50)"/><ellipse cx="50" cy="22" rx="11" ry="22" transform="rotate(180 50 50)"/><ellipse cx="50" cy="22" rx="11" ry="22" transform="rotate(240 50 50)"/><ellipse cx="50" cy="22" rx="11" ry="22" transform="rotate(300 50 50)"/><circle cx="50" cy="50" r="9"/></g></svg>LARIUM</div>
+    <div class="hero">
       <div>
-        <h1 class="disp">Твій сценарист, який пише Reels, в яких видно <span class="acc">саме тебе</span>&nbsp;<span class="heart">♥</span></h1>
-        <p class="lead">Асистент Олександри Лугової за методологією SOLARIUM.</p>
-        <p class="lead">Ти даєш распаковку і кастдеви, а він повертає теми і готові сценарії: з хуками, першим кадром і закликом. Твоїм голосом, для твоїх людей.</p>
-        <div class="cta-wrap">
-          <div class="cta">
-            <a class="btn" href="#install">↓ Завантажити асистента</a>
-            <a class="btn line" href="#install">Як встановити</a>
-          </div>
-          <p class="file mono">Просто скопіюй і користуйся ♥</p>
-        </div>
+        <h1>Твій сценарист, який пише Reels, в яких видно <b>саме тебе ♥</b></h1>
+        <p>Асистент Олександри Лугової за методологією SOLARIUM. Ти даєш распаковку і кастдеви, а він повертає теми і готові сценарії: з хуками, першим кадром і закликом. Твоїм голосом, для твоїх людей.</p>
+        <div class="btns"><a class="b o" href="#ai">Забрати асистента ↓</a><a class="b l" href="#what">Що він робить</a></div>
+        <p class="note">Просто скопіюй і користуйся ♥</p>
       </div>
-      <div class="photo">
-        <div class="arch"><img src="img/reels-assistant-sasha.jpg" alt="Олександра Лугова"></div>
-        <div class="tag"><b>20–30</b><span class="mono">тем під тебе</span></div>
-        <div class="sticker"><span class="mono">// від авторки</span>Олександра Лугова</div>
+      <div class="pic"><img src="img/reels-assistant-sasha.jpg" alt="Олександра Лугова"><span>Олександра Лугова<small>Авторка SOLARIUM і методології Обʼємного персонажа</small></span></div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="p2">
+    <h2>Найдорожча помилка — звучати як усі</h2>
+    <div class="lbls arrows"><span>В</span><i></i><span>Reels</span><i></i><span class="hide">замість</span><i class="hide"></i><span>тебе</span><i></i><span>шаблон</span></div>
+    <div class="mid">
+      <div class="l"><h3>Перший кадр вирішує</h3><p>Асистент до кожного хука описує перший кадр і текст на екрані, бо саме він зупиняє скрол.</p></div>
+      <div class="orb"><img src="img/reels-assistant-suit.jpg" alt=""></div>
+      <div><h3>Твоїм голосом, а не з інтернету</h3><p>Спочатку асистент визначає, як звучиш саме ти. Потім пише лише так: твоїми словами і без твоїх табу.</p></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>5</b><span>кроків від распаковки до сценарію</span></div>
+      <div class="stat"><b>20–30</b><span>тем саме під тебе</span></div>
+      <div class="stat"><b>3</b><span>варіанти хука на кожен Reels</span></div>
+      <div class="stat"><b>4</b><span>нейронки: ChatGPT, Grok, Gemini, Claude</span></div>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="p3" id="what">
+    <div>
+      <h2>Що робить асистент: <b>від распаковки до готових Reels</b></h2>
+      <div class="steps">
+        <div class="st"><b>01</b><div><h3>Розбирає персонажа</h3><p>Позиція, контрасти, історії, ролі. <em>→ паспорт персонажа</em></p></div></div>
+        <div class="st"><b>02</b><div><h3>Знаходить твоїх людей</h3><p>Болі й живі фрази з кастдевів. <em>→ портрет ЦА</em></p></div></div>
+        <div class="st"><b>03</b><div><h3>Налаштовує голос</h3><p>Манера, звернення, твої слова і табу. <em>→ паспорт голосу</em></p></div></div>
+        <div class="st"><b>04</b><div><h3>Підбирає теми</h3><p>На охоплення, довіру і продаж. <em>→ 20–30 тем</em></p></div></div>
+        <div class="st"><b>05</b><div><h3>Пише сценарії</h3><p>Хуки, перший кадр, текст по секундах, заклик. <em>→ бери і знімай</em></p></div></div>
       </div>
     </div>
-  </div>
-</header>
-
-<div class="ticker" aria-hidden="true"><div class="track">
-  <span>Персонаж</span><i>✦</i><span>Люди</span><i>✦</i><span>Голос</span><i>✦</i><span>Теми</span><i>✦</i><span>Сценарії</span><i>✦</i><span>Персонаж</span><i>✦</i><span>Люди</span><i>✦</i><span>Голос</span><i>✦</i><span>Теми</span><i>✦</i><span>Сценарії</span><i>✦</i>
-  <span>Персонаж</span><i>✦</i><span>Люди</span><i>✦</i><span>Голос</span><i>✦</i><span>Теми</span><i>✦</i><span>Сценарії</span><i>✦</i><span>Персонаж</span><i>✦</i><span>Люди</span><i>✦</i><span>Голос</span><i>✦</i><span>Теми</span><i>✦</i><span>Сценарії</span><i>✦</i>
-</div></div>
-
-<section class="sec gridbg-dark">
-  <div class="wrap">
-    <div class="lab mono"><span>01 / Що робить асистент</span><span>5 кроків</span></div>
-    <h2 class="h2 disp">5 кроків <em>до Reels</em></h2>
-    <p class="sub">Веде тебе за руку від «я не знаю, що знімати» до готових сценаріїв. Якщо чогось ще немає, сам поставить питання.</p>
-    <div class="cols">
-      <div class="c"><div class="n">1</div><h3>Розбирає персонажа</h3><p>Читає твою распаковку: позицію, контрасти, історії, ролі. Немає? Розпитає і збере разом із тобою.</p><span class="get mono">→ паспорт персонажа</span></div>
-      <div class="c"><div class="n">2</div><h3>Знаходить твоїх людей</h3><p>Із кастдевів витягує болі, бажання і живі фрази аудиторії. Немає кастдевів? Розпитає про ЦА.</p><span class="get mono">→ портрет ЦА</span></div>
-      <div class="c"><div class="n">3</div><h3>Налаштовує голос</h3><p>Манера, звернення, твої слова і табу. Щоб Reels були не шаблонні, а твої.</p><span class="get mono">→ паспорт голосу</span></div>
-      <div class="c"><div class="n">4</div><h3>Підбирає теми</h3><p>Частина на охоплення, частина на довіру, частина на продаж.</p><span class="get mono">→ 20–30 тем</span></div>
-      <div class="c"><div class="n">5</div><h3>Пише сценарії</h3><p>Три варіанти хука, перший кадр, текст по секундах і заклик у кінці.</p><span class="get mono">→ бери і знімай</span></div>
+    <div class="ocard">
+      <div class="ph"><img src="img/birthday-1.jpg" alt=""></div>
+      <div><h3>Немає распаковки чи кастдевів?</h3><p>Нічого страшного. Асистент поставить питання сам, порціями, і збере все разом із тобою.</p></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="sec" id="install" style="background:var(--w)">
-  <div class="wrap">
-    <div class="lab mono"><span>02 / Встановлення</span><span>2 хвилини</span></div>
-    <h2 class="h2 disp">Обери свою <em>нейронку</em></h2>
+  <!-- 4 -->
+  <section class="p4" id="ai">
+    <div class="lbls"><span>Встановлення</span><i></i><span>2 хвилини</span></div>
+    <h2 style="margin-top:16px">Обери свою <b>нейронку</b></h2>
     <div class="tabs" role="tablist">
-      <button class="tab" role="tab" aria-selected="true" data-tab="gpt">ChatGPT / Grok / Gemini</button>
-      <button class="tab" role="tab" aria-selected="false" data-tab="code">Claude Code</button>
+      <button class="tab" role="tab" aria-selected="true" data-t="gpt">ChatGPT / Grok / Gemini</button>
+      <button class="tab" role="tab" aria-selected="false" data-t="code">Claude Code</button>
     </div>
-    <div class="panel active" id="gpt">
-      <div class="cards four">
-        <div class="card"><div class="n">1</div><h3>Відкрий новий чат</h3><p>У ChatGPT, Grok або Gemini, на компʼютері чи в телефоні.</p></div>
-        <div class="card wide"><div class="n">2</div><h3>Скопіюй промт і відправ</h3><p>Натисни кнопку, встав у чат і відправ. Це вся інструкція асистента.</p><div class="pbox"><div class="pprev mono">Ти — асистент SOLARIUM Reels Олександри Лугової. Нижче твоя повна інструкція і два довідники…</div><div class="pact"><button class="copy" data-copy-src="ai-prompt">Скопіювати промт</button><a class="plink mono" href="/solarium-reels-prompt.txt" download>або скачати файлом</a></div></div></div>
-        <div class="card"><div class="n">3</div><h3>Працюй з асистентом</h3><p>Він привітається і поведе по кроках. Прикріпи распаковку і кастдеви або відповідай на питання.</p></div>
-        <div class="card"><div class="n">4</div><h3>Збережи на потім</h3><p>У ChatGPT створи <span class="path">Проєкт</span>, у Gemini — <span class="path">Gem</span> і встав промт туди один раз. У Grok просто встав промт у новому чаті знову.</p></div>
-      </div>
-      <p class="note">Промт довгий, це нормально. Якщо чат його обрізає, скачай файлом і прикріпи файл до повідомлення. Асистент створений під Claude, в інших нейронках може гірше тримати формат.</p>
+    <div class="panel cards on" id="gpt">
+      <div class="cd"><b>01</b><h3>Відкрий новий чат</h3><p>У ChatGPT, Grok або Gemini, на компʼютері чи в телефоні.</p></div>
+      <div class="cd"><b>02</b><h3>Скопіюй промт</h3><p>Встав у чат і відправ. Це вся інструкція асистента.</p><button class="copy" type="button" data-src="ai-prompt">Скопіювати промт</button><a class="dl" href="/solarium-reels-prompt.txt" download>або скачати файлом</a></div>
+      <div class="cd"><b>03</b><h3>Працюй з асистентом</h3><p>Прикріпи распаковку і кастдеви або відповідай на питання.</p></div>
+      <div class="cd"><b>04</b><h3>Збережи на потім</h3><p>У ChatGPT — Проєкт, у Gemini — Gem. У Grok встав промт знову.</p></div>
     </div>
+    <div class="panel cards" id="code">
+      <div class="cd"><b>01</b><h3>Встанови</h3><p>Скопіюй інструкцію і встав у Claude Code, він сам завантажить архів.</p><button class="copy" type="button" data-src="cc-prompt">Скопіювати інструкцію</button><a class="dl" href="/solarium-reels.zip" download>або скачати архів</a></div>
+      <div class="cd"><b>02</b><h3>Або вручну</h3><p>Розпакуй архів у <code>~/.claude/skills/</code>. Має вийти <code>solarium-reels/SKILL.md</code>.</p></div>
+      <div class="cd"><b>03</b><h3>Нова сесія</h3><p>Перезапусти Claude Code, щоб він побачив асистента.</p></div>
+      <div class="cd"><b>04</b><h3>Напиши фразу</h3><p>«Запусти SOLARIUM Reels». Прикріпи распаковку і кастдеви або відповідай на питання.</p></div>
+    </div>
+  </section>
 
-    <div class="panel" id="code">
-      <div class="cards two">
-        <div class="card"><div class="n">1</div><h3>Скопіюй і встав у Claude Code</h3><p>Claude сам завантажить і встановить асистента.</p>
-          <div class="prompt"><pre id="cc-prompt">Встанови асистента SOLARIUM Reels (це скіл): завантаж архів https://solarium.in.ua/solarium-reels.zip і розпакуй його в ~/.claude/skills/ так, щоб вийшло ~/.claude/skills/solarium-reels/SKILL.md. Потім перевір, що файл на місці.</pre><button class="copy" data-copy="cc-prompt">Скопіювати</button></div></div>
-        <div class="card"><div class="n">2</div><h3>Або вручну</h3><p>Розпакуй архів у <code>~/.claude/skills/</code>. Має вийти <code>solarium-reels/SKILL.md</code>.</p></div>
-      </div>
-      <div class="subhead"><span class="mono">Далі</span><h3 class="disp">Як <em>почати</em></h3></div>
-      <div class="cards four-eq">
-        <div class="card"><div class="n">3</div><h3>Відкрий нову сесію</h3><p>Перезапусти Claude Code, щоб він побачив асистента.</p></div>
-        <div class="card"><div class="n">4</div><h3>Напиши фразу</h3><p>Скопіюй і відправ:</p><button class="say" data-say="Запусти SOLARIUM Reels">«Запусти SOLARIUM Reels» <span class="mono">Копіювати</span></button></div>
-        <div class="card"><div class="n">5</div><h3>Дай матеріали</h3><p>Прикріпи распаковку персонажа і кастдеви. Немає? Просто відповідай на питання асистента.</p></div>
-        <div class="card"><div class="n">6</div><h3>Забери результат</h3><p>Паспорт персонажа, 20–30 тем і готові сценарії Reels. Хочеш ще? Попроси нові.</p></div>
-      </div>
+  <!-- 5 -->
+  <section class="p5">
+    <h2>Часті <b>питання</b></h2>
+    <div class="qa">
+      <div class="q"><h3>Немає распаковки чи кастдевів</h3><p>Нічого страшного. Асистент поставить питання сам, порціями, і збере все разом із тобою.</p></div>
+      <div class="q"><h3>Асистент не запускається</h3><p>ChatGPT, Grok, Gemini: відкрий новий чат і встав промт повністю, одним повідомленням. Якщо чат обрізає текст, скачай промт файлом і прикріпи його. Claude Code: перезапусти сесію і напиши «Запусти SOLARIUM Reels».</p></div>
+      <div class="q"><h3>Чи можна з телефону?</h3><p>Так. Промт можна вставити в ChatGPT, Grok або Gemini і з телефону. Claude Code працює лише на компʼютері.</p></div>
+      <div class="q"><h3>Як продовжити наступного разу?</h3><p>Наприкінці кожного кроку асистент дає блок, який варто зберегти собі. Наступного разу встав промт і цей блок, і асистент продовжить з того ж місця. У Claude Code він сам зберігає все в папку SOLARIUM-контент.</p></div>
+      <div class="q"><h3>Як оновити асистента?</h3><p>Скопіюй промт із цієї сторінки заново і встав у новий чат або заміни його в Проєкті чи Gem. У Claude Code заново скачай архів і заміни папку solarium-reels.</p></div>
     </div>
-  </div>
+  </section>
+
+  <div class="foot"><span>SOLARIUM ♥ Олександра Лугова</span><span>@alexa.lugovaya</span></div>
+</div>
 <textarea id="ai-prompt" hidden>Ти — асистент SOLARIUM Reels Олександри Лугової. Нижче твоя повна інструкція і два довідники (references/questions.md і references/formats.md) — вони вже тут, у цьому повідомленні, окремо їх шукати не треба. Доступу до файлів і папок у тебе немає: замість збереження у папку в кінці кожного кроку видавай мені блок, який я збережу собі. Працюй строго за інструкцією і почни з привітання (крок 0).
 
 =================== ІНСТРУКЦІЯ ===================
@@ -708,68 +683,14 @@ SOLARIUM-контент/
 | Доверие | 4, 5, 6, 12, 13 |
 | Продажа / заявки | 8, 9, 10 |
 </textarea>
-</section>
-
-
-<section class="sec gridbg-dark">
-  <div class="wrap">
-    <div class="lab mono"><span>03 / Питання</span><span>FAQ</span></div>
-    <h2 class="h2 disp">Часті <em>питання</em></h2>
-    <div class="faq">
-      <div class="q"><span class="n mono">Q.01</span><h3>Немає распаковки чи кастдевів</h3><p>Нічого страшного. Асистент поставить питання сам, порціями, і збере все разом із тобою.</p></div>
-      <div class="q"><span class="n mono">Q.02</span><h3>Асистент не запускається</h3><p>ChatGPT, Grok, Gemini: відкрий новий чат і встав промт повністю, одним повідомленням. Якщо чат обрізає текст, скачай промт файлом і прикріпи його. Claude Code: перезапусти сесію і напиши «Запусти SOLARIUM Reels».</p></div>
-      <div class="q"><span class="n mono">Q.03</span><h3>Чи можна з телефону?</h3><p>Так. Промт можна вставити в ChatGPT, Grok або Gemini і з телефону. Claude Code працює лише на компʼютері.</p></div>
-      <div class="q"><span class="n mono">Q.04</span><h3>Як продовжити наступного разу?</h3><p>Наприкінці кожного кроку асистент дає блок, який варто зберегти собі. Наступного разу встав промт і цей блок, і асистент продовжить з того ж місця. У Claude Code він сам зберігає все в папку SOLARIUM-контент.</p></div>
-      <div class="q"><span class="n mono">Q.05</span><h3>Як оновити асистента?</h3><p>Скопіюй промт із цієї сторінки заново і встав у новий чат або заміни його в Проєкті чи Gem. У Claude Code заново скачай архів і заміни папку solarium-reels.</p></div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap foot">
-    <div class="disp">SOLARIUM ♥</div>
-    <div class="mono" style="text-align:right">Олександра Лугова<br><a href="https://instagram.com/alexa.lugovaya">@alexa.lugovaya</a></div>
-  </div>
-</footer>
-
+<textarea id="cc-prompt" hidden>Встанови асистента SOLARIUM Reels (це скіл): завантаж архів https://solarium.in.ua/solarium-reels.zip і розпакуй його в ~/.claude/skills/ так, щоб вийшло ~/.claude/skills/solarium-reels/SKILL.md. Потім перевір, що файл на місці.</textarea>
 <script>
-  document.querySelectorAll('.tab').forEach(function (t) {
-    t.addEventListener('click', function () {
-      document.querySelectorAll('.tab').forEach(function (x) { x.setAttribute('aria-selected', 'false'); });
-      document.querySelectorAll('.panel').forEach(function (p) { p.classList.remove('active'); });
-      t.setAttribute('aria-selected', 'true');
-      document.getElementById(t.dataset.tab).classList.add('active');
-    });
-  });
-  document.querySelectorAll('.say').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var lbl = b.querySelector('span');
-      navigator.clipboard.writeText(b.dataset.say).then(function () {
-        lbl.textContent = 'Скопійовано ✓';
-        setTimeout(function () { lbl.textContent = 'Копіювати'; }, 2000);
-      });
-    });
-  });
-  document.querySelectorAll('[data-copy-src]').forEach(function (b) {
-    b.addEventListener('click', function () {
-      navigator.clipboard.writeText(document.getElementById(b.dataset.copySrc).value).then(function () {
-        b.textContent = 'Скопійовано ✓';
-        setTimeout(function () { b.textContent = 'Скопіювати промт'; }, 2000);
-      });
-    });
-  });
-  var pre = document.getElementById('cc-prompt');
-  if (location.protocol.indexOf('http') === 0) {
-    pre.textContent = pre.textContent.replace('https://solarium-skill.vercel.app', location.origin);
-  }
-  document.querySelectorAll('.copy').forEach(function (b) {
-    b.addEventListener('click', function () {
-      navigator.clipboard.writeText(document.getElementById(b.dataset.copy).textContent).then(function () {
-        b.textContent = 'Скопійовано ✓';
-        setTimeout(function () { b.textContent = 'Скопіювати'; }, 2000);
-      });
-    });
-  });
+  document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.setAttribute('aria-selected','false');});
+    document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('on');});
+    t.setAttribute('aria-selected','true');document.getElementById(t.dataset.t).classList.add('on');});});
+  document.querySelectorAll('.copy[data-src]').forEach(function(b){var t=b.textContent;b.addEventListener('click',function(){
+    navigator.clipboard.writeText(document.getElementById(b.dataset.src).value).then(function(){b.textContent='Скопійовано ✓';setTimeout(function(){b.textContent=t;},2000);});});});
 </script>
 </body>
 </html>
