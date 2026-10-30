@@ -42,7 +42,9 @@
   .hero h1{font-size:clamp(40px,5.2vw,82px);max-width:640px;font-weight:700;letter-spacing:-.025em}
   .hero h1 .acc{color:var(--k)}
   .lead{font-size:18px;max-width:540px;margin-top:20px;opacity:.95}
-  .hero .pbtn{margin-top:30px}
+  .hero .cta-wrap{display:inline-flex;flex-direction:column;margin-top:30px}
+  .hero .file{text-align:center;margin-top:14px;opacity:.9}
+  @media(max-width:600px){.hero .cta-wrap{display:flex}}
 
   .ticker{background:var(--k);color:var(--w);overflow:hidden;white-space:nowrap;padding:18px 0}
   .ticker .track{display:inline-block;animation:tick 30s linear infinite}
@@ -147,7 +149,10 @@
       <div>
         <h1 class="thin">SOLARIUM <span class="acc">3&nbsp;роки</span>&nbsp;♥</h1>
         <p class="lead">Три роки ми допомагаємо експертам знаходити свою унікальність і проявляти її так, щоб тебе бачили твої люди. На день народження подарунки отримуєш ти.</p>
-        <a class="pbtn" href="#gifts">Забрати подарунки ↓</a>
+        <div class="cta-wrap">
+          <a class="pbtn" href="#gifts">Забрати подарунки ↓</a>
+          <p class="file mono">3 роки = 3 подарунки ♥</p>
+        </div>
       </div>
       <figure class="collage" aria-label="Олександра Лугова з учасницями SOLARIUM">
         <div class="ph p1"><img src="img/birthday-1.jpg" alt="Олександра Лугова з учасницями SOLARIUM"></div>
