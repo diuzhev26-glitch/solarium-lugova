@@ -9,12 +9,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{--o:#E8521C;--o2:#F2793A;--od:#B8380F;--cr:#F7EEE6;--k:#1A1311;--m:#7A6A62}
+  :root{--o:#C8281E;--o2:#E8483B;--od:#8F1912;--cr:#F7EEE6;--k:#1A1311;--m:#7A6A62}
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   html,body{overflow-x:hidden}
   body{font-family:'Montserrat',system-ui,sans-serif;color:var(--k);-webkit-font-smoothing:antialiased;
-    background:radial-gradient(120% 80% at 20% 0%,#F58A4B 0%,#E35A1F 40%,#B83A12 75%,#8E2A0C 100%);min-height:100vh}
+    background:radial-gradient(120% 80% at 20% 0%,#D9362A 0%,#C8281E 40%,#A51C14 75%,#7A120C 100%);min-height:100vh}
   .wrap{max-width:1240px;margin:0 auto;padding:28px 28px 40px;display:grid;gap:18px}
   .caps{text-transform:uppercase;letter-spacing:.02em}
   .lbls{display:flex;align-items:center;gap:14px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
@@ -23,7 +23,7 @@
 
   /* ПАНЕЛЬ 1 — кремова з вирізами */
   .p1{position:relative;background:var(--cr);border-radius:30px;padding:30px 34px 34px;overflow:hidden}
-  .p1::before,.p1::after{content:"";position:absolute;width:64px;height:64px;border-radius:50%;background:#E86A2C;top:-32px}
+  .p1::before,.p1::after{content:"";position:absolute;width:64px;height:64px;border-radius:50%;background:#C8281E;top:-32px}
   .p1::before{left:calc(50% - 160px)}
   .p1::after{right:-32px;top:auto;bottom:-32px}
   .word{display:flex;align-items:center;font-weight:800;font-size:clamp(64px,13.6vw,196px);line-height:.86;letter-spacing:-.045em;margin:22px 0 0;color:var(--k);white-space:nowrap}
@@ -34,24 +34,24 @@
   .hero p{margin-top:14px;font-size:15px;line-height:1.6;color:#4A3D37;max-width:470px}
   .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
   .b{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:inherit;font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:.03em;padding:16px 26px;border-radius:100px;text-decoration:none;cursor:pointer;border:1.5px solid var(--k)}
-  .b.o{background:var(--o);border-color:var(--o);color:#fff;box-shadow:0 12px 30px -10px rgba(232,82,28,.8)}
+  .b.o{background:var(--o);border-color:var(--o);color:#fff;box-shadow:0 12px 30px -10px rgba(200,40,30,.75)}
   .b.l{background:transparent;color:var(--k)}
   .note{margin-top:12px;font-size:12px;color:var(--m);text-transform:uppercase;letter-spacing:.06em;font-weight:500}
-  .pic{position:relative;justify-self:end;width:100%;max-width:440px;aspect-ratio:4/4.6;border-radius:220px 220px 26px 26px;overflow:hidden;box-shadow:0 30px 60px -24px rgba(120,40,10,.55)}
+  .pic{position:relative;justify-self:end;width:100%;max-width:440px;aspect-ratio:4/4.6;border-radius:220px 220px 26px 26px;overflow:hidden;box-shadow:0 30px 60px -24px rgba(110,15,10,.55)}
   .pic img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
   .pic span{position:absolute;left:16px;right:16px;bottom:16px;background:rgba(247,238,230,.92);border-radius:16px;padding:12px 14px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.03em}
   .pic span small{display:block;font-weight:500;color:var(--m);text-transform:none;letter-spacing:0;font-size:12px}
 
   /* ПАНЕЛЬ 2 — помаранчева, як «most expensive mistake» */
   .p2{position:relative;border-radius:30px;padding:34px 34px 0;color:#fff;overflow:hidden;
-    background:radial-gradient(90% 120% at 50% 40%,#F48A4C 0%,#E05A20 45%,#A8360F 100%);border:1px solid rgba(255,255,255,.35)}
+    background:radial-gradient(90% 120% at 50% 40%,#DA3A2D 0%,#C42519 45%,#8F1912 100%);border:1px solid rgba(255,255,255,.35)}
   .p2 h2{font-weight:500;font-size:clamp(30px,5vw,68px);line-height:.98;text-transform:uppercase;letter-spacing:-.02em;text-align:center}
   .p2 .lbls{margin:14px auto 0;max-width:900px;color:rgba(255,255,255,.85)}
   .p2 .mid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;align-items:center;margin:34px 0 30px}
   .p2 .mid h3{font-size:14px;font-weight:700;text-transform:uppercase;line-height:1.3}
   .p2 .mid p{font-size:12.5px;line-height:1.55;opacity:.85;margin-top:8px}
   .p2 .mid .l{text-align:right}
-  .p2 .orb{justify-self:center;width:min(260px,100%);aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 30px 60px -20px rgba(80,20,5,.7);border:6px solid rgba(255,255,255,.25)}
+  .p2 .orb{justify-self:center;width:min(260px,100%);aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 30px 60px -20px rgba(80,10,5,.7);border:6px solid rgba(255,255,255,.25)}
   .p2 .orb img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
   .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.4);margin:0 -34px}
   .stat{display:flex;align-items:center;gap:12px;padding:18px 22px;border-right:1px solid rgba(255,255,255,.4)}
@@ -135,7 +135,7 @@
   <!-- 1 -->
   <section class="p1">
     <div class="lbls"><span>Асистент Олександри Лугової</span><i></i><span class="hide">ChatGPT · Grok · Gemini · Claude</span><i class="hide"></i><span>Від распаковки до Reels</span></div>
-    <div class="word" aria-label="SOLARIUM">S<svg viewBox="0 0 100 100" aria-hidden="true"><g fill="#E8521C"><ellipse cx="50" cy="22" rx="11" ry="22"/><ellipse cx="50" cy="22" rx="11" ry="22" transform="rotate(60 50 50)"/><ellipse cx="50" cy="22" rx="11" ry="22" transform="rotate(120 50 50)"/><ellipse cx="50" cy="22" rx="11" ry="22" transform="rotate(180 50 50)"/><ellipse cx="50" cy="22" rx="11" ry="22" transform="rotate(240 50 50)"/><ellipse cx="50" cy="22" rx="11" ry="22" transform="rotate(300 50 50)"/><circle cx="50" cy="50" r="9"/></g></svg>LARIUM</div>
+    <div class="word" aria-label="SOLARIUM">S<svg viewBox="0 0 100 100" aria-hidden="true"><g fill="#C8281E"><ellipse cx="50" cy="22" rx="11" ry="22"/><ellipse cx="50" cy="22" rx="11" ry="22" transform="rotate(60 50 50)"/><ellipse cx="50" cy="22" rx="11" ry="22" transform="rotate(120 50 50)"/><ellipse cx="50" cy="22" rx="11" ry="22" transform="rotate(180 50 50)"/><ellipse cx="50" cy="22" rx="11" ry="22" transform="rotate(240 50 50)"/><ellipse cx="50" cy="22" rx="11" ry="22" transform="rotate(300 50 50)"/><circle cx="50" cy="50" r="9"/></g></svg>LARIUM</div>
     <div class="hero">
       <div>
         <h1>Твій сценарист, який пише Reels, в яких видно <b>саме тебе ♥</b></h1>
