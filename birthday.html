@@ -8,228 +8,202 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{--r:#EE3A24;--rd:#C42A16;--w:#fff;--cr:#F6F1EA;--k:#141414;--m:#5E5853}
+  :root{--r:#C8281E;--cr:#FBF4DA;--g:#2C4A1E;--ink:#2C2118;--m:#6B6A4A}
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  html,body{overflow-x:hidden}
-  body{font-family:'Onest',system-ui,sans-serif;background:var(--cr);color:var(--k);line-height:1.5;-webkit-font-smoothing:antialiased}
-  .mono{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
-  .disp{font-family:'Dela Gothic One',sans-serif;font-weight:400;text-transform:uppercase;line-height:.95;letter-spacing:-.01em}
-  .thin{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:-.01em;line-height:1}
-  .wrap{max-width:1360px;margin:0 auto;padding:0 40px}
-  .gridbg{background-image:linear-gradient(rgba(255,255,255,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.14) 1px,transparent 1px);background-size:120px 120px}
-  .gridbg-dark{background-image:linear-gradient(rgba(20,20,20,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(20,20,20,.07) 1px,transparent 1px);background-size:120px 120px}
-  .red{background-color:var(--r);color:var(--w)}
+  html,body{overflow-x:hidden;overflow-x:clip}
+  body{font-family:'Montserrat',system-ui,sans-serif;background:var(--cr);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .serif{font-family:'Cormorant',serif;font-weight:500;text-transform:uppercase;letter-spacing:.01em;line-height:.98}
+  .cap{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+  .wrap{max-width:1240px;margin:0 auto;padding:18px 28px 40px;display:grid;gap:18px}
+  .panel{border-radius:30px;padding:56px 44px}
+  .kick{display:flex;align-items:center;gap:16px;font-size:11px;font-weight:500;letter-spacing:.3em;text-transform:uppercase}
+  .kick i{flex:1;max-width:120px;height:1px;background:currentColor;opacity:.5}
+  .h2{font-size:clamp(38px,5.4vw,78px);margin-top:18px}
+  .h2 b{font-weight:700}
+  .sub{font-size:15px;margin-top:14px;max-width:620px;opacity:.85}
 
-  /* кнопки. Клас .btn у формі потрібен lead.js; якорні посилання — тільки .pbtn (bot.js переписує a.btn з href="#…") */
-  .pbtn,.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--w);color:var(--r);font-family:inherit;font-weight:700;font-size:16px;padding:18px 28px;border:2px solid var(--k);text-decoration:none;cursor:pointer;box-shadow:6px 6px 0 var(--k);transition:transform .12s,box-shadow .12s;text-align:center}
-  .pbtn:hover,.btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--k)}
-  .pbtn:active,.btn:active{transform:translate(4px,4px);box-shadow:2px 2px 0 var(--k)}
-  .pbtn.red-b,.btn{background:var(--r);color:var(--w)}
+  /* кнопки: якорі — .pbtn (bot.js переписує a.btn), у формі — .btn (для lead.js) */
+  .pbtn,.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:inherit;font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;padding:18px 28px;border:0;border-radius:100px;background:var(--r);color:#fff;text-decoration:none;cursor:pointer;text-align:center;box-shadow:0 14px 30px -12px rgba(200,40,30,.7);transition:transform .15s}
+  .pbtn:hover,.btn:hover{transform:translateY(-2px)}
+  .pbtn.light{background:var(--cr);color:var(--ink);box-shadow:0 14px 30px -14px rgba(0,0,0,.5)}
 
-  /* 1. HERO */
-  .hero{position:relative;overflow:hidden;padding:24px 0 0}
-  .bar{display:flex;justify-content:space-between;gap:16px}
-  .hero-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center;padding:60px 0 100px}
-  .collage{margin:0;width:100%;max-width:640px;justify-self:center;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:6px;aspect-ratio:1/1;background:var(--w);border:6px solid var(--w);box-shadow:10px 10px 0 var(--k)}
-  .collage .ph{overflow:hidden;background:#2a2320}
-  .collage .ph img{width:100%;height:100%;object-fit:cover;display:block}
+  /* ОБКЛАДИНКА */
+  .cover{position:relative;height:100vh;height:var(--cvh,100svh);min-height:600px;max-height:960px;overflow:hidden;background:var(--cr)}
+  .collage{position:absolute;top:0;bottom:0;right:0;width:50%;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:4px;background:var(--cr)}
+  .collage .ph{overflow:hidden;background:#3a2a18}
+  .collage img{width:100%;height:100%;object-fit:cover;display:block}
   .collage .p1{grid-column:1/3;grid-row:1/3}
-  .collage .p1 img{object-position:50% 62%}
-  .collage .p5 img{object-position:50% 62%}
-  .hero h1{font-size:clamp(40px,5.2vw,82px);max-width:640px;font-weight:700;letter-spacing:-.025em}
-  .hero h1 .acc{color:var(--k)}
-  .lead{font-size:18px;max-width:540px;margin-top:20px;opacity:.95}
-  .hero .cta-wrap{display:inline-flex;flex-direction:column;margin-top:30px}
-  .hero .file{text-align:center;margin-top:14px;opacity:.9}
-  @media(max-width:600px){.hero .cta-wrap{display:flex}}
+  .collage .p1 img,.collage .p5 img{object-position:50% 62%}
+  .cv-scroll{position:absolute;z-index:2;left:48px;top:38%;display:flex;flex-direction:column;align-items:center;gap:14px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(44,33,24,.6)}
+  .cv-scroll i{width:1px;height:60px;background:rgba(44,33,24,.4)}
+  .cv-text{position:absolute;z-index:2;left:8%;top:50%;transform:translateY(-55%);max-width:40%}
+  .cv-kick{font-family:'Cormorant',serif;font-size:clamp(18px,2vw,26px);letter-spacing:.06em;text-transform:uppercase}
+  .cv-title{font-size:clamp(52px,6.4vw,104px);margin:10px 0 22px}
+  .cv-title b{font-weight:700}
+  .cv-sub{font-size:15px;line-height:1.7;max-width:460px;opacity:.85}
+  .cv-btns{display:flex;flex-direction:column;align-items:flex-start;gap:14px;margin-top:30px}
+  .cv-btns .cap{color:var(--m)}
+  .cv-mark{position:absolute;z-index:1;left:2%;bottom:3%;width:46%;opacity:.12;filter:brightness(0) invert(18%) sepia(60%) saturate(500%) hue-rotate(-20deg);pointer-events:none}
 
-  .ticker{background:var(--k);color:var(--w);overflow:hidden;white-space:nowrap;padding:18px 0}
-  .ticker .track{display:inline-block;animation:tick 30s linear infinite}
-  .ticker span{font-family:'Dela Gothic One';font-size:26px;text-transform:uppercase}
-  .ticker i{font-style:normal;color:var(--r);margin:0 22px;font-size:22px}
-  @keyframes tick{to{transform:translateX(-50%)}}
-  @media (prefers-reduced-motion: reduce){.ticker .track{animation:none}}
+  /* ЛЕОПАРД */
+  .leo-band{border-radius:30px;background:url(img/leopard-fur.jpg) center 45%/cover;padding:26px 20px;display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+  .leo-band span{background:#161514;color:var(--cr);font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;padding:12px 22px;border-radius:100px}
+  .leo{background:url(img/leopard-fur.jpg) center 40%/100% auto;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;font-weight:700}
 
-  section.sec{padding:96px 0}
-  .lab{display:flex;justify-content:space-between;gap:12px;margin-bottom:22px;color:var(--m)}
-  .red .lab{color:rgba(255,255,255,.85)}
-  .h2{font-size:clamp(40px,5.6vw,80px)}
-  .h2 em{font-style:normal;color:var(--r)}
-  .red .h2 em{color:var(--k)}
-  .sub{font-size:18px;color:var(--m);max-width:660px;margin-top:18px}
-  .red .sub{color:rgba(255,255,255,.92)}
-
-  /* 2. ПОДАРУНКИ */
-  .gifts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
-  .gift{background:var(--w);border:2px solid var(--k);box-shadow:8px 8px 0 var(--k);padding:30px 28px 28px;display:flex;flex-direction:column;position:relative}
-  .gift .num{font-family:'Dela Gothic One';font-size:64px;color:var(--r);line-height:1}
-  .gift .tag{position:absolute;right:22px;top:24px;background:var(--k);color:var(--w);padding:6px 10px}
-  .gift h3{font-size:26px;font-weight:700;line-height:1.15;margin:14px 0 10px}
-  .gift p{font-size:16px;color:#3A3732}
-  .gift .meta{margin-top:12px;color:var(--m)}
-  .ul{margin:8px 0 0 20px;font-size:16px;color:#3A3732}
-  .ul li{margin:3px 0}
+  /* ПОДАРУНКИ */
+  .gifts-p{background:#fff;border:2px solid var(--g);color:var(--g)}
+  .gifts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+  .gift{position:relative;background:var(--cr);border:1px solid rgba(44,74,30,.18);border-radius:22px;padding:28px 24px 24px;display:flex;flex-direction:column;color:var(--ink)}
+  .gift .num{font-family:'Cormorant',serif;font-weight:500;font-size:56px;line-height:1;color:var(--r)}
+  .gift .tag{position:absolute;right:20px;top:24px;background:var(--g);color:var(--cr);font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:7px 12px;border-radius:100px}
+  .gift h3{font-family:'Cormorant',serif;font-weight:600;font-size:26px;line-height:1.08;text-transform:uppercase;margin:14px 0 12px;color:var(--g)}
+  .gift p{font-size:14px;color:#4A3D37}
+  .gift .meta{margin-top:14px;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--m)}
   .gift .act{margin-top:auto;padding-top:24px}
-  .gift .act .pbtn{width:100%}
-  .price{display:flex;align-items:baseline;gap:14px;margin-top:16px;flex-wrap:wrap}
-  .price s{color:var(--m);font-size:20px}
-  .price b{font-family:'Dela Gothic One';font-weight:400;font-size:44px;color:var(--r);line-height:1}
-  .tariffs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
-  .tf{border:2px solid var(--k);padding:16px}
-  .tf h4{font-size:17px;font-weight:700}
-  .tf .price{margin-top:8px}
-  .tf .price b{font-size:32px}
-  .tf .price s{font-size:16px}
-  .gift.dark{background:var(--k);color:var(--w)}
-  .gift.dark p,.gift.dark .meta{color:rgba(255,255,255,.8)}
-  .gift.dark .tf{border-color:var(--w)}
-  .gift.dark .price s{color:rgba(255,255,255,.55)}
-  .gift.dark .tag{background:var(--r)}
-  .gift.dark .pbtn{border-color:var(--w);box-shadow:6px 6px 0 var(--r)}
+  .gift .act .pbtn{width:100%;padding:16px 18px;font-size:11px}
 
-  /* 3. КЕЙСИ */
-  .circles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:26px;margin-top:50px}
-  .circle-box{position:relative;aspect-ratio:1/1;border-radius:50%;overflow:hidden;background:#000;border:4px solid var(--k);box-shadow:6px 6px 0 var(--k);cursor:pointer}
+  /* КЕЙСИ */
+  .cases{background:var(--r);color:#fff;text-align:center}
+  .cases .kick{justify-content:center}
+  .cases .sub{margin-left:auto;margin-right:auto}
+  .circles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px;margin-top:44px}
+  .circle-box{position:relative;aspect-ratio:1/1;border-radius:50%;padding:8px;background:url(img/leopard-fur.jpg) center/cover;cursor:pointer;box-shadow:0 24px 40px -20px rgba(80,10,5,.7)}
+  .circle-box .in{position:relative;width:100%;height:100%;border-radius:50%;overflow:hidden;background:#000;-webkit-mask-image:-webkit-radial-gradient(white,black)}
   .circle-box video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .circle-box .c-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:34px;background:rgba(20,10,6,.28);transition:opacity .2s}
+  .circle-box .c-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;background:rgba(20,10,6,.25);transition:opacity .2s}
   .circle-box.playing .c-play{opacity:0}
-  .cta-end{margin-top:56px;text-align:center}
+  .cta-end{margin-top:44px}
+
+  .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;padding:6px 6px 0;color:var(--g)}
+  .foot a{color:inherit}
 
   /* ФОРМА-ПОПАП */
-  .modal{position:fixed;inset:0;z-index:50;background:rgba(20,14,12,.6);display:none;align-items:center;justify-content:center;padding:20px}
+  .modal{position:fixed;inset:0;z-index:50;background:rgba(30,20,12,.6);display:none;align-items:center;justify-content:center;padding:20px}
   .modal.open{display:flex}
-  .mbox{background:var(--w);border:2px solid var(--k);box-shadow:10px 10px 0 var(--r);max-width:460px;width:100%;padding:34px 28px 28px;position:relative}
-  .mbox .x{position:absolute;right:14px;top:10px;font-size:28px;background:none;border:0;cursor:pointer;line-height:1;color:var(--k)}
-  .mbox h3{font-family:'Dela Gothic One';font-weight:400;text-transform:uppercase;font-size:28px;line-height:1}
-  .mbox h3 em{font-style:normal;color:var(--r)}
-  .mbox .ms{color:var(--m);margin:10px 0 20px;font-size:15px}
+  .mbox{background:var(--cr);border-radius:26px;max-width:460px;width:100%;padding:38px 28px 28px;position:relative}
+  .mbox .x{position:absolute;right:18px;top:12px;font-size:28px;background:none;border:0;cursor:pointer;line-height:1;color:var(--ink)}
+  .mbox h3{font-family:'Cormorant',serif;font-weight:500;text-transform:uppercase;font-size:34px;line-height:1}
+  .mbox h3 em{font-style:normal;font-weight:700;color:var(--r)}
+  .mbox .ms{color:#4A3D37;margin:12px 0 20px;font-size:14px}
   .mbox form{display:grid;gap:12px}
-  .mbox input{width:100%;padding:15px 16px;border:2px solid var(--k);background:var(--cr);font-family:inherit;font-size:16px;outline:none}
+  .mbox input{width:100%;padding:15px 18px;border:1px solid rgba(44,33,24,.3);border-radius:100px;background:#fff;font-family:inherit;font-size:16px;outline:none}
   .mbox input:focus{border-color:var(--r)}
-  .phone{display:flex;align-items:center;border:2px solid var(--k);background:var(--cr)}
-  .phone select{appearance:none;-webkit-appearance:none;border:0;background:transparent;font-family:inherit;font-size:15px;font-weight:600;padding:15px 12px 15px 14px;cursor:pointer;outline:none}
-  .phone .sep{width:2px;height:26px;background:var(--k)}
-  .phone input{border:0}
+  .phone{display:flex;align-items:center;border:1px solid rgba(44,33,24,.3);border-radius:100px;background:#fff;overflow:hidden}
+  .phone select{appearance:none;-webkit-appearance:none;border:0;background:transparent;font-family:inherit;font-size:15px;font-weight:600;padding:15px 12px 15px 18px;cursor:pointer;outline:none}
+  .phone .sep{width:1px;height:24px;background:rgba(44,33,24,.3)}
+  .phone input{border:0;border-radius:0}
   .mbox .btn{width:100%;margin-top:4px}
-  .mbox .fsub{text-align:center;color:var(--m);font-size:13px;margin-top:12px}
-
-  footer{background:var(--k);color:var(--w);padding:40px 0}
-  .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
-  .foot .disp{font-size:clamp(40px,7vw,96px);color:var(--r)}
-  .foot a{color:var(--w)}
+  .mbox .fsub{text-align:center;color:var(--m);font-size:12px;letter-spacing:.06em;margin-top:12px}
 
   @media(max-width:1000px){
-    .hero-grid{grid-template-columns:1fr;gap:28px;padding:40px 0 64px}
     .gifts{grid-template-columns:1fr}
     .circles{grid-template-columns:repeat(3,minmax(0,1fr))}
   }
-  @media(max-width:600px){
-    .wrap{padding:0 20px}
-    section.sec{padding:64px 0}
-    .h2{font-size:10vw}
-    .hero h1{font-size:12vw}
-            .lead{font-size:16px}
-    .pbtn{width:100%}
-    .gift{padding:24px 20px}
-    .tariffs{grid-template-columns:1fr}
-    .circles{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-    .ticker span{font-size:20px}
+  @media(max-width:700px){
+    .cover{background:#3a2a18}
+    .collage{width:auto;left:0;gap:3px;background:#3a2a18}
+    .cover::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(48,30,14,.94) 0%,rgba(48,30,14,.78) 40%,rgba(48,30,14,.2) 66%,rgba(48,30,14,.05) 100%)}
+    .cv-scroll{left:20px;top:7%;color:rgba(251,244,218,.85)}.cv-scroll i{background:rgba(251,244,218,.7)}
+    .cv-text{left:20px;right:20px;top:auto;bottom:11%;transform:none;max-width:none;color:var(--cr)}
+    .cv-title{font-size:15vw;margin:6px 0 14px}
+    .cv-sub{font-size:14px}
+    .cv-btns{align-items:stretch}
+    .cv-btns .pbtn{background:var(--cr);color:var(--ink)}
+    .cv-btns .cap{color:rgba(251,244,218,.75);text-align:center}
+    .cv-mark{display:none}
+    .wrap{padding:12px 12px 28px;gap:12px}
+    .panel{padding:36px 20px;border-radius:24px}
+    .leo-band{border-radius:24px;padding:18px 12px;gap:8px}
+    .leo-band span{font-size:10px;letter-spacing:.14em;padding:10px 14px}
+    .circles{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .cta-end .pbtn{width:100%}
+    .circle-box:last-child:nth-child(odd){grid-column:1/-1;width:calc(50% - 8px);justify-self:center}
+    .gift .act .pbtn{letter-spacing:.1em}
   }
 </style>
 </head>
 <body>
-
-<header class="hero red gridbg">
-  <div class="wrap">
-    <div class="bar"><span class="mono">SOLARIUM</span><span class="mono">Олександра Лугова</span></div>
-    <div class="hero-grid">
-      <div>
-        <h1 class="thin">SOLARIUM <span class="acc">3&nbsp;роки</span>&nbsp;♥</h1>
-        <p class="lead">Три роки ми допомагаємо експертам знаходити свою унікальність і проявляти її так, щоб тебе бачили твої люди. На день народження подарунки отримуєш ти.</p>
-        <div class="cta-wrap">
-          <a class="pbtn" href="#gifts">Забрати подарунки ↓</a>
-          <p class="file mono">3 роки = 3 подарунки ♥</p>
-        </div>
-      </div>
-      <figure class="collage" aria-label="Олександра Лугова з учасницями SOLARIUM">
-        <div class="ph p1"><img src="img/birthday-1.jpg" alt="Олександра Лугова з учасницями SOLARIUM"></div>
-        <div class="ph p2"><img src="img/birthday-2.jpg" alt=""></div>
-        <div class="ph p3"><img src="img/birthday-3.jpg" alt=""></div>
-        <div class="ph p4"><img src="img/birthday-4.jpg" alt=""></div>
-        <div class="ph p5"><img src="img/birthday-5.jpg" alt=""></div>
-        <div class="ph p6"><img src="img/birthday-6.jpg" alt=""></div>
-      </figure>
+<script>
+  /* висота першого екрана фіксується один раз — щоб не стрибала на телефоні */
+  (function(){var w=0;function set(){if(window.innerWidth===w)return;w=window.innerWidth;document.documentElement.style.setProperty('--cvh',window.innerHeight+'px');}set();window.addEventListener('resize',set);})();
+</script>
+<header class="cover">
+  <figure class="collage" aria-label="Олександра Лугова з учасницями SOLARIUM">
+    <div class="ph p1"><img src="img/birthday-1.jpg" alt="Олександра Лугова з учасницями SOLARIUM"></div>
+    <div class="ph p2"><img src="img/birthday-2.jpg" alt=""></div>
+    <div class="ph p3"><img src="img/birthday-3.jpg" alt=""></div>
+    <div class="ph p4"><img src="img/birthday-4.jpg" alt=""></div>
+    <div class="ph p5"><img src="img/birthday-5.jpg" alt=""></div>
+    <div class="ph p6"><img src="img/birthday-6.jpg" alt=""></div>
+  </figure>
+  <div class="cv-scroll"><span>Гортай</span><i></i></div>
+  <div class="cv-text">
+    <p class="cv-kick">Олександра Лугова</p>
+    <h1 class="cv-title serif">SOLARIUM <b>3&nbsp;роки</b>&nbsp;♥</h1>
+    <p class="cv-sub">Три роки ми допомагаємо експертам знаходити свою унікальність і проявляти її так, щоб тебе бачили твої люди. На день народження подарунки отримуєш ти.</p>
+    <div class="cv-btns">
+      <a class="pbtn" href="#gifts">Забрати подарунки ↓</a>
+      <p class="cap">3 роки = 3 подарунки ♥</p>
     </div>
   </div>
+  <img class="cv-mark" src="img/logo-full-cream.png" alt="">
 </header>
 
-<div class="ticker" aria-hidden="true"><div class="track">
-  <span>Асистент</span><i>✦</i><span>Урок</span><i>✦</i><span>Бренд-сесія</span><i>✦</i><span>Асистент</span><i>✦</i><span>Урок</span><i>✦</i><span>Бренд-сесія</span><i>✦</i>
-  <span>Асистент</span><i>✦</i><span>Урок</span><i>✦</i><span>Бренд-сесія</span><i>✦</i><span>Асистент</span><i>✦</i><span>Урок</span><i>✦</i><span>Бренд-сесія</span><i>✦</i>
-</div></div>
+<div class="wrap">
+  <div class="leo-band" aria-hidden="true"><span>Асистент</span><span>Урок</span><span>Бренд-сесія</span></div>
 
-<section class="sec gridbg-dark" id="gifts">
-  <div class="wrap">
-    <div class="lab mono"><span>01 / Подарунки</span><span>3 подарунки</span></div>
-    <h2 class="h2 disp">Забери <em>свої подарунки</em></h2>
+  <section class="panel gifts-p" id="gifts">
+    <p class="kick">3 роки = 3 подарунки<i></i></p>
+    <h2 class="h2 serif">Забери свої <span class="leo">подарунки</span></h2>
     <p class="sub">Кожен подарунок забирається окремо. Можна взяти всі три.</p>
-
     <div class="gifts">
       <div class="gift">
-        <span class="tag mono">Безкоштовно</span>
+        <span class="tag">Безкоштовно</span>
         <div class="num">01</div>
         <h3>Асистент SOLARIUM Reels</h3>
         <p>Твій сценарист, який пише Reels, в яких видно саме тебе. Ти даєш распаковку і кастдеви, а він повертає теми і готові сценарії з хуками, першим кадром і закликом.</p>
-        <p class="meta mono">ChatGPT · Grok · Gemini · Claude</p>
-        <div class="act"><a class="pbtn red-b" href="/reels-assistant">Забрати асистента →</a></div>
+        <p class="meta">ChatGPT · Grok · Gemini · Claude</p>
+        <div class="act"><a class="pbtn" href="/reels-assistant">Забрати асистента →</a></div>
       </div>
 
       <div class="gift">
-        <span class="tag mono">Безкоштовно</span>
+        <span class="tag">Безкоштовно</span>
         <div class="num">02</div>
         <h3>Урок «Як знайти свою унікальність і вийти на стабільні 10–30k $ на місяць»</h3>
         <p>Урок Олександри Лугової без вигорання та щоденних танців з бубнами.</p>
-        <p class="meta mono">16 хвилин · у Telegram</p>
-        <div class="act"><a class="pbtn red-b" href="https://t.me/solarium_education_bot" rel="noopener">Дивитися урок у Telegram →</a></div>
+        <p class="meta">16 хвилин · у Telegram</p>
+        <div class="act"><a class="pbtn" href="https://t.me/solarium_education_bot" rel="noopener">Дивитися урок у Telegram →</a></div>
       </div>
 
       <div class="gift">
-        <span class="tag mono">Безкоштовно</span>
+        <span class="tag">Безкоштовно</span>
         <div class="num">03</div>
         <h3>Особиста бренд-сесія з Олександрою</h3>
         <p>За 30 хвилин ти чітко зрозумієш, хто ти як експерт, чим відрізняєшся від сотні однакових блогів і що говорити в контенті, щоб обирали саме тебе.</p>
-        <p class="meta mono">30 хвилин · <s>300 $</s> 0 $</p>
-        <div class="act"><button class="pbtn red-b" type="button" data-open-modal>Записатися на бренд-сесію →</button></div>
+        <p class="meta">30 хвилин · <s>300 $</s> 0 $</p>
+        <div class="act"><button class="pbtn" type="button" data-open-modal>Записатися на бренд-сесію →</button></div>
       </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section class="sec red gridbg">
-  <div class="wrap">
-    <div class="lab mono"><span>02 / Кейси</span><span>Учасниці SOLARIUM</span></div>
-    <h2 class="h2 disp">Що кажуть <em>учасниці</em></h2>
+  <section class="panel cases">
+    <p class="kick">Учасниці SOLARIUM</p>
+    <h2 class="h2 serif">Що кажуть <b>учасниці</b></h2>
     <p class="sub">Натисни на кружечок, щоб послухати.</p>
     <div class="circles">
-      <div class="circle-box"><video src="img/circle1.mp4" poster="img/circle1_poster.jpg" playsinline preload="metadata"></video><div class="c-play">▶</div></div>
-      <div class="circle-box"><video src="img/circle2.mp4" poster="img/circle2_poster.jpg" playsinline preload="metadata"></video><div class="c-play">▶</div></div>
-      <div class="circle-box"><video src="img/circle3.mp4" poster="img/circle3_poster.jpg" playsinline preload="metadata"></video><div class="c-play">▶</div></div>
-      <div class="circle-box"><video src="img/circle4.mp4" poster="img/circle4_poster.jpg" playsinline preload="metadata"></video><div class="c-play">▶</div></div>
-      <div class="circle-box"><video src="img/circle5.mp4" poster="img/circle5_poster.jpg" playsinline preload="metadata"></video><div class="c-play">▶</div></div>
+      <div class="circle-box"><div class="in"><video src="img/circle1.mp4" poster="img/circle1_poster.jpg" playsinline preload="metadata"></video><div class="c-play">▶</div></div></div>
+      <div class="circle-box"><div class="in"><video src="img/circle2.mp4" poster="img/circle2_poster.jpg" playsinline preload="metadata"></video><div class="c-play">▶</div></div></div>
+      <div class="circle-box"><div class="in"><video src="img/circle3.mp4" poster="img/circle3_poster.jpg" playsinline preload="metadata"></video><div class="c-play">▶</div></div></div>
+      <div class="circle-box"><div class="in"><video src="img/circle4.mp4" poster="img/circle4_poster.jpg" playsinline preload="metadata"></video><div class="c-play">▶</div></div></div>
+      <div class="circle-box"><div class="in"><video src="img/circle5.mp4" poster="img/circle5_poster.jpg" playsinline preload="metadata"></video><div class="c-play">▶</div></div></div>
     </div>
-    <div class="cta-end"><a class="pbtn" href="#gifts">Забрати подарунки ↑</a></div>
-  </div>
-</section>
+    <div class="cta-end"><a class="pbtn light" href="#gifts">Забрати подарунки ↑</a></div>
+  </section>
 
-<footer>
-  <div class="wrap foot">
-    <div class="disp">SOLARIUM ♥</div>
-    <div class="mono" style="text-align:right">Олександра Лугова<br><a href="https://instagram.com/alexa.lugovaya">@alexa.lugovaya</a></div>
-  </div>
-</footer>
+  <div class="foot"><span>SOLARIUM ♥ Олександра Лугова</span><a href="https://instagram.com/alexa.lugovaya">@alexa.lugovaya</a></div>
+</div>
 
 <div class="modal" id="bs-modal" role="dialog" aria-modal="true" aria-labelledby="bs-title">
   <div class="mbox">
