@@ -7,7 +7,7 @@
 <meta name="description" content="Асистент Олександри Лугової для ChatGPT, Grok, Gemini і Claude: від распаковки персонажа до готових сценаріїв Reels твоїм голосом.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600&family=Oswald:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,500;1,700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,500;1,700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{--o:#C8281E;--o2:#C8281E;--od:#8F1912;--cr:#FBF4DA;--k:#2C4A1E;--m:#6B6A4A}
   *{margin:0;padding:0;box-sizing:border-box}
@@ -168,6 +168,18 @@
 .foot{letter-spacing:.24em;font-weight:500}
 .stat b{white-space:nowrap}
 @media(max-width:560px){.stat b{font-size:34px}.lbls{letter-spacing:.14em}}
+
+/* леопард */
+.leo,.p4 h2 b{background:url(img/leopard.jpg) 0 30%/170px auto;-webkit-background-clip:text;background-clip:text;color:transparent!important;-webkit-text-fill-color:transparent;font-weight:700!important;filter:drop-shadow(0 2px 2px rgba(40,20,10,.25))}
+.p2 .orb{border:0!important;padding:12px;background:url(img/leopard.jpg) center/200px auto}
+.p2 .orb img{border-radius:50%}
+
+.leo-band{border-radius:30px;background:url(img/leopard.jpg) center/260px auto;padding:26px 20px;display:flex;justify-content:center;flex-wrap:wrap;gap:12px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.leo-band span{background:#161514;color:#FBF4DA;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;padding:12px 22px;border-radius:100px}
+.ocard{background:url(img/leopard.jpg) center/260px auto!important}
+.ocard>div:last-child{background:#FBF4DA;color:#2C4A1E;border-radius:16px;padding:20px}
+.ocard>div:last-child p{opacity:1;color:#4A3D37}
+@media(max-width:560px){.leo-band{border-radius:24px;padding:18px 12px;gap:8px}.leo-band span{font-size:10px;letter-spacing:.14em;padding:10px 14px}}
 </style>
 </head>
 <body>
@@ -203,6 +215,8 @@
       <div class="stat"><b>4</b><span>нейронки: ChatGPT, Grok, Gemini, Claude</span></div>
     </div>
   </section>
+
+  <div class="leo-band"><span>Твій голос</span><span>Твої Reels</span><span>Твій персонаж ♥</span></div>
 
   <!-- 3 -->
   <section class="p3" id="what">
