@@ -51,10 +51,13 @@
   @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
   /* ---------- СТАРТ ---------- */
-  .cover{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;padding:20px 0 10px}
+  .cover{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px;align-items:center;padding:20px 0 10px}
+  .cover>div{min-width:0}
   .cv-meta{display:flex;flex-wrap:wrap;gap:8px}
   .cv-meta span{border:1px solid var(--line);border-radius:100px;padding:8px 14px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.5)}
-  .cv-title{font-size:clamp(42px,5.2vw,82px);margin:22px 0 22px}
+  /* заголовок — рівно 4 рядки: кожен рядок не переноситься, розмір від ширини */
+  .cv-title{font-size:clamp(34px,4.3vw,58px);margin:22px 0 22px}
+  .cv-title>span{display:block;white-space:nowrap}
   .cv-sub{font-size:16px;line-height:1.7;max-width:540px;color:var(--ink2)}
   .cv-sub+.cv-sub{margin-top:12px}
   .cv-btns{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:32px}
@@ -208,7 +211,8 @@
   .foot a{color:inherit}
 
   @media(max-width:1000px){
-    .cover{grid-template-columns:1fr;gap:28px}
+    .cover{grid-template-columns:minmax(0,1fr);gap:28px}
+    .cv-title{font-size:min(8.4vw,58px)}
     .hero{grid-template-columns:1fr;gap:26px;text-align:center}
     .pframe{max-width:340px;margin:0 auto}
     .hero .kick{justify-content:center}
@@ -223,7 +227,7 @@
     .wrap{padding:10px 12px 28px;gap:12px}
     .screen.on{gap:12px}
     .panel{padding:36px 20px;border-radius:24px}
-    .cv-title{font-size:10.6vw;margin:16px 0 16px}
+    .cv-title{font-size:9.6vw;margin:16px 0 16px}
     .cv-sub{font-size:14.5px;line-height:1.6}
     .cv-btns{margin-top:22px}
     .topline span+span{display:none}
@@ -266,7 +270,7 @@ fbq('track','PageView');
     <header class="cover">
       <div>
         <div class="cv-meta"><span>Безкоштовний тест для експертів</span><span>9 запитань</span><span>близько 3 хвилин</span></div>
-        <h1 class="cv-title serif">Як проявлятися в блозі, щоб клієнти обирали <b>саме&nbsp;тебе?</b></h1>
+        <h1 class="cv-title serif"><span>Як проявлятися</span> <span>в блозі, щоб</span> <span>клієнти обирали</span> <span><b>саме тебе?</b></span></h1>
         <p class="cv-sub">Дізнайся свого Обʼємного персонажа та зрозумій, як через свою особистість розкривати цінність послуг, будувати довіру й продавати у властивій тобі манері.</p>
         <p class="cv-sub">Дай відповідь на 9 запитань та отримай рекомендації: які сторони себе показувати, про що говорити в контенті та як підводити аудиторію до знайомства з твоїми послугами.</p>
         <div class="cv-btns"><button class="pbtn" type="button" data-start>Пройти тест →</button><span class="note">Результат одразу ♥</span></div>
