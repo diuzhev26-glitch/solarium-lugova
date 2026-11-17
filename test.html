@@ -77,6 +77,16 @@
   .gets b{display:block;font-family:'Cormorant',serif;font-weight:500;font-size:48px;line-height:1;color:var(--r);margin-bottom:12px}
   .gets p{font-size:14.5px;font-weight:600;line-height:1.4}
 
+  /* про Сашу */
+  .author{background:var(--r);color:#fff;display:grid;grid-template-columns:400px 1fr;gap:56px;align-items:center}
+  .au-photo{border-radius:28px;padding:9px;background:url(img/leopard-fur.jpg) center/cover;box-shadow:0 30px 60px -24px rgba(60,10,5,.6)}
+  .au-photo img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 30%;border-radius:20px}
+  .au-role{font-family:'Cormorant',serif;font-style:italic;font-size:clamp(20px,2vw,26px);line-height:1.25;margin:14px 0 26px;opacity:.95}
+  .facts{display:grid;gap:12px;margin-bottom:30px}
+  .fact{display:flex;gap:12px;align-items:flex-start;font-size:15.5px;line-height:1.5}
+  .fact .hb{flex:none;color:var(--cr);margin-top:1px}
+  .fact b{font-weight:700}
+
   /* ---------- ПИТАННЯ ---------- */
   .quiz{max-width:860px;width:100%;margin:10px auto 30px;background:#fff;border:2px solid var(--g);border-radius:30px;padding:40px 44px 34px}
   .qtop{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:14px}
@@ -222,6 +232,8 @@
     .screen3{max-width:440px}
     .bgrid,.grid,.cards4{grid-template-columns:1fr}
     .rubric .in{grid-template-columns:1fr;gap:16px}
+    .author{grid-template-columns:1fr;gap:28px}
+    .au-photo{max-width:340px;width:100%;margin:0 auto}
   }
   @media(max-width:700px){
     .wrap{padding:10px 12px 28px;gap:12px}
@@ -244,7 +256,9 @@
     .rubric .in{padding:26px 22px}
     .srow{grid-template-columns:118px 1fr 24px;gap:10px;font-size:12.5px}
     .fcard{padding:26px 18px}
-    .bridge .pbtn{width:100%}
+    .bridge .pbtn,.author .pbtn{width:100%}
+    .au-photo{max-width:270px}
+    .fact{font-size:14.5px}
     .pbtn,.btn{letter-spacing:.1em;padding:18px 20px}
   }
 </style>
@@ -288,6 +302,24 @@ fbq('track','PageView');
         <div><b>02</b><p>Як твій характер проявляється в блозі</p></div>
         <div><b>03</b><p>Про що писати й які формати пробувати</p></div>
         <div><b>04</b><p>Чого уникати, щоб не зливатися з іншими</p></div>
+      </div>
+    </section>
+
+    <!-- Про Сашу — факти з уроку (supersyla.html, блок AUTHOR) -->
+    <section class="panel author">
+      <div class="au-photo"><img src="/img/sasha-final.jpg" alt="Олександра Лугова" loading="lazy"></div>
+      <div class="au-txt">
+        <p class="kick">Авторка тесту<i></i></p>
+        <h2 class="h2 serif">Олександра <b>Лугова</b></h2>
+        <p class="au-role">Маркетолог, стратег, продюсер запусків, авторка методології «Обʼємний персонаж»</p>
+        <div class="facts">
+          <div class="fact"><span class="hb">♥</span><span><b>122 000 $</b> зробила на власних запусках — без продюсера і реклами</span></div>
+          <div class="fact"><span class="hb">♥</span><span><b>190 000 $+</b> заробили учасники моєї програми SOLARIUM</span></div>
+          <div class="fact"><span class="hb">♥</span><span><b>40%</b> людей, які пройшли програму, повертаються знову</span></div>
+          <div class="fact"><span class="hb">♥</span><span>моя агенція <b>SAYIT</b> створює брендинг для великих українських брендів, супермаркетів та компаній, що співпрацюють з ООН</span></div>
+          <div class="fact"><span class="hb">♥</span><span>авторка воркбуку <b>SOLO</b>, який допомагає пройти вигорання швидше</span></div>
+        </div>
+        <button class="pbtn light" type="button" data-start>Пройти тест →</button>
       </div>
     </section>
   </div>
