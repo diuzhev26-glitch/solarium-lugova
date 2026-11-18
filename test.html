@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Тест «Який ти Обʼємний персонаж?» — Олександра Лугова · SOLARIUM</title>
 <link rel="canonical" href="https://solarium.in.ua/test">
-<meta name="description" content="Безкоштовний тест для експертів: 8 запитань — і ти дізнаєшся свого Обʼємного персонажа, як проявлятися в блозі, про що писати й які формати пробувати.">
+<meta name="description" content="Безкоштовний тест для експертів: 5 запитань — і ти дізнаєшся свого Обʼємного персонажа, як проявлятися в блозі, про що писати й які формати пробувати.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SOLARIUM">
 <meta property="og:locale" content="uk_UA">
 <meta property="og:url" content="https://solarium.in.ua/test">
 <meta property="og:title" content="Як проявлятися в блозі, щоб клієнти обирали саме тебе? · Тест SOLARIUM">
-<meta property="og:description" content="8 запитань — і рекомендації: які сторони себе показувати, про що говорити в контенті та як підводити аудиторію до своїх послуг.">
+<meta property="og:description" content="5 запитань — і рекомендації: які сторони себе показувати, про що говорити в контенті та як підводити аудиторію до своїх послуг.">
 <meta property="og:image" content="https://solarium.in.ua/img/og-test.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -103,6 +103,13 @@
   .ans:hover{border-color:var(--r);transform:translateX(3px)}
   .ans.pick{border-color:var(--r);background:#fff}
   .ans.pick::before{background:var(--r);border-color:var(--r);box-shadow:inset 0 0 0 3px #fff}
+  .answers.pics{grid-template-columns:repeat(5,1fr);gap:10px}
+  .ans.pic{flex-direction:column;align-items:stretch;gap:0;padding:6px 6px 12px;text-align:center;border-radius:20px}
+  .ans.pic::before{display:none}
+  .ans.pic:hover{transform:translateY(-3px)}
+  .ans.pic img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:15px;margin-bottom:10px}
+  .ans.pic span{font-family:'Cormorant',serif;font-weight:700;font-size:20px;line-height:1.05}
+  .ans.pic.pick{background:var(--r);border-color:var(--r);color:#fff}
   .hint{text-align:center;color:var(--m);font-size:13px;margin-top:22px}
 
   /* ---------- ПІДРАХУНОК ---------- */
@@ -251,6 +258,8 @@
     .gets{grid-template-columns:1fr}
     .quiz{padding:28px 18px 24px;border-radius:24px}
     .ans{font-size:15px;padding:14px 15px}
+    .answers.pics{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+    .ans.pic{width:calc(50% - 5px);padding:6px 6px 12px}
     .pframe{max-width:270px}
     .card,.bcard{padding:22px 20px 18px}
     .rubric .in{padding:26px 22px}
@@ -283,10 +292,10 @@ fbq('track','PageView');
   <div class="screen on" id="s-intro">
     <header class="cover">
       <div>
-        <div class="cv-meta"><span>Безкоштовний тест для експертів</span><span>8 запитань</span><span>близько 2 хвилин</span></div>
+        <div class="cv-meta"><span>Безкоштовний тест для експертів</span><span>5 запитань</span><span>близько 1 хвилини</span></div>
         <h1 class="cv-title serif"><span>Як проявлятися</span> <span>в блозі, щоб</span> <span>клієнти обирали</span> <span><b>саме тебе?</b></span></h1>
         <p class="cv-sub">Дізнайся свого Обʼємного персонажа та зрозумій, як через свою особистість розкривати цінність послуг, будувати довіру й продавати у властивій тобі манері.</p>
-        <p class="cv-sub">Дай відповідь на 8 запитань та отримай рекомендації: які сторони себе показувати, про що говорити в контенті та як підводити аудиторію до знайомства з твоїми послугами.</p>
+        <p class="cv-sub">Дай відповідь на 5 запитань та отримай рекомендації: які сторони себе показувати, про що говорити в контенті та як підводити аудиторію до знайомства з твоїми послугами.</p>
         <div class="cv-btns"><button class="pbtn" type="button" data-start>Пройти тест →</button><span class="note">Результат одразу ♥</span></div>
       </div>
       <div class="cast" id="cast"></div>
@@ -426,7 +435,7 @@ fbq('track','PageView');
 </div>
 
 <!-- ?v= підняти після кожного build_data.py, інакше браузер візьме старі дані з кешу -->
-<script src="/personazh-data.js?v=9"></script>
+<script src="/personazh-data.js?v=11"></script>
 <script>
 (function () {
   var Q = window.OP_QUESTIONS, T = window.OP_TYPES;
@@ -475,8 +484,13 @@ fbq('track','PageView');
     $('bar').style.width = (step / Q.length * 100) + '%';
     $('qtext').textContent = q.q;
     $('back').disabled = step === 0;
+    // Питання з картинками (квіти) — відповіді карточками
+    var pics = !!q.a[0].img;
+    $('answers').className = 'answers' + (pics ? ' pics' : '');
     $('answers').innerHTML = order[step].map(function (i) {
-      return '<button class="ans' + (picks[step] === i ? ' pick' : '') + '" data-i="' + i + '">' + esc(q.a[i].t) + '</button>';
+      var a = q.a[i];
+      return '<button class="ans' + (pics ? ' pic' : '') + (picks[step] === i ? ' pick' : '') + '" data-i="' + i + '">' +
+        (pics ? '<img src="/' + a.img + '?v=' + IMG_V + '" alt=""><span>' + esc(a.t) + '</span>' : esc(a.t)) + '</button>';
     }).join('');
   }
 
