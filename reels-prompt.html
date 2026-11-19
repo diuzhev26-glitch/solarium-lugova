@@ -400,7 +400,7 @@ h1 em{font-style:normal;color:var(--red)}
   var pop=document.getElementById('exitPop'), shown=false, copied=false;
   try{shown=sessionStorage.getItem('exitShown')==='1';}catch(e){}
   function openPop(){
-    if(shown)return; shown=true;
+    if(shown||!armed)return; shown=true;
     try{sessionStorage.setItem('exitShown','1');}catch(e){}
     pop.hidden=false; document.getElementById('popTel').focus({preventScroll:true});
   }
@@ -423,15 +423,18 @@ h1 em{font-style:normal;color:var(--red)}
     if(armed&&moved>20&&goingUp&&e.clientY<=10)openPop();
   });
   /* телефон: різкий скрол угору після прочитання або 25 с після копіювання */
+  var touch=window.matchMedia('(hover:none) and (pointer:coarse)').matches;
   var lastY=window.scrollY,lastT=Date.now(),maxY=0;
   window.addEventListener('scroll',function(){
-    var y=window.scrollY,t=Date.now();maxY=Math.max(maxY,y);
-    if(maxY>window.innerHeight*1.5&&lastY-y>120&&t-lastT<200)openPop();
+    var y=window.scrollY,t=Date.now();
+    if(!armed){lastY=y;lastT=t;return;}
+    maxY=Math.max(maxY,y);
+    if(touch&&maxY>window.innerHeight*1.5&&lastY-y>120&&t-lastT<200)openPop();
     lastY=y;lastT=t;
   },{passive:true});
   document.getElementById('copyTop').addEventListener('click',function(){copied=true;});
   document.getElementById('copyBottom').addEventListener('click',function(){copied=true;});
-  setInterval(function(){if(copied&&window.matchMedia('(pointer:coarse)').matches){copied=false;setTimeout(openPop,25000);}},1000);
+  setInterval(function(){if(copied&&touch){copied=false;setTimeout(openPop,25000);}},1000);
 
 })();
 </script>
