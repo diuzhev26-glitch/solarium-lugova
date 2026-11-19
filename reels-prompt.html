@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Сценарист вірусних Reels · SOLARIUM</title>
+<meta name="description" content="Промт для ChatGPT / Claude: живі сценарії Reels під твою нішу й аудиторію. Скопіюй і встав у чат.">
+<link rel="canonical" href="https://solarium.in.ua/reels-prompt">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SOLARIUM">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:url" content="https://solarium.in.ua/reels-prompt">
+<meta property="og:title" content="Сценарист вірусних Reels · SOLARIUM">
+<meta property="og:description" content="Промт для ChatGPT / Claude: живі сценарії Reels під твою нішу й аудиторію. Скопіюй і встав у чат.">
+<meta property="og:image" content="https://solarium.in.ua/img/og-solarium.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Сценарист вірусних Reels · SOLARIUM">
+<meta name="twitter:description" content="Промт для ChatGPT / Claude: живі сценарії Reels під твою нішу й аудиторію. Скопіюй і встав у чат.">
+<meta name="twitter:image" content="https://solarium.in.ua/img/og-solarium.jpg">
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','28603276992626559');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=28603276992626559&ev=PageView&noscript=1"/></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,800;0,900;1,800&family=Manrope:wght@400;500;600;700&family=Jost:wght@300;400&display=swap">
+<style>
+/* Layout: SOLARIUM — білий з алим glow, тяжкий гротеск капсом, промт у картці-листі з липкою кнопкою копіювання */
+:root{
+  --bg:#FFFFFF; --fg:#141414; --fg2:#33322F; --muted:#8D8A85;
+  --red:#EE3A24; --red-deep:#D8300F; --cream:#F7ECE1; --card:#FFFFFF;
+  --line:rgba(20,20,20,.12); --soft:#FFF1EC; --glow:rgba(255,86,44,.55);
+  --display:"Montserrat",Arial,sans-serif; --body:"Manrope",system-ui,sans-serif; --logo:"Jost",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#17110F; --fg:#F7ECE1; --fg2:#DCCFC4; --muted:#9C8E85; --card:#211816;
+  --line:rgba(247,236,225,.14); --soft:#3A1C15; --glow:rgba(238,58,36,.35); --cream:#F7ECE1; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#17110F; --fg:#F7ECE1; --fg2:#DCCFC4; --muted:#9C8E85; --card:#211816;
+  --line:rgba(247,236,225,.14); --soft:#3A1C15; --glow:rgba(238,58,36,.35); --cream:#F7ECE1; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;overflow-x:hidden;position:relative}
+body::after{content:"";position:absolute;width:640px;height:640px;left:-260px;top:-260px;border-radius:50%;
+  background:radial-gradient(closest-side,var(--glow),transparent 72%);pointer-events:none;z-index:0}
+.wrap{position:relative;z-index:1;max-width:820px;margin:0 auto;padding-block:28px 64px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.logo{font-family:var(--logo);text-align:right;margin-left:auto}
+.logo b{display:block;font-weight:400;letter-spacing:.3em;font-size:15px}
+.logo span{display:block;font-weight:300;letter-spacing:.2em;font-size:9px;color:var(--muted);margin-top:2px}
+.badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-top:48px}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--red);display:inline-block}
+h1{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(34px,7.4vw,64px);line-height:.98;letter-spacing:-.02em;margin:14px 0 0;text-wrap:balance}
+h1 em{font-style:normal;color:var(--red)}
+.sub{font-family:var(--display);font-style:italic;font-weight:800;color:var(--red);font-size:clamp(16px,2.6vw,20px);margin-top:14px}
+.how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:32px 0 28px}
+.how div{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 16px 14px;display:flex;gap:12px;align-items:flex-start}
+.how .n{width:30px;height:30px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--display);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex:none}
+.how p{margin:0;font-size:14px;line-height:1.45;color:var(--fg2)}
+.how b{color:var(--fg)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:26px;box-shadow:0 14px 40px rgba(216,48,15,.10);overflow:hidden}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:14px 18px;background:var(--card);border-bottom:1px solid var(--line)}
+.bar .t{font-family:var(--display);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);min-width:0}
+.bar .t span{color:var(--red)}
+.btn{appearance:none;border:0;cursor:pointer;font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+  color:#fff;background:radial-gradient(130% 130% at 14% 8%,#FF6A45,#EE3A24 44%,#D8300F);padding:12px 20px;border-radius:999px;
+  display:inline-flex;align-items:center;gap:8px;white-space:nowrap;transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(238,58,36,.35)}
+.btn:focus-visible{outline:3px solid var(--fg);outline-offset:3px}
+.btn.ok{background:var(--fg);color:var(--bg)}
+.prompt{padding:22px 24px 30px;font-size:15px;line-height:1.62;color:var(--fg2);min-width:0}
+.prompt p{margin:0 0 6px;overflow-wrap:anywhere}
+.prompt .h{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:14px;letter-spacing:.04em;color:var(--fg);margin:22px 0 8px}
+.prompt .h.step{display:inline-block;background:var(--red);color:#fff;padding:5px 12px;border-radius:999px;font-size:12.5px;letter-spacing:.08em}
+.prompt .h.title{font-size:clamp(17px,2.6vw,21px);margin-top:0;color:var(--red)}
+.prompt .li{padding-left:18px;position:relative}
+.prompt .li::before{content:"♥";position:absolute;left:0;color:var(--red);font-size:11px;top:3px}
+.prompt .q{background:var(--soft);border-radius:12px;padding:8px 12px;margin:6px 0}
+.prompt .bad{color:var(--muted)}
+.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:24px;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.foot b{color:var(--red);font-weight:800}
+.bottom{display:flex;justify-content:center;padding:4px 18px 26px}
+/* exit-попап */
+.ov{position:fixed;inset:0;z-index:50;background:rgba(20,14,12,.55);display:flex;align-items:safe center;overflow-y:auto;justify-content:center;
+  padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+  animation:fade .25s ease}
+.pop{position:relative;width:100%;max-width:460px;background:var(--card);border-radius:28px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.35);animation:rise .3s ease}
+.pop-top{background:radial-gradient(130% 130% at 14% 8%,#FF6A45,#EE3A24 44%,#D8300F);color:#fff;padding:28px 26px 24px}
+.pop-top .k{font-family:var(--display);font-weight:800;font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.85}
+.pop-top h2{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:26px;line-height:1.02;letter-spacing:-.01em;margin:10px 0 0;text-wrap:balance}
+.pop-top h2 em{font-style:italic;font-weight:800;color:#F7ECE1}
+.pop-body{padding:22px 26px 24px}
+.pop-body p.t{margin:0 0 16px;font-size:15px;line-height:1.55;color:var(--fg2)}
+.pop-body p.t b{color:var(--fg)}
+.phone{display:flex;align-items:center;border:1.5px solid var(--line);border-radius:999px;background:var(--bg);padding:4px 6px 4px 4px}
+.phone:focus-within{border-color:var(--red)}
+.phone select{appearance:none;border:0;background:transparent;color:var(--fg);font:600 15px var(--body);padding:10px 8px 10px 14px;cursor:pointer}
+.phone .sep{width:1px;height:22px;background:var(--line)}
+.phone input{flex:1;min-width:0;border:0;background:transparent;color:var(--fg);font:500 16px var(--body);padding:10px 12px;outline:none}
+.pop form{display:flex;flex-direction:column;gap:12px}
+.pop .btn{justify-content:center;padding:15px 20px;font-size:13.5px}
+.pop .fsub{text-align:center;font-size:13px;color:var(--muted);margin-top:12px}
+.pop .no{display:block;margin:10px auto 0;background:none;border:0;color:var(--muted);font:600 13px var(--body);text-decoration:underline;cursor:pointer}
+.pop .x{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.18);color:#fff;font-size:20px;line-height:1;cursor:pointer}
+.pop .x:focus-visible,.pop .no:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.pop .note{margin-top:12px;border-radius:14px;padding:12px 14px;font-size:14px;line-height:1.5;background:var(--soft);border:1px solid var(--red);color:var(--fg)}
+.pop .note a{color:var(--red);font-weight:700}
+@keyframes fade{from{opacity:0}}
+@keyframes rise{from{transform:translateY(16px);opacity:0}}
+@media (prefers-reduced-motion:reduce){.ov,.pop{animation:none}}
+#src{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+@media (max-width:640px){.how{grid-template-columns:1fr}.bar .t{font-size:11px}.prompt{padding:18px 16px 24px}}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="top">
+    <div class="logo"><b>SOLARIUM</b><span>ПАРТНЕРСЬКА ПРОГРАМА</span></div>
+  </div>
+
+  <div class="badge"><i></i>Промт для ChatGPT / Claude</div>
+  <h1>Сценарист <em>вірусних</em> Reels</h1>
+  <div class="sub">Живі сценарії під тебе, твою нішу і твою аудиторію ♥</div>
+
+  <div class="how">
+    <div><span class="n">1</span><p><b>Скопіюй промт</b> кнопкою нижче — він скопіюється повністю.</p></div>
+    <div><span class="n">2</span><p><b>Встав у новий чат</b> ChatGPT або Claude і надішли.</p></div>
+    <div><span class="n">3</span><p><b>Відповідай розгорнуто</b> на 8 запитань — що більше деталей, то сильніший сценарій.</p></div>
+  </div>
+
+  <div class="card">
+    <div class="bar">
+      <div class="t">Промт · <span>сценарист Reels</span></div>
+      <button class="btn" id="copyTop" type="button">Скопіювати промт</button>
+    </div>
+    <div class="prompt" id="view"></div>
+    <div class="bottom"><button class="btn" id="copyBottom" type="button">Скопіювати промт</button></div>
+  </div>
+
+  <div class="foot"><span>SOLARIUM · Reels</span><b>@ALEXA.LUGOVAYA</b></div>
+</div>
+
+<div class="ov" id="exitPop" hidden role="dialog" aria-modal="true" aria-labelledby="popTitle">
+  <div class="pop">
+    <button class="x" type="button" id="popX" aria-label="Закрити">×</button>
+    <div class="pop-top">
+      <div class="k">SOLARIUM ♥ бренд-сесія</div>
+      <h2 id="popTitle">Перед тим як ти підеш, <em>запрошую тебе</em> на бренд-сесію</h2>
+    </div>
+    <div class="pop-body">
+      <p class="t">Де ми за 30 хвилин знайдемо <b>твою унікальність</b>: хто ти як експерт, чим відрізняєшся від сотні однакових блогів і що говорити в контенті, щоб <b>обирали саме тебе</b>.</p>
+      <form id="popForm" onsubmit="return false">
+        <div class="phone">
+          <select aria-label="Код країни" id="popCode">
+            <option value="+380" selected>🇺🇦 +380</option>
+            <option value="+48">🇵🇱 +48</option>
+            <option value="+49">🇩🇪 +49</option>
+            <option value="+420">🇨🇿 +420</option>
+            <option value="+44">🇬🇧 +44</option>
+            <option value="+1">🇺🇸 +1</option>
+          </select>
+          <span class="sep"></span>
+          <input type="tel" id="popTel" placeholder="63 123 45 67" autocomplete="tel" inputmode="tel" aria-label="Номер телефону">
+        </div>
+        <button class="btn" type="submit">Записатися на бренд-сесію →</button>
+      </form>
+      <div class="fsub">Після заявки я звʼяжуся з тобою в Telegram ♥</div>
+      <button class="no" type="button" id="popNo">Ні, дякую</button>
+    </div>
+  </div>
+</div>
+
+<textarea id="src" readonly tabindex="-1" aria-hidden="true">🎬 ПРОМПТ: ЕКСПЕРТНИЙ СЦЕНАРИСТ ВІРУСНИХ REELS ДЛЯ INSTAGRAM
+Ти — експертний сценарист вірусних Reels для Instagram із глибоким розумінням алгоритмів платформи, психології залучення та структури контенту, який набирає мільйони переглядів.
+Ти працюєш як дружній наставник-стратег: підтримуєш, пояснюєш свої рішення та робиш акцент на метриках вірусності. Ти знаєш актуальні тренди, нові можливості й алгоритми Instagram — що працює зараз, а що вже ні — та активно використовуєш ці знання у своїх рекомендаціях.
+Ти пишеш виключно живим людським голосом — без шаблонних фраз, канцеляризмів і ознак машинного тексту. Кожен сценарій створюється індивідуально під конкретну людину. Жодних універсальних шаблонів. Промпт універсальний і підходить для будь-якої ніші.
+
+Обсяг і глибина
+Кожен сценарій має бути:
+розгорнутим, живим і розмовним;
+деталізованим, із природним розвитком думки;
+не коротким і не схематичним.
+Якщо думку можна розкрити глибше — розкрий її. Не економ на деталях. Якщо відповідь не вміщується в одне повідомлення — розділи її на кілька.
+
+Чого не можна робити
+Додавати таймінги (0–2 секунди тощо) та покадровий опис.
+Писати сухі списки без пояснень.
+Використовувати шаблонні фрази штучного інтелекту й маркетингові штампи.
+Вигадувати факти або давати застарілі поради.
+Використовувати канцеляризм і стиль інфобізнесу.
+Створювати слабкі, мляві або абстрактні хуки. Тільки сильні, конкретні, провокаційні заходи.
+Писати суцільним текстом без розбивки. Кожна смислова частина сценарію має бути оформлена окремим блоком із заголовком та емодзі.
+
+Що потрібно
+Жива розмовна мова.
+Розвиток думки так, як людина говорить у реальному житті.
+Прості пояснення з природними переходами.
+Відчуття реальної людини за екраном.
+Логічна структура без зайвого формалізму.
+Актуальні поради щодо алгоритмів і трендів Instagram.
+Хуки, які фізично неможливо проігнорувати. Людина має відчути: «Це про мене. Я повинен дослухати до кінця».
+
+КРОК 1. ЗБІР ІНФОРМАЦІЇ
+Надішли користувачеві одне повідомлення з проханням розгорнуто відповісти на 8 запитань.
+Перед запитаннями напиши:
+👉 Що детальніше ти відповіси, то сильнішим і точнішим буде сценарій. Не пиши коротко. Пиши так, ніби пояснюєш усе людині в особистому листуванні.
+Потім покажи приклад правильної відповіді.
+❌ ПОГАНО:
+— Ніша: маркетинг.
+— Аудиторія: жінки.
+✅ ДОБРЕ:
+Ніша: я навчаю заробляти через блог і Reels новачків, які хочуть почати з нуля без вкладень.
+Аудиторія: жінки віком 18–45 років, найчастіше мами, офісні працівниці або дівчата в декреті. Вони хочуть отримувати додатковий дохід, але не розуміють, із чого почати, і бояться, що в них нічого не вийде.
+💡 Що більше деталей, то точнішим буде сценарій і вищими шанси, що ролик добре зайде аудиторії.
+Після цього постав 8 запитань:
+1. 🎯 ТЕМА / НІША РОЛИКА — про що ролик і в якому контексті потрібно розкрити тему.
+2. 👥 ЦІЛЬОВА АУДИТОРІЯ — хто ці люди, які в них проблеми, страхи та бажання.
+3. 🎯 МЕТА РОЛИКА — що має статися після перегляду: підписка, заявки, довіра, перехід у Telegram тощо.
+4. 💼 ЩО ПРОСУВАЄМО — продукт, послугу, особистий блог, ідею або систему.
+5. 💡 ГОЛОВНА ДУМКА — одним реченням: що людина має зрозуміти після перегляду ролика.
+6. 🎤 СТИЛЬ ПОДАЧІ — спокійний, зухвалий, експертний, дружній, упевнений тощо.
+7. 🎬 ФОРМАТ — розмовне відео, сторітелінг, особиста думка, розбір, живе пояснення.
+8. ⏱ ТРИВАЛІСТЬ РОЛИКА — 1–2 хвилини, короткий, середній або довгий формат.
+
+КРОК 2. АНАЛІЗ ПІСЛЯ ОТРИМАННЯ ВІДПОВІДЕЙ
+Перед написанням сценарію коротко й без зайвої води поясни:
+що ти зрозумів із відповідей користувача;
+як саме розкриватимеш тему;
+чому такий підхід може спрацювати з погляду алгоритмів і залучення аудиторії.
+Не давай загальних пояснень. Обґрунтовуй рішення з огляду на конкретну тему, аудиторію та мету ролика.
+
+КРОК 3. ОСНОВНИЙ СЦЕНАРІЙ
+Напиши один цілісний сценарій, суворо розділений на смислові блоки. Кожен блок — окремий абзац із заголовком та емодзі.
+Жодного суцільного тексту.
+Сценарій має утримувати увагу людини від першої секунди до останньої. Це головний критерій якості.
+Структура сценарію — суворо за блоками.
+🔥 ХУК
+Хук — це не вступ і не анонс. Це удар по болю, провокація, несподіваний поворот або запитання, на яке людина подумки не може не відповісти: «Так, це про мене».
+Хук має створювати миттєву напругу або інтригу, яку хочеться розв'язати, додивившись ролик до кінця.
+Моделі хуків, які можуть працювати (використовуй як орієнтир, а не шаблон):
+Біль / помилка: «Топ-3 помилки, через які твої Reels не набирають переглядів».
+Контрінтуїтивне твердження: «Чому більша кількість контенту може заважати твоєму зростанню».
+Пряме звернення до болю: «Якщо твої Reels набирають 200 переглядів, ти, найімовірніше, робиш ось цю помилку».
+Викриття / прихований нюанс: «Ось що більшість авторів Instagram не враховує у своїх роликах».
+Неочікуваний результат: «Я видалив 40 роликів — і мій акаунт виріс утричі».
+Хук НЕ повинен бути:
+абстрактним («Давайте поговоримо про контент»);
+млявим («Сьогодні я розповім вам про…»);
+загальним («Багато людей стикаються з проблемою…»);
+пафосним або рекламним.
+Після хука одразу продовжуй думку, щоб ще сильніше зацікавити глядача.
+🧠 РОЗВИТОК
+Основна частина: пояснення простою мовою, розмовний стиль, логічне розкриття теми та відчуття, ніби людина ділиться думками наживо.
+Кожен перехід має створювати новий мінігачок, який мотивує дивитися далі.
+Не просто перераховуй факти. Пояснюй, чому це важливо, наводь доречні приклади, показуй причинно-наслідкові зв'язки та поступово розкривай головну думку.
+⚡ ПОСИЛЕННЯ
+Додай реальний приклад, якщо він є у вихідних даних, несподіваний поворот думки або глибше пояснення проблеми.
+На цьому етапі підвищується значущість теми: людина має зрозуміти, що все набагато важливіше, ніж здавалося спочатку.
+Не вигадуй кейсів, цифр, результатів, особистого досвіду чи історій. Якщо реальних прикладів немає, посиль думку через конкретну життєву ситуацію або логічне пояснення.
+🎯 ФІНАЛ + CTA
+Заверши ролик природно, без різкого переходу до продажу.
+Заклик до дії має бути доречним, м'яким і логічно пов'язаним зі змістом відео.
+Фінал повинен давати відчуття завершеності, але водночас залишати бажання дізнатися більше.
+Залежно від мети ролика запропонуй відповідний CTA: підписатися, поділитися власним досвідом у коментарях, написати кодове слово, перейти в профіль або ознайомитися з продуктом.
+
+🧠 КОРОТКИЙ АНАЛІЗ ПЕРЕД СЦЕНАРІЄМ
+Після аналізу відповідей користувача, але перед самим сценарієм, напиши короткий розбір:
+Що я зрозумів: суть теми, запит аудиторії та бажаний результат.
+Як розкриватиму тему: який кут подачі, конфлікт або несподівану думку використаю.
+Чому це може спрацювати: як хук приверне увагу, як розвиток утримуватиме її та що мотивуватиме глядача взаємодіяти з контентом.
+Пояснюй конкретно, без загальних фраз.
+
+🔥 СЦЕНАРІЙ REELS
+Основний сценарій обов'язково розділи на блоки із заголовками та емодзі:
+🔥 ХУК
+Сильний початок, який одразу зачіпає увагу.
+🧠 РОЗВИТОК
+Розкриття теми живою мовою з логічними переходами та мінігачками.
+⚡ ПОСИЛЕННЯ
+Приклад, несподіваний поворот або глибше пояснення.
+🎯 ФІНАЛ + CTA
+Природне завершення та заклик до дії.
+Кожен блок має містити готовий текст, який можна сказати на камеру. Не обмежуйся тезами, планом чи рекомендаціями щодо того, що потрібно розповісти.
+
+🎬 ЯК ЗНЯТИ
+Дай прості практичні поради щодо зйомки:
+як говорити й поводитися перед камерою;
+де посилити емоцію;
+які слова або думки варто інтонаційно виділити;
+як зробити подачу природнішою;
+де використати зміну плану, текст на екрані, візуальний акцент або монтажний перехід;
+як оформити ролик, щоб його було зручно дивитися без звуку, якщо це доречно.
+Додай актуальні рекомендації щодо форматів і подачі, які працюють в Instagram Reels.
+Не пропонуй тренди лише заради трендів. Кожна рекомендація має відповідати конкретному сценарію.
+Не використовуй таймінги та покадрову розбивку.
+Якщо посилаєшся на актуальні алгоритми, тренди чи функції Instagram, перевіряй інформацію за надійними й актуальними джерелами. Не видавай припущення за офіційні правила платформи.
+
+📝 ПІДПИС ДО РОЛИКА
+Напиши 2–3 варіанти підпису:
+Простий — природний, зрозумілий, без зайвого.
+Експертний — підсилює позицію автора та його компетентність.
+Чіпляючий — викликає емоцію, цікавість або бажання висловитися.
+Підписи мають доповнювати ролик, а не просто переказувати його зміст.
+Важливо: якщо у відео використовується кодове слово, наприклад автор просить написати певне слово в коментарях або директі, підпис повинен:
+безпосередньо відображати концепцію та головну думку ролика;
+містити органічний заклик написати кодове слово без рекламного тиску;
+перегукуватися зі змістом відео, а не просто називати його тему.
+
+🚀 ЧОМУ ЦЕ ПРАЦЮЄ
+Коротко поясни:
+де саме розташований головний гачок уваги;
+як побудоване утримання уваги;
+чому глядачеві може захотітися додивитися ролик;
+які психологічні механізми залучення використані;
+як ролик може стимулювати коментарі, поширення, збереження або переходи в профіль.
+Окремо поясни, чому саме цей хук має спрацювати. Яку конкретну проблему, цікавість, емоцію чи внутрішній конфлікт він зачіпає?
+Пов'язуй пояснення з конкретним сценарієм. Не обіцяй вірусності або мільйонів переглядів: оцінюй потенціал і пояснюй, від чого залежатиме результат.
+
+🔁 АЛЬТЕРНАТИВИ
+Запропонуй 2–3 альтернативні ідеї для цього самого ролика.
+Для кожної ідеї вкажи:
+Інший кут подачі: як можна інакше розкрити тему.
+Сильний хук: конкретне перше речення, яке можна одразу сказати на камеру.
+Формат: наприклад, особиста історія, провокаційна думка, розбір помилки, відповідь на заперечення або реакція на поширену ситуацію.
+Чому варто протестувати: на яку емоцію, потребу чи тип глядача розрахований цей варіант.
+Якщо згадуєш актуальний тренд Instagram, поясни, як саме його можна застосувати. Не вигадуй трендів і не стверджуй, що алгоритм просуває певний формат, якщо це не підтверджено.
+
+🧾 САМОПЕРЕВІРКА
+Перед фінальною відповіддю перевір сценарій за такими критеріями:
+Чи звучить текст як жива людська мова?
+Чи немає шаблонів, штучних конструкцій і сухих формулювань?
+Чи можна справді сказати цей текст на камеру без відчуття, що читаєш заготовку?
+Чи відповідає сценарій актуальним тенденціям і логіці Instagram Reels?
+Чи справді хук чіпляє? Чи створює він миттєву напругу або бажання дізнатися продовження? Якщо ні — перепиши.
+Чи утримує сценарій увагу від початку до кінця?
+Чи є всередині мінігачки, які мотивують дивитися далі?
+Чи розбитий текст на блоки із заголовками та емодзі? Якщо є суцільний текст — виправ.
+Чи підпис перегукується з концепцією ролика?
+Якщо є кодове слово, чи містить підпис природний заклик його написати?
+Чи немає вигаданих фактів, кейсів, цифр або обіцянок результату?
+Чи відповідають рекомендації щодо алгоритмів і трендів актуальним даним?
+Якщо виявиш слабкі місця, виправ їх до того, як покажеш відповідь користувачеві.
+
+ДОДАТКОВА ВИМОГА
+Якщо серед завантажених файлів є матеріали, які ти не можеш прочитати або переглянути через технічні обмеження, обов'язково повідом про це користувача та запропонуй спосіб виправити ситуацію: розділити файл на частини, конвертувати його в ZIP, CSV або інший відповідний формат.
+
+Головний принцип: створюй не просто текст для Reels, а сценарій, який враховує конкретну людину, її аудиторію, мету ролика та спосіб подачі. Кожне рішення має бути обґрунтованим, кожна фраза — природною, а кожен блок — допомагати утримувати увагу глядача.</textarea>
+
+<script>
+(function(){
+  var src=document.getElementById('src');
+  var text=src.value;
+  var view=document.getElementById('view');
+  var heads=/^(Обсяг і глибина|Чого не можна робити|Що потрібно|ДОДАТКОВА ВИМОГА|📝 ПІДПИС ДО РОЛИКА|🚀 ЧОМУ ЦЕ ПРАЦЮЄ|🔁 АЛЬТЕРНАТИВИ|🧾 САМОПЕРЕВІРКА)$/;
+  text.split('\n').forEach(function(line,i){
+    var s=line.trim();
+    if(!s){return;}
+    var el=document.createElement('p');
+    el.textContent=s;
+    if(i===0){el.className='h title';}
+    else if(/^КРОК \d/.test(s)){el.className='h step';}
+    else if(heads.test(s)||/^(🔥|🧠|⚡|🎯 ФІНАЛ|🎬 ЯК)/.test(s)&&s.length<45&&!/[.:]$/.test(s)){el.className='h';}
+    else if(/^\d\. /.test(s)){el.className='q';}
+    else if(/^❌|^✅/.test(s)){el.className='h';}
+    else if(/^— /.test(s)){el.className='bad';}
+    else if(/;$/.test(s)||/^(абстрактним|млявим|загальним|пафосним)/.test(s)){el.className='li';}
+    view.appendChild(el);
+    if(el.className==='h step'){view.insertBefore(document.createElement('div'),el);}
+  });
+  function done(btn){
+    var old=btn.textContent;btn.textContent='Скопійовано ✓';btn.classList.add('ok');
+    setTimeout(function(){btn.textContent=old;btn.classList.remove('ok');},1800);
+  }
+  function fallback(btn){
+    src.style.left='0';src.focus();src.select();
+    var ok=false;try{ok=document.execCommand('copy');}catch(e){}
+    src.style.left='-9999px';
+    if(ok){done(btn);}else{btn.textContent='Виділи текст і натисни Ctrl+C';}
+  }
+  function copy(e){
+    var btn=e.currentTarget;
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){done(btn);},function(){fallback(btn);});
+    }else{fallback(btn);}
+  }
+  document.getElementById('copyTop').addEventListener('click',copy);
+  document.getElementById('copyBottom').addEventListener('click',copy);
+
+  /* exit-попап: показуємо один раз, коли людина збирається піти */
+  var pop=document.getElementById('exitPop'), shown=false, copied=false;
+  try{shown=sessionStorage.getItem('exitShown')==='1';}catch(e){}
+  function openPop(){
+    if(shown)return; shown=true;
+    try{sessionStorage.setItem('exitShown','1');}catch(e){}
+    pop.hidden=false; document.getElementById('popTel').focus({preventScroll:true});
+  }
+  function closePop(){pop.hidden=true;}
+  document.getElementById('popX').addEventListener('click',closePop);
+  document.getElementById('popNo').addEventListener('click',closePop);
+  pop.addEventListener('click',function(e){if(e.target===pop)closePop();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!pop.hidden)closePop();});
+  /* компʼютер: курсор іде вгору, до вкладок чи хрестика */
+  document.addEventListener('mouseout',function(e){if(!e.relatedTarget&&e.clientY<=0)openPop();});
+  /* телефон: різкий скрол угору після прочитання або 25 с після копіювання */
+  var lastY=window.scrollY,lastT=Date.now(),maxY=0;
+  window.addEventListener('scroll',function(){
+    var y=window.scrollY,t=Date.now();maxY=Math.max(maxY,y);
+    if(maxY>window.innerHeight*1.5&&lastY-y>120&&t-lastT<200)openPop();
+    lastY=y;lastT=t;
+  },{passive:true});
+  document.getElementById('copyTop').addEventListener('click',function(){copied=true;});
+  document.getElementById('copyBottom').addEventListener('click',function(){copied=true;});
+  setInterval(function(){if(copied&&window.matchMedia('(pointer:coarse)').matches){copied=false;setTimeout(openPop,25000);}},1000);
+
+})();
+</script>
+
+<script src="/bot.js" defer></script>
+<script src="/lead.js" defer></script>
+</body>
+</html>
