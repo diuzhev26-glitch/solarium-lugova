@@ -410,7 +410,18 @@ h1 em{font-style:normal;color:var(--red)}
   pop.addEventListener('click',function(e){if(e.target===pop)closePop();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!pop.hidden)closePop();});
   /* компʼютер: курсор іде вгору, до вкладок чи хрестика */
-  document.addEventListener('mouseout',function(e){if(!e.relatedTarget&&e.clientY<=0)openPop();});
+  /* вмикаємо не раніше ніж через 10 с, і лише коли курсор уже був на сторінці
+     й рухається вгору — інакше вікно вистрибує одразу, щойно курсор
+     заходить з адресного рядка */
+  var armed=false,moved=0,prevY=null,goingUp=false;
+  setTimeout(function(){armed=true;},10000);
+  document.addEventListener('mousemove',function(e){
+    if(prevY!==null){goingUp=e.clientY<prevY;}
+    prevY=e.clientY;moved++;
+  },{passive:true});
+  document.documentElement.addEventListener('mouseleave',function(e){
+    if(armed&&moved>20&&goingUp&&e.clientY<=10)openPop();
+  });
   /* телефон: різкий скрол угору після прочитання або 25 с після копіювання */
   var lastY=window.scrollY,lastT=Date.now(),maxY=0;
   window.addEventListener('scroll',function(){
