@@ -88,34 +88,6 @@ h1 em{font-style:normal;color:var(--red)}
 .foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:24px;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .foot b{color:var(--red);font-weight:800}
 .bottom{display:flex;justify-content:center;padding:4px 18px 26px}
-/* exit-попап */
-.ov{position:fixed;inset:0;z-index:50;background:rgba(20,14,12,.55);display:flex;align-items:safe center;overflow-y:auto;justify-content:center;
-  padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
-  animation:fade .25s ease}
-.pop{position:relative;width:100%;max-width:460px;background:var(--card);border-radius:28px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.35);animation:rise .3s ease}
-.pop-top{background:radial-gradient(130% 130% at 14% 8%,#FF6A45,#EE3A24 44%,#D8300F);color:#fff;padding:28px 26px 24px}
-.pop-top .k{font-family:var(--display);font-weight:800;font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.85}
-.pop-top h2{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:26px;line-height:1.02;letter-spacing:-.01em;margin:10px 0 0;text-wrap:balance}
-.pop-top h2 em{font-style:italic;font-weight:800;color:#F7ECE1}
-.pop-body{padding:22px 26px 24px}
-.pop-body p.t{margin:0 0 16px;font-size:15px;line-height:1.55;color:var(--fg2)}
-.pop-body p.t b{color:var(--fg)}
-.phone{display:flex;align-items:center;border:1.5px solid var(--line);border-radius:999px;background:var(--bg);padding:4px 6px 4px 4px}
-.phone:focus-within{border-color:var(--red)}
-.phone select{appearance:none;border:0;background:transparent;color:var(--fg);font:600 15px var(--body);padding:10px 8px 10px 14px;cursor:pointer}
-.phone .sep{width:1px;height:22px;background:var(--line)}
-.phone input{flex:1;min-width:0;border:0;background:transparent;color:var(--fg);font:500 16px var(--body);padding:10px 12px;outline:none}
-.pop form{display:flex;flex-direction:column;gap:12px}
-.pop .btn{justify-content:center;padding:15px 20px;font-size:13.5px}
-.pop .fsub{text-align:center;font-size:13px;color:var(--muted);margin-top:12px}
-.pop .no{display:block;margin:10px auto 0;background:none;border:0;color:var(--muted);font:600 13px var(--body);text-decoration:underline;cursor:pointer}
-.pop .x{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.18);color:#fff;font-size:20px;line-height:1;cursor:pointer}
-.pop .x:focus-visible,.pop .no:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
-.pop .note{margin-top:12px;border-radius:14px;padding:12px 14px;font-size:14px;line-height:1.5;background:var(--soft);border:1px solid var(--red);color:var(--fg)}
-.pop .note a{color:var(--red);font-weight:700}
-@keyframes fade{from{opacity:0}}
-@keyframes rise{from{transform:translateY(16px);opacity:0}}
-@media (prefers-reduced-motion:reduce){.ov,.pop{animation:none}}
 #src{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 @media (max-width:640px){.how{grid-template-columns:1fr}.bar .t{font-size:11px}.prompt{padding:18px 16px 24px}}
 @media (prefers-reduced-motion:reduce){.btn{transition:none}}
@@ -148,36 +120,6 @@ h1 em{font-style:normal;color:var(--red)}
   </div>
 
   <div class="foot"><span>SOLARIUM · Reels</span><b>@ALEXA.LUGOVAYA</b></div>
-</div>
-
-<div class="ov" id="exitPop" hidden role="dialog" aria-modal="true" aria-labelledby="popTitle">
-  <div class="pop">
-    <button class="x" type="button" id="popX" aria-label="Закрити">×</button>
-    <div class="pop-top">
-      <div class="k">SOLARIUM ♥ бренд-сесія</div>
-      <h2 id="popTitle">Перед тим як ти підеш, <em>запрошую тебе</em> на бренд-сесію</h2>
-    </div>
-    <div class="pop-body">
-      <p class="t">Де ми за 30 хвилин знайдемо <b>твою унікальність</b>: хто ти як експерт, чим відрізняєшся від сотні однакових блогів і що говорити в контенті, щоб <b>обирали саме тебе</b>.</p>
-      <form id="popForm" onsubmit="return false">
-        <div class="phone">
-          <select aria-label="Код країни" id="popCode">
-            <option value="+380" selected>🇺🇦 +380</option>
-            <option value="+48">🇵🇱 +48</option>
-            <option value="+49">🇩🇪 +49</option>
-            <option value="+420">🇨🇿 +420</option>
-            <option value="+44">🇬🇧 +44</option>
-            <option value="+1">🇺🇸 +1</option>
-          </select>
-          <span class="sep"></span>
-          <input type="tel" id="popTel" placeholder="63 123 45 67" autocomplete="tel" inputmode="tel" aria-label="Номер телефону">
-        </div>
-        <button class="btn" type="submit">Записатися на бренд-сесію →</button>
-      </form>
-      <div class="fsub">Після заявки я звʼяжуся з тобою в Telegram ♥</div>
-      <button class="no" type="button" id="popNo">Ні, дякую</button>
-    </div>
-  </div>
 </div>
 
 <textarea id="src" readonly tabindex="-1" aria-hidden="true">🎬 ПРОМПТ: ЕКСПЕРТНИЙ СЦЕНАРИСТ ВІРУСНИХ REELS ДЛЯ INSTAGRAM
@@ -395,46 +337,6 @@ h1 em{font-style:normal;color:var(--red)}
   }
   document.getElementById('copyTop').addEventListener('click',copy);
   document.getElementById('copyBottom').addEventListener('click',copy);
-
-  /* exit-попап: показуємо один раз, коли людина збирається піти */
-  var pop=document.getElementById('exitPop'), shown=false, copied=false;
-  try{shown=sessionStorage.getItem('exitShown')==='1';}catch(e){}
-  function openPop(){
-    if(shown||!armed)return; shown=true;
-    try{sessionStorage.setItem('exitShown','1');}catch(e){}
-    pop.hidden=false; document.getElementById('popTel').focus({preventScroll:true});
-  }
-  function closePop(){pop.hidden=true;}
-  document.getElementById('popX').addEventListener('click',closePop);
-  document.getElementById('popNo').addEventListener('click',closePop);
-  pop.addEventListener('click',function(e){if(e.target===pop)closePop();});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!pop.hidden)closePop();});
-  /* компʼютер: курсор іде вгору, до вкладок чи хрестика */
-  /* вмикаємо не раніше ніж через 10 с, і лише коли курсор уже був на сторінці
-     й рухається вгору — інакше вікно вистрибує одразу, щойно курсор
-     заходить з адресного рядка */
-  var armed=false,moved=0,prevY=null,goingUp=false;
-  setTimeout(function(){armed=true;},10000);
-  document.addEventListener('mousemove',function(e){
-    if(prevY!==null){goingUp=e.clientY<prevY;}
-    prevY=e.clientY;moved++;
-  },{passive:true});
-  document.documentElement.addEventListener('mouseleave',function(e){
-    if(armed&&moved>20&&goingUp&&e.clientY<=10)openPop();
-  });
-  /* телефон: різкий скрол угору після прочитання або 25 с після копіювання */
-  var touch=window.matchMedia('(hover:none) and (pointer:coarse)').matches;
-  var lastY=window.scrollY,lastT=Date.now(),maxY=0;
-  window.addEventListener('scroll',function(){
-    var y=window.scrollY,t=Date.now();
-    if(!armed){lastY=y;lastT=t;return;}
-    maxY=Math.max(maxY,y);
-    if(touch&&maxY>window.innerHeight*1.5&&lastY-y>120&&t-lastT<200)openPop();
-    lastY=y;lastT=t;
-  },{passive:true});
-  document.getElementById('copyTop').addEventListener('click',function(){copied=true;});
-  document.getElementById('copyBottom').addEventListener('click',function(){copied=true;});
-  setInterval(function(){if(copied&&touch){copied=false;setTimeout(openPop,25000);}},1000);
 
 })();
 </script>
