@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>SOLARIUM · реклама ноябрь</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,800;0,900;1,800&family=Manrope:wght@400;500;600;700&family=Jost:wght@300;400&display=swap">
+<style>
+/* Layout: SOLARIUM 1.0 — білий з алим glow з кута, тяжкий гротеск капсом, лого Jost справа; звіт: підсумок → перемикач двох воронок → KPI, діагноз, таблиці, дії */
+:root{
+  --bg:#FFFFFF; --fg:#141414; --fg2:#33322F; --muted:#8D8A85; --card:#FFFFFF; --soft:#FFF1EC; --cream:#F7ECE1;
+  --red:#EE3A24; --red-deep:#D8300F; --line:rgba(20,20,20,.12); --glow:rgba(255,86,44,.55);
+  --good:#2E7D4F; --good-soft:#E3F2E8; --warn:#B26A00; --warn-soft:#FFF0D6; --bad:#D8300F; --bad-soft:#FFE4DD;
+  --display:"Montserrat",Arial,sans-serif; --body:"Manrope",system-ui,sans-serif; --logo:"Jost",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#17110F; --fg:#F7ECE1; --fg2:#DCCFC4; --muted:#9C8E85; --card:#211816; --soft:#3A1C15;
+  --line:rgba(247,236,225,.14); --glow:rgba(238,58,36,.35);
+  --good:#6FD39A; --good-soft:#1D3326; --warn:#F2B451; --warn-soft:#3A2A12; --bad:#FF7A62; --bad-soft:#3E1C16; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#17110F; --fg:#F7ECE1; --fg2:#DCCFC4; --muted:#9C8E85; --card:#211816; --soft:#3A1C15;
+  --line:rgba(247,236,225,.14); --glow:rgba(238,58,36,.35);
+  --good:#6FD39A; --good-soft:#1D3326; --warn:#F2B451; --warn-soft:#3A2A12; --bad:#FF7A62; --bad-soft:#3E1C16; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.55;overflow-x:hidden;position:relative}
+body::after{content:"";position:absolute;width:720px;height:720px;left:-280px;top:-280px;border-radius:50%;background:radial-gradient(closest-side,var(--glow),transparent 72%);pointer-events:none;z-index:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px;display:grid;gap:28px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;text-transform:uppercase}
+h1{font-weight:900;font-size:clamp(32px,6.6vw,62px);line-height:.98;letter-spacing:-.02em}
+h1 em{font-style:normal;color:var(--red)}
+h2{font-weight:900;font-size:clamp(24px,4vw,36px);line-height:1;letter-spacing:-.01em}
+h3{font-weight:800;font-size:14px;letter-spacing:.06em}
+p{margin:0}
+.top{display:flex;justify-content:flex-end}
+.logo{font-family:var(--logo);text-align:right}
+.logo b{display:block;font-weight:400;letter-spacing:.3em;font-size:15px}
+.logo span{display:block;font-weight:300;letter-spacing:.2em;font-size:9px;color:var(--muted);margin-top:2px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red);flex:none}
+.sub{font-family:var(--display);font-style:italic;font-weight:800;color:var(--red);font-size:clamp(15px,2.4vw,19px)}
+.mono{font-family:ui-monospace,Menlo,monospace;font-size:.92em;overflow-wrap:anywhere}
+.muted{color:var(--muted)}
+.head{display:grid;gap:14px}
+.meta{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:var(--soft);color:var(--fg2)}
+.lede{max-width:70ch;font-size:16px;color:var(--fg2)}
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.fcard{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:22px;display:grid;gap:8px;min-width:0;box-shadow:0 14px 40px rgba(216,48,15,.08)}
+.fcard .big{font-family:var(--display);font-size:38px;font-weight:900;font-variant-numeric:tabular-nums;line-height:1}
+.fcard .big small{font-size:14px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.fcard.acc{border:0;color:#fff;background:radial-gradient(130% 130% at 14% 8%,#FF6A45,#EE3A24 44%,#D8300F)}
+.fcard.acc .eyebrow,.fcard.acc .big small,.fcard.acc .muted{color:rgba(255,255,255,.88)}
+.fcard.acc .eyebrow::before{background:#fff}
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:8px;padding-block:12px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.tab{appearance:none;cursor:pointer;font-family:var(--display);font-weight:800;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;padding:12px 20px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--fg)}
+.tab[aria-selected="true"]{border-color:transparent;color:#fff;background:radial-gradient(130% 130% at 14% 8%,#FF6A45,#EE3A24 44%,#D8300F)}
+.tab:focus-visible{outline:3px solid var(--fg);outline-offset:3px}
+section.funnel{display:grid;gap:26px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;display:grid;gap:2px;min-width:0}
+.kpi b{font-family:var(--display);font-size:24px;font-weight:900;font-variant-numeric:tabular-nums}
+.kpi span{font-size:12.5px;color:var(--muted)}
+.kpi.hl b{color:var(--red)}
+.block{display:grid;gap:12px}
+.diag{background:var(--soft);border-radius:22px;padding:20px 22px}
+.diag p{max-width:78ch;color:var(--fg2)}
+.diag h3{color:var(--red)}
+.tbl{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:18px}
+table{border-collapse:collapse;width:100%;font-size:13.5px;font-variant-numeric:tabular-nums}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap;vertical-align:top}
+th{font-family:var(--display);font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800;background:var(--soft)}
+td.n,th.n{text-align:right}
+tr:last-child td{border-bottom:0}
+td.wrap-t{white-space:normal;min-width:220px}
+.pill{display:inline-block;font-family:var(--display);font-weight:700;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.p-good{background:var(--good-soft);color:var(--good)}
+.p-warn{background:var(--warn-soft);color:var(--warn)}
+.p-bad{background:var(--bad-soft);color:var(--bad)}
+.strong{font-weight:700;color:var(--fg)}
+.bars{display:grid;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.bar{display:grid;grid-template-columns:minmax(110px,180px) 1fr 64px;gap:10px;align-items:center;font-size:13px}
+.bar .track{height:14px;background:var(--soft);border-radius:999px;overflow:hidden}
+.bar .fill{height:100%;background:linear-gradient(90deg,#FF6A45,var(--red));border-radius:999px}
+.bar .fill.alt{background:var(--muted)}
+.bar .v{font-family:var(--display);font-weight:800;text-align:right;font-variant-numeric:tabular-nums}
+.legend{font-size:12px;color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;display:grid;gap:2px;min-width:0}
+.step b{font-family:var(--display);font-weight:900;font-size:24px;font-variant-numeric:tabular-nums}
+.step .cv{font-family:var(--display);font-weight:700;font-size:11.5px;color:var(--red)}
+.step span{font-size:12.5px;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px 20px;display:grid;gap:10px;align-content:start;min-width:0}
+.card.good h3{color:var(--good)} .card.bad h3{color:var(--bad)} .card.warn h3{color:var(--warn)}
+.card ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.card li{padding-left:20px;position:relative;color:var(--fg2)}
+.card li::before{content:"♥";position:absolute;left:0;top:2px;font-size:11px;color:var(--red)}
+.card p{color:var(--fg2)}
+.actions{display:grid;gap:12px}
+.act{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px;display:grid;grid-template-columns:42px 1fr;gap:6px 16px;box-shadow:0 14px 40px rgba(216,48,15,.06)}
+.act .num{grid-row:span 3;width:38px;height:38px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--display);font-weight:900;font-size:16px;display:flex;align-items:center;justify-content:center}
+.act p{color:var(--fg2)}
+.act .why{color:var(--muted);font-size:13.5px}
+.note{font-size:13px;color:var(--muted);max-width:82ch}
+.self{display:grid;gap:8px;font-size:13.5px;color:var(--fg2)}
+.self ol{margin:0;padding-left:20px;display:grid;gap:4px}
+footer{border-top:1px solid var(--line);padding-top:16px;font-size:12px;color:var(--muted);display:grid;gap:4px}
+footer .sig{font-family:var(--display);font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:11px}
+footer .sig b{color:var(--red)}
+@media (max-width:520px){.act{grid-template-columns:1fr}.act .num{grid-row:auto}.bar{grid-template-columns:96px 1fr 56px}}
+@media (prefers-reduced-motion:no-preference){.tab{transition:transform .15s ease}.tab:hover{transform:translateY(-1px)}}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header class="head">
+    <div class="top"><div class="logo"><b>SOLARIUM</b><span>АУДИТ РЕКЛАМИ</span></div></div>
+    <div class="eyebrow">Аудит таргетолога · Lugovaya ak1</div>
+    <h1>Реклама <em>SOLARIUM</em><br>1–23 ноября</h1>
+    <p class="sub">Подписчики отдельно, регистрации на урок отдельно</p>
+    <div class="meta">
+      <span class="chip">Расход $210,00</span>
+      <span class="chip">14 кампаний с показами</span>
+      <span class="chip">~$9 в день · маленький бюджет</span>
+      <span class="chip">Источники: Ads Manager + таблица заявок</span>
+    </div>
+    <p class="lede">Две воронки разобраны отдельно. Регистрации и заявки считаются только по рекламным меткам (ID объявления Meta в utm_content). Органика из Direct, bio, Telegram и Threads в итоги не входит. В кабинете ничего не менялось.</p>
+    <div class="split">
+      <div class="fcard">
+        <div class="eyebrow">Воронка 1 · подписчики</div>
+        <div class="big">$1,52 <small>за подписку</small></div>
+        <p class="muted">$31,99 → 21 подписка в Instagram. Работают только кампании из Ads Manager, бусты постов почти пустые.</p>
+      </div>
+      <div class="fcard acc">
+        <div class="eyebrow">Воронка 2 · регистрации на урок</div>
+        <div class="big">$17,36 <small>за заявку</small></div>
+        <p class="muted">$173,58 → 56 регистраций по $3,10 → 10 заявок на разбор. Реклама шла только 1–10 ноября.</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Воронки">
+    <button class="tab" role="tab" id="tab-reg" aria-controls="reg" aria-selected="true">Регистрации на урок</button>
+    <button class="tab" role="tab" id="tab-subs" aria-controls="subs" aria-selected="false">Подписчики</button>
+  </nav>
+
+  <!-- ================= ВОРОНКА 2: РЕГИСТРАЦИИ ================= -->
+  <section class="funnel" id="reg" role="tabpanel" aria-labelledby="tab-reg">
+    <div class="block">
+      <div class="eyebrow">Воронка 2 · 8 кампаний «суперсила» · оптимизация на CompleteRegistration</div>
+      <h2>Регистрации на урок</h2>
+    </div>
+
+    <div class="steps">
+      <div class="step"><span>Показы</span><b>19 950</b><span>CPM $8,70</span></div>
+      <div class="step"><span>Клики по ссылке</span><b>243</b><span class="cv">CTR 1,22% · CPC $0,71</span></div>
+      <div class="step"><span>Просмотры лендинга</span><b>199</b><span class="cv">82% от кликов</span></div>
+      <div class="step"><span>Регистрации</span><b>56</b><span class="cv">28% от лендинга · $3,10</span></div>
+      <div class="step"><span>Заявки на разбор</span><b>10</b><span class="cv">18% от регистраций · $17,36</span></div>
+    </div>
+    <p class="note">Meta насчитала 63 регистрации ($2,76), в таблице 56. Попутно кампании урока дали 10 подписок в Instagram.</p>
+
+    <div class="diag block">
+      <h3>Диагноз</h3>
+      <p>Оффер и лендинг работают: 28% зашедших на лендинг регистрируются, и у всех 8 объявлений оценка коэффициента конверсии в Meta «выше среднего». Проблема в двух местах. Первое: хуки цепляют слабо, у 6 из 8 объявлений качество и вовлечённость «ниже среднего, последние 35%». Второе: 8 кампаний по одному объявлению, около $22 на каждую, и ни одна не набирает 10 регистраций за 3 дня, поэтому Meta не выходит из обучения. Главная потеря месяца: все рекламные регистрации пришли 1–10 ноября, с 11.11 работающая воронка стоит без трафика.</p>
+    </div>
+
+    <div class="block">
+      <h3>Рекламные регистрации по дням</h3>
+      <div class="bars" aria-label="Регистрации по дням ноября">
+        <div class="bar"><span>01.11</span><div class="track"><div class="fill" style="width:72.7%"></div></div><span class="v">8</span></div>
+        <div class="bar"><span>02.11</span><div class="track"><div class="fill" style="width:36.4%"></div></div><span class="v">4</span></div>
+        <div class="bar"><span>03.11</span><div class="track"><div class="fill" style="width:45.5%"></div></div><span class="v">5</span></div>
+        <div class="bar"><span>04.11</span><div class="track"><div class="fill" style="width:45.5%"></div></div><span class="v">5</span></div>
+        <div class="bar"><span>05.11</span><div class="track"><div class="fill" style="width:54.5%"></div></div><span class="v">6</span></div>
+        <div class="bar"><span>06.11</span><div class="track"><div class="fill" style="width:54.5%"></div></div><span class="v">6</span></div>
+        <div class="bar"><span>07.11</span><div class="track"><div class="fill" style="width:100%"></div></div><span class="v">11</span></div>
+        <div class="bar"><span>08.11</span><div class="track"><div class="fill" style="width:54.5%"></div></div><span class="v">6</span></div>
+        <div class="bar"><span>09.11</span><div class="track"><div class="fill" style="width:27.3%"></div></div><span class="v">3</span></div>
+        <div class="bar"><span>10.11</span><div class="track"><div class="fill" style="width:18.2%"></div></div><span class="v">2</span></div>
+        <div class="bar"><span>11–23.11</span><div class="track"><div class="fill" style="width:0%"></div></div><span class="v">0</span></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h3>Креативы</h3>
+      <div class="tbl"><table>
+        <thead><tr><th>Креатив</th><th class="n">Расход</th><th class="n">Регистрации</th><th class="n">Цена рег.</th><th class="n">Заявки</th><th class="n">Цена заявки</th><th>Решение</th></tr></thead>
+        <tbody>
+          <tr><td class="strong">Крео 4</td><td class="n">$54,49</td><td class="n">21</td><td class="n strong">$2,59</td><td class="n">4</td><td class="n">$13,62</td><td><span class="pill p-good">основа перезапуска</span></td></tr>
+          <tr><td class="strong">Крео 3</td><td class="n">$15,18</td><td class="n">5</td><td class="n">$3,04</td><td class="n">3</td><td class="n strong">$5,06</td><td><span class="pill p-good">брать, данных мало</span></td></tr>
+          <tr><td>Крео 5</td><td class="n">$33,42</td><td class="n">12</td><td class="n">$2,79</td><td class="n">1</td><td class="n">$33,42</td><td><span class="pill p-warn">оставить в наборе</span></td></tr>
+          <tr><td>Крео 2</td><td class="n">$60,54</td><td class="n">18</td><td class="n">$3,36</td><td class="n">2</td><td class="n">$30,27</td><td><span class="pill p-warn">переписать хук</span></td></tr>
+          <tr><td>Крео 1</td><td class="n">$9,95</td><td class="n">0</td><td class="n">—</td><td class="n">0</td><td class="n">—</td><td><span class="pill p-bad">не запускать</span></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="block">
+      <h3>Кампании</h3>
+      <div class="tbl"><table>
+        <thead><tr><th>Кампания</th><th>Крео</th><th class="n">Расход</th><th class="n">CTR</th><th class="n">CPC</th><th class="n">Лендинг</th><th class="n">Рег. Meta / табл.</th><th class="n">Цена рег.</th><th class="n">Заявки</th><th class="n">Цена заявки</th><th>Качество · вовлеч. · конверсия</th></tr></thead>
+        <tbody>
+          <tr><td>суперсила 30 10</td><td>4</td><td class="n">$28,04</td><td class="n">1,11%</td><td class="n">$0,68</td><td class="n">38</td><td class="n">15 / 13</td><td class="n strong">$2,16</td><td class="n">2</td><td class="n">$14,02</td><td><span class="pill p-warn">средн.</span> <span class="pill p-bad">ниже</span> <span class="pill p-good">выше</span></td></tr>
+          <tr><td>суперсила 30 10 /д</td><td>4</td><td class="n">$26,45</td><td class="n">0,87%</td><td class="n">$0,98</td><td class="n">21</td><td class="n">9 / 8</td><td class="n">$3,31</td><td class="n">2</td><td class="n">$13,23</td><td><span class="pill p-bad">ниже</span> <span class="pill p-bad">ниже</span> <span class="pill p-good">выше</span></td></tr>
+          <tr><td>суперсила 6 11</td><td>5</td><td class="n">$33,42</td><td class="n">1,13%</td><td class="n">$0,78</td><td class="n">35</td><td class="n">14 / 12</td><td class="n">$2,79</td><td class="n">1</td><td class="n">$33,42</td><td><span class="pill p-bad">ниже</span> <span class="pill p-bad">ниже</span> <span class="pill p-good">выше</span></td></tr>
+          <tr><td>суперсила 30/10 2</td><td>2</td><td class="n">$25,59</td><td class="n">1,34%</td><td class="n">$0,73</td><td class="n">27</td><td class="n">8 / 9</td><td class="n">$2,84</td><td class="n">1</td><td class="n">$25,59</td><td><span class="pill p-warn">средн.</span> <span class="pill p-bad">ниже</span> <span class="pill p-good">выше</span></td></tr>
+          <tr><td>суперсила 30/10 2 д</td><td>2</td><td class="n">$26,20</td><td class="n strong">1,64%</td><td class="n strong">$0,56</td><td class="n">40</td><td class="n">10 / 7</td><td class="n">$3,74</td><td class="n">1</td><td class="n">$26,20</td><td><span class="pill p-bad">ниже</span> <span class="pill p-bad">ниже</span> <span class="pill p-good">выше</span></td></tr>
+          <tr><td>суперсила 4 11</td><td>2</td><td class="n">$8,75</td><td class="n">1,36%</td><td class="n">$0,73</td><td class="n">10</td><td class="n">2 / 2</td><td class="n">$4,38</td><td class="n">0</td><td class="n">—</td><td><span class="pill p-bad">ниже</span> <span class="pill p-bad">ниже</span> <span class="pill p-good">выше</span></td></tr>
+          <tr><td>суперсила 3 11</td><td>3</td><td class="n">$15,18</td><td class="n">1,32%</td><td class="n">$0,63</td><td class="n">19</td><td class="n">5 / 5</td><td class="n">$3,04</td><td class="n strong">3</td><td class="n strong">$5,06</td><td><span class="pill p-bad">ниже</span> <span class="pill p-bad">ниже</span> <span class="pill p-good">выше</span></td></tr>
+          <tr><td>суперсила 12 11</td><td>1</td><td class="n">$9,95</td><td class="n">1,23%</td><td class="n">$0,71</td><td class="n">9</td><td class="n">0 / 0</td><td class="n">—</td><td class="n">0</td><td class="n">—</td><td><span class="pill p-bad">ниже</span> <span class="pill p-bad">ниже</span> <span class="pill p-good">выше</span></td></tr>
+        </tbody>
+      </table></div>
+      <p class="note">Каждая кампания: 1 адсет и 1 объявление, бюджет на кампании, атрибуция 7 дней после клика + 1 день после просмотра. Частота 1,23–1,61.</p>
+    </div>
+
+    <div class="grid2">
+      <div class="card good">
+        <h3>Что работает</h3>
+        <ul>
+          <li><b>Крео 4:</b> регистрация по $2,16 в оригинальной кампании, 4 заявки на креатив. Оценка качества выше остальных.</li>
+          <li><b>Крео 3:</b> 3 заявки из 5 регистраций (60% при среднем 18%), $5,06 за заявку. Это пока гипотеза: 3 конверсии — минимальный порог.</li>
+          <li><b>Лендинг урока:</b> 28% регистраций, оценка конверсии «выше среднего» у всех. Не трогать.</li>
+        </ul>
+      </div>
+      <div class="card bad">
+        <h3>Что не работает</h3>
+        <ul>
+          <li><b>Крео 1:</b> $9,95 и 0 регистраций, это ~3 цены регистрации без результата. Не перезапускать.</li>
+          <li><b>Крео 2:</b> лучший CTR (1,64%), но $30 за заявку. Хук обещает не то, что даёт урок.</li>
+          <li><b>Дубли кампаний</b> дороже оригиналов: $3,31 и $3,74 за регистрацию против $2,16 и $2,84.</li>
+          <li><b>Meta 63 против таблицы 56:</b> у «2 д» 10 по пикселю и 7 в таблице.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="block">
+      <h3>Что делать</h3>
+      <div class="actions">
+        <div class="act"><div class="num">1</div><h3>Перезапуск одной кампанией на $15 в день</h3>
+          <p>Цель Leads или Sales с оптимизацией на регистрацию, один адсет, Advantage+ аудитория. Внутри крео 4, 3, 5 и 3–5 новых хуков. Крео 1 и 2 в старом виде не брать. Не трогать 5–7 дней.</p>
+          <p class="why">Расчёт на цифрах ноября: около 5 регистраций и 1 заявки в день, ~$15–17 за заявку. Это прогноз, проверить за первую неделю. Цель: цена регистрации ≤ $3,10 и ≥10 регистраций за 3 дня.</p></div>
+        <div class="act"><div class="num">2</div><h3>Новые хуки вместо дублей кампаний</h3>
+          <p>На ролики крео 4 и 3 снять по 5 новых первых 3 секунд: разные кадры и фразы. Добавить 1–2 креатива на кейсах учеников (Евгений, Александра, Анастасия, Владислава из презентации SOLARIUM 2.0).</p>
+          <p class="why">Если CTR вырастет с 1,22% до ~1,6% при той же конверсии лендинга, регистрация подешевеет примерно на четверть. Цель: CTR ≥ 1,5%, оценка качества не ниже «средней».</p></div>
+        <div class="act"><div class="num">3</div><h3>Починить учёт</h3>
+          <p>Единый шаблон ссылки: <span class="mono">utm_source=facebook&amp;utm_medium=paid&amp;utm_campaign={{campaign.name}}&amp;utm_content={{ad.id}}</span>. Проверить, что событие регистрации срабатывает один раз на странице «спасибо».</p>
+          <p class="why">Сейчас метки вписаны вручную и не совпадают с названиями кампаний. Цель: расхождение Meta и таблицы ≤ 5%.</p></div>
+      </div>
+      <div class="tbl"><table>
+        <thead><tr><th>Ещё</th><th>Что</th><th>Почему</th></tr></thead>
+        <tbody>
+          <tr><td>Крео 2</td><td class="wrap-t">Переписать хук под обещание крео 3/4 или убрать</td><td class="wrap-t">Хороший клик, слабые заявки</td></tr>
+          <tr><td>Регистрация → заявка</td><td class="wrap-t">Догрев зарегистрированных: напоминания, ретаргет на тех, кто смотрел урок</td><td class="wrap-t">До заявки доходят 18%</td></tr>
+          <tr><td>«воронка тест 17.11»</td><td class="wrap-t">Выяснить цель и метки</td><td class="wrap-t">$4,42, 39 просмотров лендинга, 0 регистраций с метками; оптимизация на клики</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="diag block">
+      <h3>План на 4 недели</h3>
+      <p><b>Неделя 1:</b> одна кампания на $15 в день, исправленные метки и пиксель, без правок. <b>Неделя 2:</b> выключить объявления с ценой регистрации выше 2× средней при ≥1000 показов, добавить новые хуки и кейсы. <b>Неделя 3:</b> если регистрация ≤ $3,10 и заявка ≤ $17, поднимать бюджет на 20–30% каждые 3–4 дня. <b>Неделя 4:</b> посчитать конверсию разбора в оплату и задать целевую цену заявки.</p>
+    </div>
+  </section>
+
+  <!-- ================= ВОРОНКА 1: ПОДПИСЧИКИ ================= -->
+  <section class="funnel" id="subs" role="tabpanel" aria-labelledby="tab-subs" hidden>
+    <div class="block">
+      <div class="eyebrow">Воронка 1 · 2 кампании на подписку + 3 буста постов</div>
+      <h2>Подписчики</h2>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi"><span>Расход</span><b>$31,99</b><span>15% бюджета</span></div>
+      <div class="kpi"><span>Посещения профиля</span><b>809</b><span>$0,04 за посещение</span></div>
+      <div class="kpi hl"><span>Подписки в Instagram</span><b>21</b><span>$1,52 за подписку</span></div>
+      <div class="kpi"><span>Посещение → подписка</span><b>2,6%</b><span>21 из 809</span></div>
+    </div>
+
+    <div class="diag block">
+      <h3>Диагноз</h3>
+      <p>Подписки дают только две кампании из Ads Manager: «подписка 13 11» и «подписка 18 11», 19 из 21 подписки за $21. Три буста постов принесли 521 из 809 посещений профиля, но всего 2 подписки. CTR 9–15% при очень дешёвом показе ($1,35–1,39 за 1000) — это случайный трафик, а не будущие подписчики. Оценка качества у всех пяти объявлений «ниже среднего». Своя конверсия «підписки» в кабинете показывает 0, то есть не настроена или не срабатывает.</p>
+    </div>
+
+    <div class="block">
+      <h3>Цена подписки по кампаниям</h3>
+      <div class="bars">
+        <div class="bar"><span>подписка 18 11</span><div class="track"><div class="fill" style="width:38%"></div></div><span class="v">$1,00</span></div>
+        <div class="bar"><span>подписка 13 11</span><div class="track"><div class="fill" style="width:45.2%"></div></div><span class="v">$1,19</span></div>
+        <div class="bar"><span>буст «ВІЗІЯ»</span><div class="track"><div class="fill alt" style="width:100%"></div></div><span class="v">$2,63</span></div>
+        <div class="bar"><span>буст «Данилко»</span><div class="track"><div class="fill" style="width:0%"></div></div><span class="v">нет</span></div>
+        <div class="bar"><span>буст «Якщо хочеш»</span><div class="track"><div class="fill" style="width:0%"></div></div><span class="v">нет</span></div>
+      </div>
+      <p class="legend">Шкала: $0 — $2,63. Чем короче полоса, тем дешевле подписка. «нет» — подписок не было.</p>
+    </div>
+
+    <div class="block">
+      <div class="tbl"><table>
+        <thead><tr><th>Кампания</th><th>Тип</th><th class="n">Расход</th><th class="n">Посещения</th><th class="n">Цена посещения</th><th class="n">CTR (все)</th><th class="n">Подписки</th><th class="n">Цена подписки</th><th class="n">Посещение → подписка</th><th>Оценка</th></tr></thead>
+        <tbody>
+          <tr><td class="strong">подписка 18 11</td><td>Ads Manager, с 18.11</td><td class="n">$7,97</td><td class="n">43</td><td class="n">$0,185</td><td class="n">2,62%</td><td class="n">8</td><td class="n strong">$1,00</td><td class="n strong">18,6%</td><td><span class="pill p-good">лучшая</span></td></tr>
+          <tr><td class="strong">подписка 13 11</td><td>Ads Manager, $5/день</td><td class="n">$13,08</td><td class="n">183</td><td class="n">$0,071</td><td class="n">3,37%</td><td class="n">11</td><td class="n strong">$1,19</td><td class="n">6,0%</td><td><span class="pill p-good">рабочая</span></td></tr>
+          <tr><td>Пост «SOLARIUM — це про ВІЗІЮ»</td><td>буст</td><td class="n">$5,26</td><td class="n">62</td><td class="n">$0,085</td><td class="n">5,11%</td><td class="n">2</td><td class="n">$2,63</td><td class="n">3,2%</td><td><span class="pill p-warn">дорого</span></td></tr>
+          <tr><td>Пост «Андрій Данилко…»</td><td>буст</td><td class="n">$3,22</td><td class="n">356</td><td class="n">$0,009</td><td class="n">15,43%</td><td class="n">0</td><td class="n">—</td><td class="n">0%</td><td><span class="pill p-bad">пусто</span></td></tr>
+          <tr><td>Пост «Якщо хочеш знайти…»</td><td>буст</td><td class="n">$2,47</td><td class="n">165</td><td class="n">$0,015</td><td class="n">9,05%</td><td class="n">0</td><td class="n">—</td><td class="n">0%</td><td><span class="pill p-bad">пусто</span></td></tr>
+        </tbody>
+      </table></div>
+      <p class="note">Атрибуция у кампаний «подписка»: 1 день после клика, у бустов: 7 дней после клика или 1 день после просмотра. Бусты «Данилко» и «Якщо хочеш» заканчиваются 04.12, «ВІЗІЯ» — 20.12.</p>
+    </div>
+
+    <div class="grid2">
+      <div class="card good">
+        <h3>Что работает</h3>
+        <ul>
+          <li><b>подписка 18 11:</b> $1,00 за подписку, 18,6% посещений превращаются в подписку. Клик дороже ($0,185), но целевой. Данных меньше недели: дать открутиться 5–7 дней без правок.</li>
+          <li><b>подписка 13 11:</b> $1,19 за подписку, самый большой объём (11).</li>
+        </ul>
+      </div>
+      <div class="card bad">
+        <h3>Что не работает</h3>
+        <ul>
+          <li><b>Бусты «Данилко» и «Якщо хочеш»:</b> $5,69, 521 посещение, 0 подписок. Вирусный пост без связи с экспертизой: человек пришёл ради инфоповода, а не ради Саши.</li>
+          <li><b>Своя конверсия «підписки» = 0:</b> событие подписки не передаётся.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="block">
+      <h3>Что делать</h3>
+      <div class="actions">
+        <div class="act"><div class="num">1</div><h3>Одна кампания на подписки из Ads Manager</h3>
+          <p>Цель Traffic с переходом в профиль Instagram, один адсет, 4–6 креативов: два текущих и 2–4 новых Reels-хука. Бусты не продлевать.</p>
+          <p class="why">Если весь бюджет подписок пойдёт по цене кампаний «13/18 11», это 27–32 подписки вместо 21. Прогноз, проверить за 7 дней. Цель: ≤ $1,20 за подписку.</p></div>
+        <div class="act"><div class="num">2</div><h3>Мерить качество подписчика</h3>
+          <p>В статистике профиля сверить подписки и отписки за 13–23.11. Посчитать, сколько новых подписчиков написали кодовое слово в Direct и дошли до урока.</p>
+          <p class="why">Подписка — промежуточная цель. Важно, сколько подписчиков доходит до регистрации и разбора.</p></div>
+        <div class="act"><div class="num">3</div><h3>Решить, нужна ли отдельная воронка на подписки</h3>
+          <p>Кампании на урок попутно дали 10 подписок и 56 регистраций. Кампании на подписку дали 21 подписку и 0 рекламных регистраций. Если подписчики не доходят до урока, эти $32 выгоднее отдать в регистрации: это около 10 регистраций.</p>
+          <p class="why">Подписки полезны для бренда, поэтому решение за тобой после проверки из пункта 2.</p></div>
+      </div>
+      <p class="note">Наблюдение без атрибуции: 13–21.11, пока шли кампании на подписку, через Direct (метка personazh) пришли 9 регистраций и 4 заявки. Метки органические, поэтому в итоги не включены и рекламе не засчитаны.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Чего не хватает</h2>
+    <div class="grid2">
+      <div class="card warn"><h3>Цели и экономика</h3><p>Нет целевой цены регистрации и заявки, нет конверсии разбора в оплату. Для ориентира: Майстер-група стоит $1000, при конверсии разбора в продажу 10–15% реклама на продажу ≈ $115–175. Это допущение, не факт.</p></div>
+      <div class="card warn"><h3>Разбивки кабинета</h3><p>Плейсменты и площадки по бустам (откуда CTR 15%), пол и возраст по кампаниям урока, расход по дням, удержание видео (первые 3 секунды и досмотры).</p></div>
+    </div>
+    <div class="self">
+      <h3>Когда выводы могут быть неверны</h3>
+      <ol>
+        <li>Часть людей регистрировалась без меток. Тогда рекламных регистраций больше 56, и регистрация дешевле.</li>
+        <li>Люди с рекламы 1–10.11 подадут заявку позже или через Direct. Тогда заявка дешевле $17.</li>
+        <li>Крео 3 лучший по заявкам случайно: 3 конверсии — минимальный порог.</li>
+        <li>Бусты запускались ради охвата, а не подписок. Тогда 0 подписок — не провал.</li>
+        <li>Остановка рекламы урока с 11.11 была сознательной, тогда это решение, а не потеря.</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    <span class="sig"><b>♥</b> SOLARIUM · @alexa.lugovaya</span>
+    <span>Данные: экспорт Ads Manager (уровни «Кампании» и «Объявления», 1–23.11.2026) и таблица «Заявки / Солариум / Александра Луговая» (листы «Регистрации / урок», «Заявки»).</span>
+    <span>Методология: скил meta-ads-pro. Подготовлено 24.11.2026.</span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  function show(id,push){
+    tabs.forEach(function(t){var on=t.getAttribute('aria-controls')===id;t.setAttribute('aria-selected',on?'true':'false');document.getElementById(t.getAttribute('aria-controls')).hidden=!on;});
+    if(push){try{history.replaceState(null,'','#'+id)}catch(e){location.hash=id}}
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){show(t.getAttribute('aria-controls'),true)})});
+  function fromHash(){var h=(location.hash||'').slice(1);show(h==='subs'?'subs':'reg',false)}
+  window.addEventListener('hashchange',fromHash);fromHash();
+})();
+</script>
+
+</body>
+</html>
