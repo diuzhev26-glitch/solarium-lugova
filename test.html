@@ -193,10 +193,11 @@
   .bridge .pbtn{margin-top:32px}
 
   /* безкоштовний розбір + форма */
-  .what{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px;color:var(--ink)}
-  .what div{background:var(--cr);border:1px solid rgba(44,74,30,.18);border-radius:22px;padding:24px}
-  .what b{display:block;font-family:'Cormorant',serif;font-weight:500;font-size:44px;line-height:1;color:var(--r);margin-bottom:10px}
-  .what p{font-size:15px;color:var(--ink2)}
+  .what{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:28px;color:var(--ink)}
+  .what div{display:flex;align-items:center;gap:14px;background:var(--cr);border:1px solid rgba(44,74,30,.18);border-radius:16px;padding:14px 18px}
+  .what b{flex:none;min-width:36px;font-family:'Cormorant',serif;font-weight:500;font-size:30px;line-height:1;color:var(--r)}
+  .what p{font-size:14px;line-height:1.4;color:var(--ink2)}
+  @media(max-width:700px){.what{gap:8px}.what div{padding:12px 16px;border-radius:14px}.what b{font-size:26px}}
   .locks{margin-top:30px;color:var(--ink)}
   .locks .lt{font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--g);margin-bottom:12px}
   .locks ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
