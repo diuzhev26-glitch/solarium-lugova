@@ -48,6 +48,13 @@ p{margin:0}
 .meta{display:flex;flex-wrap:wrap;gap:8px}
 .chip{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:var(--soft);color:var(--fg2)}
 .lede{max-width:70ch;font-size:16px;color:var(--fg2)}
+.totals{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.tot{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px 20px;display:grid;gap:4px;min-width:0}
+.tot .lbl{font-family:var(--display);font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.tot b{font-family:var(--display);font-weight:900;font-size:clamp(40px,6vw,56px);line-height:1;font-variant-numeric:tabular-nums}
+.tot .sub2{font-size:13px;color:var(--fg2)}
+.tot.hero{border:0;color:#fff;background:radial-gradient(130% 130% at 14% 8%,#FF6A45,#EE3A24 44%,#D8300F)}
+.tot.hero .lbl,.tot.hero .sub2{color:rgba(255,255,255,.9)}
 .split{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
 .fcard{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:22px;display:grid;gap:8px;min-width:0;box-shadow:0 14px 40px rgba(216,48,15,.08)}
 .fcard .big{font-family:var(--display);font-size:38px;font-weight:900;font-variant-numeric:tabular-nums;line-height:1}
@@ -131,16 +138,22 @@ footer .sig b{color:var(--red)}
       <span class="chip">Источники: Ads Manager + таблица заявок</span>
     </div>
     <p class="lede">Две воронки разобраны отдельно. Регистрации и заявки считаются только по рекламным меткам (ID объявления Meta в utm_content). Органика из Direct, bio, Telegram и Threads в итоги не входит. В кабинете ничего не менялось.</p>
+    <div class="totals" aria-label="Главные цифры за 1–23 ноября">
+      <div class="tot hero"><span class="lbl">Заявок на разбор</span><b>10</b><span class="sub2">по $17,36 · с рекламы урока</span></div>
+      <div class="tot"><span class="lbl">Регистраций на урок</span><b>56</b><span class="sub2">по $3,10</span></div>
+      <div class="tot"><span class="lbl">Новых подписчиков</span><b>31</b><span class="sub2">21 с рекламы на подписку ($1,52) + 10 с рекламы урока</span></div>
+      <div class="tot"><span class="lbl">Потрачено</span><b>$210</b><span class="sub2">урок $173,58 · подписка $31,99 · тест $4,42</span></div>
+    </div>
     <div class="split">
       <div class="fcard">
         <div class="eyebrow">Воронка 1 · подписчики</div>
-        <div class="big">$1,52 <small>за подписку</small></div>
-        <p class="muted">$31,99 → 21 подписка в Instagram. Работают только кампании из Ads Manager, бусты постов почти пустые.</p>
+        <div class="big">21 <small>подписчик</small></div>
+        <p class="muted">$31,99 на рекламу подписки → 21 подписчик по $1,52. 19 из них дали 2 кампании из Ads Manager, бусты постов почти пустые.</p>
       </div>
       <div class="fcard acc">
-        <div class="eyebrow">Воронка 2 · регистрации на урок</div>
-        <div class="big">$17,36 <small>за заявку</small></div>
-        <p class="muted">$173,58 → 56 регистраций по $3,10 → 10 заявок на разбор. Реклама шла только 1–10 ноября.</p>
+        <div class="eyebrow">Воронка 2 · урок</div>
+        <div class="big">10 <small>заявок · 56 регистраций</small></div>
+        <p class="muted">$173,58 → 56 регистраций по $3,10 → 10 заявок на разбор по $17,36. Реклама шла только 1–10 ноября.</p>
       </div>
     </div>
   </header>
@@ -157,6 +170,12 @@ footer .sig b{color:var(--red)}
       <h2>Регистрации на урок</h2>
     </div>
 
+    <div class="kpis">
+      <div class="kpi hl"><span>Заявки на разбор</span><b>10</b><span>по $17,36</span></div>
+      <div class="kpi hl"><span>Регистрации</span><b>56</b><span>по $3,10 (Meta видит 63)</span></div>
+      <div class="kpi"><span>Подписчики попутно</span><b>10</b><span>с этих же кампаний</span></div>
+      <div class="kpi"><span>Расход</span><b>$173,58</b><span>83% бюджета</span></div>
+    </div>
     <div class="steps">
       <div class="step"><span>Показы</span><b>19 950</b><span>CPM $8,70</span></div>
       <div class="step"><span>Клики по ссылке</span><b>243</b><span class="cv">CTR 1,22% · CPC $0,71</span></div>
@@ -277,9 +296,9 @@ footer .sig b{color:var(--red)}
     </div>
 
     <div class="kpis">
+      <div class="kpi hl"><span>Новых подписчиков</span><b>21</b><span>по $1,52</span></div>
       <div class="kpi"><span>Расход</span><b>$31,99</b><span>15% бюджета</span></div>
       <div class="kpi"><span>Посещения профиля</span><b>809</b><span>$0,04 за посещение</span></div>
-      <div class="kpi hl"><span>Подписки в Instagram</span><b>21</b><span>$1,52 за подписку</span></div>
       <div class="kpi"><span>Посещение → подписка</span><b>2,6%</b><span>21 из 809</span></div>
     </div>
 
@@ -302,7 +321,7 @@ footer .sig b{color:var(--red)}
 
     <div class="block">
       <div class="tbl"><table>
-        <thead><tr><th>Кампания</th><th>Тип</th><th class="n">Расход</th><th class="n">Посещения</th><th class="n">Цена посещения</th><th class="n">CTR (все)</th><th class="n">Подписки</th><th class="n">Цена подписки</th><th class="n">Посещение → подписка</th><th>Оценка</th></tr></thead>
+        <thead><tr><th>Кампания</th><th>Тип</th><th class="n">Расход</th><th class="n">Посещения</th><th class="n">Цена посещения</th><th class="n">CTR (все)</th><th class="n">Подписчики</th><th class="n">Цена подписчика</th><th class="n">Посещение → подписка</th><th>Оценка</th></tr></thead>
         <tbody>
           <tr><td class="strong">подписка 18 11</td><td>Ads Manager, с 18.11</td><td class="n">$7,97</td><td class="n">43</td><td class="n">$0,185</td><td class="n">2,62%</td><td class="n">8</td><td class="n strong">$1,00</td><td class="n strong">18,6%</td><td><span class="pill p-good">лучшая</span></td></tr>
           <tr><td class="strong">подписка 13 11</td><td>Ads Manager, $5/день</td><td class="n">$13,08</td><td class="n">183</td><td class="n">$0,071</td><td class="n">3,37%</td><td class="n">11</td><td class="n strong">$1,19</td><td class="n">6,0%</td><td><span class="pill p-good">рабочая</span></td></tr>
