@@ -144,6 +144,7 @@
 
   .subh{font-family:'Cormorant',serif;font-weight:600;text-transform:uppercase;font-size:clamp(26px,3vw,38px);line-height:1;margin:52px 0 6px;color:var(--g)}
   .subh+p{font-size:15px;color:var(--ink2);max-width:640px}
+  #heroini>.subh:first-child{margin-top:0}
   .screen3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
   .sc{position:relative;background:var(--cr);border-radius:22px;overflow:hidden;border:1px solid rgba(44,74,30,.18)}
   .sc-img{aspect-ratio:4/5;background:var(--cr2);overflow:hidden}
@@ -367,16 +368,6 @@ fbq('track','PageView');
       <p class="kick">Твій характер<i></i></p>
       <h2 class="h2 serif">Впізнаєш <span class="leo">себе?</span></h2>
       <div class="cards4" id="r-char"></div>
-
-      <div class="subh">Героїні з твоєю роллю</div>
-      <p id="r-why"></p>
-      <div class="screen3" id="r-screen"></div>
-
-      <div id="r-scores-blk">
-        <div class="subh">Твій розклад</div>
-        <p>У кожної з нас є всі девʼять ролей — але одна звучить найголосніше.</p>
-        <div class="scores" id="r-scores"></div>
-      </div>
     </section>
 
     <section class="panel blog">
@@ -427,6 +418,18 @@ fbq('track','PageView');
             <div class="bonus-row"><div class="bi">3</div><div><h4>Доступ у закритий Telegram-канал</h4><p>Розбори ефективних сторітелів лідерів ринку.</p></div></div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="panel white" id="heroini">
+      <div class="subh">Героїні з твоєю роллю</div>
+      <p id="r-why"></p>
+      <div class="screen3" id="r-screen"></div>
+
+      <div id="r-scores-blk">
+        <div class="subh">Твій розклад</div>
+        <p>У кожної з нас є всі девʼять ролей — але одна звучить найголосніше.</p>
+        <div class="scores" id="r-scores"></div>
       </div>
     </section>
   </div>
