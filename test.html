@@ -145,6 +145,7 @@
   .subh{font-family:'Cormorant',serif;font-weight:600;text-transform:uppercase;font-size:clamp(26px,3vw,38px);line-height:1;margin:52px 0 6px;color:var(--g)}
   .subh+p{font-size:15px;color:var(--ink2);max-width:640px}
   #heroini>.subh:first-child{margin-top:0}
+  #forma{scroll-margin-top:24px}
   .cta{margin-top:40px;text-align:center}.cta.l{margin-top:28px;text-align:left}
   @media(max-width:700px){.cta .pbtn{width:100%}}
   .screen3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
@@ -403,7 +404,7 @@ fbq('track','PageView');
       <div class="locks" id="r-locks"></div>
       <p class="sub">Тест дав тобі загальний напрям. На розборі подивимося, як застосувати його саме до тебе.</p>
 
-      <div class="grid">
+      <div class="grid" id="forma">
         <div class="fcard">
           <div class="ft">Залишай заявку <em>на безкоштовний розбір</em></div>
           <p class="ft-sub">Я звʼяжуся з тобою в Telegram і ми домовимося про час ♥</p>
@@ -627,7 +628,7 @@ fbq('track','PageView');
   document.addEventListener('click', function (e) {
     if (e.target.closest('[data-lock]')) {
       track('LockClick');
-      document.getElementById('zayavka').scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('forma').scrollIntoView({ behavior: 'smooth' });
       return;
     }
     var a = e.target.closest('[data-open]');
